@@ -1,0 +1,89 @@
+/** @format */
+
+@use 'base';
+
+$cl-footer: '.footer';
+$cl-top: '#{$cl-footer}__top';
+$cl-middle: '#{$cl-footer}__middle';
+$cl-middle-container: '#{$cl-footer}__middle_container';
+$cl-middle-btn: '#{$cl-footer}__middle_btn';
+$cl-bottom: '#{$cl-footer}__bottom';
+$cl-bottom-container: '#{$cl-footer}__bottom_container';
+$cl-bottom-container-copyright: '#{$cl-footer}__bottom_container--copyright';
+$cl-bottom-logo: '#{$cl-footer}__bottom_logo';
+
+#{$cl-footer} {
+    #{$cl-top} {
+        min-height: 400px;
+    }
+    #{$cl-middle} {
+        @include base.flex-center;
+        @include base.padding-y(base.$spacing-xl);
+        min-height: 200px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    #{$cl-middle-container} {
+        @include base.margin-x;
+        border-radius: 16px;
+        max-width: max(50%, 600px);
+    }
+    #{$cl-middle-btn} {
+        margin: base.$spacing-lg auto 0;
+    }
+    #{$cl-bottom} {
+        min-height: 200px;
+    }
+    #{$cl-bottom-container} {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding-bottom: base.$spacing-xl;
+        max-width: min(900px, 50%);
+        margin: auto;
+        gap: 32px;
+        > ul {
+            max-width: 90px;
+            white-space: nowrap;
+        }
+        h4 {
+            padding-bottom: 16px;
+        }
+        li {
+            list-style: none;
+        }
+        &#{$cl-bottom-container-copyright} {
+            flex-direction: column;
+            gap: 4px;
+            align-items: center;
+        }
+    }
+    #{$cl-bottom-logo} {
+        img {
+            @include base.theme-toggle-transition(
+                $properties: (
+                    filter,
+                )
+            );
+            width: 330px;
+            height: auto;
+        }
+    }
+}
+
+@include base.theme(#{$cl-footer}, 'dark') {
+    #{$cl-bottom-logo} {
+        img {
+            filter: invert(1);
+        }
+    }
+}
+
+@include base.theme(#{$cl-footer}, 'light') {
+    #{$cl-bottom-logo} {
+        img {
+            filter: invert(0);
+        }
+    }
+}

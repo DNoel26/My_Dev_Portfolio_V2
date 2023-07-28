@@ -1,0 +1,164 @@
+/** @format */
+
+@use 'base';
+@use 'sass:math';
+
+$cl-header: '.header';
+$cl-toolbar: '#{$cl-header}__toolbar';
+$cl-logo: '#{$cl-header}__logo';
+$cl-content: '#{$cl-header}__content';
+$cl-links: '#{$cl-header}__links';
+$cl-btns: '#{$cl-header}__btns';
+
+#{$cl-header} {
+    @include base.theme-toggle-transition(
+        $properties: (
+            color,
+            background,
+            box-shadow,
+            height,
+        )
+    );
+    // will-change: color, background;
+    position: fixed;
+    top: 0;
+    height: base.$header-height;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+    background: transparent;
+    box-shadow: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1rem;
+    a,
+    li,
+    button {
+        @include base.theme-toggle-transition(
+            $properties: (
+                color,
+            )
+        );
+    }
+    button {
+        svg {
+            @include base.theme-toggle-transition(
+                $properties: (
+                    fill,
+                )
+            );
+        }
+    }
+    #{$cl-toolbar} {
+        justify-content: space-between;
+    }
+    #{$cl-logo} {
+        img {
+            @include base.theme-toggle-transition(
+                $properties: (
+                    filter,
+                )
+            );
+            display: inline-block;
+            object-fit: contain;
+            height: math.div(base.$header-height, 1.6);
+            width: auto;
+        }
+    }
+    #{$cl-content} {
+        display: flex;
+    }
+    #{$cl-links} {
+        a {
+            text-decoration: none;
+        }
+        li {
+            @include base.padding-x(0.7rem);
+            list-style: none;
+        }
+    }
+    #{$cl-btns} {
+        li {
+            @include base.padding-x(0.1rem);
+            list-style: none;
+        }
+    }
+    &--scrolled {
+        height: base.$header-height-scrolled;
+        backdrop-filter: blur(5px);
+        box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+            0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    }
+}
+
+@include base.theme(#{$cl-header}, 'dark') {
+    a,
+    li,
+    button,
+    svg {
+        color: base.$color-text-default-dark;
+    }
+    #{$cl-logo} {
+        img {
+            filter: invert(1);
+        }
+    }
+    &--scrolled {
+        background: transparentize(
+            $color: base.$color-header-scrolled-bg-dark,
+            $amount: 0.15
+        );
+        box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+            0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+        #{$cl-logo} {
+            img {
+                filter: invert(0);
+            }
+        }
+        a,
+        li,
+        button {
+            color: base.$color-text-default;
+        }
+        button {
+            svg {
+                fill: base.$color-text-default;
+            }
+        }
+    }
+}
+
+@include base.theme(#{$cl-header}, 'light') {
+    a,
+    li,
+    button,
+    svg {
+        color: base.$color-white;
+    }
+    #{$cl-logo} {
+        img {
+            filter: invert(0);
+        }
+    }
+    &--scrolled {
+        background: transparentize($color: base.$color-header-scrolled-bg, $amount: 0.15);
+        box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+            0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+        #{$cl-logo} {
+            img {
+                filter: invert(1);
+            }
+        }
+        a,
+        li,
+        button {
+            color: base.$color-white;
+        }
+        button {
+            svg {
+                fill: base.$color-white;
+            }
+        }
+    }
+}

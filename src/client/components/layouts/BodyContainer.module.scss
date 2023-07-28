@@ -1,0 +1,9 @@
+/** @format */
+
+@use 'base';
+
+$cl-container: '.container';
+
+#{$cl-container} {
+    position: relative;
+}
