@@ -1,0 +1,51 @@
+/** @format */
+
+@use 'base';
+
+$cl-banner: '.banner';
+$cl-container: '#{$cl-banner}__container';
+$cl-icon-tooltip: '#{$cl-banner}__icon_tooltip';
+$cl-icon-btn: '#{$cl-banner}__icon_btn';
+$cl-icon-text: '#{$cl-banner}__icon_text';
+
+#{$cl-banner} {
+    @include base.theme-toggle-transition(
+        $properties: (
+            background,
+        )
+    );
+    border-radius: 24px;
+    padding: max(16px, 2%);
+    max-width: 90%;
+    #{$cl-container} {
+        @include base.flex-center;
+        gap: 16px;
+        flex-wrap: wrap;
+        button {
+            border-radius: 8px;
+        }
+    }
+    #{$cl-icon-tooltip} {
+        display: initial;
+    }
+    #{$cl-icon-btn} {
+        display: flex;
+        flex-direction: column;
+        color: base.$color-text-default;
+        text-transform: capitalize;
+        hr {
+            background: base.$color-bg-non-interactive;
+        }
+    }
+    #{$cl-icon-text} {
+        margin-top: -8px;
+    }
+}
+
+@include base.theme(#{$cl-banner}, 'dark') {
+    background: base.$color-neutral-dark-200;
+}
+
+@include base.theme(#{$cl-banner}, 'light') {
+    background: none;
+}

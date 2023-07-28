@@ -1,0 +1,50 @@
+/** @format */
+
+@use 'base';
+
+$cl-social-media-links: '.social_media_links';
+$cl-link: '#{$cl-social-media-links}__link';
+$cl-link-img: '#{$cl-social-media-links}__link_img';
+
+#{$cl-social-media-links} {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+    width: max-content;
+    #{$cl-link} {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+    }
+    #{$cl-link-img} {
+        @include base.theme-toggle-transition(
+            $properties: (
+                filter,
+            )
+        );
+        @include base.interactive-states {
+            transform: scale(1.1);
+        }
+        will-change: transform, filter;
+        transform: scale(1);
+        object-fit: contain;
+    }
+}
+
+@include base.theme(#{$cl-social-media-links}, 'dark') {
+    #{$cl-link-img} {
+        @include base.interactive-states {
+            filter: brightness(0) saturate(1) contrast(1) grayscale(1) invert(1);
+        }
+        filter: brightness(0.5) saturate(0) contrast(0) grayscale(0) invert(0);
+    }
+}
+
+@include base.theme(#{$cl-social-media-links}, 'light') {
+    #{$cl-link-img} {
+        @include base.interactive-states {
+            filter: unset;
+        }
+        filter: brightness(0.5) saturate(0) contrast(10) grayscale(1) invert(0);
+    }
+}
