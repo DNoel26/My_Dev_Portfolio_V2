@@ -1,7 +1,28 @@
 {
     "compilerOptions": {
         "baseUrl": ".",
-        "paths": {},
+        "paths": {
+            "@@client": ["src/client"],
+            "@@components/*": ["src/client/components/*"],
+            "@@assets/*": ["src/client/assets/*"],
+            "@@theme/*": ["src/client/theme/*"],
+            "@@client-config/*": ["src/client/config/*"],
+            "@@client-data/*": ["src/client/data/*"],
+            "@@context/*": ["src/client/context/*"],
+            "@@hooks/*": ["src/client/hooks/*"],
+            "@@images/*": ["public/images/*"],
+            "@@server": ["src/server"],
+            "@@models/*": ["src/server/models/*"],
+            "@@services/*": ["src/server/services/*"],
+            "@@controllers/*": ["src/server/controllers/*"],
+            "@@middleware/*": ["src/server/middleware/*"],
+            "@@database/*": ["src/server/database/*"],
+            "@@server-config/*": ["src/server/config/*"],
+            "@@lib/*": ["src/lib/*"],
+            "@@styles/*": ["src/styles/*"],
+            "@@types/*": ["src/types/*"],
+            "@@prisma/*": ["src/server/database/prisma/*"]
+        },
         "target": "ES6",
         "lib": ["dom", "dom.iterable", "esnext"],
         "allowJs": true,
@@ -17,7 +38,16 @@
         "jsx": "preserve",
         "incremental": true,
         "preserveSymlinks": true,
-        "typeRoots": ["node_modules/@types", "src/types/*"]
+        "typeRoots": ["node_modules/@types", "./src/types/*"],
+        "sourceMap": true,
+        "outDir": "dist",
+        "composite": true,
+        "declarationMap": true
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
     },
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
     "exclude": ["node_modules", ".history", "git_ignore"]
