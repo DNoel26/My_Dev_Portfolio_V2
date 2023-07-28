@@ -1,0 +1,23 @@
+/** @format */
+
+@use 'base';
+
+$cl-game-screen: '.game_screen';
+$cl-cards: '#{$cl-game-screen}__cards';
+$cl-cards-flipped: '#{$cl-game-screen}__cards--flipped';
+
+#{$cl-game-screen} {
+    @include base.flex-center;
+    height: 100vh;
+    width: 100%;
+    background: lightblue;
+    margin-top: -(base.$header-height);
+    #{$cl-cards} {
+        @include base.flex-center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    #{$cl-cards-flipped} {
+        transform: rotateZ(180deg);
+    }
+}
