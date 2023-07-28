@@ -1,0 +1,26 @@
+/** @format */
+
+@use 'base';
+
+$cl-text: '.text';
+
+#{$cl-text} {
+    @include base.gradient-text(base.set-gradient-direction(to right));
+    @include base.theme-toggle-transition(
+        $properties: (
+            filter,
+        )
+    );
+    max-width: max-content;
+    background-size: 200% 100%;
+    animation: gradient 7s ease-in-out infinite alternate;
+    animation-delay: 3s;
+}
+
+@include base.theme(#{$cl-text}, 'dark') {
+    filter: brightness(1.5);
+}
+
+@include base.theme(#{$cl-text}, 'light') {
+    filter: brightness(1);
+}

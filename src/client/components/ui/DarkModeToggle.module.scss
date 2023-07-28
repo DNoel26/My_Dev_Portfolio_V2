@@ -1,0 +1,44 @@
+/** @format */
+
+@use 'base';
+
+$cl-btn: '.btn';
+$cl-btn-wrapper: '#{$cl-btn}__wrapper';
+$cl-btn-disabled: '#{$cl-btn}--disabled';
+$cl-btn-enabled: '#{$cl-btn}--enabled';
+
+#{$cl-btn-wrapper} {
+    position: relative;
+    #{$cl-btn} {
+        @include base.theme-toggle-transition(
+            $properties: (
+                position,
+                transform,
+                top,
+                left,
+                opacity,
+                z-index,
+            )
+        );
+        color: inherit;
+        svg {
+            font-size: 2rem;
+        }
+        &#{$cl-btn-disabled} {
+            position: absolute;
+            transform: scale(0.5);
+            top: base.to-rem(-10px);
+            left: base.to-rem(30px);
+            z-index: -1;
+            opacity: 0.25;
+        }
+        &#{$cl-btn-enabled} {
+            position: relative;
+            transform: scale(1);
+            top: 0;
+            left: 0;
+            z-index: 1;
+            opacity: 1;
+        }
+    }
+}

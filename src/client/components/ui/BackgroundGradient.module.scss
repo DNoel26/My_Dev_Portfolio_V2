@@ -1,0 +1,30 @@
+/** @format */
+
+@use 'base';
+
+$cl-banner: '.banner';
+$cl-banner-bg-only: '#{$cl-banner}--bg-only';
+
+#{$cl-banner} {
+    @include base.theme-toggle-transition(
+        $properties: (
+            filter,
+        )
+    );
+    color: base.$color-white;
+    background-image: base.$gradient-bg-1;
+    background-size: 200% 100%;
+    animation: gradient 10s ease-in-out infinite alternate;
+    animation-delay: 3s;
+    &:not(#{$cl-banner-bg-only}) {
+        @include base.gradient-bg;
+    }
+}
+
+@include base.theme(#{$cl-banner}, 'dark') {
+    filter: saturate(0.5);
+}
+
+@include base.theme(#{$cl-banner}, 'light') {
+    filter: unset;
+}

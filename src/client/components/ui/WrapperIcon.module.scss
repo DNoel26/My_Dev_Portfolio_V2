@@ -1,0 +1,39 @@
+/** @format */
+
+@use 'base';
+
+$cl-wrapper: '.wrapper';
+$cl-icon: '#{$cl-wrapper}__icon';
+
+#{$cl-wrapper} {
+    @include base.flex-center;
+    height: 80px;
+    width: 128px;
+    @include base.interactive-states {
+        transform: scale(1.2);
+    }
+    transform: scale(1);
+    #{$cl-icon} {
+        @include base.theme-toggle-transition(
+            $properties: (
+                filter,
+            )
+        );
+        max-height: 56px;
+        width: 64px;
+        will-change: transform;
+        object-fit: scale-down;
+    }
+}
+
+@include base.theme(#{$cl-wrapper}, 'dark') {
+    #{$cl-icon} {
+        filter: brightness(0.8);
+    }
+}
+
+@include base.theme(#{$cl-wrapper}, 'light') {
+    #{$cl-icon} {
+        filter: unset;
+    }
+}

@@ -1,0 +1,12 @@
+/** @format */
+
+@use 'base';
+
+$cl-sub-heading: '.sub_heading';
+
+#{$cl-sub-heading} {
+    @include base.margin-x;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
