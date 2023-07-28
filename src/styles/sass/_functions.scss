@@ -1,0 +1,12 @@
+/** @format */
+
+@use 'colors';
+
+@function to-rem($value) {
+    $remValue: calc($value / 16px) + rem;
+    @return $remValue;
+}
+
+@function set-gradient-direction($direction: to left) {
+    @return linear-gradient($direction, colors.$color-primary, colors.$color-secondary);
+}

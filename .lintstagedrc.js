@@ -3,7 +3,7 @@
 const path = require('path');
 
 const handleFiles = (filenames, separator = ' --file ') =>
-    filenames.map((f) => path.relative(process.cwd(), f)).join(separator);
+    filenames.map((file) => path.relative(process.cwd(), file)).join(separator);
 
 const buildEslintCommand = (filenames) =>
     `next lint --fix --file ${handleFiles(filenames)}`;

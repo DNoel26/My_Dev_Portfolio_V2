@@ -4,9 +4,9 @@
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
         "airbnb",
-        "airbnb/hooks",
         "plugin:@next/next/recommended",
         "next/core-web-vitals",
+        "next",
         "prettier"
     ],
     "rules": {

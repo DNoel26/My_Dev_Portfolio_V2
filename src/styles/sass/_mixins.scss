@@ -1,0 +1,123 @@
+/** @format */
+
+@use 'colors';
+@use 'variables';
+
+@mixin theme-toggle-transition($properties: all) {
+    transition: variables.$default-transition-time ease-in-out;
+    transition-property: $properties;
+    transition-delay: 0s;
+}
+
+@mixin theme($parent-selector, $theme, $is-transitioning: false) {
+    @if ($theme != 'dark' and $theme != 'light') {
+        @error "Theme must be set to light or dark";
+    }
+    $class-theme: '.#{$theme}';
+    $selector: #{$class-theme};
+    @if ($is-transitioning == true) {
+        $selector: '#{$class-theme}.mode-transitioning';
+    }
+    :global(#{$selector}) {
+        #{$parent-selector} {
+            @content;
+        }
+    }
+}
+
+@mixin interactive-states(
+    $transition: all variables.$default-transition-time ease-in-out,
+    $use-transition: true
+) {
+    @if ($use-transition == true) {
+        transition: $transition;
+    }
+    &:active,
+    &:hover,
+    &:focus {
+        @if ($use-transition == true) {
+            transition: $transition;
+        }
+        @content;
+    }
+}
+
+@mixin keyboard-focusable {
+    & {
+        outline: 2px solid transparent;
+    }
+    &:focus-visible {
+        outline: 2px solid colors.$color-black;
+        @content;
+    }
+}
+
+@mixin before-after-default {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+}
+
+@mixin fill {
+    height: 100%;
+    width: 100%;
+}
+
+@mixin fixed-flex-size($size) {
+    flex: 0 0 $size;
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin margin-x($size: auto) {
+    margin-left: $size;
+    margin-right: $size;
+}
+
+@mixin margin-y($size: auto) {
+    margin-top: $size;
+    margin-bottom: $size;
+}
+
+@mixin padding-x($size: auto) {
+    padding-left: $size;
+    padding-right: $size;
+}
+
+@mixin padding-y($size: auto) {
+    padding-top: $size;
+    padding-bottom: $size;
+}
+
+@mixin gradient-text($background: variables.$gradient-bg) {
+    background-image: $background;
+    background-clip: text;
+    color: transparent;
+}
+
+@mixin gradient-bg {
+    @include margin-x;
+    padding: variables.$spacing-section max(32px, 5%);
+    margin-top: variables.$spacing-section;
+    text-align: center;
+    max-width: 90%;
+    color: colors.$color-white;
+    background-image: variables.$gradient-bg-1;
+    border-radius: 24px;
+}
+
+@mixin glass-bg($color) {
+    background: transparentize($color: $color, $amount: 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+}

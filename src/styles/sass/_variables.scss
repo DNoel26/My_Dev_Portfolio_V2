@@ -1,0 +1,22 @@
+/** @format */
+
+@use 'colors';
+
+$default-transition-time: 0.35s;
+
+$header-height: 68px;
+$header-height-scrolled: 64px;
+
+$border-radius-xs: 4px;
+$border-radius-sm: 8px;
+$border-radius-md: 12px;
+$border-radius-lg: 24px;
+$border-radius-xl: 32px;
+
+$gradient-bg-1: linear-gradient(225deg, colors.$color-secondary, colors.$color-primary);
+
+$spacing-sm: 8px;
+$spacing-md: 12px;
+$spacing-lg: 24px;
+$spacing-xl: 40px;
+$spacing-section: 75px;

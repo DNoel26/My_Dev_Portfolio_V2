@@ -1,0 +1,77 @@
+/** @format */
+
+@use 'base';
+
+:root {
+    --color-primary: base.$color-primary;
+    --color-secondary: base.$color-secondary;
+    --color-white: base.$color-white;
+    --color-black: base.$color-black;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+        Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    :not([tabindex^='-']) {
+        @include base.keyboard-focusable;
+    }
+    scroll-behavior: smooth;
+}
+
+body {
+    @include base.theme-toggle-transition(
+        $properties: (
+            color,
+            background,
+        )
+    );
+}
+
+#__next {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1 1 auto;
+    margin-top: base.$header-height;
+}
+
+.dark {
+    color: base.$color-text-default-dark;
+    background: base.$color-bg-default-dark;
+}
+
+.light {
+    color: base.$color-text-default;
+    background: base.$color-bg-default;
+}
+
+body::-webkit-scrollbar {
+    width: auto;
+    background: base.$color-bg-default;
+}
+
+body::-webkit-scrollbar-track {
+    border-radius: 6px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: base.$gradient-bg-1;
+    border-radius: 12px;
+    &:hover {
+        box-shadow: inset 0 0 6px black;
+    }
+}
+
+::-webkit-scrollbar-button:single-button {
+    height: 4px;
+}
