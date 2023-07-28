@@ -1,0 +1,15 @@
+/** @format */
+
+@use 'base';
+
+$cl-overview: '.overview';
+$cl-banner: '#{$cl-overview}__banner';
+
+#{$cl-overview} {
+    padding-bottom: base.$spacing-section;
+    #{$cl-banner} {
+        @include base.margin-x;
+        margin-top: 64px;
+        min-width: 50%;
+    }
+}

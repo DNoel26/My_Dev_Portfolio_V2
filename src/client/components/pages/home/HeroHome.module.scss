@@ -1,0 +1,112 @@
+/** @format */
+
+@use 'base';
+
+$height-container: 400px;
+
+$cl-hero: '.hero';
+$cl-bg: '#{$cl-hero}__bg';
+$cl-heading: '#{$cl-hero}__heading';
+$cl-intro: '#{$cl-hero}__intro';
+$cl-btn: '#{$cl-hero}__btn';
+$cl-img_container: '#{$cl-hero}__img_container';
+$cl-info_container: '#{$cl-hero}__info_container';
+$cl-bg-outline: '#{$cl-hero}__bg_outline';
+$cl-img: '#{$cl-hero}__img';
+
+#{$cl-hero} {
+    display: flex;
+    height: $height-container;
+    overflow: visible;
+    margin-top: -(base.$header-height);
+    margin-bottom: base.$spacing-section;
+    #{$cl-info_container} {
+        button {
+            margin-top: 12px;
+        }
+        align-self: center;
+        padding-left: 2.5%;
+    }
+    #{$cl-img_container} {
+        @include base.theme-toggle-transition(
+            $properties: (
+                filter,
+                border,
+                transform,
+            )
+        );
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: min(800px, 75%);
+        height: $height-container;
+    }
+    #{$cl-bg} {
+        @include base.fill;
+        border-bottom-left-radius: base.$border-radius-sm;
+    }
+    #{$cl-bg-outline} {
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        top: 170px;
+        left: 180px;
+        border-bottom-left-radius: base.$border-radius-sm;
+        transition: inherit;
+        &:hover {
+            transform: rotate(15deg);
+        }
+    }
+    #{$cl-img} {
+        position: relative;
+        display: inline-block;
+        height: 400px;
+        width: 400px;
+        object-fit: cover;
+        object-position: 100% 50%;
+        border-bottom-left-radius: base.$border-radius-sm;
+        top: -290px;
+        left: 110px;
+        box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+            0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+        transition: inherit;
+        &:hover {
+            transform: rotate(5deg);
+        }
+    }
+    #{$cl-heading},
+    #{$cl-intro} {
+        display: block;
+    }
+    #{$cl-heading} {
+        text-align: left;
+    }
+    #{$cl-intro} {
+        font-size: 1.7rem;
+        font-weight: 400;
+    }
+    #{$cl-btn} {
+        margin: 16px 0;
+    }
+}
+
+@include base.theme(#{$cl-hero}, 'dark') {
+    #{$cl-bg-outline} {
+        border: 5px solid base.$color-white;
+    }
+    #{$cl-img} {
+        filter: grayscale(1);
+        &:hover {
+            filter: grayscale(0);
+        }
+    }
+}
+
+@include base.theme(#{$cl-hero}, 'light') {
+    #{$cl-bg-outline} {
+        border: 5px solid base.$color-black;
+    }
+    #{$cl-img} {
+        filter: grayscale(0);
+    }
+}

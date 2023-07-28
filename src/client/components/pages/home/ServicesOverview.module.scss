@@ -1,0 +1,76 @@
+/** @format */
+
+@use 'base';
+
+$cl-services: '.services';
+$cl-container: '#{$cl-services}__container';
+$cl-card: '#{$cl-services}__card';
+
+#{$cl-services} {
+    #{$cl-container} {
+        margin-top: base.$spacing-section;
+        display: flex;
+        max-width: min(1000px, 100%);
+        justify-content: center;
+        align-items: center;
+        gap: 48px;
+        flex-wrap: wrap;
+    }
+    #{$cl-card} {
+        @include base.theme-toggle-transition(
+            $properties: (
+                background,
+            )
+        );
+        position: relative;
+        align-self: stretch;
+        padding: min(24px, 5%) min(32px, 10%);
+        border-radius: 8px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        flex: 0 0 250px;
+        transition: 0.5s ease-in-out;
+        transition-property: transform, background;
+        overflow: hidden;
+        &:hover {
+            transform: scale(1.1);
+            &::before {
+                transform: scale(1.5);
+            }
+        }
+        img {
+            transform: scale(1);
+            &:hover {
+                transform: scale(0);
+            }
+        }
+        &::before {
+            @include base.before-after-default;
+            z-index: -1;
+            transform: scale(0);
+            transition: all 0.525s ease-in-out;
+            border-radius: 1000px;
+        }
+    }
+}
+
+@include base.theme(#{$cl-services}, 'dark') {
+    #{$cl-card} {
+        background: base.$color-neutral-dark-800;
+        &:hover {
+            &::before {
+                background: base.$color-bg-hover-non-interactive-dark;
+            }
+        }
+    }
+}
+
+@include base.theme(#{$cl-services}, 'light') {
+    #{$cl-card} {
+        background: base.$color-white;
+        &:hover {
+            &::before {
+                background: base.$color-bg-hover-non-interactive;
+            }
+        }
+    }
+}
