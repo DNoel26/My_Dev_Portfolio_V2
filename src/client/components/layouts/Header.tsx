@@ -24,11 +24,11 @@ interface INavLinkProps {
 }
 
 const { HOME, ABOUT, PROJECTS, PLAY } = APP_URL.BASE;
-const { SERVICES, SKILLS, HOME: HOME_HASH } = ANCHOR_TAG.HOME_PAGE;
+const { SERVICES, SKILLS } = ANCHOR_TAG.HOME_PAGE;
 const { CONTACT } = ANCHOR_TAG.APP;
 
 const navLinks: INavLinkProps[] = [
-    { title: 'Home', pathname: HOME, hash: HOME_HASH },
+    { title: 'Home', pathname: HOME },
     { title: 'About', pathname: ABOUT },
     { title: 'Services', pathname: HOME, hash: SERVICES },
     { title: 'Skills', pathname: HOME, hash: SKILLS },
@@ -40,9 +40,7 @@ const navLinks: INavLinkProps[] = [
 const NavLink = ({ title, pathname, hash }: INavLinkProps) => {
     return (
         <li>
-            <Link href={{ pathname, hash }} scroll={false}>
-                {title}
-            </Link>
+            <Link href={{ pathname, hash }}>{title}</Link>
         </li>
     );
 };

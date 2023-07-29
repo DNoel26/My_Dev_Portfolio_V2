@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 type TProps = NextImageProps & { fallbackSrc?: NextImageProps['src'] };
 
 const Image = (props: TProps) => {
-    const { src, fallbackSrc, ...rest } = props;
+    const { src, fallbackSrc, ...restProps } = props;
     const [imgSrc, setImgSrc] = useState(src);
 
     useEffect(() => {
@@ -17,11 +17,11 @@ const Image = (props: TProps) => {
 
     return (
         <NextImage
-            {...rest}
             src={imgSrc}
             onError={() => {
                 return fallbackSrc && setImgSrc(fallbackSrc);
             }}
+            {...restProps}
         />
     );
 };

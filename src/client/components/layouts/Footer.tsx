@@ -7,13 +7,12 @@ import Button from '@@components/ui/Button';
 import Image from '@@components/ui/Image';
 import Link from '@@components/ui/Link';
 import { APP_URL } from '@@lib/constants';
-import { ANCHOR_TAG, EXTERNAL_URL } from '@@lib/constants/routes/urls';
+import { EXTERNAL_URL } from '@@lib/constants/routes/urls';
 import clsx from 'clsx';
 import BodyContainer from './BodyContainer';
 import styles from './Footer.module.scss';
 
 const { HOME, PLAY, PROJECTS } = APP_URL.BASE;
-const { HOME: HOME_HASH } = ANCHOR_TAG.HOME_PAGE;
 const { GITHUB, LINKEDIN, WHATSAPP } = EXTERNAL_URL;
 
 const Footer = () => {
@@ -38,9 +37,7 @@ const Footer = () => {
                                 <h4>My Portfolio</h4>
                             </li>
                             <li>
-                                <Link href={{ pathname: HOME, hash: HOME_HASH }}>
-                                    Home
-                                </Link>
+                                <Link href={{ pathname: HOME }}>Home</Link>
                             </li>
                             <li>
                                 <Link href={PROJECTS}>Projects</Link>
@@ -78,7 +75,7 @@ const Footer = () => {
                     <div className={styles.footer__bottom_container}>
                         <Link
                             className={styles.footer__bottom_logo}
-                            href={{ pathname: HOME, hash: HOME_HASH }}
+                            href={{ pathname: HOME }}
                         >
                             <Image src={logoDarnell} alt='My signature logo' />
                         </Link>

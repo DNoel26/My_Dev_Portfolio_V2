@@ -22,7 +22,6 @@ body {
     :not([tabindex^='-']) {
         @include base.keyboard-focusable;
     }
-    scroll-behavior: smooth;
 }
 
 body {

@@ -1,6 +1,7 @@
 /** @format */
 
 /* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable no-param-reassign */
 const path = require('path');
 const withRoutes = require('nextjs-routes/config')();
 const withBundleAnalyzer = require('@next/bundle-analyzer')({

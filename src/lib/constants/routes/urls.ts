@@ -11,13 +11,12 @@ const _PLAY: TRoutePathname = '/play';
 
 export const ANCHOR_TAG = {
     HOME_PAGE: {
-        HOME: 'home',
         EXPERIENCE: 'experience',
         TRAITS: 'traits',
         SERVICES: 'services',
         SKILLS: 'skills',
     } as const,
-    APP: { CONTACT: 'contact' } as const,
+    APP: { SCROLL_TOP: 'top', CONTACT: 'contact' } as const,
 } as const;
 
 const BASE = {

@@ -3,7 +3,7 @@
 import { MuiBox, MuiFab, MuiZoom } from '@@client';
 import { MuiIconKeyboardArrowUpIcon } from '@@components/icons';
 import useScrollTrigger from '@@hooks/useScrollTrigger';
-import { CSS_ID } from '@@lib/constants';
+import { ANCHOR_TAG } from '@@lib/constants/routes/urls';
 import { TDefaultPropsWithChildren } from '@@types/client/props.types';
 import styles from './ScrollTopButton.module.scss';
 
@@ -14,13 +14,15 @@ const ScrollTop = (props: TDefaultPropsWithChildren) => {
     const handleClick = (event: React.MouseEvent<HTMLDivElement>): void => {
         const anchor = (
             (event.target as HTMLDivElement).ownerDocument || document
-        ).querySelector(`#${CSS_ID.SCROLL_TOP_ANCHOR}`);
+        ).querySelector(`#${ANCHOR_TAG.APP.SCROLL_TOP}`);
 
         if (anchor) {
             anchor.scrollIntoView({
                 behavior: 'smooth',
                 block: 'center',
             });
+        } else if (typeof window !== 'undefined') {
+            window.scrollTo({ top: 0 });
         }
     };
 

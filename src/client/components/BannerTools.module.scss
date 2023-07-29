@@ -33,12 +33,14 @@ $cl-icon-text: '#{$cl-banner}__icon_text';
         flex-direction: column;
         color: base.$color-text-default;
         text-transform: capitalize;
+        max-width: 144px;
         hr {
             background: base.$color-bg-non-interactive;
         }
     }
     #{$cl-icon-text} {
         margin-top: -8px;
+        white-space: nowrap;
     }
 }
 

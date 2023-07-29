@@ -11,11 +11,11 @@ interface IWrapperIconProps extends ComponentProps<typeof Image> {
     alt: ComponentProps<typeof Image>['alt'];
 }
 
-const WrapperIcon = ({ ...props }: IWrapperIconProps) => {
-    const { className, alt, src } = props;
+const WrapperIcon = (props: IWrapperIconProps) => {
+    const { className, alt, src, ...restProps } = props;
     return (
         <div className={clsx(styles.wrapper, className)}>
-            <Image className={styles.wrapper__icon} {...props} src={src} alt={alt} />
+            <Image className={styles.wrapper__icon} src={src} alt={alt} {...restProps} />
         </div>
     );
 };
