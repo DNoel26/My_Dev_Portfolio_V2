@@ -5,6 +5,9 @@
 $cl-social-media-links: '.social_media_links';
 $cl-link: '#{$cl-social-media-links}__link';
 $cl-link-img: '#{$cl-social-media-links}__link_img';
+$cl-link-black: '#{$cl-link}--black';
+$cl-link-white: '#{$cl-link}--white';
+$cl-link-color: '#{$cl-link}--color';
 
 #{$cl-social-media-links} {
     display: flex;
@@ -17,6 +20,16 @@ $cl-link-img: '#{$cl-social-media-links}__link_img';
         &:not(:last-of-type) {
             margin-right: 8px;
         }
+        &#{$cl-link-black} {
+            #{$cl-link-img} {
+                filter: brightness(0);
+            }
+        }
+        &#{$cl-link-white} {
+            #{$cl-link-img} {
+                filter: brightness(0) invert(1);
+            }
+        }
     }
     #{$cl-link-img} {
         @include base.theme-toggle-transition(
@@ -25,7 +38,8 @@ $cl-link-img: '#{$cl-social-media-links}__link_img';
             )
         );
         @include base.interactive-states {
-            transform: scale(1.1);
+            transform: scale(1.15);
+            filter: unset;
         }
         will-change: transform, filter;
         transform: scale(1);
@@ -35,18 +49,15 @@ $cl-link-img: '#{$cl-social-media-links}__link_img';
 
 @include base.theme(#{$cl-social-media-links}, 'dark') {
     #{$cl-link-img} {
-        @include base.interactive-states {
-            filter: brightness(0) saturate(1) contrast(1) grayscale(1) invert(1);
-        }
-        filter: brightness(0.5) saturate(0) contrast(0) grayscale(0) invert(0);
+        filter: brightness(0) invert(1);
     }
 }
 
 @include base.theme(#{$cl-social-media-links}, 'light') {
     #{$cl-link-img} {
         @include base.interactive-states {
-            filter: unset;
+            filter: brightness(0);
         }
-        filter: brightness(0.5) saturate(0) contrast(10) grayscale(1) invert(0);
+        filter: brightness(0);
     }
 }

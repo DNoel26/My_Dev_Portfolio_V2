@@ -71,7 +71,7 @@ const ContactSection = () => {
                     </p>
                     <div>Phone: xxx-xxxx</div>
                     <div>Email: xxxx@mail.com</div>
-                    <SocialMediaLinks />
+                    <SocialMediaLinks monochromeColor='white' />
                 </div>
                 <div className={styles.contact__form_container}>
                     <MuiFormControl component='form' onSubmit={formik.handleSubmit}>

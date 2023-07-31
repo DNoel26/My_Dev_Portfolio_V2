@@ -33,10 +33,12 @@ const Link = (props: TLink) => {
     if (isExternal) {
         return (
             <a
+                className={customClassName}
                 href={href}
                 target='_blank'
                 referrerPolicy='no-referrer'
                 rel='noopener noreferrer'
+                {...restProps}
             >
                 {children}
             </a>

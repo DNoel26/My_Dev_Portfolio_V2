@@ -9,8 +9,8 @@ $cl-middle-container: '#{$cl-footer}__middle_container';
 $cl-middle-btn: '#{$cl-footer}__middle_btn';
 $cl-bottom: '#{$cl-footer}__bottom';
 $cl-bottom-container: '#{$cl-footer}__bottom_container';
-$cl-bottom-container-copyright: '#{$cl-footer}__bottom_container--copyright';
 $cl-bottom-logo: '#{$cl-footer}__bottom_logo';
+$cl-bottom-container-copyright: '#{$cl-bottom-container}--copyright';
 
 #{$cl-footer} {
     #{$cl-top} {

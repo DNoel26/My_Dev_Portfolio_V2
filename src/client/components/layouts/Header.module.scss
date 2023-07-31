@@ -4,12 +4,12 @@
 @use 'sass:math';
 
 $cl-header: '.header';
-$cl-header-scrolled: '#{$cl-header}--scrolled';
 $cl-toolbar: '#{$cl-header}__toolbar';
 $cl-logo: '#{$cl-header}__logo';
 $cl-content: '#{$cl-header}__content';
 $cl-links: '#{$cl-header}__links';
 $cl-btns: '#{$cl-header}__btns';
+$cl-header-scrolled: '#{$cl-header}--scrolled';
 
 #{$cl-header} {
     @include base.theme-toggle-transition(

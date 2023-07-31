@@ -10,6 +10,8 @@ export type Styles = {
     social_media_links: string;
     social_media_links__link: string;
     social_media_links__link_img: string;
+    'social_media_links__link--black': string;
+    'social_media_links__link--white': string;
     wave: string;
 };
 

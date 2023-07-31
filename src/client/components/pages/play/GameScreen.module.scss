@@ -4,7 +4,7 @@
 
 $cl-game-screen: '.game_screen';
 $cl-cards: '#{$cl-game-screen}__cards';
-$cl-cards-flipped: '#{$cl-game-screen}__cards--flipped';
+$cl-cards-flipped: '#{$cl-cards}--flipped';
 
 #{$cl-game-screen} {
     @include base.flex-center;
