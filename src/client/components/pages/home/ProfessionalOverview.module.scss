@@ -5,11 +5,13 @@
 $cl-overview: '.overview';
 $cl-container: '#{$cl-overview}__container';
 $cl-timeline: '#{$cl-overview}__timeline';
-$cl-timeline-paragraph: '#{$cl-overview}__timeline_paragraph';
+$cl-timeline-paragraph: '#{$cl-timeline}_paragraph';
+$cl-timeline-content: '#{$cl-timeline}_content';
+$cl-timeline-content-mech: '#{$cl-timeline-content}--mech';
 $cl-chips: '#{$cl-overview}__chips';
 $cl-skills: '#{$cl-overview}__skills';
-$cl-skills-soft: '#{$cl-overview}__skills_soft';
-$cl-skills-hard: '#{$cl-overview}__skills_hard';
+$cl-skills-soft: '#{$cl-skills}_soft';
+$cl-skills-hard: '#{$cl-skills}_hard';
 
 #{$cl-overview} {
     @include base.theme-toggle-transition(
@@ -23,10 +25,12 @@ $cl-skills-hard: '#{$cl-overview}__skills_hard';
     }
     #{$cl-timeline} {
         margin-top: base.$spacing-section;
-        > li {
+        #{$cl-timeline-content} {
+            @include base.padding-y(32px);
             flex-flow: wrap-reverse;
-            > div:last-child {
-                @include base.padding-y(32px);
+            width: 50ch;
+            &#{$cl-timeline-content-mech} {
+                @include base.padding-y(16px);
             }
         }
         #{$cl-timeline-paragraph} {
@@ -34,7 +38,6 @@ $cl-skills-hard: '#{$cl-overview}__skills_hard';
             > li {
                 display: flex;
                 column-gap: 8px;
-                width: 55ch;
             }
         }
         #{$cl-chips} {

@@ -22,6 +22,7 @@ import BackgroundGradient from '@@components/ui/BackgroundGradient';
 import Button from '@@components/ui/Button';
 import Heading from '@@components/ui/Heading';
 import { ANCHOR_TAG } from '@@lib/constants/routes/urls';
+import clsx from 'clsx';
 import { intervalToDuration } from 'date-fns';
 import { ReactNode } from 'react';
 import styles from './ProfessionalOverview.module.scss';
@@ -52,7 +53,7 @@ const monthAndYearToLongFormat = (date: Date) => {
 
 const timelineItems: ITimelineItem[] = [
     {
-        startDate: new Date('2022-03-01'),
+        startDate: new Date('2022-03-31'),
         endDate: today,
         company: 'Scratch Financial, CA, USA (Remote)',
         about: 'Builds software products to support over 12,000 clinics and their users throughout the U.S. and Canada.',
@@ -98,7 +99,7 @@ const timelineItems: ITimelineItem[] = [
         ],
     },
     {
-        startDate: new Date('2020-11-01'),
+        startDate: new Date('2020-11-30'),
         endDate: today,
         company: 'Freelance, Trinidad & Tobago',
         about: 'Builds applications using UI/UX design, software architecture and clean code principles. Mainly uses Sass, TypeScript, Next.js (React.js, Node.js, Express.js), PostGreSQL.',
@@ -134,8 +135,8 @@ const timelineItems: ITimelineItem[] = [
         ],
     },
     {
-        startDate: new Date('2020-01-01'),
-        endDate: new Date('2020-11-01'),
+        startDate: new Date('2020-01-31'),
+        endDate: new Date('2020-11-30'),
         company: 'The Weekend Hack, ON, CA',
         jobTitle: 'Full Stack Web Development Student',
         paragraphs: [
@@ -161,36 +162,36 @@ const timelineItems: ITimelineItem[] = [
         ],
     },
     {
-        startDate: new Date('2018-04-01'),
-        endDate: new Date('2022-03-01'),
+        startDate: new Date('2018-04-30'),
+        endDate: new Date('2022-03-31'),
         company: 'Fearnley Group, Global (Hybrid-Remote)',
         about: 'Provides engineering, QA/QC and technical support to oil & gas companies globally.',
         jobTitle: 'Technical Projects Engineer',
-        paragraphs: ['Varied mechanical engineering experience globally.'],
+        paragraphs: [],
         Icon: <MuiIconSupervisedUserCircleTwoTone />,
     },
     {
-        startDate: new Date('2016-01-01'),
-        endDate: new Date('2021-01-01'),
+        startDate: new Date('2016-01-31'),
+        endDate: new Date('2021-01-31'),
         company: 'Automation Technology College, Trinidad & Tobago',
         jobTitle: 'Lecturer (Part Time)',
-        paragraphs: ['Varied mechanical engineering experience.'],
+        paragraphs: [],
         Icon: <MuiIconSupervisedUserCircleTwoTone />,
     },
     {
-        startDate: new Date('2015-09-01'),
-        endDate: new Date('2018-03-01'),
+        startDate: new Date('2015-09-30'),
+        endDate: new Date('2018-03-31'),
         company: 'IN-CORR-TECH Limited, Trinidad & Tobago',
         jobTitle: 'Inspection Engineer I',
-        paragraphs: ['Varied mechanical engineering experience.'],
+        paragraphs: [],
         Icon: <MuiIconSupervisedUserCircleTwoTone />,
     },
     {
-        startDate: new Date('2014-01-01'),
-        endDate: new Date('2015-09-01'),
+        startDate: new Date('2014-01-31'),
+        endDate: new Date('2015-09-30'),
         company: 'Metal Industries Company Limited, Trinidad & Tobago',
         jobTitle: 'Mechanical Engineering Trainee',
-        paragraphs: ['Varied mechanical engineering experience.'],
+        paragraphs: [],
         Icon: <MuiIconSupervisedUserCircleTwoTone />,
     },
 ];
@@ -254,6 +255,7 @@ const ProfessionalOverview = () => {
                                 skills,
                             } = item;
                             const hasSkills = !!skills && !!skills.length;
+                            const hasJobDetails = !!paragraphs.length;
                             const { years, months } = intervalToDuration({
                                 start: startDate,
                                 end: endDate,
@@ -307,7 +309,16 @@ const ProfessionalOverview = () => {
                                             sx={{ bgcolor: 'primary.main' }}
                                         />
                                     </MuiTimelineSeparator>
-                                    <MuiTimelineContent sx={{ py: '12px', px: 2 }}>
+                                    <MuiTimelineContent
+                                        className={clsx(
+                                            styles.overview__timeline_content,
+                                            !hasJobDetails &&
+                                                styles[
+                                                    'overview__timeline_content--mech'
+                                                ],
+                                        )}
+                                        sx={{ py: '12px', px: 2 }}
+                                    >
                                         <MuiTypography
                                             variant='h5'
                                             component='div'
@@ -321,21 +332,23 @@ const ProfessionalOverview = () => {
                                         <MuiTypography variant='body1' component='div'>
                                             {about}
                                         </MuiTypography>
-                                        <br />
-                                        {!!paragraphs.length && (
-                                            <MuiTypography
-                                                className={
-                                                    styles.overview__timeline_paragraph
-                                                }
-                                                component='ul'
-                                            >
-                                                {paragraphs.map((paragraph) => (
-                                                    <li key={paragraph}>
-                                                        <span>-</span>
-                                                        <span>{paragraph}</span>
-                                                    </li>
-                                                ))}
-                                            </MuiTypography>
+                                        {hasJobDetails && (
+                                            <>
+                                                <br />
+                                                <MuiTypography
+                                                    className={
+                                                        styles.overview__timeline_paragraph
+                                                    }
+                                                    component='ul'
+                                                >
+                                                    {paragraphs.map((paragraph) => (
+                                                        <li key={paragraph}>
+                                                            <span>-</span>
+                                                            <span>{paragraph}</span>
+                                                        </li>
+                                                    ))}
+                                                </MuiTypography>
+                                            </>
                                         )}
                                     </MuiTimelineContent>
                                 </MuiTimelineItem>

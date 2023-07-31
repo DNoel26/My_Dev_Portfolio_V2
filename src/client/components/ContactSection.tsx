@@ -117,7 +117,7 @@ const ContactSection = () => {
                                         }}
                                     />
                                 }
-                                label='Email Contact'
+                                label='Add Email'
                             />
                             <MuiFormControlLabel
                                 control={
@@ -134,7 +134,7 @@ const ContactSection = () => {
                                         }}
                                     />
                                 }
-                                label='Phone Contact'
+                                label='Add Phone Number'
                             />
                         </div>
                         {isEmailChecked && (

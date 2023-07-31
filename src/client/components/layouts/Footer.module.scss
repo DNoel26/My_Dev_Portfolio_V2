@@ -5,11 +5,11 @@
 $cl-footer: '.footer';
 $cl-top: '#{$cl-footer}__top';
 $cl-middle: '#{$cl-footer}__middle';
-$cl-middle-container: '#{$cl-footer}__middle_container';
-$cl-middle-btn: '#{$cl-footer}__middle_btn';
+$cl-middle-container: '#{$cl-middle}_container';
+$cl-middle-btn: '#{$cl-middle}_btn';
 $cl-bottom: '#{$cl-footer}__bottom';
-$cl-bottom-container: '#{$cl-footer}__bottom_container';
-$cl-bottom-logo: '#{$cl-footer}__bottom_logo';
+$cl-bottom-container: '#{$cl-bottom}_container';
+$cl-bottom-logo: '#{$cl-bottom}_logo';
 $cl-bottom-container-copyright: '#{$cl-bottom-container}--copyright';
 
 #{$cl-footer} {

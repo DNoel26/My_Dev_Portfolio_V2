@@ -14,6 +14,8 @@ export type Styles = {
     overview__skills_hard: string;
     overview__skills_soft: string;
     overview__timeline: string;
+    overview__timeline_content: string;
+    'overview__timeline_content--mech': string;
     overview__timeline_paragraph: string;
     wave: string;
 };

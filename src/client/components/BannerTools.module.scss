@@ -4,9 +4,10 @@
 
 $cl-banner: '.banner';
 $cl-container: '#{$cl-banner}__container';
-$cl-icon-tooltip: '#{$cl-banner}__icon_tooltip';
-$cl-icon-btn: '#{$cl-banner}__icon_btn';
-$cl-icon-text: '#{$cl-banner}__icon_text';
+$cl-icon: '#{$cl-banner}__icon';
+$cl-icon-tooltip: '#{$cl-icon}_tooltip';
+$cl-icon-btn: '#{$cl-icon}_btn';
+$cl-icon-text: '#{$cl-icon}_text';
 
 #{$cl-banner} {
     @include base.theme-toggle-transition(
