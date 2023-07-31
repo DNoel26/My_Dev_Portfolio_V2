@@ -42,3 +42,4 @@ config/*.env
 /.history
 /.VSCodeCounter
 next-env.d.ts
+nextjs-routes.d.ts

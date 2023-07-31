@@ -14,7 +14,9 @@ $cl-link-img: '#{$cl-social-media-links}__link_img';
     #{$cl-link} {
         width: 24px;
         height: 24px;
-        margin-right: 8px;
+        &:not(:last-of-type) {
+            margin-right: 8px;
+        }
     }
     #{$cl-link-img} {
         @include base.theme-toggle-transition(

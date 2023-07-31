@@ -4,6 +4,7 @@
 @use 'sass:math';
 
 $cl-header: '.header';
+$cl-header-scrolled: '#{$cl-header}--scrolled';
 $cl-toolbar: '#{$cl-header}__toolbar';
 $cl-logo: '#{$cl-header}__logo';
 $cl-content: '#{$cl-header}__content';
@@ -19,7 +20,6 @@ $cl-btns: '#{$cl-header}__btns';
             height,
         )
     );
-    // will-change: color, background;
     position: fixed;
     top: 0;
     height: base.$header-height;
@@ -58,11 +58,12 @@ $cl-btns: '#{$cl-header}__btns';
             @include base.theme-toggle-transition(
                 $properties: (
                     filter,
+                    height,
                 )
             );
             display: inline-block;
             object-fit: contain;
-            height: math.div(base.$header-height, 1.6);
+            height: math.div(base.$header-height, 2);
             width: auto;
         }
     }
@@ -84,11 +85,16 @@ $cl-btns: '#{$cl-header}__btns';
             list-style: none;
         }
     }
-    &--scrolled {
+    &#{$cl-header-scrolled} {
         height: base.$header-height-scrolled;
         backdrop-filter: blur(5px);
         box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
             0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+        #{$cl-logo} {
+            img {
+                height: math.div(base.$header-height, 1.6);
+            }
+        }
     }
 }
 
@@ -104,7 +110,7 @@ $cl-btns: '#{$cl-header}__btns';
             filter: invert(1);
         }
     }
-    &--scrolled {
+    &#{$cl-header-scrolled} {
         background: transparentize(
             $color: base.$color-header-scrolled-bg-dark,
             $amount: 0.15
@@ -141,7 +147,7 @@ $cl-btns: '#{$cl-header}__btns';
             filter: invert(0);
         }
     }
-    &--scrolled {
+    &#{$cl-header-scrolled} {
         background: transparentize($color: base.$color-header-scrolled-bg, $amount: 0.15);
         box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
             0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);

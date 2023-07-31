@@ -39,10 +39,20 @@ $cl-bottom-logo: '#{$cl-footer}__bottom_logo';
         justify-content: space-evenly;
         align-items: flex-start;
         flex-wrap: wrap;
-        padding-bottom: base.$spacing-xl;
+        gap: 64px;
+        padding-bottom: base.$spacing-lg;
         max-width: min(900px, 50%);
         margin: auto;
-        gap: 32px;
+        &:first-of-type {
+            padding-bottom: base.$spacing-section;
+        }
+        &:nth-of-type(2) {
+            justify-content: center;
+            align-items: center;
+            > * {
+                margin-top: 0;
+            }
+        }
         > ul {
             max-width: 90px;
             white-space: nowrap;
@@ -66,7 +76,8 @@ $cl-bottom-logo: '#{$cl-footer}__bottom_logo';
                     filter,
                 )
             );
-            width: 330px;
+            display: block;
+            width: 200px;
             height: auto;
         }
     }

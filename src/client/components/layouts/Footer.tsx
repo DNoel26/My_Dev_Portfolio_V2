@@ -12,7 +12,7 @@ import clsx from 'clsx';
 import BodyContainer from './BodyContainer';
 import styles from './Footer.module.scss';
 
-const { HOME, PLAY, PROJECTS } = APP_URL.BASE;
+const { HOME, PLAY, PROJECTS, ABOUT } = APP_URL.BASE;
 const { GITHUB, LINKEDIN, WHATSAPP } = EXTERNAL_URL;
 
 const Footer = () => {
@@ -37,7 +37,10 @@ const Footer = () => {
                                 <h4>My Portfolio</h4>
                             </li>
                             <li>
-                                <Link href={{ pathname: HOME }}>Home</Link>
+                                <Link href={HOME}>Home</Link>
+                            </li>
+                            <li>
+                                <Link href={ABOUT}>About Me</Link>
                             </li>
                             <li>
                                 <Link href={PROJECTS}>Projects</Link>
@@ -51,13 +54,19 @@ const Footer = () => {
                                 <h4>Social Media</h4>
                             </li>
                             <li>
-                                <a href={LINKEDIN}>LinkedIn</a>
+                                <Link href={LINKEDIN} isExternal>
+                                    LinkedIn
+                                </Link>
                             </li>
                             <li>
-                                <a href={GITHUB}>Github</a>
+                                <Link href={GITHUB} isExternal>
+                                    Github
+                                </Link>
                             </li>
                             <li>
-                                <a href={WHATSAPP}>WhatsApp</a>
+                                <Link href={WHATSAPP} isExternal>
+                                    WhatsApp
+                                </Link>
                             </li>
                         </ul>
                         <ul>
@@ -65,10 +74,14 @@ const Footer = () => {
                                 <h4>Contact Me</h4>
                             </li>
                             <li>
-                                <a href={LINKEDIN}>Call Now</a>
+                                <Link href={LINKEDIN} isExternal>
+                                    Call Now
+                                </Link>
                             </li>
                             <li>
-                                <a href={GITHUB}>Send Email</a>
+                                <Link href={GITHUB} isExternal>
+                                    Send Email
+                                </Link>
                             </li>
                         </ul>
                     </div>

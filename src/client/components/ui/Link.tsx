@@ -6,10 +6,12 @@ import { useRouter } from 'next/router';
 import { ComponentProps, useEffect } from 'react';
 
 /* eslint-disable react/jsx-props-no-spreading */
-type TLink = ComponentProps<typeof NextLink>;
+type TNextLink = ComponentProps<typeof NextLink> & { isExternal?: false };
+type THtmlLink = JSX.IntrinsicElements['a'] & { isExternal: true };
+type TLink = TNextLink | THtmlLink;
 
 const Link = (props: TLink) => {
-    const { className, children, href, ...restProps } = props;
+    const { className, children, href, isExternal, ...restProps } = props;
     const router = useRouter();
     const customClassName = clsx(className);
     const hrefHash = typeof href === 'object' && href.hash;
@@ -27,6 +29,19 @@ const Link = (props: TLink) => {
             router.events.off('hashChangeComplete', handleRouteChange);
         };
     }, [hrefHash, router.events]);
+
+    if (isExternal) {
+        return (
+            <a
+                href={href}
+                target='_blank'
+                referrerPolicy='no-referrer'
+                rel='noopener noreferrer'
+            >
+                {children}
+            </a>
+        );
+    }
 
     return (
         <NextLink className={customClassName} scroll={false} href={href} {...restProps}>

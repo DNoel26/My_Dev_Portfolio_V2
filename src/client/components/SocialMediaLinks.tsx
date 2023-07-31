@@ -5,6 +5,7 @@ import { EXTERNAL_URL } from '@@lib/constants/routes/urls';
 import { ComponentProps } from 'react';
 import styles from './SocialMediaLinks.module.scss';
 import Image from './ui/Image';
+import Link from './ui/Link';
 
 interface ILogoLinkProps {
     href: string;
@@ -20,14 +21,14 @@ const srcLogos = [
 
 const SocialMediaLink = ({ href, src, alt }: ILogoLinkProps) => {
     return (
-        <a className={styles.social_media_links__link} href={href} target='_blank'>
+        <Link className={styles.social_media_links__link} href={href} isExternal>
             <Image
                 className={styles.social_media_links__link_img}
                 src={src}
                 alt={alt}
                 height={24}
             />
-        </a>
+        </Link>
     );
 };
 
