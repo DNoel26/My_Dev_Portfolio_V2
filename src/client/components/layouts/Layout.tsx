@@ -6,14 +6,16 @@ import Footer from './Footer';
 import Header from './Header';
 import ScrollTopButton from './ScrollTopButton';
 
-const Layout = ({ children }: TDefaultPropsWithChildren) => (
-    <>
-        <span id={ANCHOR_TAG.APP.SCROLL_TOP} />
-        <Header />
-        <main>{children}</main>
-        <ScrollTopButton />
-        <Footer />
-    </>
-);
+const Layout = ({ children }: TDefaultPropsWithChildren) => {
+    return (
+        <>
+            <span id={ANCHOR_TAG.APP.SCROLL_TOP} />
+            <Header />
+            <main>{children}</main>
+            <ScrollTopButton />
+            <Footer />
+        </>
+    );
+};
 
 export default Layout;

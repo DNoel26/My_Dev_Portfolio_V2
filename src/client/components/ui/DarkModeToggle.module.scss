@@ -2,29 +2,28 @@
 
 @use 'base';
 
-$cl-btn: '.btn';
-$cl-btn-wrapper: '#{$cl-btn}__wrapper';
-$cl-btn-disabled: '#{$cl-btn}--disabled';
-$cl-btn-enabled: '#{$cl-btn}--enabled';
+$cl-toggle: '.toggle';
+$cl-toggle-btn: '#{$cl-toggle}__btn';
+$cl-toggle-btn-disabled: '#{$cl-toggle-btn}--disabled';
+$cl-toggle-btn-enabled: '#{$cl-toggle-btn}--enabled';
+$cl-toggle-ready: '#{$cl-toggle}--ready';
 
-#{$cl-btn-wrapper} {
+#{$cl-toggle} {
+    @include base.theme-toggle-transition(
+        $properties: (
+            visibility,
+            transform,
+        )
+    );
     position: relative;
-    #{$cl-btn} {
-        @include base.theme-toggle-transition(
-            $properties: (
-                position,
-                transform,
-                top,
-                left,
-                opacity,
-                z-index,
-            )
-        );
+    visibility: hidden;
+    transform: scale(0);
+    #{$cl-toggle-btn} {
         color: inherit;
         svg {
             font-size: 2rem;
         }
-        &#{$cl-btn-disabled} {
+        &#{$cl-toggle-btn-disabled} {
             position: absolute;
             transform: scale(0.5);
             top: base.to-rem(-10px);
@@ -32,13 +31,29 @@ $cl-btn-enabled: '#{$cl-btn}--enabled';
             z-index: -1;
             opacity: 0.25;
         }
-        &#{$cl-btn-enabled} {
+        &#{$cl-toggle-btn-enabled} {
             position: relative;
             transform: scale(1);
             top: 0;
             left: 0;
             z-index: 1;
             opacity: 1;
+        }
+    }
+    &#{$cl-toggle-ready} {
+        visibility: visible;
+        transform: scale(1);
+        #{$cl-toggle-btn} {
+            @include base.theme-toggle-transition(
+                $properties: (
+                    position,
+                    transform,
+                    top,
+                    left,
+                    opacity,
+                    z-index,
+                )
+            );
         }
     }
 }

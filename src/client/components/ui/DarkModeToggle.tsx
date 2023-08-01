@@ -5,16 +5,18 @@ import { MuiIconNightlightRound, MuiIconWbSunny } from '@@components/icons';
 import useNextTheme from '@@hooks/useNextTheme';
 import { TDefaultPropsWithChildren } from '@@types/client/props.types';
 import clsx from 'clsx';
+import { useEffect, useState } from 'react';
 import styles from './DarkModeToggle.module.scss';
 
 interface IProps {
-    isActive: boolean;
+    isActive: boolean | null;
 }
+
+const msTooltipDelay = 100;
 
 const DarkModeIconBtn = (props: TDefaultPropsWithChildren<IProps>) => {
     const { children, isActive } = props;
     const { nextTheme, toggleTheme } = useNextTheme();
-    const msTooltipDelay = 100;
 
     return (
         <MuiTooltip
@@ -25,10 +27,12 @@ const DarkModeIconBtn = (props: TDefaultPropsWithChildren<IProps>) => {
         >
             <MuiIconButton
                 className={clsx(
-                    styles.btn,
-                    isActive ? styles['btn--disabled'] : styles['btn--enabled'],
+                    styles.toggle__btn,
+                    isActive
+                        ? styles['toggle__btn--disabled']
+                        : styles['toggle__btn--enabled'],
                 )}
-                disabled={isActive}
+                disabled={isActive || isActive === null}
                 onClick={() => toggleTheme()}
             >
                 {children}
@@ -39,11 +43,15 @@ const DarkModeIconBtn = (props: TDefaultPropsWithChildren<IProps>) => {
 
 const DarkModeToggle = () => {
     const { isDarkMode } = useNextTheme();
-
-    if (isDarkMode === null) return null;
+    const [isReady, setIsReady] = useState(false);
+    useEffect(() => {
+        if (isDarkMode !== null) {
+            setIsReady(true);
+        }
+    }, [isDarkMode]);
 
     return (
-        <div className={styles.btn__wrapper}>
+        <div className={clsx(styles.toggle, isReady && styles['toggle--ready'])}>
             <DarkModeIconBtn isActive={!isDarkMode}>
                 <MuiIconWbSunny />
             </DarkModeIconBtn>
