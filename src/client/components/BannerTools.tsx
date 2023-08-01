@@ -6,12 +6,34 @@ import { TDefaultProps } from '@@types/client/props.types';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { MuiButton, MuiTooltip } from '..';
-import { ISkill, SKILLS } from '../data/skills';
+import { ISkill, OS_SKILLS, SKILLS } from '../data/skills';
 import styles from './BannerTools.module.scss';
 import BodyContainer from './layouts/BodyContainer';
 import WrapperIcon from './ui/WrapperIcon';
 
 type TIconProp = Pick<ISkill, 'ICON_DARK' | 'ICON_LIGHT'>;
+type TSkillIcon = {
+    name: ISkill['NAME'];
+    title: string;
+    iconProp: ISkill['ICON_LIGHT'] | ISkill['ICON_DARK'];
+    iconLight: ISkill['ICON_LIGHT'];
+};
+
+const SkillIcon = ({ name, title, iconProp, iconLight }: TSkillIcon) => {
+    return (
+        <MuiTooltip
+            className={styles.banner__icon_tooltip}
+            key={name}
+            title={title}
+            followCursor
+        >
+            <MuiButton className={styles.banner__icon_btn}>
+                <WrapperIcon alt={title} src={iconProp ?? iconLight} />
+                <span className={styles.banner__icon_text}>{name}</span>
+            </MuiButton>
+        </MuiTooltip>
+    );
+};
 
 const BannerSkills = ({ className }: TDefaultProps) => {
     const { resolvedTheme = DEFAULT_THEME } = useNextTheme();
@@ -31,27 +53,37 @@ const BannerSkills = ({ className }: TDefaultProps) => {
 
     return (
         <div className={clsx(styles.banner, className)}>
-            <BodyContainer className={styles.banner__container}>
-                {SKILLS.map((SKILL) => {
-                    const { NAME, ICON_LIGHT } = SKILL;
-                    const title = `${NAME}: ★☆☆`;
-                    return (
-                        <MuiTooltip
-                            className={styles.banner__icon_tooltip}
-                            key={NAME}
-                            title={title}
-                            followCursor
-                        >
-                            <MuiButton className={styles.banner__icon_btn}>
-                                <WrapperIcon
-                                    alt={title}
-                                    src={SKILL[iconProp] ?? ICON_LIGHT}
-                                />
-                                <span className={styles.banner__icon_text}>{NAME}</span>
-                            </MuiButton>
-                        </MuiTooltip>
-                    );
-                })}
+            <BodyContainer>
+                <div className={styles.banner__container}>
+                    {SKILLS.map((SKILL) => {
+                        const { NAME, ICON_LIGHT } = SKILL;
+                        const title = `${NAME}: ★☆☆`;
+                        return (
+                            <SkillIcon
+                                key={NAME}
+                                name={NAME}
+                                title={title}
+                                iconProp={SKILL[iconProp]}
+                                iconLight={ICON_LIGHT}
+                            />
+                        );
+                    })}
+                </div>
+                <div className={styles.banner__container}>
+                    {OS_SKILLS.map((SKILL) => {
+                        const { NAME, ICON_LIGHT } = SKILL;
+                        const title = `${NAME}: ★☆☆`;
+                        return (
+                            <SkillIcon
+                                key={NAME}
+                                name={NAME}
+                                title={title}
+                                iconProp={SKILL[iconProp]}
+                                iconLight={ICON_LIGHT}
+                            />
+                        );
+                    })}
+                </div>
             </BodyContainer>
         </div>
     );

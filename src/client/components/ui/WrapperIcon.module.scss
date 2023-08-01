@@ -10,7 +10,7 @@ $cl-icon: '#{$cl-wrapper}__icon';
     height: 80px;
     width: 128px;
     @include base.interactive-states {
-        transform: scale(1.2);
+        transform: scale(1.15);
     }
     transform: scale(1);
     #{$cl-icon} {

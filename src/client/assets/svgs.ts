@@ -33,6 +33,8 @@ import svgLogoJest from 'public/images/logos/tools-tech/jest.svg?url';
 import svgLogoJira from 'public/images/logos/tools-tech/jira.svg?url';
 import svgLogoKnex from 'public/images/logos/tools-tech/knex.svg?url';
 import svgLogoLaravel from 'public/images/logos/tools-tech/laravel.svg?url';
+import svgLogoLinux from 'public/images/logos/tools-tech/linux.svg?url';
+import svgLogoMacOs from 'public/images/logos/tools-tech/mac-os.svg?url';
 import svgLogoMailgun from 'public/images/logos/tools-tech/mailgun.svg?url';
 import svgLogoMongoDb from 'public/images/logos/tools-tech/mongodb.svg?url';
 import svgLogoMui from 'public/images/logos/tools-tech/mui5.svg?url';
@@ -49,8 +51,10 @@ import svgLogoRedux from 'public/images/logos/tools-tech/redux.svg?url';
 import svgLogoSass from 'public/images/logos/tools-tech/sass.svg?url';
 import svgLogoSwagger from 'public/images/logos/tools-tech/swagger.svg?url';
 import svgLogoTypeScript from 'public/images/logos/tools-tech/typescript.svg?url';
+import svgLogoUbuntu from 'public/images/logos/tools-tech/ubuntu.svg?url';
 import svgLogoVercel from 'public/images/logos/tools-tech/vercel.svg?url';
 import svgLogoWebpack from 'public/images/logos/tools-tech/webpack.svg?url';
+import svgLogoWindows from 'public/images/logos/tools-tech/windows-11.svg?url';
 
 export {
     svgIconConcept,
@@ -84,6 +88,8 @@ export {
     svgLogoJira,
     svgLogoKnex,
     svgLogoLaravel,
+    svgLogoLinux,
+    svgLogoMacOs,
     svgLogoMailgun,
     svgLogoMongoDb,
     svgLogoMui,
@@ -100,6 +106,8 @@ export {
     svgLogoSass,
     svgLogoSwagger,
     svgLogoTypeScript,
+    svgLogoUbuntu,
     svgLogoVercel,
     svgLogoWebpack,
+    svgLogoWindows,
 };

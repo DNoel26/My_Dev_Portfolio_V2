@@ -217,6 +217,29 @@ const OTHER_SKILLS: readonly ISkill[] = [
     },
 ] as const;
 
+const OS_SKILLS: readonly ISkill[] = [
+    {
+        NAME: 'Windows',
+        PROFICIENCY: 'INTERMEDIATE',
+        ICON_LIGHT: Svg.svgLogoWindows,
+    },
+    {
+        NAME: 'Mac OS',
+        PROFICIENCY: 'INTERMEDIATE',
+        ICON_LIGHT: Svg.svgLogoMacOs,
+    },
+    {
+        NAME: 'Linux',
+        PROFICIENCY: 'INTERMEDIATE',
+        ICON_LIGHT: Svg.svgLogoLinux,
+    },
+    {
+        NAME: 'Ubuntu',
+        PROFICIENCY: 'INTERMEDIATE',
+        ICON_LIGHT: Svg.svgLogoUbuntu,
+    },
+] as const;
+
 const SKILLS = [
     ...FRONT_END_SKILLS,
     ...BACK_END_SKILLS,
@@ -224,4 +247,4 @@ const SKILLS = [
     ...OTHER_SKILLS,
 ];
 
-export { SKILLS };
+export { OS_SKILLS, SKILLS };
