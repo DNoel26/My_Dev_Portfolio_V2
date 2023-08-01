@@ -9,29 +9,21 @@ $cl-link-black: '#{$cl-link}--black';
 $cl-link-white: '#{$cl-link}--white';
 $cl-link-color: '#{$cl-link}--color';
 
+@mixin filter-states() {
+    &#{$cl-link-black} {
+        @include base.filter-to-black;
+    }
+    &#{$cl-link-white} {
+        @include base.filter-to-white;
+    }
+}
+
 #{$cl-social-media-links} {
     display: flex;
     justify-content: space-between;
     margin-top: 16px;
     width: max-content;
     #{$cl-link} {
-        width: 24px;
-        height: 24px;
-        &:not(:last-of-type) {
-            margin-right: 8px;
-        }
-        &#{$cl-link-black} {
-            #{$cl-link-img} {
-                filter: brightness(0);
-            }
-        }
-        &#{$cl-link-white} {
-            #{$cl-link-img} {
-                filter: brightness(0) invert(1);
-            }
-        }
-    }
-    #{$cl-link-img} {
         @include base.theme-toggle-transition(
             $properties: (
                 filter,
@@ -39,25 +31,33 @@ $cl-link-color: '#{$cl-link}--color';
         );
         @include base.interactive-states {
             transform: scale(1.15);
-            filter: unset;
         }
         will-change: transform, filter;
         transform: scale(1);
+        width: 24px;
+        height: 24px;
+        &:not(:last-of-type) {
+            margin-right: 8px;
+        } 
+    }
+    #{$cl-link-img} {
         object-fit: contain;
     }
 }
 
 @include base.theme(#{$cl-social-media-links}, 'dark') {
-    #{$cl-link-img} {
+    #{$cl-link} {
         filter: brightness(0) invert(1);
+        @include filter-states;
     }
 }
 
 @include base.theme(#{$cl-social-media-links}, 'light') {
-    #{$cl-link-img} {
+    #{$cl-link} {
         @include base.interactive-states {
-            filter: brightness(0);
+            filter: unset;
         }
         filter: brightness(0);
+        @include filter-states;
     }
 }

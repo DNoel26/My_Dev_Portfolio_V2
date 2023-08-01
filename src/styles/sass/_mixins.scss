@@ -121,3 +121,11 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
 }
+
+@mixin filter-to-white($i: false) {
+    filter: brightness(0) invert(1);
+}
+
+@mixin filter-to-black {
+    filter: brightness(0);
+}

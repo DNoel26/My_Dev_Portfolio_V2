@@ -56,17 +56,23 @@ const timelineItems: ITimelineItem[] = [
         startDate: new Date('2022-03-31'),
         endDate: today,
         company: 'Scratch Financial, CA, USA (Remote)',
-        about: 'Builds software products to support over 12,000 clinics and their users throughout the U.S. and Canada.',
+        about:
+            'Builds software products to support over 12,000 clinics and their users' +
+            ' throughout the U.S. and Canada.',
         jobTitle: 'Software Engineer',
         paragraphs: [
-            'Improve front-end and back-end automated test coverage.',
-            'Add properly tested, quality features to production across microservices and tech stacks, including front-end, back-end and 3rd party services (e.g. Mailgun email service).',
-            'Work with product owner and lead designer using mockups to implement new designs and functionalities to our user app interface, with suggestions to improve UI/UX.',
-            'Upgrade projects, handling multiple breaking changes.',
-            'Works individually or with team to debug and implement fixes to various issues across one or more services in production, and improve logging.',
+            'Adds properly tested, quality features to production across microservices and tech stacks,' +
+                ' including front-end, back-end and 3rd party services (e.g. Mailgun email service).',
+            'Works with product owner and lead designer to implement new designs and functionalities' +
+                ' to our user app using mockups, with suggestions to improve the UI/UX.',
+            'Upgrades projects, handling multiple breaking changes.',
+            'Improves logging and error handling on the front-end and back-end.',
+            'Improves front-end and back-end automated test coverage.',
+            'Works individually or with teammates to debug and implement fixes for various issues' +
+                ' across one or more services in production.',
             'Reviews code challenges and conducts technical interviews with candidates.',
-            'Assists with onboarding new team members.',
-            'Works with people globally with various backgrounds and across multiple timezones.',
+            'Assists with onboarding and mentorship of new team members.',
+            'Works with a cross-functional team across multiple timezones to provide value to our users.',
         ],
         Icon: <MuiIconSupervisedUserCircleTwoTone />,
         skills: [
@@ -102,11 +108,13 @@ const timelineItems: ITimelineItem[] = [
         startDate: new Date('2020-11-30'),
         endDate: today,
         company: 'Freelance, Trinidad & Tobago',
-        about: 'Builds applications using UI/UX design, software architecture and clean code principles. Mainly uses Sass, TypeScript, Next.js (React.js, Node.js, Express.js), PostGreSQL.',
+        about:
+            'Builds applications using UI/UX design, software architecture and clean code principles.' +
+            ' Mainly uses Sass, TypeScript, React.js, Next.js, Node.js, Express.js, PostGreSQL.',
         jobTitle: 'Full Stack Developer',
         paragraphs: [
-            'Work on various projects individually and across multiple teams.',
-            'Learn new tools and languages.',
+            'Works on various projects individually and across multiple teams.',
+            'Learns new tools and languages to improve technical capabilities.',
         ],
         Icon: <MuiIconSupervisedUserCircleTwoTone />,
         skills: [
@@ -138,10 +146,11 @@ const timelineItems: ITimelineItem[] = [
         startDate: new Date('2020-01-31'),
         endDate: new Date('2020-11-30'),
         company: 'The Weekend Hack, ON, CA',
+        about: 'Provides training on tech fundamentals, computer programming and web development.',
         jobTitle: 'Full Stack Web Development Student',
         paragraphs: [
             'Full stack web development journey started!',
-            'Built several projects designed for job market training.',
+            'Built several projects designed to emulate real world experience.',
         ],
         Icon: <MuiIconSupervisedUserCircleTwoTone />,
         skills: [
@@ -174,6 +183,7 @@ const timelineItems: ITimelineItem[] = [
         startDate: new Date('2016-01-31'),
         endDate: new Date('2021-01-31'),
         company: 'Automation Technology College, Trinidad & Tobago',
+        about: 'Offers programmes and short courses across multiple disciplines.',
         jobTitle: 'Lecturer (Part Time)',
         paragraphs: [],
         Icon: <MuiIconSupervisedUserCircleTwoTone />,
