@@ -3,78 +3,10 @@
 // generate tokens here: https://codepen.io/claviska/full/QWveRgL @previous
 // generate tokens here: https://maketintsandshades.com @latest
 
-$color-primary: #0078e5;
-$color-secondary: #a72796;
-
-@function tint($color, $percent) {
-    @return mix(white, $color, $percent);
-}
-
-@function shade($color, $percent) {
-    @return mix(black, $color, $percent);
-}
-
-@function get-token-value($color, $percent) {
-    $result: null;
-    @if ($percent < 1) {
-        $percent: (1 - $percent) * 100%;
-        $result: tint($color, $percent);
-    }
-    @if ($percent > 1 and $percent < 2) {
-        $percent: ($percent - 1) * 100%;
-        $result: shade($color, $percent);
-    }
-    @if ($result == null) {
-        @error "No taken value generated";
-    }
-    @return $result;
-}
-
-@function get-primary-token-value($percent) {
-    @return get-token-value($color-primary, $percent);
-}
-
-@function get-secondary-token-value($percent) {
-    @return get-token-value($color-secondary, $percent);
-}
-
-$color-primary-100: get-primary-token-value(0.1);
-$color-primary-200: get-primary-token-value(0.2);
-$color-primary-300: get-primary-token-value(0.3);
-$color-primary-400: get-primary-token-value(0.4);
-$color-primary-500: get-primary-token-value(0.5);
-$color-primary-600: get-primary-token-value(0.6);
-$color-primary-700: get-primary-token-value(0.7);
-$color-primary-800: get-primary-token-value(0.8);
-$color-primary-900: get-primary-token-value(0.9);
-$color-primary-1100: get-primary-token-value(1.1);
-$color-primary-1200: get-primary-token-value(1.2);
-$color-primary-1300: get-primary-token-value(1.3);
-$color-primary-1400: get-primary-token-value(1.4);
-$color-primary-1500: get-primary-token-value(1.5);
-$color-primary-1600: get-primary-token-value(1.6);
-$color-primary-1700: get-primary-token-value(1.7);
-$color-primary-1800: get-primary-token-value(1.8);
-$color-primary-1900: get-primary-token-value(1.9);
-
-$color-secondary-100: get-secondary-token-value(0.1);
-$color-secondary-200: get-secondary-token-value(0.2);
-$color-secondary-300: get-secondary-token-value(0.3);
-$color-secondary-400: get-secondary-token-value(0.4);
-$color-secondary-500: get-secondary-token-value(0.5);
-$color-secondary-600: get-secondary-token-value(0.6);
-$color-secondary-700: get-secondary-token-value(0.7);
-$color-secondary-800: get-secondary-token-value(0.8);
-$color-secondary-900: get-secondary-token-value(0.9);
-$color-secondary-1100: get-secondary-token-value(1.1);
-$color-secondary-1200: get-secondary-token-value(1.2);
-$color-secondary-1300: get-secondary-token-value(1.3);
-$color-secondary-1400: get-secondary-token-value(1.4);
-$color-secondary-1500: get-secondary-token-value(1.5);
-$color-secondary-1600: get-secondary-token-value(1.6);
-$color-secondary-1700: get-secondary-token-value(1.7);
-$color-secondary-1800: get-secondary-token-value(1.8);
-$color-secondary-1900: get-secondary-token-value(1.9);
+// $color-primary: #0078e5;
+// $color-secondary: #a72796;
+$color-primary: hsla(209, 100%, 45%, 1);
+$color-secondary: hsla(308, 62%, 40%, 1);
 
 $color-neutral-dark: #121212;
 $color-neutral-dark-100: #e7e7e7;
@@ -109,27 +41,20 @@ $color-text-default-dark: $color-white-dark-100;
 $color-bg-default: $color-white;
 $color-bg-default-dark: $color-neutral-dark;
 
-$color-bg-non-interactive: $color-primary-200;
-$color-bg-non-interactive-dark: $color-secondary-1200;
-$color-bg-hover-non-interactive: $color-primary-200;
-$color-bg-hover-non-interactive-dark: $color-secondary-1200;
+$color-bg-non-interactive: var(--color-primary-200);
+$color-bg-non-interactive-dark: var(--color-secondary-1200);
+$color-bg-hover-non-interactive: var(--color-primary-200);
+$color-bg-hover-non-interactive-dark: var(--color-secondary-1200);
 
 $color-header-text: $color-white;
 $color-header-text-dark: $color-text-default-dark;
 $color-header-scrolled-bg: $color-black;
 $color-header-scrolled-bg-dark: $color-white;
 
-$color-btn-bg-neutral: $color-primary;
-$color-btn-bg: $color-primary-800;
-$color-btn-bg-active: $color-primary-1200;
-$color-btn-bg-dark: $color-primary-1200;
-$color-btn-bg-active-dark: $color-primary-800;
+$color-btn-bg-neutral: var(--color-primary);
+$color-btn-bg: var(--color-primary-800);
+$color-btn-bg-active: var(--color-primary-1200);
+$color-btn-bg-dark: var(--color-primary-1200);
+$color-btn-bg-active-dark: var(--color-primary-800);
 
 $color-alert: #fc453a;
-
-:export {
-    color-primary: $color-primary;
-    color-secondary: $color-secondary;
-    color-white: $color-white;
-    color-black: $color-black;
-}

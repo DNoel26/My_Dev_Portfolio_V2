@@ -1,7 +1,5 @@
 /** @format */
 
-@use 'colors';
-
 $default-transition-time: 0.35s;
 
 $header-height: 68px;
@@ -13,7 +11,7 @@ $border-radius-md: 12px;
 $border-radius-lg: 24px;
 $border-radius-xl: 32px;
 
-$gradient-bg-1: linear-gradient(225deg, colors.$color-secondary, colors.$color-primary);
+$gradient-bg-1: linear-gradient(225deg, var(--color-secondary), var(--color-primary));
 
 $spacing-sm: 8px;
 $spacing-md: 12px;

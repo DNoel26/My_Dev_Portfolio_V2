@@ -46,16 +46,16 @@ $cl-btn-alert: '#{$cl-btn}--alert';
             animation-play-state: running;
         }
         &#{$cl-btn-default} {
-            background-color: base.$color-primary;
+            background-color: var(--color-primary);
         }
         &#{$cl-btn-gradient} {
             background-image: linear-gradient(
                 to right,
-                base.$color-primary-600,
-                base.$color-primary-700,
-                base.$color-primary-800,
-                base.$color-primary-900,
-                base.$color-primary
+                var(--color-primary-600),
+                var(--color-primary-700),
+                var(--color-primary-800),
+                var(--color-primary-900),
+                var(--color-primary)
             );
             background-size: 200% 100%;
             background-position: 0 0;
@@ -63,20 +63,20 @@ $cl-btn-alert: '#{$cl-btn}--alert';
         &#{$cl-btn-neutral} {
             background-image: linear-gradient(
                 315deg,
-                base.$color-primary,
-                base.$color-secondary,
-                base.$color-primary,
-                base.$color-secondary,
-                base.$color-primary,
-                base.$color-secondary,
-                base.$color-primary,
-                base.$color-secondary,
-                base.$color-primary,
-                base.$color-secondary,
-                base.$color-primary,
-                base.$color-secondary,
-                base.$color-primary,
-                base.$color-secondary
+                var(--color-primary),
+                var(--color-secondary),
+                var(--color-primary),
+                var(--color-secondary),
+                var(--color-primary),
+                var(--color-secondary),
+                var(--color-primary),
+                var(--color-secondary),
+                var(--color-primary),
+                var(--color-secondary),
+                var(--color-primary),
+                var(--color-secondary),
+                var(--color-primary),
+                var(--color-secondary)
             );
             background-size: 600%;
             $reduced-width: 95%;
@@ -91,7 +91,7 @@ $cl-btn-alert: '#{$cl-btn}--alert';
                 min-width: unset;
                 min-height: unset;
                 padding: unset;
-                background-color: base.$color-black;
+                background-color: var(--color-black);
                 transition: $transition;
                 z-index: -1;
             }
@@ -118,23 +118,23 @@ $cl-btn-alert: '#{$cl-btn}--alert';
         }
         &#{$cl-btn-outlined} {
             @extend .btn--default;
-            color: base.$color-black;
-            border: 2px solid base.$color-black;
+            color: var(--color-black);
+            border: 2px solid var(--color-black);
             background-image: linear-gradient(
                 315deg,
-                base.$color-white,
-                base.$color-primary-100,
-                base.$color-secondary-100,
-                base.$color-white,
-                base.$color-primary-100,
-                base.$color-secondary-100
+                var(--color-white),
+                var(--color-primary-100),
+                var(--color-secondary-100),
+                var(--color-white),
+                var(--color-primary-100),
+                var(--color-secondary-100)
             );
         }
         &#{$cl-btn-text} {
             background: -webkit-linear-gradient(
                 315deg,
-                base.$color-primary,
-                base.$color-secondary
+                var(--color-primary),
+                var(--color-secondary),
             );
             background-clip: text;
             -webkit-text-fill-color: transparent;

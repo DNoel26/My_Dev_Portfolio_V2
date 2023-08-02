@@ -10,10 +10,6 @@ export type Styles = {
     'btn--neutral': string;
     'btn--outlined': string;
     'btn--text': string;
-    'color-black': string;
-    'color-primary': string;
-    'color-secondary': string;
-    'color-white': string;
     gradient: string;
     wave: string;
 };

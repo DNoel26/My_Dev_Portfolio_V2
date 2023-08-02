@@ -1,7 +1,6 @@
 /** @format */
 
-import { DEFAULT_THEME, darkTheme } from '@@theme/dark';
-import { lightTheme } from '@@theme/light';
+import { DEFAULT_THEME, darkTheme, lightTheme } from '@@theme';
 import { TDefaultPropsWithChildren } from '@@types/client/props.types';
 import { ThemeProvider } from '@mui/material/styles';
 import { useTheme } from 'next-themes';
@@ -12,6 +11,8 @@ const appTheme = {
     dark: darkTheme,
 } as const;
 
+// TODO: create theme dynamically with state and update primary / secondary based
+// on root style changes
 const MuiThemeProvider = ({ children }: TDefaultPropsWithChildren) => {
     const { resolvedTheme } = useTheme();
     const [currentTheme, setCurrentTheme] = useState(appTheme[DEFAULT_THEME]);

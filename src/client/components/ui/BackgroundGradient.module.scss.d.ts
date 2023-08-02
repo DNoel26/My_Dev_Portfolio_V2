@@ -4,10 +4,6 @@
 export type Styles = {
     banner: string;
     'banner--bg-only': string;
-    'color-black': string;
-    'color-primary': string;
-    'color-secondary': string;
-    'color-white': string;
     gradient: string;
     wave: string;
 };

@@ -5,7 +5,7 @@
             "@@client": ["src/client"],
             "@@components/*": ["src/client/components/*"],
             "@@assets/*": ["src/client/assets/*"],
-            "@@theme/*": ["src/client/theme/*"],
+            "@@theme": ["src/client/theme"],
             "@@client-config/*": ["src/client/config/*"],
             "@@client-data/*": ["src/client/data/*"],
             "@@context/*": ["src/client/context/*"],

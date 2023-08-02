@@ -1,12 +1,18 @@
 /** @format */
 
-@use 'colors';
-
 @function to-rem($value) {
     $remValue: calc($value / 16px) + rem;
     @return $remValue;
 }
 
 @function set-gradient-direction($direction: to left) {
-    @return linear-gradient($direction, colors.$color-primary, colors.$color-secondary);
+    @return linear-gradient($direction, var(--color-primary), var(--color-secondary));
+}
+
+@function handle-tint($color, $percent) {
+    @return color-mix(in srgb, $color, #fff $percent);
+}
+
+@function handle-shade($color, $percent) {
+    @return color-mix(in srgb, $color, #000 $percent);
 }

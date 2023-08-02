@@ -1,7 +1,7 @@
 /** @format */
 
 import useNextTheme from '@@hooks/useNextTheme';
-import { DEFAULT_THEME } from '@@theme/dark';
+import { DEFAULT_THEME } from '@@theme';
 import { TDefaultProps } from '@@types/client/props.types';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';

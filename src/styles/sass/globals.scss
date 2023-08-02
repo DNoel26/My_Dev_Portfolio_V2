@@ -2,19 +2,40 @@
 
 @use 'base';
 
-:root {
-    --color-primary: base.$color-primary;
-    --color-secondary: base.$color-secondary;
-    --color-white: base.$color-white;
-    --color-black: base.$color-black;
-}
+$theme-colors: (
+    'color-primary': base.$color-primary,
+    'color-secondary': base.$color-secondary,
+) !default;
+$percents: (10, 20, 30, 40, 50, 60, 70, 80, 90) !default;
 
+:root {
+    @each $color, $value in $theme-colors {
+        --#{$color}-h: #{hue($value)};
+        --#{$color}-s: #{saturation($value)};
+        --#{$color}-l: #{lightness($value)};
+        --#{$color}-a: #{alpha($value)};
+        --#{$color}: #{$value};
+
+        // create design color tokens
+        @each $percent in $percents {
+            --#{$color}-#{$percent}0: #{base.handle-tint(
+                    $color: var(--#{$color}),
+                    $percent: #{100-$percent}+'%'
+                )};
+            --#{$color}-1#{$percent}0: #{base.handle-shade(
+                    $color: var(--#{$color}),
+                    $percent: #{$percent}+'%'
+                )};
+        }
+    }
+    --color-white: #{base.$color-white};
+    --color-black: #{base.$color-black};
+}
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
-
 html,
 body {
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
@@ -23,7 +44,6 @@ body {
         @include base.keyboard-focusable;
     }
 }
-
 body {
     @include base.theme-toggle-transition(
         $properties: (
@@ -34,37 +54,30 @@ body {
     color: inherit;
     background: inherit;
 }
-
 #__next {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
-
 main {
     flex: 1 1 auto;
     margin-top: base.$header-height;
 }
-
 .dark {
     color: base.$color-text-default-dark;
     background: base.$color-bg-default-dark;
 }
-
 .light {
     color: base.$color-text-default;
     background: base.$color-bg-default;
 }
-
 body::-webkit-scrollbar {
     width: auto;
     background: base.$color-bg-default;
 }
-
 body::-webkit-scrollbar-track {
     border-radius: 6px;
 }
-
 body::-webkit-scrollbar-thumb {
     background: base.$gradient-bg-1;
     border-radius: 12px;
@@ -72,7 +85,6 @@ body::-webkit-scrollbar-thumb {
         box-shadow: inset 0 0 6px black;
     }
 }
-
 ::-webkit-scrollbar-button:single-button {
     height: 4px;
 }
