@@ -14,11 +14,6 @@ $cl-icon: '#{$cl-wrapper}__icon';
     }
     transform: scale(1);
     #{$cl-icon} {
-        @include base.theme-toggle-transition(
-            $properties: (
-                filter,
-            )
-        );
         max-height: 56px;
         width: 64px;
         will-change: transform;

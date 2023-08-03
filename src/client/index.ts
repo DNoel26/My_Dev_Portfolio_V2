@@ -22,6 +22,9 @@ import MuiFormControl from '@mui/material/FormControl';
 import MuiFormControlLabel from '@mui/material/FormControlLabel';
 import MuiIconButton from '@mui/material/IconButton';
 import MuiPaper from '@mui/material/Paper';
+import MuiSpeedDial from '@mui/material/SpeedDial';
+import MuiSpeedDialAction from '@mui/material/SpeedDialAction';
+import MuiSpeedDialIcon from '@mui/material/SpeedDialIcon';
 import type { SvgIconProps as MuiSvgIconProps } from '@mui/material/SvgIcon';
 import MuiSvgIcon from '@mui/material/SvgIcon';
 import MuiTextField from '@mui/material/TextField';
@@ -47,6 +50,9 @@ export {
     MuiFormControlLabel,
     MuiIconButton,
     MuiPaper,
+    MuiSpeedDial,
+    MuiSpeedDialAction,
+    MuiSpeedDialIcon,
     MuiSvgIcon,
     MuiSvgIconProps,
     MuiTextField,

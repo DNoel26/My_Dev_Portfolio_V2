@@ -278,8 +278,14 @@ const ProfessionalOverview = () => {
                             const intervalString =
                                 yearString + (yearString ? ' ' : '') + monthString;
                             return (
-                                <MuiTimelineItem key={company}>
+                                <MuiTimelineItem
+                                    key={company}
+                                    className={styles.overview__timeline_item}
+                                >
                                     <MuiTimelineOppositeContent
+                                        className={
+                                            styles.overview__timeline_opposite_content
+                                        }
                                         sx={{ m: 'auto 0', fontStyle: 'italic', flex: 1 }}
                                         align='right'
                                         variant='body2'

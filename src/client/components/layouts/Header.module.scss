@@ -12,14 +12,6 @@ $cl-btns: '#{$cl-header}__btns';
 $cl-header-scrolled: '#{$cl-header}--scrolled';
 
 #{$cl-header} {
-    @include base.theme-toggle-transition(
-        $properties: (
-            color,
-            background,
-            box-shadow,
-            height,
-        )
-    );
     position: fixed;
     top: 0;
     height: base.$header-height;
@@ -32,35 +24,11 @@ $cl-header-scrolled: '#{$cl-header}--scrolled';
     text-transform: uppercase;
     font-weight: bold;
     font-size: 1rem;
-    a,
-    li,
-    button {
-        @include base.theme-toggle-transition(
-            $properties: (
-                color,
-            )
-        );
-    }
-    button {
-        svg {
-            @include base.theme-toggle-transition(
-                $properties: (
-                    fill,
-                )
-            );
-        }
-    }
     #{$cl-toolbar} {
         justify-content: space-between;
     }
     #{$cl-logo} {
         img {
-            @include base.theme-toggle-transition(
-                $properties: (
-                    filter,
-                    height,
-                )
-            );
             display: inline-block;
             object-fit: contain;
             height: math.div(base.$header-height, 2);

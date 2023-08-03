@@ -3,7 +3,7 @@
 @use 'variables';
 
 @mixin theme-toggle-transition($properties: all) {
-    transition: variables.$default-transition-time ease-in-out;
+    transition: variables.$theme-transition-time ease-in-out;
     transition-property: $properties;
     transition-delay: 0s;
 }

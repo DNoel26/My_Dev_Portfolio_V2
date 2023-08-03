@@ -45,12 +45,6 @@ body {
     }
 }
 body {
-    @include base.theme-toggle-transition(
-        $properties: (
-            color,
-            background,
-        )
-    );
     color: inherit;
     background: inherit;
 }
@@ -88,3 +82,4 @@ body::-webkit-scrollbar-thumb {
 ::-webkit-scrollbar-button:single-button {
     height: 4px;
 }
+

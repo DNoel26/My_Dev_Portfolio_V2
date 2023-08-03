@@ -28,13 +28,6 @@ $cl-img: '#{$cl-hero}__img';
         padding-left: 2.5%;
     }
     #{$cl-img_container} {
-        @include base.theme-toggle-transition(
-            $properties: (
-                filter,
-                border,
-                transform,
-            )
-        );
         position: absolute;
         top: 0;
         right: 0;

@@ -71,11 +71,6 @@ $cl-bottom-container-copyright: '#{$cl-bottom-container}--copyright';
     }
     #{$cl-bottom-logo} {
         img {
-            @include base.theme-toggle-transition(
-                $properties: (
-                    filter,
-                )
-            );
             display: block;
             width: 200px;
             height: auto;

@@ -17,11 +17,7 @@ $cl-card: '#{$cl-services}__card';
         flex-wrap: wrap;
     }
     #{$cl-card} {
-        @include base.theme-toggle-transition(
-            $properties: (
-                background,
-            )
-        );
+        will-change: transform;
         position: relative;
         align-self: stretch;
         padding: min(24px, 5%) min(32px, 10%);
@@ -29,7 +25,7 @@ $cl-card: '#{$cl-services}__card';
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         flex: 0 0 250px;
         transition: 0.5s ease-in-out;
-        transition-property: transform, background;
+        transition-property: transform, background, color;
         overflow: hidden;
         &:hover {
             transform: scale(1.1);
@@ -57,6 +53,7 @@ $cl-card: '#{$cl-services}__card';
     #{$cl-card} {
         background: base.$color-neutral-dark-800;
         &:hover {
+            color: base.$color-text-default;
             &::before {
                 background: base.$color-bg-hover-non-interactive-dark;
             }
@@ -68,6 +65,7 @@ $cl-card: '#{$cl-services}__card';
     #{$cl-card} {
         background: base.$color-white;
         &:hover {
+            color: base.$color-text-default-dark;
             &::before {
                 background: base.$color-bg-hover-non-interactive;
             }

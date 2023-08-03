@@ -10,11 +10,6 @@ $cl-icon-btn: '#{$cl-icon}_btn';
 $cl-icon-text: '#{$cl-icon}_text';
 
 #{$cl-banner} {
-    @include base.theme-toggle-transition(
-        $properties: (
-            background,
-        )
-    );
     border-radius: 24px;
     padding: max(16px, 2%);
     max-width: 90%;

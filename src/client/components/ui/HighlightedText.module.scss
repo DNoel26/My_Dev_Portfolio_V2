@@ -6,11 +6,6 @@ $cl-text: '.text';
 
 #{$cl-text} {
     @include base.gradient-text(base.set-gradient-direction(to right));
-    @include base.theme-toggle-transition(
-        $properties: (
-            filter,
-        )
-    );
     max-width: max-content;
     background-size: 200% 100%;
     animation: gradient 7s ease-in-out infinite alternate;

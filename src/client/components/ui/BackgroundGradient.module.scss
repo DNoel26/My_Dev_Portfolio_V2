@@ -6,11 +6,6 @@ $cl-banner: '.banner';
 $cl-banner-bg-only: '#{$cl-banner}--bg-only';
 
 #{$cl-banner} {
-    @include base.theme-toggle-transition(
-        $properties: (
-            filter,
-        )
-    );
     color: base.$color-white;
     background-image: base.$gradient-bg-1;
     background-size: 200% 100%;

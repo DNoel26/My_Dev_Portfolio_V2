@@ -24,11 +24,6 @@ $cl-link-color: '#{$cl-link}--color';
     margin-top: 16px;
     width: max-content;
     #{$cl-link} {
-        @include base.theme-toggle-transition(
-            $properties: (
-                filter,
-            )
-        );
         @include base.interactive-states {
             transform: scale(1.15);
         }

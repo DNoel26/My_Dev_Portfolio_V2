@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
     return (
         <ErrorBoundary fallback={<div>Sorry, something went wrong!</div>}>
-            <NextThemeProvider attribute='class'>
+            <NextThemeProvider attribute='class' disableTransitionOnChange>
                 <PageProvider>
                     <Component {...pageProps} />
                 </PageProvider>
