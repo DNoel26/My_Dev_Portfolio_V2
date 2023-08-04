@@ -1,5 +1,6 @@
 /** @format */
 
+import { NEXT_THEME } from '@@lib/constants';
 import { DEFAULT_THEME, darkTheme, lightTheme } from '@@theme';
 import { TDefaultPropsWithChildren } from '@@types/client/props.types';
 import { ThemeProvider } from '@mui/material/styles';
@@ -17,8 +18,14 @@ const MuiThemeProvider = ({ children }: TDefaultPropsWithChildren) => {
     const { resolvedTheme } = useTheme();
     const [currentTheme, setCurrentTheme] = useState(appTheme[DEFAULT_THEME]);
     useEffect(() => {
-        if (resolvedTheme === 'light' || resolvedTheme === 'dark') {
+        if (resolvedTheme === NEXT_THEME.LIGHT || resolvedTheme === NEXT_THEME.DARK) {
             setCurrentTheme(appTheme[resolvedTheme]);
+        }
+        if (resolvedTheme === NEXT_THEME.USER_LIGHT) {
+            setCurrentTheme(appTheme.light);
+        }
+        if (resolvedTheme === NEXT_THEME.USER_DARK) {
+            setCurrentTheme(appTheme.dark);
         }
     }, [resolvedTheme]);
 

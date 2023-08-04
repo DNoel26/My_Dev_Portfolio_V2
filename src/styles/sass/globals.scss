@@ -15,16 +15,17 @@ $percents: (10, 20, 30, 40, 50, 60, 70, 80, 90) !default;
         --#{$color}-l: #{lightness($value)};
         --#{$color}-a: #{alpha($value)};
         --#{$color}: #{$value};
+        --#{$color}-original: #{$value};
 
         // create design color tokens
         @each $percent in $percents {
             --#{$color}-#{$percent}0: #{base.handle-tint(
                     $color: var(--#{$color}),
-                    $percent: #{100-$percent}+'%'
+                    $percent: #{100-$percent}+ '%'
                 )};
             --#{$color}-1#{$percent}0: #{base.handle-shade(
                     $color: var(--#{$color}),
-                    $percent: #{$percent}+'%'
+                    $percent: #{$percent}+ '%'
                 )};
         }
     }
@@ -57,13 +58,15 @@ main {
     flex: 1 1 auto;
     margin-top: base.$header-height;
 }
-.dark {
+.dark, .user-dark {
     color: base.$color-text-default-dark;
     background: base.$color-bg-default-dark;
+    color-scheme: dark;
 }
-.light {
-    color: base.$color-text-default;
+.light, .user-light {
+    color: base.$color-text-default-black;
     background: base.$color-bg-default;
+    color-scheme: light;
 }
 body::-webkit-scrollbar {
     width: auto;
@@ -82,4 +85,3 @@ body::-webkit-scrollbar-thumb {
 ::-webkit-scrollbar-button:single-button {
     height: 4px;
 }
-

@@ -6,14 +6,14 @@ $cl-toggle: '.toggle';
 $cl-toggle-btn: '#{$cl-toggle}__btn';
 $cl-toggle-btn-disabled: '#{$cl-toggle-btn}--disabled';
 $cl-toggle-btn-enabled: '#{$cl-toggle-btn}--enabled';
-$cl-toggle-ready: '#{$cl-toggle}--ready';
+$cl-toggle-theme-resolved: '#{$cl-toggle}--theme-resolved';
 
 #{$cl-toggle} {
-    @include base.theme-toggle-transition(
+    @include base.transition(
         $properties: (
             visibility,
             transform,
-        )
+        ), $is-important: true
     );
     position: relative;
     visibility: hidden;
@@ -25,11 +25,11 @@ $cl-toggle-ready: '#{$cl-toggle}--ready';
         }
         &#{$cl-toggle-btn-disabled} {
             position: absolute;
-            transform: scale(0.5);
-            top: base.to-rem(-10px);
-            left: base.to-rem(30px);
+            transform: scale(0.6);
+            top: base.to-rem(-12px);
+            left: base.to-rem(32px);
             z-index: -1;
-            opacity: 0.25;
+            opacity: 0.4;
         }
         &#{$cl-toggle-btn-enabled} {
             position: relative;
@@ -40,11 +40,11 @@ $cl-toggle-ready: '#{$cl-toggle}--ready';
             opacity: 1;
         }
     }
-    &#{$cl-toggle-ready} {
+    &#{$cl-toggle-theme-resolved} {
         visibility: visible;
         transform: scale(1);
         #{$cl-toggle-btn} {
-            @include base.theme-toggle-transition(
+            @include base.transition(
                 $properties: (
                     position,
                     transform,
@@ -52,7 +52,7 @@ $cl-toggle-ready: '#{$cl-toggle}--ready';
                     left,
                     opacity,
                     z-index,
-                )
+                ), $is-important: true
             );
         }
     }

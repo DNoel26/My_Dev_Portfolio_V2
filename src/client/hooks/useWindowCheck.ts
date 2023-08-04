@@ -7,6 +7,12 @@ interface IArgs<Type> {
     handleCleanup?: (...args: unknown[]) => void;
 }
 
+/**
+ * Checks if window is defined and then sets and returns state equal to value
+ * returned from handleEffect
+ * @param
+ * @returns
+ */
 const useWindowCheck = <TypeState = unknown>({
     handleEffect,
     handleCleanup,

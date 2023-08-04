@@ -1,6 +1,6 @@
 /** @format */
 
-import { ANCHOR_TAG } from '@@lib/constants/routes/urls';
+import { ANCHOR_TAG } from '@@lib/constants';
 import { TDefaultPropsWithChildren } from '@@types/client/props.types';
 import Footer from './Footer';
 import Header from './Header';

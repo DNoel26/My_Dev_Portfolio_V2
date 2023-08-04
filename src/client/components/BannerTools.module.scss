@@ -27,7 +27,7 @@ $cl-icon-text: '#{$cl-icon}_text';
     #{$cl-icon-btn} {
         display: flex;
         flex-direction: column;
-        color: base.$color-text-default;
+        color: base.$color-text-default-black;
         text-transform: capitalize;
         max-width: 144px;
         hr {

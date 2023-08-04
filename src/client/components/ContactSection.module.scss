@@ -29,8 +29,8 @@ $cl-submit-btn: '#{$cl-contact}__submit_btn';
 }
 
 #{$cl-contact} {
+    @include base.fixed-bg;
     padding-bottom: base.$spacing-section;
-    background-attachment: fixed;
     input {
         width: max(300px, 90%);
     }

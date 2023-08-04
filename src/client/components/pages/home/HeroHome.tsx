@@ -8,13 +8,13 @@ import Button from '@@components/ui/Button';
 import Heading from '@@components/ui/Heading';
 import HighlightedText from '@@components/ui/HighlightedText';
 import Image from '@@components/ui/Image';
-import { ANCHOR_TAG } from '@@lib/constants/routes/urls';
+import { ANCHOR_TAG } from '@@lib/constants';
 import styles from './HeroHome.module.scss';
 
 const HeroHome = () => {
     return (
         <BodyContainer
-            id={ANCHOR_TAG.HOME_PAGE.HOME}
+            id={ANCHOR_TAG.HOME_PAGE.INTRO}
             className={styles.hero}
             component='section'
         >

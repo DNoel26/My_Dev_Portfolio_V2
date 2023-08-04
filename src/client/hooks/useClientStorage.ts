@@ -1,17 +1,16 @@
 /** @format */
 
-import { useCallback, useEffect, useState } from 'react';
 import useWindowCheck from './useWindowCheck';
 
 /* eslint-disable no-console */
 type StorageType = 'local' | 'session';
 
-const getStorageType = (type: StorageType): Storage => {
+export const getStorageType = (type: StorageType): Storage => {
     if (type === 'local') return localStorage;
     return sessionStorage;
 };
 
-const getStorageItem = (storage: Storage, key: string): unknown => {
+export const getStorageItem = (storage: Storage, key: string): unknown => {
     const item = storage.getItem(key);
     try {
         return JSON.parse(item || '');
@@ -21,7 +20,7 @@ const getStorageItem = (storage: Storage, key: string): unknown => {
     }
 };
 
-const setStorageItem = (storage: Storage, key: string, item: unknown): void => {
+export const setStorageItem = (storage: Storage, key: string, item: unknown): void => {
     try {
         storage.setItem(key, JSON.stringify(item));
     } catch (err) {
@@ -38,35 +37,27 @@ const setStorageItem = (storage: Storage, key: string, item: unknown): void => {
  * @returns
  */
 const useClientStorage = (storageType: StorageType, key: string) => {
-    const [item, setItem] = useState<unknown>(null);
     const checkedStorageType = useWindowCheck({
         handleEffect: () => getStorageType(storageType),
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const getItem = () => !!checkedStorageType && getStorageItem(checkedStorageType, key);
-
-    const handleSetItem = useCallback(
-        (newItem: unknown) => {
-            if (checkedStorageType) {
-                setStorageItem(checkedStorageType, key, newItem);
-                setItem(getItem());
-            }
-        },
-        [checkedStorageType, key, getItem],
-    );
-
-    const handleRemoveItem = useCallback(() => {
+    const getItem = () => {
+        if (checkedStorageType) {
+            return getStorageItem(checkedStorageType, key);
+        }
+        return null;
+    };
+    const handleSetItem = (newItem: unknown) => {
+        if (checkedStorageType) {
+            setStorageItem(checkedStorageType, key, newItem);
+        }
+    };
+    const handleRemoveItem = () => {
         if (checkedStorageType) {
             checkedStorageType.removeItem(key);
-            setItem(getItem());
         }
-    }, [checkedStorageType, key, getItem]);
+    };
 
-    useEffect(() => {
-        setItem(getItem());
-    }, [getItem]);
-
-    return { item, handleSetItem, handleRemoveItem };
+    return { getItem, handleSetItem, handleRemoveItem };
 };
 
 export default useClientStorage;

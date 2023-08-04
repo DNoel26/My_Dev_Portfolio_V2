@@ -15,7 +15,7 @@ import {
 import BodyContainer from '@@components/layouts/BodyContainer';
 import Heading from '@@components/ui/Heading';
 import Image from '@@components/ui/Image';
-import { ANCHOR_TAG } from '@@lib/constants/routes/urls';
+import { ANCHOR_TAG } from '@@lib/constants';
 import { ComponentProps } from 'react';
 import styles from './ServicesOverview.module.scss';
 

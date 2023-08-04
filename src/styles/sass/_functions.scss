@@ -5,6 +5,10 @@
     @return $remValue;
 }
 
+@function set-important($important){
+    @return #{if($important, '!important', '')};
+  }
+
 @function set-gradient-direction($direction: to left) {
     @return linear-gradient($direction, var(--color-primary), var(--color-secondary));
 }

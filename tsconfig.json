@@ -10,6 +10,8 @@
             "@@client-data/*": ["src/client/data/*"],
             "@@context/*": ["src/client/context/*"],
             "@@hooks/*": ["src/client/hooks/*"],
+            "@@reducers/*": ["src/client/reducers/*"],
+            "@@actions/*": ["src/client/actions/*"],
             "@@images/*": ["public/images/*"],
             "@@server": ["src/server"],
             "@@models/*": ["src/server/models/*"],

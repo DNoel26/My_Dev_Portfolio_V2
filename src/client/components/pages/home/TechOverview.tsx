@@ -2,7 +2,7 @@
 
 import BannerTools from '@@components/BannerTools';
 import Heading from '@@components/ui/Heading';
-import { ANCHOR_TAG } from '@@lib/constants/routes/urls';
+import { ANCHOR_TAG } from '@@lib/constants';
 import styles from './TechOverview.module.scss';
 
 const TechOverview = () => {

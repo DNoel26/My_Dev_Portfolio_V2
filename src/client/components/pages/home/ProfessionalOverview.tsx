@@ -21,7 +21,7 @@ import BodyContainer from '@@components/layouts/BodyContainer';
 import BackgroundGradient from '@@components/ui/BackgroundGradient';
 import Button from '@@components/ui/Button';
 import Heading from '@@components/ui/Heading';
-import { ANCHOR_TAG } from '@@lib/constants/routes/urls';
+import { ANCHOR_TAG } from '@@lib/constants';
 import clsx from 'clsx';
 import { intervalToDuration } from 'date-fns';
 import { ReactNode } from 'react';

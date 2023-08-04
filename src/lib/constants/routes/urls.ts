@@ -11,6 +11,7 @@ const _PLAY: TRoutePathname = '/play';
 
 export const ANCHOR_TAG = {
     HOME_PAGE: {
+        INTRO: 'intro',
         EXPERIENCE: 'experience',
         TRAITS: 'traits',
         SERVICES: 'services',

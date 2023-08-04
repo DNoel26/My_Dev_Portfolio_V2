@@ -1,7 +1,7 @@
 /** @format */
 
 import { logoGithubBlack, logoLinkedIn, logoWhatsapp } from '@@assets/images';
-import { EXTERNAL_URL } from '@@lib/constants/routes/urls';
+import { EXTERNAL_URL } from '@@lib/constants';
 import clsx from 'clsx';
 import { ComponentProps } from 'react';
 import styles from './SocialMediaLinks.module.scss';

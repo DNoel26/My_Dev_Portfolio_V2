@@ -1,7 +1,7 @@
 /** @format */
 
 import { profilePic } from '@@assets/images';
-import { ANCHOR_TAG } from '@@lib/constants/routes/urls';
+import { ANCHOR_TAG } from '@@lib/constants';
 import { Avatar } from '@mui/material';
 import { useFormik } from 'formik';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';

@@ -22,13 +22,25 @@ $cl-btn-alert: '#{$cl-btn}--alert';
 }
 
 #{$cl-btn-wrapper} {
+    :global(.MuiButtonBase-root.MuiButton-root) {
+        transition: none;
+    }
+}
+
+#{$cl-btn-wrapper} {
     margin: 64px auto 0;
     text-align: center;
     width: max-content;
     height: max-content;
+    border-radius: base.$border-radius-xs;
+    @include base.interactive-states($transition) {
+        box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.75);
+        transform: translateY(-3px);
+        animation-play-state: running;
+    }
     #{$cl-btn} {
         @include fill;
-        will-change: opacity, outline, transform;
+        border: inherit;
         color: base.$color-white;
         background-color: transparent;
         font-size: 16px;
@@ -40,11 +52,6 @@ $cl-btn-alert: '#{$cl-btn}--alert';
         text-transform: capitalize;
         animation: gradient 1.5s infinite alternate ease-in-out;
         animation-play-state: paused;
-        @include base.interactive-states($transition) {
-            box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.75);
-            transform: translate(0, -3px);
-            animation-play-state: running;
-        }
         &#{$cl-btn-default} {
             background-color: var(--color-primary);
         }
@@ -134,7 +141,7 @@ $cl-btn-alert: '#{$cl-btn}--alert';
             background: -webkit-linear-gradient(
                 315deg,
                 var(--color-primary),
-                var(--color-secondary),
+                var(--color-secondary)
             );
             background-clip: text;
             -webkit-text-fill-color: transparent;

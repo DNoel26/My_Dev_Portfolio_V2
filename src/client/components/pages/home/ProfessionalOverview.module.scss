@@ -23,7 +23,7 @@ $cl-overview-neutral-bg: '#{$cl-overview}--neutral_bg';
 }
 
 #{$cl-overview} {
-    background-attachment: fixed;
+    @include base.fixed-bg;
     #{$cl-container} {
         @include base.padding-y(base.$spacing-section);
     }
@@ -104,7 +104,7 @@ $cl-overview-neutral-bg: '#{$cl-overview}--neutral_bg';
             &,
             div,
             span {
-                color: base.$color-text-default;
+                color: base.$color-text-default-black;
             }
             > div {
                 background-color: base.$color-bg-non-interactive-dark;
@@ -128,7 +128,7 @@ $cl-overview-neutral-bg: '#{$cl-overview}--neutral_bg';
             &,
             div,
             span {
-                color: base.$color-text-default-dark;
+                color: base.$color-text-default-white;
             }
             > div {
                 background-color: base.$color-bg-non-interactive;

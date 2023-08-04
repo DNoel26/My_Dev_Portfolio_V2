@@ -35,7 +35,8 @@ $color-white-dark-300: transparentize(
     $amount: 0.62,
 );
 
-$color-text-default: $color-black;
+$color-text-default-black: $color-black;
+$color-text-default-white: $color-white;
 $color-text-default-dark: $color-white-dark-100;
 
 $color-bg-default: $color-white;

@@ -13,6 +13,7 @@ export type Styles = {
     overview__timeline_content: string;
     'overview__timeline_content--mech': string;
     overview__timeline_paragraph: string;
+    'overview--neutral_bg': string;
     wave: string;
 };
 

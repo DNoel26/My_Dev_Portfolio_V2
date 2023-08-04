@@ -21,6 +21,7 @@ const BackgroundGradient = ({
                 className,
             )}
         >
+            <div />
             {children}
         </div>
     );

@@ -12,16 +12,15 @@ $speed-dial: '.speed_dial';
         }
         height: 60px;
         width: 60px;
+    }
+    button {
         color: base.$color-white;
         background: base.$color-btn-bg-neutral;
-        // need to override mui speed dial style
-        // transform: none !important;
-        // transition: all base.$default-transition-time ease-in-out 0ms !important;
     }
 }
 
 @include base.theme(#{$speed-dial}, 'dark') {
-    > button {
+    button {
         @include base.interactive-states {
             background: base.$color-btn-bg-active-dark;
         }
@@ -29,7 +28,7 @@ $speed-dial: '.speed_dial';
 }
 
 @include base.theme(#{$speed-dial}, 'light') {
-    > button {
+    button {
         @include base.interactive-states {
             background: base.$color-btn-bg-active;
         }

@@ -3,16 +3,11 @@
 import { logoDarnell } from '@@assets/images';
 import { MuiAppBar, MuiIconButton, MuiToolbar } from '@@client';
 import { MuiIconSettings } from '@@components/icons';
-import DarkModeToggle from '@@components/ui/DarkModeToggle';
 import Image from '@@components/ui/Image';
 import Link from '@@components/ui/Link';
+import ThemeToggle from '@@components/ui/ThemeToggle';
 import useScrollTrigger from '@@hooks/useScrollTrigger';
-import {
-    ANCHOR_TAG,
-    APP_URL,
-    TRouteHash,
-    TRoutePathname,
-} from '@@lib/constants/routes/urls';
+import { ANCHOR_TAG, APP_URL, TRouteHash, TRoutePathname } from '@@lib/constants';
 import clsx from 'clsx';
 import BodyContainer from './BodyContainer';
 import styles from './Header.module.scss';
@@ -84,7 +79,7 @@ const Header = () => {
                                 </MuiIconButton>
                             </li>
                             <li>
-                                <DarkModeToggle />
+                                <ThemeToggle />
                             </li>
                         </MuiToolbar>
                     </MuiToolbar>

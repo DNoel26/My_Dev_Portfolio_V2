@@ -3,7 +3,7 @@
 import { MuiBox, MuiFab, MuiZoom } from '@@client';
 import { MuiIconKeyboardArrowUpIcon } from '@@components/icons';
 import useScrollTrigger from '@@hooks/useScrollTrigger';
-import { ANCHOR_TAG } from '@@lib/constants/routes/urls';
+import { ANCHOR_TAG } from '@@lib/constants';
 import { TDefaultPropsWithChildren } from '@@types/client/props.types';
 import styles from './ScrollTopButton.module.scss';
 

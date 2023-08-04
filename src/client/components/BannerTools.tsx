@@ -1,6 +1,7 @@
 /** @format */
 
 import useNextTheme from '@@hooks/useNextTheme';
+import { NEXT_THEME } from '@@lib/constants';
 import { DEFAULT_THEME } from '@@theme';
 import { TDefaultProps } from '@@types/client/props.types';
 import clsx from 'clsx';
@@ -38,7 +39,9 @@ const SkillIcon = ({ name, title, iconProp, iconLight }: TSkillIcon) => {
 const BannerSkills = ({ className }: TDefaultProps) => {
     const { resolvedTheme = DEFAULT_THEME } = useNextTheme();
     const key: keyof TIconProp = `ICON_${
-        resolvedTheme.toUpperCase() as Uppercase<'dark' | 'light'>
+        resolvedTheme.toUpperCase() as Uppercase<
+            typeof NEXT_THEME.LIGHT | typeof NEXT_THEME.DARK
+        >
     }`;
     const [iconProp, setIconProp] = useState(key);
     useEffect(() => {
