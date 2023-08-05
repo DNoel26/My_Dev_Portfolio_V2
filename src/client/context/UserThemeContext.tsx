@@ -9,7 +9,15 @@ import useClientStorage from '@@hooks/useClientStorage';
 import useUserTheme from '@@hooks/useUserTheme';
 import { CLIENT_STORAGE_ITEM_KEY, CSS_VAR_USER_THEME } from '@@lib/constants';
 import { userThemeInitialState } from '@@reducers/userThemeReducer';
-import { Dispatch, PropsWithChildren, createContext, useEffect, useMemo } from 'react';
+import {
+    Dispatch,
+    PropsWithChildren,
+    ReactNode,
+    createContext,
+    useEffect,
+    useMemo,
+    useState,
+} from 'react';
 
 /* eslint-disable @typescript-eslint/no-empty-function */
 type TContext = {
@@ -42,6 +50,10 @@ const UserThemeProvider = ({ children }: PropsWithChildren) => {
         () => ({ state: userThemeState, dispatch: userThemeDispatch }),
         [userThemeState, userThemeDispatch],
     );
+    const [renderComponent, setRenderComponent] = useState<Element | ReactNode | null>(
+        null,
+    );
+
     const isStateInitialized =
         !!userThemeState.colorPrimary &&
         !!userThemeState.colorPrimaryOriginal &&
@@ -49,6 +61,15 @@ const UserThemeProvider = ({ children }: PropsWithChildren) => {
         !!userThemeState.colorSecondaryOriginal;
     const primaryItem = getUserThemePrimaryItem();
     const secondaryItem = getUserThemeSecondaryItem();
+    const Provider = useMemo(
+        () => (
+            <UserThemeContext.Provider value={value}>
+                {children}
+            </UserThemeContext.Provider>
+        ),
+        [value, children],
+    );
+    // initializes the color state handler
     useEffect(() => {
         if (root && !isStateInitialized) {
             const colorPrimaryOriginal = getRootPropertyValue(
@@ -89,10 +110,28 @@ const UserThemeProvider = ({ children }: PropsWithChildren) => {
         primaryItem,
         secondaryItem,
     ]);
+    // prevent flashing while colors load to match state
+    useEffect(() => {
+        if (root) {
+            if (userThemeState.isOriginalTheme) {
+                setRenderComponent(Provider);
+            } else if (
+                userThemeState.colorPrimary !==
+                getRootPropertyValue(root, CSS_VAR_USER_THEME.COLOR_PRIMARY)
+            ) {
+                setRenderComponent(null);
+            } else if (
+                userThemeState.colorSecondary !==
+                getRootPropertyValue(root, CSS_VAR_USER_THEME.COLOR_SECONDARY)
+            ) {
+                setRenderComponent(null);
+            } else {
+                setRenderComponent(Provider);
+            }
+        }
+    }, [root, userThemeState, Provider]);
 
-    return (
-        <UserThemeContext.Provider value={value}>{children}</UserThemeContext.Provider>
-    );
+    return renderComponent;
 };
 
 export default UserThemeProvider;

@@ -42,7 +42,7 @@ $cl-card: '#{$cl-services}__card';
         &::before {
             @include base.before-after-default;
             z-index: -1;
-            transform: scale(1) translateY(-100%);
+            transform: scale(1) translateY(100%);
             transition: all 0.5s ease-in-out;
             border-radius: 50%;
         }

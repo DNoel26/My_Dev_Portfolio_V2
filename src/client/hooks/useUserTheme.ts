@@ -23,7 +23,7 @@ const useUserTheme = () => {
         } else if (!state.isOriginalTheme && !isDarkMode && isDarkMode !== null) {
             setTheme(NEXT_THEME.USER_LIGHT);
         }
-    }, [state.isOriginalTheme, isDarkMode, setTheme]);
+    }, [state, isDarkMode, setTheme]);
     useEffect(() => {
         document.documentElement.style.setProperty(
             CSS_VAR_USER_THEME.COLOR_PRIMARY,
@@ -33,7 +33,7 @@ const useUserTheme = () => {
             CSS_VAR_USER_THEME.COLOR_SECONDARY,
             state.colorSecondary,
         );
-    }, [state.colorPrimary, state.colorSecondary]);
+    }, [state]);
 
     return { state, dispatch, root };
 };

@@ -32,6 +32,7 @@ const useNextTheme = () => {
     }, [resolvedTheme]);
 
     const toggleTheme = () => !!nextTheme && setTheme(nextTheme);
+    const tooltipText = `Switch to ${nextTheme} mode`;
 
     return {
         isDarkMode,
@@ -40,6 +41,7 @@ const useNextTheme = () => {
         isThemeResolved,
         toggleTheme,
         setTheme,
+        tooltipText,
     };
 };
 

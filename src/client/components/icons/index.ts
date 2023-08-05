@@ -2,9 +2,11 @@
 
 import MuiIconCheckCircle from '@mui/icons-material/CheckCircle';
 import MuiIconCheckCircleOutline from '@mui/icons-material/CheckCircleOutline';
+import MuiFormatColorResetIcon from '@mui/icons-material/FormatColorReset';
 import MuiIconKeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import MuiIconModeNight from '@mui/icons-material/ModeNight';
 import MuiIconModeNightOutlined from '@mui/icons-material/ModeNightOutlined';
+import MuiPaletteIcon from '@mui/icons-material/Palette';
 import MuiPendingOutlinedIcon from '@mui/icons-material/PendingOutlined';
 import MuiIconSettings from '@mui/icons-material/Settings';
 import MuiIconSupervisedUserCircleTwoTone from '@mui/icons-material/SupervisedUserCircleTwoTone';
@@ -12,6 +14,7 @@ import MuiIconWbSunny from '@mui/icons-material/WbSunny';
 import MuiIconWbSunnyOutlined from '@mui/icons-material/WbSunnyOutlined';
 
 export {
+    MuiFormatColorResetIcon,
     MuiIconCheckCircle,
     MuiIconCheckCircleOutline,
     MuiIconKeyboardArrowUpIcon,
@@ -21,5 +24,6 @@ export {
     MuiIconSupervisedUserCircleTwoTone,
     MuiIconWbSunny,
     MuiIconWbSunnyOutlined,
+    MuiPaletteIcon,
     MuiPendingOutlinedIcon,
 };

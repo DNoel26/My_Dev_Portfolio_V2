@@ -26,30 +26,31 @@ interface ICardInfo {
     text: string;
 }
 
+const PLACEHOLDER_TEXT = 'Some placeholder text here. '.repeat(5);
 const infoCards: ICardInfo[] = [
     {
         src: svgIconWww,
         alt: '',
         heading: 'Website Development',
-        text: 'Not a graphic designer or artist, but can build you a good-looking website to effectively promote your business online! Let me know what themes you like and if in need of advanced or custom graphics, we can still discuss a way forward.',
+        text: PLACEHOLDER_TEXT,
     },
     {
         src: svgIconConcept,
         alt: '',
         heading: 'App Development',
-        text: 'Need an app to start or scale your business? Interested in your own Software as a Service (SaaS)? My team and I would love to help you out.',
+        text: PLACEHOLDER_TEXT,
     },
     {
         src: svgIconResponsive,
         alt: '',
         heading: 'Designs For All Devices',
-        text: 'Websites are guaranteed to be mobile-friendly and scale well to users on all devices, large or small! This also helps improve your ranking in search engines, making your website easier to find.',
+        text: PLACEHOLDER_TEXT,
     },
     {
         src: svgIconTarget2,
         alt: '',
         heading: 'Fully Remote Work',
-        text: 'No matter where you are located, I will work with you professionally to get the job done! Feel free to contact me for more details at your convenience.',
+        text: PLACEHOLDER_TEXT,
     },
     {
         src: svgIconWebMaintenance,
@@ -61,19 +62,19 @@ const infoCards: ICardInfo[] = [
         src: svgIconSeo,
         alt: '',
         heading: 'Search Engine Optimization',
-        text: 'Search Engine Optimization increases your website visibility on search engines like Google! This helps with directing more traffic to you, resulting in more opportunities to convert prospects into your customers.',
+        text: PLACEHOLDER_TEXT,
     },
     {
         src: svgIconWebOptimization,
         alt: '',
         heading: 'Performance Optimization',
-        text: 'Speed matters! Fast sites have been shown to increase visitor retention and user satisfaction. Research done by Google has shown that the chance of losing a visitor increases by over 30% when load time increases from just 1 second to 3.',
+        text: PLACEHOLDER_TEXT,
     },
     {
         src: svgIconTarget,
         alt: '',
         heading: 'Accessibility Optimization',
-        text: 'Websites will be designed to be user friendly for people with disabilities! This includes those who use assistive technologies such as screen readers and those that navigate without a mouse.',
+        text: PLACEHOLDER_TEXT,
     },
     {
         src: svgIconVisitor,
@@ -85,7 +86,7 @@ const infoCards: ICardInfo[] = [
         src: svgIconTechnicalSupport,
         alt: '',
         heading: 'Maintenance Support',
-        text: 'Websites will be coded for readability and ease of maintenance! Maintenance includes checking for issues or mistakes, and updating your website to ensure that it remains relevant.',
+        text: PLACEHOLDER_TEXT,
     },
 ];
 

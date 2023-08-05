@@ -25,7 +25,7 @@ const TOOLTIP_DELAY_IN_MS = 500;
 const ThemeIconBtn = (props: TDefaultPropsWithChildren<IIconBtnProps>) => {
     const { children, isActive, showInactiveIcon = true } = props;
     const handleChangeTheme = useUserThemeChange();
-    const { nextTheme } = useNextTheme();
+    const { tooltipText } = useNextTheme();
 
     if (isActive && !showInactiveIcon) {
         return null;
@@ -33,7 +33,7 @@ const ThemeIconBtn = (props: TDefaultPropsWithChildren<IIconBtnProps>) => {
 
     return (
         <MuiTooltip
-            title={!isActive && `Switch to ${nextTheme} mode`}
+            title={!isActive && tooltipText}
             TransitionComponent={MuiZoom}
             enterDelay={TOOLTIP_DELAY_IN_MS}
             enterNextDelay={TOOLTIP_DELAY_IN_MS}

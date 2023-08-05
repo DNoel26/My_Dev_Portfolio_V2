@@ -61,11 +61,7 @@ export const userThemeReducer: Reducer<IUserThemeState, TUserThemeAction> = (
             storage.removeItem(USER_THEME_PRIMARY);
             storage.removeItem(USER_THEME_SECONDARY);
 
-            return {
-                ...state,
-                colorPrimary: state.colorPrimaryOriginal,
-                colorSecondary: state.colorSecondaryOriginal,
-            };
+            return userThemeInitialState;
         }
         default: {
             return state;
