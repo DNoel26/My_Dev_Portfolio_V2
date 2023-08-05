@@ -7,7 +7,7 @@ import {
 } from '@@actions/userThemeActions';
 import useClientStorage from '@@hooks/useClientStorage';
 import useUserTheme from '@@hooks/useUserTheme';
-import { CLIENT_STORAGE_ITEM_KEY, CSS_VAR_USER_THEME } from '@@lib/constants';
+import { CLIENT_STORAGE_ITEM_KEY, CSS_VARIABLE } from '@@lib/constants';
 import { userThemeInitialState } from '@@reducers/userThemeReducer';
 import {
     Dispatch,
@@ -71,18 +71,18 @@ const UserThemeProvider = ({ children }: PropsWithChildren) => {
         if (root && !isStateInitialized) {
             const colorPrimaryOriginal = getRootPropertyValue(
                 root,
-                CSS_VAR_USER_THEME.COLOR_PRIMARY_ORIGINAL,
+                CSS_VARIABLE.COLOR_PRIMARY_ORIGINAL,
             );
             const colorPrimary =
                 (typeof primaryItem === 'string' && primaryItem) ||
-                getRootPropertyValue(root, CSS_VAR_USER_THEME.COLOR_PRIMARY);
+                getRootPropertyValue(root, CSS_VARIABLE.COLOR_PRIMARY);
             const colorSecondaryOriginal = getRootPropertyValue(
                 root,
-                CSS_VAR_USER_THEME.COLOR_SECONDARY_ORIGINAL,
+                CSS_VARIABLE.COLOR_SECONDARY_ORIGINAL,
             );
             const colorSecondary =
                 (typeof secondaryItem === 'string' && secondaryItem) ||
-                getRootPropertyValue(root, CSS_VAR_USER_THEME.COLOR_SECONDARY);
+                getRootPropertyValue(root, CSS_VARIABLE.COLOR_SECONDARY);
             const isOriginalTheme =
                 colorPrimary === colorPrimaryOriginal &&
                 colorSecondary === colorSecondaryOriginal &&
@@ -114,12 +114,12 @@ const UserThemeProvider = ({ children }: PropsWithChildren) => {
                 setRenderComponent(Provider);
             } else if (
                 userThemeState.colorPrimary !==
-                getRootPropertyValue(root, CSS_VAR_USER_THEME.COLOR_PRIMARY)
+                getRootPropertyValue(root, CSS_VARIABLE.COLOR_PRIMARY)
             ) {
                 setRenderComponent(null);
             } else if (
                 userThemeState.colorSecondary !==
-                getRootPropertyValue(root, CSS_VAR_USER_THEME.COLOR_SECONDARY)
+                getRootPropertyValue(root, CSS_VARIABLE.COLOR_SECONDARY)
             ) {
                 setRenderComponent(null);
             } else {

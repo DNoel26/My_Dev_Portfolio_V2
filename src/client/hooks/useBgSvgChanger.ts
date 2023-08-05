@@ -5,26 +5,23 @@ import {
     handleBgSvgColorChangeDark,
     handleBgSvgColorChangeLight,
 } from '@@lib/utils/client/img';
-import { useContext } from 'react';
-import useNextTheme from './useNextTheme';
+import { useContext, useEffect, useMemo } from 'react';
 
 const useBgSvgChanger = () => {
     const { userThemeState } = useContext(UserThemeContext);
-    const { isDarkMode } = useNextTheme();
-    const { isOriginalTheme } = userThemeState;
-    const bgColorObj = {
-        colorPrimary: userThemeState.colorPrimary,
-        colorSecondary: userThemeState.colorSecondary,
-    };
-    let bgUrl = '';
-    if (isDarkMode) {
-        bgUrl = `url("${handleBgSvgColorChangeDark(bgColorObj)}")`;
-    } else {
-        bgUrl = `url("${handleBgSvgColorChangeLight(bgColorObj)}")`;
-    }
-    const bgStyleObj = bgUrl ? { backgroundImage: `${bgUrl} !important` } : {};
-
-    return { bgUrl, bgStyleObj, isOriginalTheme };
+    const bgColorObj = useMemo(
+        () => ({
+            colorPrimary: userThemeState.colorPrimary,
+            colorSecondary: userThemeState.colorSecondary,
+        }),
+        [userThemeState],
+    );
+    const bgUrlDark = `url("${handleBgSvgColorChangeDark(bgColorObj)}")`;
+    const bgUrlLight = `url("${handleBgSvgColorChangeLight(bgColorObj)}")`;
+    useEffect(() => {
+        document.documentElement.style.setProperty('--bg-img-dark', bgUrlDark);
+        document.documentElement.style.setProperty('--bg-img-light', bgUrlLight);
+    }, [bgUrlDark, bgUrlLight]);
 };
 
 export default useBgSvgChanger;

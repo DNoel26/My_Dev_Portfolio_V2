@@ -14,7 +14,6 @@ $cl-skills: '#{$cl-overview}__skills';
 $cl-skills-soft: '#{$cl-skills}_soft';
 $cl-skills-hard: '#{$cl-skills}_hard';
 $cl-timeline-content-mech: '#{$cl-timeline-content}--mech';
-$cl-overview-neutral-bg: '#{$cl-overview}--neutral_bg';
 
 #{$cl-overview} {
     :global(.MuiChip-root.MuiChip-filled) {
@@ -98,7 +97,6 @@ $cl-overview-neutral-bg: '#{$cl-overview}--neutral_bg';
 }
 
 @include base.theme(#{$cl-overview}, 'dark') {
-    background-image: base.$img-bg-dark;
     #{$cl-timeline} {
         #{$cl-chips} {
             &,
@@ -116,13 +114,9 @@ $cl-overview-neutral-bg: '#{$cl-overview}--neutral_bg';
             background-color: base.$color-white;
         }
     }
-    &#{$cl-overview-neutral-bg} {
-        background-image: base.$img-bg-dark-neutral;
-    }
 }
 
 @include base.theme(#{$cl-overview}, 'light') {
-    background-image: base.$img-bg-light;
     #{$cl-timeline} {
         #{$cl-chips} {
             &,
@@ -139,8 +133,5 @@ $cl-overview-neutral-bg: '#{$cl-overview}--neutral_bg';
         hr {
             background-color: base.$color-black;
         }
-    }
-    &#{$cl-overview-neutral-bg} {
-        background-image: base.$img-bg-light-neutral;
     }
 }

@@ -1,6 +1,6 @@
 /** @format */
 
-import { CSS_VAR_USER_THEME, NEXT_THEME } from '@@lib/constants';
+import { CSS_VARIABLE, NEXT_THEME } from '@@lib/constants';
 import { userThemeInitialState, userThemeReducer } from '@@reducers/userThemeReducer';
 import { useEffect, useReducer } from 'react';
 import useNextTheme from './useNextTheme';
@@ -26,11 +26,11 @@ const useUserTheme = () => {
     }, [state, isDarkMode, setTheme]);
     useEffect(() => {
         document.documentElement.style.setProperty(
-            CSS_VAR_USER_THEME.COLOR_PRIMARY,
+            CSS_VARIABLE.COLOR_PRIMARY,
             state.colorPrimary,
         );
         document.documentElement.style.setProperty(
-            CSS_VAR_USER_THEME.COLOR_SECONDARY,
+            CSS_VARIABLE.COLOR_SECONDARY,
             state.colorSecondary,
         );
     }, [state]);

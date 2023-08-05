@@ -9,7 +9,6 @@ $cl-photo: '#{$cl-contact}__photo';
 $cl-form-container: '#{$cl-contact}__form_container';
 $cl-checkbox-container: '#{$cl-contact}__checkbox_container';
 $cl-submit-btn: '#{$cl-contact}__submit_btn';
-$cl-contact-neutral-bg: '#{$cl-contact}--neutral_bg';
 
 #{$cl-contact} {
     :global(.MuiInputBase-root.MuiFilledInput-root) {
@@ -79,19 +78,5 @@ $cl-contact-neutral-bg: '#{$cl-contact}--neutral_bg';
         justify-content: space-between;
         align-items: flex-end;
         padding-top: 16px;
-    }
-}
-
-@include base.theme(#{$cl-contact}, 'dark') {
-    background-image: base.$img-bg-dark;
-    &#{$cl-contact-neutral-bg} {
-        background-image: base.$img-bg-dark-neutral;
-    }
-}
-
-@include base.theme(#{$cl-contact}, 'light') {
-    background-image: base.$img-bg-light;
-    &#{$cl-contact-neutral-bg} {
-        background-image: base.$img-bg-light-neutral;
     }
 }

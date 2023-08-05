@@ -1,8 +1,7 @@
 /** @format */
 
 import { profilePic } from '@@assets/images';
-import useBgSvgChanger from '@@hooks/useBgSvgChanger';
-import { ANCHOR_TAG } from '@@lib/constants';
+import { ANCHOR_TAG, CSS_GLOBAL_CLASS_NAME } from '@@lib/constants';
 import { Avatar } from '@mui/material';
 import clsx from 'clsx';
 import { useFormik } from 'formik';
@@ -22,7 +21,6 @@ import Heading from './ui/Heading';
 import Image from './ui/Image';
 
 const ContactSection = () => {
-    const { bgStyleObj, isOriginalTheme } = useBgSvgChanger();
     const [isEmailChecked, setIsEmailChecked] = useState(true);
     const [isPhoneChecked, setIsPhoneChecked] = useState(false);
     const [hasOneContactChecked, setHasOneContactChecked] = useState(
@@ -59,13 +57,7 @@ const ContactSection = () => {
     };
 
     return (
-        <MuiBox
-            className={clsx(
-                styles.contact,
-                !isOriginalTheme && styles['contact--neutral_bg'],
-            )}
-            sx={{ ...bgStyleObj }}
-        >
+        <MuiBox className={clsx(CSS_GLOBAL_CLASS_NAME.THEME_BG, styles.contact)}>
             <Heading
                 id={ANCHOR_TAG.APP.CONTACT}
                 subHeading='Contact Me'

@@ -1,5 +1,6 @@
 /** @format */
 
+import useBgSvgChanger from '@@hooks/useBgSvgChanger';
 import { NEXT_THEME } from '@@lib/constants';
 import { DEFAULT_THEME, darkTheme, lightTheme } from '@@theme';
 import { TDefaultPropsWithChildren } from '@@types/client/props.types';
@@ -28,6 +29,9 @@ const MuiThemeProvider = ({ children }: TDefaultPropsWithChildren) => {
             setMuiTheme(appTheme.dark);
         }
     }, [resolvedTheme]);
+    // can be called in any context provider below UserThemeContext
+    // to set the css bg variables (for smoother rendering)
+    useBgSvgChanger();
 
     return <ThemeProvider theme={muiTheme}>{children}</ThemeProvider>;
 };

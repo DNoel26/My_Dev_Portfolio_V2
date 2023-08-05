@@ -6,6 +6,7 @@ export type Styles = {
     dark: string;
     gradient: string;
     light: string;
+    'theme-bg': string;
     'user-dark': string;
     'user-light': string;
     wave: string;

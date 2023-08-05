@@ -22,8 +22,7 @@ import BodyContainer from '@@components/layouts/BodyContainer';
 import BackgroundGradient from '@@components/ui/BackgroundGradient';
 import Button from '@@components/ui/Button';
 import Heading from '@@components/ui/Heading';
-import useBgSvgChanger from '@@hooks/useBgSvgChanger';
-import { ANCHOR_TAG } from '@@lib/constants';
+import { ANCHOR_TAG, CSS_GLOBAL_CLASS_NAME } from '@@lib/constants';
 import clsx from 'clsx';
 import { intervalToDuration } from 'date-fns';
 import { ReactNode } from 'react';
@@ -245,18 +244,8 @@ const TimePeriod = ({ startDate, endDate, intervalString }: TTimePeriodProps) =>
 );
 
 const ProfessionalOverview = () => {
-    const { bgStyleObj, isOriginalTheme } = useBgSvgChanger();
-
     return (
-        <MuiBox
-            className={clsx(
-                styles.overview,
-                !isOriginalTheme && styles['overview--neutral_bg'],
-            )}
-            sx={{
-                ...bgStyleObj,
-            }}
-        >
+        <MuiBox className={clsx(CSS_GLOBAL_CLASS_NAME.THEME_BG, styles.overview)}>
             <div>
                 <BodyContainer className={styles.overview__container}>
                     <Heading

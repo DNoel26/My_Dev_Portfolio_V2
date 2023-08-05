@@ -1,5 +1,13 @@
 /** @format */
 
-export { CLIENT_STORAGE_ITEM_KEY, CSS_VAR_USER_THEME, MY_INFO, NEXT_THEME } from './app';
+export {
+    BG_IMG_DARK_NEUTRAL,
+    BG_IMG_LIGHT_NEUTRAL,
+    CLIENT_STORAGE_ITEM_KEY,
+    CSS_GLOBAL_CLASS_NAME,
+    CSS_VARIABLE,
+    MY_INFO,
+    NEXT_THEME,
+} from './app';
 export { ANCHOR_TAG, APP_URL, EXTERNAL_URL } from './routes/urls';
 export type { TRouteHash, TRoutePathname } from './routes/urls';
