@@ -2,6 +2,7 @@
 
 import { setStorageItem } from '@@hooks/useClientStorage';
 import { CLIENT_STORAGE_ITEM_KEY } from '@@lib/constants';
+import { cssExports } from '@@styles/exports';
 import { Reducer } from 'react';
 import {
     ACTION_USER_THEME,
@@ -13,11 +14,11 @@ const { USER_THEME_PRIMARY, USER_THEME_SECONDARY } = CLIENT_STORAGE_ITEM_KEY;
 const { UPDATE_PRIMARY, UPDATE_SECONDARY, UPDATE_ALL, RESET } = ACTION_USER_THEME;
 
 export const userThemeInitialState: IUserThemeState = {
-    colorPrimaryOriginal: '',
-    colorSecondaryOriginal: '',
-    colorPrimary: '',
-    colorSecondary: '',
-    isOriginalTheme: false,
+    colorPrimaryOriginal: cssExports.colorPrimary,
+    colorSecondaryOriginal: cssExports.colorSecondary,
+    colorPrimary: cssExports.colorPrimary,
+    colorSecondary: cssExports.colorSecondary,
+    isOriginalTheme: true,
 };
 
 export const userThemeReducer: Reducer<IUserThemeState, TUserThemeAction> = (
