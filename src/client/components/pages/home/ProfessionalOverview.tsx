@@ -1,6 +1,7 @@
 /** @format */
 
 import {
+    MuiBox,
     MuiChip,
     MuiDivider,
     MuiTimeline,
@@ -21,6 +22,7 @@ import BodyContainer from '@@components/layouts/BodyContainer';
 import BackgroundGradient from '@@components/ui/BackgroundGradient';
 import Button from '@@components/ui/Button';
 import Heading from '@@components/ui/Heading';
+import useBgSvgChanger from '@@hooks/useBgSvgChanger';
 import { ANCHOR_TAG } from '@@lib/constants';
 import clsx from 'clsx';
 import { intervalToDuration } from 'date-fns';
@@ -243,8 +245,18 @@ const TimePeriod = ({ startDate, endDate, intervalString }: TTimePeriodProps) =>
 );
 
 const ProfessionalOverview = () => {
+    const { bgStyleObj, isOriginalTheme } = useBgSvgChanger();
+
     return (
-        <section className={styles.overview}>
+        <MuiBox
+            className={clsx(
+                styles.overview,
+                !isOriginalTheme && styles['overview--neutral_bg'],
+            )}
+            sx={{
+                ...bgStyleObj,
+            }}
+        >
             <div>
                 <BodyContainer className={styles.overview__container}>
                     <Heading
@@ -411,7 +423,7 @@ const ProfessionalOverview = () => {
                     <Button customVariant='default'>View Resume</Button>
                 </BodyContainer>
             </div>
-        </section>
+        </MuiBox>
     );
 };
 

@@ -21,8 +21,8 @@ import {
 
 /* eslint-disable @typescript-eslint/no-empty-function */
 type TContext = {
-    state: IUserThemeState;
-    dispatch: Dispatch<TUserThemeAction>;
+    userThemeState: IUserThemeState;
+    userThemeDispatch: Dispatch<TUserThemeAction>;
 };
 
 const { USER_THEME_PRIMARY, USER_THEME_SECONDARY } = CLIENT_STORAGE_ITEM_KEY;
@@ -31,8 +31,8 @@ const getRootPropertyValue = (root: Element, property: string) =>
     window.getComputedStyle(root).getPropertyValue(property);
 
 export const UserThemeContext = createContext<TContext>({
-    state: userThemeInitialState,
-    dispatch: () => {},
+    userThemeState: userThemeInitialState,
+    userThemeDispatch: () => {},
 });
 
 const UserThemeProvider = ({ children }: PropsWithChildren) => {
@@ -44,15 +44,12 @@ const UserThemeProvider = ({ children }: PropsWithChildren) => {
         'local',
         USER_THEME_SECONDARY,
     );
-    const userTheme = useUserTheme();
-    const { state: userThemeState, dispatch: userThemeDispatch, root } = userTheme;
+    const { state: userThemeState, dispatch: userThemeDispatch, root } = useUserTheme();
     const value = useMemo(
-        () => ({ state: userThemeState, dispatch: userThemeDispatch }),
+        () => ({ userThemeState, userThemeDispatch }),
         [userThemeState, userThemeDispatch],
     );
-    const [renderComponent, setRenderComponent] = useState<Element | ReactNode | null>(
-        null,
-    );
+    const [renderComponent, setRenderComponent] = useState<ReactNode | null>(null);
 
     const isStateInitialized =
         !!userThemeState.colorPrimary &&

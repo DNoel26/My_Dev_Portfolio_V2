@@ -9,6 +9,7 @@ export type Styles = {
     contact__info: string;
     contact__photo: string;
     contact__submit_btn: string;
+    'contact--neutral_bg': string;
     gradient: string;
     wave: string;
 };

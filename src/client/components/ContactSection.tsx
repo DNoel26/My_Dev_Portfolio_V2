@@ -1,11 +1,19 @@
 /** @format */
 
 import { profilePic } from '@@assets/images';
+import useBgSvgChanger from '@@hooks/useBgSvgChanger';
 import { ANCHOR_TAG } from '@@lib/constants';
 import { Avatar } from '@mui/material';
+import clsx from 'clsx';
 import { useFormik } from 'formik';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
-import { MuiCheckbox, MuiFormControl, MuiFormControlLabel, MuiTextField } from '..';
+import {
+    MuiBox,
+    MuiCheckbox,
+    MuiFormControl,
+    MuiFormControlLabel,
+    MuiTextField,
+} from '..';
 import styles from './ContactSection.module.scss';
 import SocialMediaLinks from './SocialMediaLinks';
 import BackgroundGradient from './ui/BackgroundGradient';
@@ -14,6 +22,7 @@ import Heading from './ui/Heading';
 import Image from './ui/Image';
 
 const ContactSection = () => {
+    const { bgStyleObj, isOriginalTheme } = useBgSvgChanger();
     const [isEmailChecked, setIsEmailChecked] = useState(true);
     const [isPhoneChecked, setIsPhoneChecked] = useState(false);
     const [hasOneContactChecked, setHasOneContactChecked] = useState(
@@ -50,7 +59,13 @@ const ContactSection = () => {
     };
 
     return (
-        <div className={styles.contact}>
+        <MuiBox
+            className={clsx(
+                styles.contact,
+                !isOriginalTheme && styles['contact--neutral_bg'],
+            )}
+            sx={{ ...bgStyleObj }}
+        >
             <Heading
                 id={ANCHOR_TAG.APP.CONTACT}
                 subHeading='Contact Me'
@@ -194,7 +209,7 @@ const ContactSection = () => {
                     </MuiFormControl>
                 </div>
             </BackgroundGradient>
-        </div>
+        </MuiBox>
     );
 };
 

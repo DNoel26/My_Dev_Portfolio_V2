@@ -10,8 +10,7 @@ import { useContext, useMemo, useState } from 'react';
 import styles from './SpeedDial.module.scss';
 
 const SpeedDial = () => {
-    const { state: userThemeState, dispatch: userThemeDispatch } =
-        useContext(UserThemeContext);
+    const { userThemeState, userThemeDispatch } = useContext(UserThemeContext);
     const handleChangeTheme = useUserThemeChange();
     const { tooltipText } = useNextTheme();
     const [isOpen, setIsOpen] = useState(false);

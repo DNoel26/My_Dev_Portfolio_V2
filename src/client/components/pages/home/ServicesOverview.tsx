@@ -80,7 +80,7 @@ const infoCards: ICardInfo[] = [
         src: svgIconVisitor,
         alt: '',
         heading: 'Data Analytics',
-        text: '',
+        text: PLACEHOLDER_TEXT,
     },
     {
         src: svgIconTechnicalSupport,

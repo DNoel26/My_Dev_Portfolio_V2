@@ -7,16 +7,20 @@ import useNextTheme from './useNextTheme';
 
 const useUserThemeChange = () => {
     const { setTheme, isDarkMode } = useNextTheme();
-    const { state } = useContext(UserThemeContext);
+    const { userThemeState } = useContext(UserThemeContext);
 
     const handleChangeTheme = () => {
-        if (state.isOriginalTheme && isDarkMode) {
+        if (userThemeState.isOriginalTheme && isDarkMode) {
             setTheme(NEXT_THEME.LIGHT);
-        } else if (state.isOriginalTheme && !isDarkMode && isDarkMode !== null) {
+        } else if (userThemeState.isOriginalTheme && !isDarkMode && isDarkMode !== null) {
             setTheme(NEXT_THEME.DARK);
-        } else if (!state.isOriginalTheme && isDarkMode) {
+        } else if (!userThemeState.isOriginalTheme && isDarkMode) {
             setTheme(NEXT_THEME.USER_LIGHT);
-        } else if (!state.isOriginalTheme && !isDarkMode && isDarkMode !== null) {
+        } else if (
+            !userThemeState.isOriginalTheme &&
+            !isDarkMode &&
+            isDarkMode !== null
+        ) {
             setTheme(NEXT_THEME.USER_DARK);
         }
     };

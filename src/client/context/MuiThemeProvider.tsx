@@ -16,20 +16,20 @@ const appTheme = {
 // on root style changes
 const MuiThemeProvider = ({ children }: TDefaultPropsWithChildren) => {
     const { resolvedTheme } = useTheme();
-    const [currentTheme, setCurrentTheme] = useState(appTheme[DEFAULT_THEME]);
+    const [muiTheme, setMuiTheme] = useState(appTheme[DEFAULT_THEME]);
     useEffect(() => {
         if (resolvedTheme === NEXT_THEME.LIGHT || resolvedTheme === NEXT_THEME.DARK) {
-            setCurrentTheme(appTheme[resolvedTheme]);
+            setMuiTheme(appTheme[resolvedTheme]);
         }
         if (resolvedTheme === NEXT_THEME.USER_LIGHT) {
-            setCurrentTheme(appTheme.light);
+            setMuiTheme(appTheme.light);
         }
         if (resolvedTheme === NEXT_THEME.USER_DARK) {
-            setCurrentTheme(appTheme.dark);
+            setMuiTheme(appTheme.dark);
         }
     }, [resolvedTheme]);
 
-    return <ThemeProvider theme={currentTheme}>{children}</ThemeProvider>;
+    return <ThemeProvider theme={muiTheme}>{children}</ThemeProvider>;
 };
 
 export default MuiThemeProvider;
