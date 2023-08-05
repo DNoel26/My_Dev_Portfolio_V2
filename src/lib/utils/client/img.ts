@@ -55,7 +55,7 @@ export const handleBgSvgColorChangeDark = (options: IBgSvgOptions) => {
 export const handleBgSvgColorChangeLight = (options: IBgSvgOptions) => {
     const colorPrimary = toRgbaObject(options.colorPrimary);
     const colorSecondary = toRgbaObject(options.colorSecondary);
-    const rgbaPrimaryBg = getRgbaString({ ...colorPrimary, a: 0.08 } as TRgba);
+    const rgbaPrimaryBg = getRgbaString({ ...colorPrimary, a: 0.05 } as TRgba);
     const rgbaSecondary = getRgbaString({ ...colorSecondary, a: 0.5 } as TRgba);
     const str1 = `data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1920' height='1080' preserveAspectRatio='none' viewBox='0 0 1920 1080'%3e%3cg mask='url(%26quot%3b%23SvgjsMask7180%26quot%3b)' fill='none'%3e%3crect width='1920' height='1080' x='0' y='0' `;
     const str2Primary = `fill='${rgbaPrimaryBg}'%3e%3c/rect%3e%3cpath d='M568.32 74.37L560.33 64.37 568.33 54.37 560.33 44.37 568.33 34.37 560.33 24.37 568.33 14.37M576.32 74.37L568.33 64.37 576.33 54.37 568.33 44.37 576.33 34.37 568.33 24.37 576.33 14.37' `;
