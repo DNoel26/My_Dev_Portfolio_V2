@@ -107,8 +107,9 @@ const HeaderPrivate = ({ position }: IHeaderProps) => {
 const Header = () => {
     return (
         <>
-            {/* Allows modification to separate headers on scroll */}
+            {/* This header is the actual one being used to handle events */}
             <HeaderPrivate position='fixed' />
+            {/* This header is just for visual purposes and is disabled */}
             <HeaderPrivate position='absolute' />
         </>
     );

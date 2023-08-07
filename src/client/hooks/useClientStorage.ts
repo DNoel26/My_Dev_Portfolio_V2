@@ -13,10 +13,13 @@ export const getStorageType = (type: StorageType): Storage => {
 export const getStorageItem = (storage: Storage, key: string): unknown => {
     const item = storage.getItem(key);
     try {
-        return JSON.parse(item || '');
+        if (typeof item === 'string') {
+            return JSON.parse(item);
+        }
+        return null;
     } catch (err) {
         console.warn(err instanceof Error ? err.message : { err });
-        return item || null;
+        return null;
     }
 };
 
