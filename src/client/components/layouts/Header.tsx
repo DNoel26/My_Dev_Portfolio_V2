@@ -3,6 +3,7 @@
 import { logoDarnell } from '@@assets/images';
 import { MuiAppBar, MuiIconButton, MuiToolbar } from '@@client';
 import { MuiIconSettings } from '@@components/icons';
+import BackgroundGradient from '@@components/ui/BackgroundGradient';
 import Image from '@@components/ui/Image';
 import Link from '@@components/ui/Link';
 import ThemeToggle from '@@components/ui/ThemeToggle';
@@ -16,6 +17,9 @@ interface INavLinkProps {
     title: string;
     pathname?: TRoutePathname;
     hash?: TRouteHash;
+}
+interface IHeaderProps {
+    position: 'fixed' | 'absolute';
 }
 
 const { HOME, ABOUT, PROJECTS, PLAY } = APP_URL.BASE;
@@ -40,17 +44,28 @@ const NavLink = ({ title, pathname, hash }: INavLinkProps) => {
     );
 };
 
-const Header = () => {
+const HeaderPrivate = ({ position }: IHeaderProps) => {
     const trigger = useScrollTrigger();
 
     return (
-        <MuiAppBar className={clsx(styles.header, trigger && styles['header--scrolled'])}>
+        <MuiAppBar
+            className={clsx(
+                styles.header,
+                styles[`header--${position}`],
+                trigger && styles['header--scrolled'],
+            )}
+            component={position === 'fixed' ? 'header' : 'div'}
+        >
             <BodyContainer>
                 <MuiToolbar className={styles.header__toolbar} disableGutters>
                     <Link className={styles.header__logo} href={HOME}>
                         <Image src={logoDarnell} alt='My signature logo' />
                     </Link>
                     <MuiToolbar component='nav' className={styles.header__content}>
+                        <BackgroundGradient
+                            className={styles.header__content_bg}
+                            withBgOnly
+                        />
                         <MuiToolbar
                             className={styles.header__links}
                             component='ul'
@@ -86,6 +101,16 @@ const Header = () => {
                 </MuiToolbar>
             </BodyContainer>
         </MuiAppBar>
+    );
+};
+
+const Header = () => {
+    return (
+        <>
+            {/* Allows modification to separate headers on scroll */}
+            <HeaderPrivate position='fixed' />
+            <HeaderPrivate position='absolute' />
+        </>
     );
 };
 

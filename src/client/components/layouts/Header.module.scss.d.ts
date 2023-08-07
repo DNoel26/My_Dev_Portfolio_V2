@@ -6,9 +6,12 @@ export type Styles = {
     header: string;
     header__btns: string;
     header__content: string;
+    header__content_bg: string;
     header__links: string;
     header__logo: string;
     header__toolbar: string;
+    'header--absolute': string;
+    'header--fixed': string;
     'header--scrolled': string;
     wave: string;
 };

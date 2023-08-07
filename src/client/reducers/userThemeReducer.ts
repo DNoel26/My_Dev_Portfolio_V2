@@ -31,20 +31,16 @@ export const userThemeReducer: Reducer<IUserThemeState, TUserThemeAction> = (
             setStorageItem(storage, USER_THEME_PRIMARY, action.payload);
 
             const isOriginalTheme =
-                action.payload === state.colorPrimaryOriginal &&
-                state.colorSecondary === state.colorSecondaryOriginal &&
-                !!state.colorPrimaryOriginal &&
-                !!state.colorSecondaryOriginal;
+                action.payload === userThemeInitialState.colorPrimaryOriginal &&
+                state.colorSecondary === userThemeInitialState.colorSecondaryOriginal;
             return { ...state, colorPrimary: action.payload, isOriginalTheme };
         }
         case UPDATE_SECONDARY: {
             setStorageItem(storage, USER_THEME_SECONDARY, action.payload);
 
             const isOriginalTheme =
-                state.colorPrimary === state.colorPrimaryOriginal &&
-                action.payload === state.colorSecondaryOriginal &&
-                !!state.colorPrimaryOriginal &&
-                !!state.colorSecondaryOriginal;
+                state.colorPrimary === userThemeInitialState.colorPrimaryOriginal &&
+                action.payload === userThemeInitialState.colorSecondaryOriginal;
             return { ...state, colorSecondary: action.payload, isOriginalTheme };
         }
         case UPDATE_ALL: {
@@ -52,10 +48,10 @@ export const userThemeReducer: Reducer<IUserThemeState, TUserThemeAction> = (
             setStorageItem(storage, USER_THEME_SECONDARY, action.payload.colorSecondary);
 
             const isOriginalTheme =
-                action.payload.colorPrimary === action.payload.colorPrimaryOriginal &&
-                action.payload.colorSecondary === action.payload.colorSecondaryOriginal &&
-                !!action.payload.colorPrimaryOriginal &&
-                !!action.payload.colorSecondaryOriginal;
+                action.payload.colorPrimary ===
+                    userThemeInitialState.colorPrimaryOriginal &&
+                action.payload.colorSecondary ===
+                    userThemeInitialState.colorSecondaryOriginal;
             return { ...state, ...action.payload, isOriginalTheme };
         }
         case RESET: {

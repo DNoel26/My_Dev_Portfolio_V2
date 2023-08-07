@@ -1,5 +1,6 @@
 /** @format */
 
+import { ACTION_USER_THEME } from '@@actions/userThemeActions';
 import { MuiSpeedDial, MuiSpeedDialAction, MuiSpeedDialIcon } from '@@client';
 import { MuiFormatColorResetIcon, MuiPaletteIcon } from '@@components/icons';
 import ThemeIcon from '@@components/ui/ThemeIcon';
@@ -27,7 +28,7 @@ const SpeedDial = () => {
                 name: 'Change Colors',
                 handleAction: () =>
                     userThemeDispatch({
-                        type: 'UPDATE_ALL',
+                        type: ACTION_USER_THEME.UPDATE_ALL,
                         payload: {
                             ...userThemeState,
                             colorPrimary: 'red',
@@ -42,7 +43,7 @@ const SpeedDial = () => {
                 name: 'Reset Colors',
                 handleAction: () =>
                     userThemeDispatch({
-                        type: 'RESET',
+                        type: ACTION_USER_THEME.RESET,
                     }),
             },
         ],

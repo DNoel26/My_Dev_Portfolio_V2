@@ -3,7 +3,6 @@
 import { imgMeSitting } from '@@assets/images';
 import SocialMediaLinks from '@@components/SocialMediaLinks';
 import BodyContainer from '@@components/layouts/BodyContainer';
-import BackgroundGradient from '@@components/ui/BackgroundGradient';
 import Button from '@@components/ui/Button';
 import Heading from '@@components/ui/Heading';
 import HighlightedText from '@@components/ui/HighlightedText';
@@ -36,7 +35,7 @@ const HeroHome = () => {
                 <SocialMediaLinks />
             </div>
             <div className={styles.hero__img_container}>
-                <BackgroundGradient className={styles.hero__bg} withBgOnly />
+                <div className={styles.hero__bg} />
                 <div className={styles.hero__bg_outline} />
                 <Image
                     className={styles.hero__img}

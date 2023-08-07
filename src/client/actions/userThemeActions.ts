@@ -24,7 +24,7 @@ export type TUserThemeAction =
       }
     | {
           type: typeof UPDATE_ALL;
-          payload: IUserThemeState;
+          payload: Pick<IUserThemeState, 'colorPrimary' | 'colorSecondary'>;
       }
     | {
           type: typeof RESET;

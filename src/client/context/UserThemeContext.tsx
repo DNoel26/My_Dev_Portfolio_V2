@@ -26,7 +26,6 @@ type TContext = {
 };
 
 const { USER_THEME_PRIMARY, USER_THEME_SECONDARY } = CLIENT_STORAGE_ITEM_KEY;
-const { UPDATE_ALL } = ACTION_USER_THEME;
 const getRootPropertyValue = (root: Element, property: string) =>
     window.getComputedStyle(root).getPropertyValue(property);
 
@@ -51,13 +50,10 @@ const UserThemeProvider = ({ children }: PropsWithChildren) => {
     );
     const [renderComponent, setRenderComponent] = useState<ReactNode | null>(null);
 
-    const isStateInitialized =
-        !!userThemeState.colorPrimary &&
-        !!userThemeState.colorPrimaryOriginal &&
-        !!userThemeState.colorSecondary &&
-        !!userThemeState.colorSecondaryOriginal;
     const primaryItem = getUserThemePrimaryItem();
     const secondaryItem = getUserThemeSecondaryItem();
+    const primaryItemStr = typeof primaryItem === 'string' ? primaryItem : '';
+    const secondaryItemStr = typeof secondaryItem === 'string' ? secondaryItem : '';
     const Provider = useMemo(
         () => (
             <UserThemeContext.Provider value={value}>
@@ -68,45 +64,30 @@ const UserThemeProvider = ({ children }: PropsWithChildren) => {
     );
     // initializes the color state handler
     useEffect(() => {
-        if (root && !isStateInitialized) {
-            const colorPrimaryOriginal = getRootPropertyValue(
-                root,
-                CSS_VARIABLE.COLOR_PRIMARY_ORIGINAL,
-            );
-            const colorPrimary =
-                (typeof primaryItem === 'string' && primaryItem) ||
-                getRootPropertyValue(root, CSS_VARIABLE.COLOR_PRIMARY);
-            const colorSecondaryOriginal = getRootPropertyValue(
-                root,
-                CSS_VARIABLE.COLOR_SECONDARY_ORIGINAL,
-            );
-            const colorSecondary =
-                (typeof secondaryItem === 'string' && secondaryItem) ||
-                getRootPropertyValue(root, CSS_VARIABLE.COLOR_SECONDARY);
-            const isOriginalTheme =
-                colorPrimary === colorPrimaryOriginal &&
-                colorSecondary === colorSecondaryOriginal &&
-                !colorPrimaryOriginal;
+        if (root && (primaryItemStr || secondaryItemStr)) {
+            const colorPrimary = primaryItemStr;
+            const colorSecondary = secondaryItemStr;
 
             userThemeDispatch({
-                type: UPDATE_ALL,
+                type: ACTION_USER_THEME.UPDATE_ALL,
                 payload: {
-                    colorPrimaryOriginal,
                     colorPrimary,
-                    colorSecondaryOriginal,
                     colorSecondary,
-                    isOriginalTheme,
                 },
             });
         }
-    }, [
-        root,
-        userThemeDispatch,
-        isStateInitialized,
-        userThemeState,
-        primaryItem,
-        secondaryItem,
-    ]);
+    }, [root, userThemeState, primaryItemStr, secondaryItemStr, userThemeDispatch]);
+    // update css variables on state change
+    useEffect(() => {
+        document.documentElement.style.setProperty(
+            CSS_VARIABLE.COLOR_PRIMARY,
+            userThemeState.colorPrimary,
+        );
+        document.documentElement.style.setProperty(
+            CSS_VARIABLE.COLOR_SECONDARY,
+            userThemeState.colorSecondary,
+        );
+    }, [userThemeState]);
     // prevent flashing while colors load to match state
     useEffect(() => {
         if (root) {
