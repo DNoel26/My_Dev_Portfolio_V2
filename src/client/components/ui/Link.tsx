@@ -14,11 +14,18 @@ const Link = (props: TLink) => {
     const { className, children, href, isExternal, ...restProps } = props;
     const router = useRouter();
     const customClassName = clsx(className);
-    const hrefHash = typeof href === 'object' && href.hash;
     useEffect(() => {
-        const handleRouteChange = () => {
-            if (typeof window !== 'undefined' && !!hrefHash) {
-                window.scrollTo({ top: 0 });
+        const handleRouteChange = (e: unknown) => {
+            if (typeof e === 'string') {
+                if (typeof window !== 'undefined' && e.indexOf('/#', 0) === -1) {
+                    window.scrollTo({ top: 0 });
+                } else {
+                    const anchor = document.querySelector(e.replace('/', ''));
+                    anchor?.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start',
+                    });
+                }
             }
         };
         router.events.on('routeChangeComplete', handleRouteChange);
@@ -28,7 +35,7 @@ const Link = (props: TLink) => {
             router.events.off('routeChangeComplete', handleRouteChange);
             router.events.off('hashChangeComplete', handleRouteChange);
         };
-    }, [hrefHash, router.events]);
+    }, [href, router]);
 
     if (isExternal) {
         return (

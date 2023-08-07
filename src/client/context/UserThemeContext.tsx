@@ -76,7 +76,7 @@ const UserThemeProvider = ({ children }: PropsWithChildren) => {
                 },
             });
         }
-    }, [root, userThemeState, primaryItemStr, secondaryItemStr, userThemeDispatch]);
+    }, [root, primaryItemStr, secondaryItemStr, userThemeDispatch]);
     // update css variables on state change
     useEffect(() => {
         document.documentElement.style.setProperty(

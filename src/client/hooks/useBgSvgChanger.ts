@@ -1,6 +1,7 @@
 /** @format */
 
 import { UserThemeContext } from '@@context/UserThemeContext';
+import { CSS_VARIABLE } from '@@lib/constants';
 import {
     handleBgSvgColorChangeDark,
     handleBgSvgColorChangeLight,
@@ -19,8 +20,8 @@ const useBgSvgChanger = () => {
     const bgUrlDark = `url("${handleBgSvgColorChangeDark(bgColorObj)}")`;
     const bgUrlLight = `url("${handleBgSvgColorChangeLight(bgColorObj)}")`;
     useEffect(() => {
-        document.documentElement.style.setProperty('--bg-img-dark', bgUrlDark);
-        document.documentElement.style.setProperty('--bg-img-light', bgUrlLight);
+        document.documentElement.style.setProperty(CSS_VARIABLE.BG_IMG_DARK, bgUrlDark);
+        document.documentElement.style.setProperty(CSS_VARIABLE.BG_IMG_LIGHT, bgUrlLight);
     }, [bgUrlDark, bgUrlLight]);
 };
 
