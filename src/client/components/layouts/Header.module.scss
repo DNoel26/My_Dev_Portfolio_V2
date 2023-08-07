@@ -79,8 +79,11 @@ $cl-absolute: '#{$cl-header}--absolute';
     }
     &#{$cl-absolute} {
         position: absolute;
+        // disable lower header which is used for show only
         z-index: 0;
-        #{$cl-content} :not(:first-child) {
+        cursor: none;
+        pointer-events: none;
+        #{$cl-logo}, #{$cl-content} :not(:first-child) {
             opacity: 0;
         }
     }
@@ -97,9 +100,6 @@ $cl-absolute: '#{$cl-header}--absolute';
         &#{$cl-fixed} {
             z-index: 10000;
             opacity: 1;
-        }
-        &#{$cl-absolute} {
-            z-index: 0;
         }
     }
 }
