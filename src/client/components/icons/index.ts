@@ -10,6 +10,7 @@ import MuiPaletteIcon from '@mui/icons-material/Palette';
 import MuiPendingOutlinedIcon from '@mui/icons-material/PendingOutlined';
 import MuiIconSettings from '@mui/icons-material/Settings';
 import MuiIconSupervisedUserCircleTwoTone from '@mui/icons-material/SupervisedUserCircleTwoTone';
+import MuiSwapHorizontalIcon from '@mui/icons-material/SwapHoriz';
 import MuiIconWbSunny from '@mui/icons-material/WbSunny';
 import MuiIconWbSunnyOutlined from '@mui/icons-material/WbSunnyOutlined';
 
@@ -26,4 +27,5 @@ export {
     MuiIconWbSunnyOutlined,
     MuiPaletteIcon,
     MuiPendingOutlinedIcon,
+    MuiSwapHorizontalIcon,
 };

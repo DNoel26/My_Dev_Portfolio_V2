@@ -2,7 +2,11 @@
 
 import { ACTION_USER_THEME } from '@@actions/userThemeActions';
 import { MuiSpeedDial, MuiSpeedDialAction, MuiSpeedDialIcon } from '@@client';
-import { MuiFormatColorResetIcon, MuiPaletteIcon } from '@@components/icons';
+import {
+    MuiFormatColorResetIcon,
+    MuiPaletteIcon,
+    MuiSwapHorizontalIcon,
+} from '@@components/icons';
 import ThemeIcon from '@@components/ui/ThemeIcon';
 import { UserThemeContext } from '@@context/UserThemeContext';
 import useNextTheme from '@@hooks/useNextTheme';
@@ -34,6 +38,14 @@ const SpeedDial = () => {
                             colorPrimary: 'red',
                             colorSecondary: 'yellow',
                         },
+                    }),
+            },
+            {
+                icon: <MuiSwapHorizontalIcon />,
+                name: 'Swap Colors',
+                handleAction: () =>
+                    userThemeDispatch({
+                        type: ACTION_USER_THEME.SWAP,
                     }),
             },
             {

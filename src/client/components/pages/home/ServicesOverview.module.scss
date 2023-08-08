@@ -33,12 +33,6 @@ $cl-card: '#{$cl-services}__card';
                 transform: scale(1.5) translateY(0);
             }
         }
-        img {
-            transform: scale(1);
-            &:hover {
-                transform: scale(0);
-            }
-        }
         &::before {
             @include base.before-after-default;
             z-index: -1;

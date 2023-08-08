@@ -11,7 +11,7 @@ import {
 } from '../actions/userThemeActions';
 
 const { USER_THEME_PRIMARY, USER_THEME_SECONDARY } = CLIENT_STORAGE_ITEM_KEY;
-const { UPDATE_PRIMARY, UPDATE_SECONDARY, UPDATE_ALL, RESET } = ACTION_USER_THEME;
+const { UPDATE_PRIMARY, UPDATE_SECONDARY, UPDATE_ALL, SWAP, RESET } = ACTION_USER_THEME;
 
 export const userThemeInitialState: IUserThemeState = {
     colorPrimaryOriginal: cssExports.colorPrimary,
@@ -29,6 +29,7 @@ export const userThemeReducer: Reducer<IUserThemeState, TUserThemeAction> = (
     switch (action.type) {
         case UPDATE_PRIMARY: {
             setStorageItem(storage, USER_THEME_PRIMARY, action.payload);
+            setStorageItem(storage, USER_THEME_SECONDARY, state.colorSecondary);
 
             const isOriginalTheme =
                 action.payload === userThemeInitialState.colorPrimaryOriginal &&
@@ -36,6 +37,7 @@ export const userThemeReducer: Reducer<IUserThemeState, TUserThemeAction> = (
             return { ...state, colorPrimary: action.payload, isOriginalTheme };
         }
         case UPDATE_SECONDARY: {
+            setStorageItem(storage, USER_THEME_PRIMARY, state.colorPrimary);
             setStorageItem(storage, USER_THEME_SECONDARY, action.payload);
 
             const isOriginalTheme =
@@ -53,6 +55,15 @@ export const userThemeReducer: Reducer<IUserThemeState, TUserThemeAction> = (
                 action.payload.colorSecondary ===
                     userThemeInitialState.colorSecondaryOriginal;
             return { ...state, ...action.payload, isOriginalTheme };
+        }
+        case SWAP: {
+            setStorageItem(storage, USER_THEME_PRIMARY, state.colorSecondary);
+            setStorageItem(storage, USER_THEME_SECONDARY, state.colorPrimary);
+
+            const colorPrimary = state.colorSecondary;
+            const colorSecondary = state.colorPrimary;
+            const isOriginalTheme = false;
+            return { ...state, colorPrimary, colorSecondary, isOriginalTheme };
         }
         case RESET: {
             storage.removeItem(USER_THEME_PRIMARY);

@@ -24,7 +24,7 @@ $cl-timeline-content-mech: '#{$cl-timeline-content}--mech';
 #{$cl-overview} {
     @include base.fixed-bg;
     #{$cl-container} {
-        @include base.padding-y(base.$spacing-section);
+       padding-bottom: base.$spacing-section;
     }
     #{$cl-timeline} {
         margin-top: base.$spacing-section;

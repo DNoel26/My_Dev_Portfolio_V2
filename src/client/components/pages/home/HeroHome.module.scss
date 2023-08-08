@@ -2,7 +2,7 @@
 
 @use 'base';
 
-$height-container: 400px;
+$height-container: 600px;
 
 $cl-hero: '.hero';
 $cl-bg: '#{$cl-hero}__bg';
@@ -43,10 +43,10 @@ $cl-img: '#{$cl-hero}__img';
     #{$cl-bg-outline} {
         @include base.transition((transform));
         position: absolute;
-        width: 400px;
-        height: 400px;
+        width: 450px;
+        height: 450px;
         top: 170px;
-        left: 180px;
+        left: 235px;
         border-bottom-left-radius: base.$border-radius-sm;
         &:hover {
             transform: rotate(15deg);
@@ -56,13 +56,13 @@ $cl-img: '#{$cl-hero}__img';
         @include base.transition((filter, transform));
         position: relative;
         display: inline-block;
-        height: 400px;
-        width: 400px;
+        height: 450px;
+        width: 450px;
         object-fit: cover;
         object-position: 100% 50%;
         border-bottom-left-radius: base.$border-radius-sm;
-        top: -290px;
-        left: 110px;
+        top: -490px;
+        left: 165px;
         box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
             0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
         &:hover {

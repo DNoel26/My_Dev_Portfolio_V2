@@ -39,6 +39,7 @@ $cl-submit-btn: '#{$cl-contact}__submit_btn';
     }
     #{$cl-container} {
         @include base.margin-x;
+        @include base.animation-gradient;
         display: flex;
         justify-content: center;
         align-items: flex-start;
@@ -46,8 +47,6 @@ $cl-submit-btn: '#{$cl-contact}__submit_btn';
         gap: 32px;
         width: max-content;
         background-size: 175% 100%;
-        animation: gradient 7s ease-in-out infinite alternate;
-        animation-delay: 3s;
         padding: 5%;
         border-radius: 24px;
         > div {

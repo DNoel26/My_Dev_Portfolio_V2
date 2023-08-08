@@ -143,3 +143,8 @@
     background-attachment: fixed;
     background-size: cover;
 }
+
+@mixin animation-gradient {
+    animation: gradient 5s ease-in-out infinite alternate;
+    animation-delay: 3s;
+}

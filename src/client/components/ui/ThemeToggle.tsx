@@ -20,7 +20,7 @@ interface IIconBtnProps extends IProps {
     isActive: boolean | null;
 }
 
-const TOOLTIP_DELAY_IN_MS = 500;
+const TOOLTIP_DELAY_IN_MS = 300;
 
 const ThemeIconBtn = (props: TDefaultPropsWithChildren<IIconBtnProps>) => {
     const { children, isActive, showInactiveIcon = true } = props;
@@ -38,18 +38,20 @@ const ThemeIconBtn = (props: TDefaultPropsWithChildren<IIconBtnProps>) => {
             enterDelay={TOOLTIP_DELAY_IN_MS}
             enterNextDelay={TOOLTIP_DELAY_IN_MS}
         >
-            <MuiIconButton
-                className={clsx(
-                    styles.toggle__btn,
-                    isActive
-                        ? styles['toggle__btn--disabled']
-                        : styles['toggle__btn--enabled'],
-                )}
-                disabled={isActive || isActive === null}
-                onClick={handleChangeTheme}
-            >
-                {children}
-            </MuiIconButton>
+            <span>
+                <MuiIconButton
+                    className={clsx(
+                        styles.toggle__btn,
+                        isActive
+                            ? styles['toggle__btn--disabled']
+                            : styles['toggle__btn--enabled'],
+                    )}
+                    disabled={isActive || isActive === null}
+                    onClick={handleChangeTheme}
+                >
+                    {children}
+                </MuiIconButton>
+            </span>
         </MuiTooltip>
     );
 };
