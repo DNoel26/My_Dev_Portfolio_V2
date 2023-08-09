@@ -1,8 +1,8 @@
 /** @format */
 
 import { logoDarnell } from '@@assets/images';
-import { MuiAppBar, MuiIconButton, MuiToolbar } from '@@client';
-import { MuiIconSettings } from '@@components/icons';
+import { MuiAppBar, MuiToolbar } from '@@client';
+import ColorThemeToggle from '@@components/ColorThemeToggle';
 import BackgroundGradient from '@@components/ui/BackgroundGradient';
 import Image from '@@components/ui/Image';
 import Link from '@@components/ui/Link';
@@ -89,9 +89,7 @@ const HeaderPrivate = ({ position }: IHeaderProps) => {
                             disableGutters
                         >
                             <li>
-                                <MuiIconButton aria-label='settings'>
-                                    <MuiIconSettings />
-                                </MuiIconButton>
+                                <ColorThemeToggle />
                             </li>
                             <li>
                                 <ThemeToggle />

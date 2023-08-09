@@ -17,6 +17,7 @@ import MuiChip from '@mui/material/Chip';
 import type { ContainerProps as MuiContainerProps } from '@mui/material/Container';
 import MuiContainer from '@mui/material/Container';
 import MuiDivider from '@mui/material/Divider';
+import MuiDrawer from '@mui/material/Drawer';
 import MuiFab from '@mui/material/Fab';
 import MuiFormControl from '@mui/material/FormControl';
 import MuiFormControlLabel from '@mui/material/FormControlLabel';
@@ -45,6 +46,7 @@ export {
     MuiContainer,
     MuiContainerProps,
     MuiDivider,
+    MuiDrawer,
     MuiFab,
     MuiFormControl,
     MuiFormControlLabel,

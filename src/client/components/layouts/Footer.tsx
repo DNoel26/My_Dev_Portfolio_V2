@@ -4,7 +4,6 @@ import { logoDarnell } from '@@assets/images';
 import ContactSection from '@@components/ContactSection';
 import SocialMediaLinks from '@@components/SocialMediaLinks';
 import Button from '@@components/ui/Button';
-import ColorPicker from '@@components/ui/ColorPicker';
 import Image from '@@components/ui/Image';
 import Link from '@@components/ui/Link';
 import { ANCHOR_TAG, APP_URL, EXTERNAL_URL } from '@@lib/constants';
@@ -26,10 +25,6 @@ const Footer = () => {
                     <div className={styles.footer__middle_container}>
                         <h2>Take a break</h2>
                         <Button className={styles.footer__middle_btn}>Play Now</Button>
-                        <br />
-                        <ColorPicker type='primary' />
-                        <br />
-                        <ColorPicker type='secondary' />
                     </div>
                 </BodyContainer>
             </div>

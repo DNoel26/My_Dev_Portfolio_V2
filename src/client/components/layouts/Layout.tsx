@@ -1,5 +1,6 @@
 /** @format */
 
+import ColorThemeDrawer from '@@components/ColorThemeDrawer';
 import { ANCHOR_TAG } from '@@lib/constants';
 import { TDefaultPropsWithChildren } from '@@types/client/props.types';
 import Footer from './Footer';
@@ -15,6 +16,7 @@ const Layout = ({ children }: TDefaultPropsWithChildren) => {
             <main>{children}</main>
             <SpeedDial />
             <ScrollTopButton />
+            <ColorThemeDrawer />
             <Footer />
         </>
     );

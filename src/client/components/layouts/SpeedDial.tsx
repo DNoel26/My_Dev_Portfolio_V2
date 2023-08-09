@@ -3,9 +3,9 @@
 import { ACTION_USER_THEME } from '@@actions/userThemeActions';
 import { MuiSpeedDial, MuiSpeedDialAction, MuiSpeedDialIcon } from '@@client';
 import {
-    MuiFormatColorResetIcon,
-    MuiPaletteIcon,
-    MuiSwapHorizontalIcon,
+    MuiFormatColorResetOutlinedIcon,
+    MuiPaletteOutlinedIcon,
+    MuiSwapHorizontalCircleOutlinedIcon,
 } from '@@components/icons';
 import ThemeIcon from '@@components/ui/ThemeIcon';
 import { UserThemeContext } from '@@context/UserThemeContext';
@@ -15,7 +15,8 @@ import { useContext, useMemo, useState } from 'react';
 import styles from './SpeedDial.module.scss';
 
 const SpeedDial = () => {
-    const { userThemeState, userThemeDispatch } = useContext(UserThemeContext);
+    const { userThemeState, userThemeDispatch, setIsOpenThemeEditor } =
+        useContext(UserThemeContext);
     const handleChangeTheme = useUserThemeChange();
     const { tooltipText } = useNextTheme();
     const [isOpen, setIsOpen] = useState(false);
@@ -28,20 +29,12 @@ const SpeedDial = () => {
                 handleAction: handleChangeTheme,
             },
             {
-                icon: <MuiPaletteIcon />,
+                icon: <MuiPaletteOutlinedIcon />,
                 name: 'Change Colors',
-                handleAction: () =>
-                    userThemeDispatch({
-                        type: ACTION_USER_THEME.UPDATE_ALL,
-                        payload: {
-                            ...userThemeState,
-                            colorPrimary: 'red',
-                            colorSecondary: 'yellow',
-                        },
-                    }),
+                handleAction: () => setIsOpenThemeEditor((prev) => !prev),
             },
             {
-                icon: <MuiSwapHorizontalIcon />,
+                icon: <MuiSwapHorizontalCircleOutlinedIcon />,
                 name: 'Swap Colors',
                 handleAction: () =>
                     userThemeDispatch({
@@ -50,7 +43,7 @@ const SpeedDial = () => {
             },
             {
                 icon: !userThemeState.isOriginalTheme ? (
-                    <MuiFormatColorResetIcon />
+                    <MuiFormatColorResetOutlinedIcon />
                 ) : null,
                 name: 'Reset Colors',
                 handleAction: () =>
@@ -59,7 +52,13 @@ const SpeedDial = () => {
                     }),
             },
         ],
-        [tooltipText, userThemeState, userThemeDispatch, handleChangeTheme],
+        [
+            tooltipText,
+            userThemeState,
+            userThemeDispatch,
+            handleChangeTheme,
+            setIsOpenThemeEditor,
+        ],
     );
 
     return (

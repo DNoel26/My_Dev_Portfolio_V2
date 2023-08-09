@@ -13,6 +13,7 @@ import {
     Dispatch,
     PropsWithChildren,
     ReactNode,
+    SetStateAction,
     createContext,
     useEffect,
     useMemo,
@@ -23,6 +24,8 @@ import {
 type TContext = {
     userThemeState: IUserThemeState;
     userThemeDispatch: Dispatch<TUserThemeAction>;
+    isOpenThemeEditor: boolean;
+    setIsOpenThemeEditor: Dispatch<SetStateAction<boolean>>;
 };
 
 const { USER_THEME_PRIMARY, USER_THEME_SECONDARY } = CLIENT_STORAGE_ITEM_KEY;
@@ -32,6 +35,8 @@ const getRootPropertyValue = (root: Element, property: string) =>
 export const UserThemeContext = createContext<TContext>({
     userThemeState: userThemeInitialState,
     userThemeDispatch: () => {},
+    isOpenThemeEditor: false,
+    setIsOpenThemeEditor: () => {},
 });
 
 const UserThemeProvider = ({ children }: PropsWithChildren) => {
@@ -44,9 +49,15 @@ const UserThemeProvider = ({ children }: PropsWithChildren) => {
         USER_THEME_SECONDARY,
     );
     const { state: userThemeState, dispatch: userThemeDispatch, root } = useUserTheme();
+    const [isOpenThemeEditor, setIsOpenThemeEditor] = useState(false);
     const value = useMemo(
-        () => ({ userThemeState, userThemeDispatch }),
-        [userThemeState, userThemeDispatch],
+        () => ({
+            userThemeState,
+            userThemeDispatch,
+            isOpenThemeEditor,
+            setIsOpenThemeEditor,
+        }),
+        [userThemeState, userThemeDispatch, isOpenThemeEditor, setIsOpenThemeEditor],
     );
     const [renderComponent, setRenderComponent] = useState<ReactNode | null>(null);
 
