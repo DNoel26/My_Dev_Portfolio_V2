@@ -2,11 +2,12 @@
 
 import { NextLink } from '@@client';
 import clsx from 'clsx';
+import { LinkProps } from 'next/link';
 import { useRouter } from 'next/router';
-import { ComponentProps, useEffect } from 'react';
+import { useEffect } from 'react';
 
 /* eslint-disable react/jsx-props-no-spreading */
-type TNextLink = ComponentProps<typeof NextLink> & { isExternal?: false };
+type TNextLink = LinkProps & { isExternal?: false };
 type THtmlLink = JSX.IntrinsicElements['a'] & { isExternal: true };
 type TLink = TNextLink | THtmlLink;
 

@@ -1,0 +1,70 @@
+/** @format */
+
+@use 'base';
+
+$cl-img-container: '.img_container';
+$cl-bg: '#{$cl-img-container}__bg';
+$cl-frame: '#{$cl-img-container}__frame';
+$cl-img: '#{$cl-img-container}__img';
+
+#{$cl-img-container} {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: min(800px, 75%);
+    height: base.$hero-height-container;
+    div,
+    img {
+        z-index: 1;
+    }
+    #{$cl-frame} {
+        @include base.transition((transform));
+        position: absolute;
+        width: 450px;
+        height: 450px;
+        top: 150px;
+        left: 225px;
+        border-bottom-left-radius: base.$border-radius-sm;
+        &:hover {
+            transform: rotate(15deg);
+        }
+    }
+    #{$cl-img} {
+        @include base.transition((filter, transform));
+        position: relative;
+        display: inline-block;
+        height: 450px;
+        width: 450px;
+        object-fit: cover;
+        object-position: 100% 50%;
+        border-bottom-left-radius: base.$border-radius-sm;
+        top: 100px;
+        left: 165px;
+        box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+            0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+        &:hover {
+            transform: rotate(5deg);
+        }
+    }
+}
+
+@include base.theme(#{$cl-img-container}, 'dark') {
+    #{$cl-frame} {
+        border: 5px solid base.$color-white;
+    }
+    #{$cl-img} {
+        filter: grayscale(1);
+        &:hover {
+            filter: grayscale(0);
+        }
+    }
+}
+
+@include base.theme(#{$cl-img-container}, 'light') {
+    #{$cl-frame} {
+        border: 5px solid base.$color-black;
+    }
+    #{$cl-img} {
+        filter: grayscale(0);
+    }
+}

@@ -4,14 +4,15 @@ import { logoDarnell } from '@@assets/images';
 import ContactSection from '@@components/ContactSection';
 import SocialMediaLinks from '@@components/SocialMediaLinks';
 import Button from '@@components/ui/Button';
+import ColorPicker from '@@components/ui/ColorPicker';
 import Image from '@@components/ui/Image';
 import Link from '@@components/ui/Link';
-import { APP_URL, EXTERNAL_URL } from '@@lib/constants';
+import { ANCHOR_TAG, APP_URL, EXTERNAL_URL } from '@@lib/constants';
 import clsx from 'clsx';
 import BodyContainer from './BodyContainer';
 import styles from './Footer.module.scss';
 
-const { HOME, PLAY, PROJECTS, ABOUT } = APP_URL.BASE;
+const { HOME, PLAY } = APP_URL.BASE;
 const { GITHUB, LINKEDIN, WHATSAPP } = EXTERNAL_URL;
 
 const Footer = () => {
@@ -20,11 +21,15 @@ const Footer = () => {
             <div className={styles.footer__top}>
                 <ContactSection />
             </div>
-            <div className={styles.footer__middle}>
+            <div id={ANCHOR_TAG.APP.BOTTOM} className={styles.footer__middle}>
                 <BodyContainer>
                     <div className={styles.footer__middle_container}>
                         <h2>Take a break</h2>
                         <Button className={styles.footer__middle_btn}>Play Now</Button>
+                        <br />
+                        <ColorPicker type='primary' />
+                        <br />
+                        <ColorPicker type='secondary' />
                     </div>
                 </BodyContainer>
             </div>
@@ -39,10 +44,10 @@ const Footer = () => {
                                 <Link href={HOME}>Home</Link>
                             </li>
                             <li>
-                                <Link href={ABOUT}>About Me</Link>
+                                <Link href={HOME}>About Me</Link>
                             </li>
                             <li>
-                                <Link href={PROJECTS}>Projects</Link>
+                                <Link href={HOME}>Projects</Link>
                             </li>
                             <li>
                                 <Link href={PLAY}>Let&apos;s Play a Game</Link>

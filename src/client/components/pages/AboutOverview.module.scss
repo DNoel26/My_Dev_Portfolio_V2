@@ -1,0 +1,19 @@
+/** @format */
+
+@use 'base';
+
+$cl-about: '.about';
+$cl-container: '#{$cl-about}__container';
+$cl-text-container: '#{$cl-about}__text_container';
+
+#{$cl-about} {
+    margin-bottom: base.$spacing-section;
+    #{$cl-container} {
+        margin-top: base.$spacing-section;
+        text-align: left;
+    }
+    #{$cl-text-container} {
+        @include base.margin-x;
+        width: min(75ch, 100%);
+    }
+}

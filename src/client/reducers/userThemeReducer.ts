@@ -29,7 +29,6 @@ export const userThemeReducer: Reducer<IUserThemeState, TUserThemeAction> = (
     switch (action.type) {
         case UPDATE_PRIMARY: {
             setStorageItem(storage, USER_THEME_PRIMARY, action.payload);
-            setStorageItem(storage, USER_THEME_SECONDARY, state.colorSecondary);
 
             const isOriginalTheme =
                 action.payload === userThemeInitialState.colorPrimaryOriginal &&
@@ -37,7 +36,6 @@ export const userThemeReducer: Reducer<IUserThemeState, TUserThemeAction> = (
             return { ...state, colorPrimary: action.payload, isOriginalTheme };
         }
         case UPDATE_SECONDARY: {
-            setStorageItem(storage, USER_THEME_PRIMARY, state.colorPrimary);
             setStorageItem(storage, USER_THEME_SECONDARY, action.payload);
 
             const isOriginalTheme =
@@ -57,11 +55,11 @@ export const userThemeReducer: Reducer<IUserThemeState, TUserThemeAction> = (
             return { ...state, ...action.payload, isOriginalTheme };
         }
         case SWAP: {
-            setStorageItem(storage, USER_THEME_PRIMARY, state.colorSecondary);
-            setStorageItem(storage, USER_THEME_SECONDARY, state.colorPrimary);
-
             const colorPrimary = state.colorSecondary;
             const colorSecondary = state.colorPrimary;
+            setStorageItem(storage, USER_THEME_PRIMARY, colorPrimary);
+            setStorageItem(storage, USER_THEME_SECONDARY, colorSecondary);
+
             const isOriginalTheme = false;
             return { ...state, colorPrimary, colorSecondary, isOriginalTheme };
         }

@@ -12,18 +12,18 @@ const _PLAY: TRoutePathname = '/play';
 export const ANCHOR_TAG = {
     HOME_PAGE: {
         INTRO: 'intro',
+        ABOUT: 'about',
         EXPERIENCE: 'experience',
         TRAITS: 'traits',
         SERVICES: 'services',
         SKILLS: 'skills',
+        PROJECTS: 'projects',
     } as const,
-    APP: { SCROLL_TOP: 'top', CONTACT: 'contact' } as const,
+    APP: { SCROLL_TOP: 'top', CONTACT: 'contact', BOTTOM: 'bottom' } as const,
 } as const;
 
 const BASE = {
     HOME: `/`,
-    ABOUT: '/about',
-    PROJECTS: _PROJECTS,
     PLAY: _PLAY,
 } as const satisfies TUrl;
 

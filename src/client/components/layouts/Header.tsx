@@ -22,16 +22,16 @@ interface IHeaderProps {
     position: 'fixed' | 'absolute';
 }
 
-const { HOME, ABOUT, PROJECTS, PLAY } = APP_URL.BASE;
-const { SERVICES, SKILLS } = ANCHOR_TAG.HOME_PAGE;
+const { HOME, PLAY } = APP_URL.BASE;
+const { SERVICES, SKILLS, ABOUT, PROJECTS } = ANCHOR_TAG.HOME_PAGE;
 const { CONTACT } = ANCHOR_TAG.APP;
 
 const navLinks: INavLinkProps[] = [
     { title: 'Home', pathname: HOME },
-    { title: 'About', pathname: ABOUT },
+    { title: 'About', pathname: HOME, hash: ABOUT },
     { title: 'Services', pathname: HOME, hash: SERVICES },
     { title: 'Skills', pathname: HOME, hash: SKILLS },
-    { title: 'Projects', pathname: PROJECTS },
+    { title: 'Projects', pathname: HOME, hash: PROJECTS },
     { title: 'Contact', hash: CONTACT },
     { title: 'Play', pathname: PLAY },
 ];

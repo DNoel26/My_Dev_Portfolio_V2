@@ -60,7 +60,7 @@ const ContactSection = () => {
         <MuiBox className={clsx(CSS_GLOBAL_CLASS_NAME.THEME_BG, styles.contact)}>
             <Heading
                 id={ANCHOR_TAG.APP.CONTACT}
-                subHeading='Contact Me'
+                subHeading='Contact Form'
                 heading="Let's Chat"
             />
             <BackgroundGradient className={styles.contact__container}>

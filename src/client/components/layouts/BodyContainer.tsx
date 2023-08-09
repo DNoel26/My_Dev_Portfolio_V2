@@ -6,6 +6,8 @@ import clsx from 'clsx';
 import { ElementType } from 'react';
 import styles from './BodyContainer.module.scss';
 
+/* eslint-disable react/jsx-props-no-spreading */
+// extends needed to set component prop without TS error
 type TProps<Type extends ElementType> = MuiContainerProps<Type, { component?: Type }>;
 
 const BodyContainer = <Type extends ElementType>(
@@ -17,7 +19,6 @@ const BodyContainer = <Type extends ElementType>(
         <MuiContainer
             className={clsx(styles.container, className)}
             maxWidth='xl'
-            // eslint-disable-next-line react/jsx-props-no-spreading
             {...restProps}
         >
             {children}

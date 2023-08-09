@@ -2,8 +2,6 @@
 
 @use 'base';
 
-$height-container: 600px;
-
 $cl-hero: '.hero';
 $cl-bg: '#{$cl-hero}__bg';
 $cl-heading: '#{$cl-hero}__heading';
@@ -16,10 +14,9 @@ $cl-img: '#{$cl-hero}__img';
 
 #{$cl-hero} {
     display: flex;
-    height: $height-container;
+    height: base.$hero-height-container;
     overflow: visible;
     margin-top: -(base.$header-height);
-    margin-bottom: base.$spacing-section;
     #{$cl-info_container} {
         margin-top: 12px;
         align-self: center;
@@ -30,7 +27,7 @@ $cl-img: '#{$cl-hero}__img';
         top: 0;
         right: 0;
         width: min(800px, 75%);
-        height: $height-container;
+        height: base.$hero-height-container;
         div,
         img {
             z-index: 1;

@@ -64,17 +64,28 @@ const UserThemeProvider = ({ children }: PropsWithChildren) => {
     );
     // initializes the color state handler
     useEffect(() => {
-        if (root && (primaryItemStr || secondaryItemStr)) {
+        if (root) {
             const colorPrimary = primaryItemStr;
             const colorSecondary = secondaryItemStr;
-
-            userThemeDispatch({
-                type: ACTION_USER_THEME.UPDATE_ALL,
-                payload: {
-                    colorPrimary,
-                    colorSecondary,
-                },
-            });
+            if (colorPrimary && colorSecondary) {
+                userThemeDispatch({
+                    type: ACTION_USER_THEME.UPDATE_ALL,
+                    payload: {
+                        colorPrimary,
+                        colorSecondary,
+                    },
+                });
+            } else if (colorPrimary) {
+                userThemeDispatch({
+                    type: ACTION_USER_THEME.UPDATE_PRIMARY,
+                    payload: colorPrimary,
+                });
+            } else if (colorSecondary) {
+                userThemeDispatch({
+                    type: ACTION_USER_THEME.UPDATE_SECONDARY,
+                    payload: colorSecondary,
+                });
+            }
         }
     }, [root, primaryItemStr, secondaryItemStr, userThemeDispatch]);
     // update css variables on state change
