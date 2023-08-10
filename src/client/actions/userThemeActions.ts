@@ -4,11 +4,13 @@ export const ACTION_USER_THEME = {
     UPDATE_PRIMARY: 'UPDATE_PRIMARY',
     UPDATE_SECONDARY: 'UPDATE_SECONDARY',
     UPDATE_ALL: 'UPDATE_ALL',
+    MATCH: 'MATCH',
     SWAP: 'SWAP',
     RESET: 'RESET',
 } as const;
 
-const { UPDATE_PRIMARY, UPDATE_SECONDARY, UPDATE_ALL, SWAP, RESET } = ACTION_USER_THEME;
+const { UPDATE_PRIMARY, UPDATE_SECONDARY, UPDATE_ALL, MATCH, SWAP, RESET } =
+    ACTION_USER_THEME;
 
 export interface IUserThemeState {
     colorPrimaryOriginal: string;
@@ -28,5 +30,5 @@ export type TUserThemeAction =
           payload: Pick<IUserThemeState, 'colorPrimary' | 'colorSecondary'>;
       }
     | {
-          type: typeof SWAP | typeof RESET;
+          type: typeof MATCH | typeof SWAP | typeof RESET;
       };

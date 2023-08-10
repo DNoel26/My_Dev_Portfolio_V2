@@ -11,7 +11,8 @@ import {
 } from '../actions/userThemeActions';
 
 const { USER_THEME_PRIMARY, USER_THEME_SECONDARY } = CLIENT_STORAGE_ITEM_KEY;
-const { UPDATE_PRIMARY, UPDATE_SECONDARY, UPDATE_ALL, SWAP, RESET } = ACTION_USER_THEME;
+const { UPDATE_PRIMARY, UPDATE_SECONDARY, UPDATE_ALL, MATCH, SWAP, RESET } =
+    ACTION_USER_THEME;
 
 export const userThemeInitialState: IUserThemeState = {
     colorPrimaryOriginal: cssExports.colorPrimary,
@@ -53,6 +54,13 @@ export const userThemeReducer: Reducer<IUserThemeState, TUserThemeAction> = (
                 action.payload.colorSecondary ===
                     userThemeInitialState.colorSecondaryOriginal;
             return { ...state, ...action.payload, isOriginalTheme };
+        }
+        case MATCH: {
+            const colorSecondary = state.colorPrimary;
+            setStorageItem(storage, USER_THEME_SECONDARY, colorSecondary);
+
+            const isOriginalTheme = false;
+            return { ...state, colorSecondary, isOriginalTheme };
         }
         case SWAP: {
             const colorPrimary = state.colorSecondary;

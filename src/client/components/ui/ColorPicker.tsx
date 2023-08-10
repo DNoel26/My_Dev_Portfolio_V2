@@ -4,7 +4,12 @@ import { ACTION_USER_THEME } from '@@actions/userThemeActions';
 import { UserThemeContext } from '@@context/UserThemeContext';
 import { TDefaultProps } from '@@types/client/props.types';
 import { useContext } from 'react';
-import { IColor, ColorPicker as PaletteColorPicker, useColor } from 'react-color-palette';
+import {
+    ColorService,
+    IColor,
+    ColorPicker as PaletteColorPicker,
+    useColor,
+} from 'react-color-palette';
 import 'react-color-palette/css';
 
 /* eslint-disable react/jsx-props-no-spreading */
@@ -33,6 +38,16 @@ const ColorPicker = (props: IProps) => {
                 height={50}
                 color={color}
                 onChange={(_color) => {
+                    // TODO: Prevent saturation dropping below 50 on color swap
+                    if (type === 'primary' && _color.hsv.s < 50) {
+                        const validatedColor = ColorService.convert('hsv', {
+                            ..._color.hsv,
+                            s: 50,
+                        });
+                        setColor(validatedColor);
+                        handleColorChange(validatedColor);
+                        return;
+                    }
                     setColor(_color);
                     handleColorChange(_color);
                 }}

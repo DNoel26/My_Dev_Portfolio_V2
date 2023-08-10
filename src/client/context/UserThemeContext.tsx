@@ -26,6 +26,9 @@ type TContext = {
     userThemeDispatch: Dispatch<TUserThemeAction>;
     isOpenThemeEditor: boolean;
     setIsOpenThemeEditor: Dispatch<SetStateAction<boolean>>;
+    canResetColors: boolean;
+    canSwapColors: boolean;
+    canMatchColors: boolean;
 };
 
 const { USER_THEME_PRIMARY, USER_THEME_SECONDARY } = CLIENT_STORAGE_ITEM_KEY;
@@ -37,6 +40,9 @@ export const UserThemeContext = createContext<TContext>({
     userThemeDispatch: () => {},
     isOpenThemeEditor: false,
     setIsOpenThemeEditor: () => {},
+    canResetColors: false,
+    canSwapColors: true,
+    canMatchColors: true,
 });
 
 const UserThemeProvider = ({ children }: PropsWithChildren) => {
@@ -51,12 +57,18 @@ const UserThemeProvider = ({ children }: PropsWithChildren) => {
     const { state: userThemeState, dispatch: userThemeDispatch, root } = useUserTheme();
     const [isOpenThemeEditor, setIsOpenThemeEditor] = useState(false);
     const value = useMemo(
-        () => ({
-            userThemeState,
-            userThemeDispatch,
-            isOpenThemeEditor,
-            setIsOpenThemeEditor,
-        }),
+        () =>
+            ({
+                userThemeState,
+                userThemeDispatch,
+                isOpenThemeEditor,
+                setIsOpenThemeEditor,
+                canResetColors: !userThemeState.isOriginalTheme,
+                canSwapColors:
+                    userThemeState.colorPrimary !== userThemeState.colorSecondary,
+                canMatchColors:
+                    userThemeState.colorPrimary !== userThemeState.colorSecondary,
+            } as TContext),
         [userThemeState, userThemeDispatch, isOpenThemeEditor, setIsOpenThemeEditor],
     );
     const [renderComponent, setRenderComponent] = useState<ReactNode | null>(null);

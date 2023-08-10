@@ -22,24 +22,18 @@ $cl-btn-alert: '#{$cl-btn}--alert';
 }
 
 #{$cl-btn-wrapper} {
-    :global(.MuiButtonBase-root.MuiButton-root) {
-        transition: none;
-    }
-}
-
-#{$cl-btn-wrapper} {
     margin: 64px auto 0;
     text-align: center;
     width: max-content;
     height: max-content;
     border-radius: base.$border-radius-xs;
-    @include base.interactive-states($transition) {
-        box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.75);
-        transform: translateY(-3px);
-        animation-play-state: running;
-    }
     #{$cl-btn} {
         @include fill;
+        @include base.interactive-states($transition) {
+            box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.75);
+            transform: translateY(-3px);
+            animation-play-state: running;
+        }
         border: inherit;
         color: base.$color-white;
         background-color: transparent;
@@ -52,6 +46,11 @@ $cl-btn-alert: '#{$cl-btn}--alert';
         text-transform: capitalize;
         animation: gradient 1.5s infinite alternate ease-in-out;
         animation-play-state: paused;
+        &:disabled {
+            opacity: 0.3;
+            pointer-events: none;
+            cursor: none;
+        }
         &#{$cl-btn-default} {
             background-color: var(--color-primary);
         }

@@ -4,6 +4,7 @@ import { ACTION_USER_THEME } from '@@actions/userThemeActions';
 import { MuiDrawer } from '@@client';
 import { UserThemeContext } from '@@context/UserThemeContext';
 import useColorThemeToggle from '@@hooks/useColorThemeToggle';
+import useUserThemeChange from '@@hooks/useUserThemeChange';
 import { useContext } from 'react';
 import styles from './ColorThemeDrawer.module.scss';
 import BodyContainer from './layouts/BodyContainer';
@@ -11,7 +12,14 @@ import Button from './ui/Button';
 import ColorPicker from './ui/ColorPicker';
 
 const ColorThemeDrawer = () => {
-    const { isOpenThemeEditor, userThemeDispatch } = useContext(UserThemeContext);
+    const {
+        isOpenThemeEditor,
+        userThemeDispatch,
+        canResetColors,
+        canMatchColors,
+        canSwapColors,
+    } = useContext(UserThemeContext);
+    const handleChangeTheme = useUserThemeChange();
     const { handleToggle } = useColorThemeToggle();
 
     return (
@@ -25,12 +33,15 @@ const ColorThemeDrawer = () => {
                 <div className={styles.drawer__item}>
                     <h4>Primary</h4>
                     <ColorPicker className={styles.drawer__color_picker} type='primary' />
+                    <Button onClick={handleChangeTheme}>Switch Theme</Button>
                     <Button
                         onClick={() =>
-                            userThemeDispatch({ type: ACTION_USER_THEME.RESET })
+                            userThemeDispatch({ type: ACTION_USER_THEME.SWAP })
                         }
+                        disabled={!canSwapColors}
+                        sx={{ marginTop: '-48px' }}
                     >
-                        Reset Colors
+                        Swap Colors
                     </Button>
                 </div>
                 <div className={styles.drawer__item}>
@@ -41,10 +52,20 @@ const ColorThemeDrawer = () => {
                     />
                     <Button
                         onClick={() =>
-                            userThemeDispatch({ type: ACTION_USER_THEME.SWAP })
+                            userThemeDispatch({ type: ACTION_USER_THEME.RESET })
                         }
+                        disabled={!canResetColors}
                     >
-                        Swap Colors
+                        Reset Colors
+                    </Button>
+                    <Button
+                        onClick={() =>
+                            userThemeDispatch({ type: ACTION_USER_THEME.MATCH })
+                        }
+                        disabled={!canMatchColors}
+                        sx={{ marginTop: '-48px' }}
+                    >
+                        Match Colors
                     </Button>
                 </div>
             </BodyContainer>

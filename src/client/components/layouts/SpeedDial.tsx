@@ -4,6 +4,7 @@ import { ACTION_USER_THEME } from '@@actions/userThemeActions';
 import { MuiSpeedDial, MuiSpeedDialAction, MuiSpeedDialIcon } from '@@client';
 import {
     MuiFormatColorResetOutlinedIcon,
+    MuiMergeOutlinedIcon,
     MuiPaletteOutlinedIcon,
     MuiSwapHorizontalCircleOutlinedIcon,
 } from '@@components/icons';
@@ -15,8 +16,13 @@ import { useContext, useMemo, useState } from 'react';
 import styles from './SpeedDial.module.scss';
 
 const SpeedDial = () => {
-    const { userThemeState, userThemeDispatch, setIsOpenThemeEditor } =
-        useContext(UserThemeContext);
+    const {
+        userThemeDispatch,
+        setIsOpenThemeEditor,
+        canMatchColors,
+        canSwapColors,
+        canResetColors,
+    } = useContext(UserThemeContext);
     const handleChangeTheme = useUserThemeChange();
     const { tooltipText } = useNextTheme();
     const [isOpen, setIsOpen] = useState(false);
@@ -34,7 +40,7 @@ const SpeedDial = () => {
                 handleAction: () => setIsOpenThemeEditor((prev) => !prev),
             },
             {
-                icon: <MuiSwapHorizontalCircleOutlinedIcon />,
+                icon: canSwapColors ? <MuiSwapHorizontalCircleOutlinedIcon /> : null,
                 name: 'Swap Colors',
                 handleAction: () =>
                     userThemeDispatch({
@@ -42,9 +48,15 @@ const SpeedDial = () => {
                     }),
             },
             {
-                icon: !userThemeState.isOriginalTheme ? (
-                    <MuiFormatColorResetOutlinedIcon />
-                ) : null,
+                icon: canMatchColors ? <MuiMergeOutlinedIcon /> : null,
+                name: 'Match Colors',
+                handleAction: () =>
+                    userThemeDispatch({
+                        type: ACTION_USER_THEME.MATCH,
+                    }),
+            },
+            {
+                icon: canResetColors ? <MuiFormatColorResetOutlinedIcon /> : null,
                 name: 'Reset Colors',
                 handleAction: () =>
                     userThemeDispatch({
@@ -54,10 +66,12 @@ const SpeedDial = () => {
         ],
         [
             tooltipText,
-            userThemeState,
             userThemeDispatch,
             handleChangeTheme,
             setIsOpenThemeEditor,
+            canMatchColors,
+            canResetColors,
+            canSwapColors,
         ],
     );
 
