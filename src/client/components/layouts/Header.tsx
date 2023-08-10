@@ -10,6 +10,7 @@ import ThemeToggle from '@@components/ui/ThemeToggle';
 import useScrollTrigger from '@@hooks/useScrollTrigger';
 import { ANCHOR_TAG, APP_URL, TRouteHash, TRoutePathname } from '@@lib/constants';
 import clsx from 'clsx';
+import { MutableRefObject, useEffect, useRef } from 'react';
 import BodyContainer from './BodyContainer';
 import styles from './Header.module.scss';
 
@@ -17,6 +18,7 @@ interface INavLinkProps {
     title: string;
     pathname?: TRoutePathname;
     hash?: TRouteHash;
+    tabIndex?: number;
 }
 interface IHeaderProps {
     position: 'fixed' | 'absolute';
@@ -36,16 +38,34 @@ const navLinks: INavLinkProps[] = [
     { title: 'Play', pathname: PLAY },
 ];
 
-const NavLink = ({ title, pathname, hash }: INavLinkProps) => {
+const NavLink = ({ title, pathname, hash, tabIndex }: INavLinkProps) => {
     return (
         <li>
-            <Link href={{ pathname, hash }}>{title}</Link>
+            <Link href={{ pathname, hash }} tabIndex={tabIndex}>
+                {title}
+            </Link>
         </li>
     );
 };
 
 const HeaderPrivate = ({ position }: IHeaderProps) => {
     const trigger = useScrollTrigger();
+    const headerRef = useRef() as MutableRefObject<HTMLDivElement | HTMLElement>;
+    const isFixed = position === 'fixed';
+    useEffect(() => {
+        if (headerRef.current && !isFixed) {
+            const headerLinks = headerRef.current.querySelectorAll('a');
+            const headerBtns = headerRef.current.querySelectorAll('button');
+            /* eslint-disable no-param-reassign */
+            headerLinks.forEach((link) => {
+                link.tabIndex = -1;
+            });
+            headerBtns.forEach((btn) => {
+                btn.tabIndex = -1;
+            });
+            /* eslint-enable no-param-reassign */
+        }
+    }, [isFixed]);
 
     return (
         <MuiAppBar
@@ -54,7 +74,8 @@ const HeaderPrivate = ({ position }: IHeaderProps) => {
                 styles[`header--${position}`],
                 trigger && styles['header--scrolled'],
             )}
-            component={position === 'fixed' ? 'header' : 'div'}
+            component={isFixed ? 'header' : 'div'}
+            ref={headerRef}
         >
             <BodyContainer>
                 <MuiToolbar className={styles.header__toolbar} disableGutters>
@@ -79,6 +100,7 @@ const HeaderPrivate = ({ position }: IHeaderProps) => {
                                         title={title}
                                         pathname={pathname}
                                         hash={hash}
+                                        // tabIndex={!isFixed ? -1 : undefined}
                                     />
                                 );
                             })}

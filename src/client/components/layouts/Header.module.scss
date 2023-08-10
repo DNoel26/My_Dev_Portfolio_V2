@@ -83,6 +83,10 @@ $cl-absolute: '#{$cl-header}--absolute';
         z-index: 0;
         cursor: none;
         pointer-events: none;
+        a, button {
+            cursor: pointer;
+            pointer-events: none;
+        }
         #{$cl-logo}, #{$cl-content} :not(:first-child) {
             opacity: 0;
         }

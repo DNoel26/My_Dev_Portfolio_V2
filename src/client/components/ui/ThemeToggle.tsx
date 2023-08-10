@@ -47,6 +47,8 @@ const ThemeIconBtn = (props: TDefaultPropsWithChildren<IIconBtnProps>) => {
                             : styles['toggle__btn--enabled'],
                     )}
                     disabled={isActive || isActive === null}
+                    // TODO: fix tab focusing twice on this element
+                    tabIndex={isActive ? -1 : undefined}
                     onClick={handleChangeTheme}
                 >
                     {children}
