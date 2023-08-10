@@ -2,8 +2,10 @@
 
 import { setStorageItem } from '@@hooks/useClientStorage';
 import { CLIENT_STORAGE_ITEM_KEY } from '@@lib/constants';
+import { SATURATION_LEVEL_MIN } from '@@lib/constants/app';
 import { cssExports } from '@@styles/exports';
 import { Reducer } from 'react';
+import { ColorService } from 'react-color-palette';
 import {
     ACTION_USER_THEME,
     IUserThemeState,
@@ -65,6 +67,11 @@ export const userThemeReducer: Reducer<IUserThemeState, TUserThemeAction> = (
         case SWAP: {
             const colorPrimary = state.colorSecondary;
             const colorSecondary = state.colorPrimary;
+            const colorPrimaryHsv = ColorService.convert('hex', colorPrimary);
+            // prevents low saturation on primary color swap
+            if (colorPrimaryHsv.hsv.s < SATURATION_LEVEL_MIN) {
+                return { ...state };
+            }
             setStorageItem(storage, USER_THEME_PRIMARY, colorPrimary);
             setStorageItem(storage, USER_THEME_SECONDARY, colorSecondary);
 

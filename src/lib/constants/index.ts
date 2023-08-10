@@ -1,8 +1,6 @@
 /** @format */
 
 export {
-    BG_IMG_DARK_NEUTRAL,
-    BG_IMG_LIGHT_NEUTRAL,
     CLIENT_STORAGE_ITEM_KEY,
     CSS_GLOBAL_CLASS_NAME,
     CSS_VARIABLE,
