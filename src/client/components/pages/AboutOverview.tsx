@@ -22,10 +22,10 @@ const AboutOverview = () => {
                     </p>
                     <br />
                     <p>
-                        In January 2020 I decided to seriously learn to code by enrolling
-                        in a web development boot camp for almost a year. It was during
-                        this time I realized that this was something I really enjoyed and
-                        was good at.
+                        In January 2020 I decided to learn to code by enrolling in a web
+                        development boot camp for almost a year. It was during this time I
+                        realized that this was something I really enjoyed and was talented
+                        in.
                     </p>
                     <br />
                     <p>
