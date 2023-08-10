@@ -31,6 +31,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 attribute='class'
                 disableTransitionOnChange
                 themes={themes}
+                defaultTheme='dark'
             >
                 <PageProvider>
                     <Component {...pageProps} />
