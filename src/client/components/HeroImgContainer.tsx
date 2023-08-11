@@ -19,6 +19,7 @@ const HeroImgContainer = ({ imgSrc, imgClassName }: IProps) => {
                 className={clsx(styles.img_container__img, imgClassName)}
                 src={imgSrc}
                 alt='Profile pic of Darnell Noel'
+                priority
             />
         </div>
     );

@@ -1,0 +1,13 @@
+/** @format */
+
+@use 'base';
+
+$cl-color-picker: '.color_picker';
+$cl-error: '#{$cl-color-picker}__error';
+
+#{$cl-color-picker} {
+    #{$cl-error} {
+        padding-top: 16px;
+        text-align: center;
+    }
+}

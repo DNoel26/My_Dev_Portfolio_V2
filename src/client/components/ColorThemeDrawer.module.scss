@@ -5,6 +5,7 @@
 $cl-drawer: '.drawer';
 $cl-container: '#{$cl-drawer}__container';
 $cl-item: '#{$cl-drawer}__item';
+$cl-btn-container: '#{$cl-drawer}__btn_container';
 $cl-color-picker: '#{$cl-drawer}__color_picker';
 
 #{$cl-drawer} {
@@ -12,6 +13,9 @@ $cl-color-picker: '#{$cl-drawer}__color_picker';
     h4 {
         @include base.padding-y(32px);
         text-align: center;
+    }
+    #{$cl-btn-container} {
+        @include base.flex-center;
     }
     #{$cl-container} {
         display: flex;

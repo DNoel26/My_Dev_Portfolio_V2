@@ -30,4 +30,4 @@ export const CSS_GLOBAL_CLASS_NAME = {
     THEME_BG: 'theme-bg',
 };
 
-export const SATURATION_LEVEL_MIN = 50;
+export const SATURATION_LEVEL_MIN = 60;

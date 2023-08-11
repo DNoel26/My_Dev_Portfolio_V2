@@ -7,10 +7,18 @@ export const ACTION_USER_THEME = {
     MATCH: 'MATCH',
     SWAP: 'SWAP',
     RESET: 'RESET',
+    UPDATE_MESSAGE: 'UPDATE_MESSAGE',
 } as const;
 
-const { UPDATE_PRIMARY, UPDATE_SECONDARY, UPDATE_ALL, MATCH, SWAP, RESET } =
-    ACTION_USER_THEME;
+const {
+    UPDATE_PRIMARY,
+    UPDATE_SECONDARY,
+    UPDATE_ALL,
+    MATCH,
+    SWAP,
+    RESET,
+    UPDATE_MESSAGE,
+} = ACTION_USER_THEME;
 
 export interface IUserThemeState {
     colorPrimaryOriginal: string;
@@ -18,11 +26,12 @@ export interface IUserThemeState {
     colorPrimary: string;
     colorSecondary: string;
     isOriginalTheme: boolean;
+    message: string;
 }
 
 export type TUserThemeAction =
     | {
-          type: typeof UPDATE_PRIMARY | typeof UPDATE_SECONDARY;
+          type: typeof UPDATE_PRIMARY | typeof UPDATE_SECONDARY | typeof UPDATE_MESSAGE;
           payload: string;
       }
     | {

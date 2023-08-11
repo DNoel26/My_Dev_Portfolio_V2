@@ -2,9 +2,11 @@
 
 import { ACTION_USER_THEME } from '@@actions/userThemeActions';
 import { UserThemeContext } from '@@context/UserThemeContext';
+import { ERROR_MSG } from '@@lib/constants';
 import { SATURATION_LEVEL_MIN } from '@@lib/constants/app';
 import { TDefaultProps } from '@@types/client/props.types';
-import { useContext } from 'react';
+import clsx from 'clsx';
+import { useContext, useEffect, useState } from 'react';
 import {
     ColorService,
     IColor,
@@ -12,6 +14,7 @@ import {
     useColor,
 } from 'react-color-palette';
 import 'react-color-palette/css';
+import styles from './ColorPicker.module.scss';
 
 /* eslint-disable react/jsx-props-no-spreading */
 interface IProps extends TDefaultProps {
@@ -24,6 +27,24 @@ const ColorPicker = (props: IProps) => {
     const [color, setColor] = useColor(
         type === 'primary' ? userThemeState.colorPrimary : userThemeState.colorSecondary,
     );
+    const [errMsg, setErrMsg] = useState('');
+    useEffect(() => {
+        if (type === 'primary') {
+            if (color.hsv.s <= SATURATION_LEVEL_MIN) {
+                setErrMsg(ERROR_MSG.COLOR_MIN_PRIMARY);
+            } else {
+                setErrMsg('');
+            }
+        }
+        if (type === 'secondary') {
+            if (color.hsv.s < SATURATION_LEVEL_MIN) {
+                setErrMsg(ERROR_MSG.COLOR_MIN_SECONDARY);
+            } else {
+                setErrMsg('');
+            }
+        }
+    }, [type, color]);
+
     const handleColorChange = (_color: IColor) => {
         const action =
             type === 'primary'
@@ -33,7 +54,7 @@ const ColorPicker = (props: IProps) => {
     };
 
     return (
-        <div className={className}>
+        <div className={clsx(styles.color_picker, className)}>
             <PaletteColorPicker
                 hideAlpha
                 height={50}
@@ -52,6 +73,8 @@ const ColorPicker = (props: IProps) => {
                     handleColorChange(_color);
                 }}
             />
+            {/* use &nbsp; to allow div to take space with no error message */}
+            <p className={styles.color_picker__error}>{errMsg}&nbsp;</p>
         </div>
     );
 };

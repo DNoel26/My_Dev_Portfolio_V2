@@ -23,6 +23,7 @@ import MuiFormControl from '@mui/material/FormControl';
 import MuiFormControlLabel from '@mui/material/FormControlLabel';
 import MuiIconButton from '@mui/material/IconButton';
 import MuiPaper from '@mui/material/Paper';
+import MuiSnackbar from '@mui/material/Snackbar';
 import MuiSpeedDial from '@mui/material/SpeedDial';
 import MuiSpeedDialAction from '@mui/material/SpeedDialAction';
 import MuiSpeedDialIcon from '@mui/material/SpeedDialIcon';
@@ -52,6 +53,7 @@ export {
     MuiFormControlLabel,
     MuiIconButton,
     MuiPaper,
+    MuiSnackbar,
     MuiSpeedDial,
     MuiSpeedDialAction,
     MuiSpeedDialIcon,

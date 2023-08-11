@@ -8,6 +8,7 @@ import {
 import useClientStorage from '@@hooks/useClientStorage';
 import useUserTheme from '@@hooks/useUserTheme';
 import { CLIENT_STORAGE_ITEM_KEY, CSS_VARIABLE } from '@@lib/constants';
+import { SATURATION_LEVEL_MIN } from '@@lib/constants/app';
 import { userThemeInitialState } from '@@reducers/userThemeReducer';
 import {
     Dispatch,
@@ -19,6 +20,7 @@ import {
     useMemo,
     useState,
 } from 'react';
+import { ColorService } from 'react-color-palette';
 
 /* eslint-disable @typescript-eslint/no-empty-function */
 type TContext = {
@@ -56,21 +58,23 @@ const UserThemeProvider = ({ children }: PropsWithChildren) => {
     );
     const { state: userThemeState, dispatch: userThemeDispatch, root } = useUserTheme();
     const [isOpenThemeEditor, setIsOpenThemeEditor] = useState(false);
-    const value = useMemo(
-        () =>
-            ({
-                userThemeState,
-                userThemeDispatch,
-                isOpenThemeEditor,
-                setIsOpenThemeEditor,
-                canResetColors: !userThemeState.isOriginalTheme,
-                canSwapColors:
-                    userThemeState.colorPrimary !== userThemeState.colorSecondary,
-                canMatchColors:
-                    userThemeState.colorPrimary !== userThemeState.colorSecondary,
-            } as TContext),
-        [userThemeState, userThemeDispatch, isOpenThemeEditor, setIsOpenThemeEditor],
-    );
+    const value = useMemo(() => {
+        const colorSecondaryHsv = ColorService.convert(
+            'hex',
+            userThemeState.colorSecondary,
+        );
+        return {
+            userThemeState,
+            userThemeDispatch,
+            isOpenThemeEditor,
+            setIsOpenThemeEditor,
+            canResetColors: !userThemeState.isOriginalTheme,
+            canSwapColors:
+                userThemeState.colorPrimary !== userThemeState.colorSecondary &&
+                colorSecondaryHsv.hsv.s >= SATURATION_LEVEL_MIN,
+            canMatchColors: userThemeState.colorPrimary !== userThemeState.colorSecondary,
+        } as TContext;
+    }, [userThemeState, userThemeDispatch, isOpenThemeEditor, setIsOpenThemeEditor]);
     const [renderComponent, setRenderComponent] = useState<ReactNode | null>(null);
 
     const primaryItem = getUserThemePrimaryItem();

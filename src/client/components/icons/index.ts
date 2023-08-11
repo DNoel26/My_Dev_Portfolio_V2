@@ -2,6 +2,7 @@
 
 import MuiIconCheckCircle from '@mui/icons-material/CheckCircle';
 import MuiIconCheckCircleOutline from '@mui/icons-material/CheckCircleOutline';
+import MuiCloseIcon from '@mui/icons-material/Close';
 import MuiFormatColorResetIcon from '@mui/icons-material/FormatColorReset';
 import MuiFormatColorResetOutlinedIcon from '@mui/icons-material/FormatColorResetOutlined';
 import MuiIconKeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
@@ -19,6 +20,7 @@ import MuiIconWbSunny from '@mui/icons-material/WbSunny';
 import MuiIconWbSunnyOutlined from '@mui/icons-material/WbSunnyOutlined';
 
 export {
+    MuiCloseIcon,
     MuiFormatColorResetIcon,
     MuiFormatColorResetOutlinedIcon,
     MuiIconCheckCircle,
