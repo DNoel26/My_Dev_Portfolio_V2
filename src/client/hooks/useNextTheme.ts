@@ -29,7 +29,6 @@ const useNextTheme = () => {
             }
             setIsThemeResolved(true);
         }
-        console.log(resolvedTheme, 'useNextTheme');
     }, [resolvedTheme]);
 
     const toggleTheme = () => !!nextTheme && setTheme(nextTheme);

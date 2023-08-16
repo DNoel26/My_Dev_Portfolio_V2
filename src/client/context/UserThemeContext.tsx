@@ -6,10 +6,11 @@ import {
     TUserThemeAction,
 } from '@@actions/userThemeActions';
 import useClientStorage from '@@hooks/useClientStorage';
-import useUserTheme from '@@hooks/useUserTheme';
+import useNextTheme from '@@hooks/useNextTheme';
+import useWindowCheck from '@@hooks/useWindowCheck';
 import { CLIENT_STORAGE_ITEM_KEY, CSS_VARIABLE } from '@@lib/constants';
-import { SATURATION_LEVEL_MIN } from '@@lib/constants/app';
-import { userThemeInitialState } from '@@reducers/userThemeReducer';
+import { NEXT_THEME, SATURATION_LEVEL_MIN } from '@@lib/constants/app';
+import { userThemeInitialState, userThemeReducer } from '@@reducers/userThemeReducer';
 import {
     Dispatch,
     PropsWithChildren,
@@ -18,6 +19,7 @@ import {
     createContext,
     useEffect,
     useMemo,
+    useReducer,
     useState,
 } from 'react';
 import { ColorService } from 'react-color-palette';
@@ -56,7 +58,14 @@ const UserThemeProvider = ({ children }: PropsWithChildren) => {
         'local',
         USER_THEME_SECONDARY,
     );
-    const { state: userThemeState, dispatch: userThemeDispatch, root } = useUserTheme();
+    const root = useWindowCheck({
+        handleEffect: () => document.querySelector(':root'),
+    });
+    const [userThemeState, userThemeDispatch] = useReducer(
+        userThemeReducer,
+        userThemeInitialState,
+    );
+    const { setTheme, isDarkMode } = useNextTheme();
     const [isOpenThemeEditor, setIsOpenThemeEditor] = useState(false);
     const value = useMemo(() => {
         const colorSecondaryHsv = ColorService.convert(
@@ -126,6 +135,28 @@ const UserThemeProvider = ({ children }: PropsWithChildren) => {
             userThemeState.colorSecondary,
         );
     }, [userThemeState]);
+    // set next theme on state change
+    useEffect(() => {
+        if (root) {
+            if (userThemeState.isOriginalTheme && isDarkMode) {
+                setTheme(NEXT_THEME.DARK);
+            } else if (
+                userThemeState.isOriginalTheme &&
+                !isDarkMode &&
+                isDarkMode !== null
+            ) {
+                setTheme(NEXT_THEME.LIGHT);
+            } else if (!userThemeState.isOriginalTheme && isDarkMode) {
+                setTheme(NEXT_THEME.USER_DARK);
+            } else if (
+                !userThemeState.isOriginalTheme &&
+                !isDarkMode &&
+                isDarkMode !== null
+            ) {
+                setTheme(NEXT_THEME.USER_LIGHT);
+            }
+        }
+    }, [root, userThemeState, isDarkMode, setTheme]);
     // prevent flashing while colors load to match state
     useEffect(() => {
         if (root) {

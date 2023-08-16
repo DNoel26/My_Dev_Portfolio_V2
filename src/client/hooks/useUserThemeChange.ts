@@ -23,7 +23,6 @@ const useUserThemeChange = () => {
         ) {
             setTheme(NEXT_THEME.USER_DARK);
         }
-        console.log(userThemeState, isDarkMode, 'useUserThemeChange');
     };
 
     return handleChangeTheme;
