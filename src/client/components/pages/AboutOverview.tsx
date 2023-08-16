@@ -30,11 +30,17 @@ const AboutOverview = () => {
                     <br />
                     <p>
                         I&apos;ve always had an affinity for using{' '}
-                        <HighlightedText>logic</HighlightedText> to solve interesting and
-                        difficult problems but soon realized that there was a{' '}
-                        <HighlightedText>creative</HighlightedText> side to me that
-                        enjoyed the design and conceptualization processes. Now I enjoy
-                        working on and building complex and useful digital products!
+                        <HighlightedText>
+                            <strong>logic</strong>
+                        </HighlightedText>{' '}
+                        to solve interesting and difficult problems but soon realized that
+                        there was a{' '}
+                        <HighlightedText>
+                            <strong>creative</strong>
+                        </HighlightedText>{' '}
+                        side to me that enjoyed the design and conceptualization
+                        processes. Now I enjoy working on and building complex and useful
+                        digital products!
                     </p>
                     <br />
                     <p>

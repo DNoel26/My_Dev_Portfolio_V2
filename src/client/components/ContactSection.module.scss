@@ -61,6 +61,9 @@ $cl-submit-btn: '#{$cl-contact}__submit_btn';
         $size: 100px;
         width: $size;
         height: $size;
+        img {
+            transform: scaleX(-1);
+        }
     }
     #{$cl-form-container} {
         max-width: 100%;

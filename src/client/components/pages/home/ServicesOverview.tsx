@@ -13,21 +13,16 @@ import {
     svgIconWww,
 } from '@@assets/svgs';
 import BodyContainer from '@@components/layouts/BodyContainer';
+import Card from '@@components/ui/Card';
 import Heading from '@@components/ui/Heading';
-import Image from '@@components/ui/Image';
 import { ANCHOR_TAG } from '@@lib/constants';
 import { ComponentProps } from 'react';
 import styles from './ServicesOverview.module.scss';
 
-interface ICardInfo {
-    src: ComponentProps<typeof Image>['src'];
-    alt: ComponentProps<typeof Image>['alt'];
-    heading: string;
-    text: string;
-}
+type TCardInfo = Pick<ComponentProps<typeof Card>, 'src' | 'alt' | 'heading' | 'text'>;
 
 const PLACEHOLDER_TEXT = 'Some placeholder text here. '.repeat(5);
-const infoCards: ICardInfo[] = [
+const infoCards: TCardInfo[] = [
     {
         src: svgIconWww,
         alt: '',
@@ -90,26 +85,15 @@ const infoCards: ICardInfo[] = [
     },
 ];
 
-const Card = ({ src, alt, text, heading }: ICardInfo) => {
-    if (!heading) return null;
-    return (
-        <div className={styles.services__card}>
-            <Image src={src} alt={alt} height={64} width={64} />
-            <h4>{heading}</h4>
-            <p>{text}</p>
-        </div>
-    );
-};
-
 const ServicesOverview = () => {
     return (
-        <section className={styles.services}>
+        <section className={styles.overview}>
             <Heading
                 id={ANCHOR_TAG.HOME_PAGE.SERVICES}
                 subHeading='Developer Services'
                 heading='Software Engineering'
             />
-            <BodyContainer className={styles.services__container}>
+            <BodyContainer className={styles.overview__container}>
                 {infoCards.map((info) => {
                     const { src, alt, heading, text } = info;
                     return (

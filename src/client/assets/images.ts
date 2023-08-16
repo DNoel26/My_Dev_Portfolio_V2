@@ -6,6 +6,8 @@ import imgBrain from 'public/images/hard-soft-skills.png';
 import logoBabel from 'public/images/logos/babel.png';
 import logoBootstrap from 'public/images/logos/bootstrap.png';
 import logoChakra from 'public/images/logos/chakra-ui.png';
+import logoFearnleyProcterGroup from 'public/images/logos/clients/fpg.png';
+import logoRcnChemicals from 'public/images/logos/clients/rcn.png';
 import logoConfluence from 'public/images/logos/confluence.png';
 import logoCSS from 'public/images/logos/css.png';
 import logoDocker from 'public/images/logos/docker.png';
@@ -52,14 +54,15 @@ import logoWhatsapp from 'public/images/logos/whatsapp.png';
 import imgMeWithHeadset from 'public/images/me-headset.jpg';
 import imgMeInside from 'public/images/me-inside.jpg';
 import imgMeByPool from 'public/images/me-pool.jpg';
+import imgMeSideProfile from 'public/images/me-side-profile.jpg';
 import imgMeSitting from 'public/images/me-sitting.jpg';
 import profilePic from 'public/images/profile-1.png';
-import logoMyApp from 'public/images/signature-cropped.png';
 
 export {
     imgBrain,
     imgMeByPool,
     imgMeInside,
+    imgMeSideProfile,
     imgMeSitting,
     imgMeWithHeadset,
     logoBabel,
@@ -71,6 +74,7 @@ export {
     logoDarnellCropped,
     logoDocker,
     logoExpress,
+    logoFearnleyProcterGroup,
     logoFigma,
     logoFirebase,
     logoGit,
@@ -93,7 +97,6 @@ export {
     logoMailgun,
     logoMongoDb,
     logoMui,
-    logoMyApp,
     logoMySql,
     logoNetlify,
     logoNextJs,
@@ -102,6 +105,7 @@ export {
     logoPostgres,
     logoPostman,
     logoPrisma,
+    logoRcnChemicals,
     logoReact,
     logoRedux,
     logoSass,

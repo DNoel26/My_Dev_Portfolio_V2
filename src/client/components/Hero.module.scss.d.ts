@@ -4,12 +4,8 @@
 export type Styles = {
     gradient: string;
     hero: string;
-    hero__bg: string;
-    hero__bg_outline: string;
     hero__btn: string;
     hero__heading: string;
-    hero__img: string;
-    hero__img_container: string;
     hero__info_container: string;
     hero__intro: string;
     wave: string;

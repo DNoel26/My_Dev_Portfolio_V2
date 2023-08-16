@@ -48,7 +48,7 @@ const Link = (props: TLink) => {
                 rel='noopener noreferrer'
                 {...restProps}
             >
-                {children}
+                {children || href?.replace(/^https?:\/\//, '')}
             </a>
         );
     }

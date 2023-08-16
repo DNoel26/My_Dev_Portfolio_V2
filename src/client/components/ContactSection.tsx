@@ -1,6 +1,6 @@
 /** @format */
 
-import { profilePic } from '@@assets/images';
+import { imgMeSideProfile } from '@@assets/images';
 import { ANCHOR_TAG, CSS_GLOBAL_CLASS_NAME } from '@@lib/constants';
 import { Avatar } from '@mui/material';
 import clsx from 'clsx';
@@ -67,7 +67,7 @@ const ContactSection = () => {
                 <div className={styles.contact__info}>
                     <Avatar className={styles.contact__photo}>
                         <Image
-                            src={profilePic}
+                            src={imgMeSideProfile}
                             alt='Profile picture of Darnell Noel'
                             fill
                         />

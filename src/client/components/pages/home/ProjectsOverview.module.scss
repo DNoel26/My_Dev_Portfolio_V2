@@ -1,0 +1,15 @@
+/** @format */
+
+@use 'base';
+
+$cl-overview: '.overview';
+$cl-projects: '#{$cl-overview}__projects';
+
+#{$cl-overview} {
+    #{$cl-projects} {
+        @include base.margin-y(base.$spacing-section);
+        @include base.flex-center;
+        flex-wrap: wrap;
+        gap: 64px;
+    }
+}

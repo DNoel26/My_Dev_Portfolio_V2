@@ -63,7 +63,7 @@ const timelineItems: ITimelineItem[] = [
         jobTitle: 'Software Engineer',
         paragraphs: [
             'Adds properly tested, quality features to production across microservices and tech stacks,' +
-                ' including front-end, back-end and 3rd party services (e.g. Mailgun email service).',
+                ' including front-end, back-end and 3rd party integrations (e.g. Mailgun email service).',
             'Works with product owner and lead designer to implement new designs and functionalities' +
                 ' to our user app using mockups, with suggestions to improve the UI/UX.',
             'Upgrades projects, handling multiple breaking changes.',
@@ -151,7 +151,7 @@ const timelineItems: ITimelineItem[] = [
         jobTitle: 'Full Stack Web Development Student',
         paragraphs: [
             'Full stack web development journey started!',
-            'Built several projects designed to emulate real world experience.',
+            'Built several projects designed to emulate real world situations.',
         ],
         Icon: <MuiIconSupervisedUserCircleTwoTone />,
         skills: [

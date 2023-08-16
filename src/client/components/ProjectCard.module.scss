@@ -1,0 +1,56 @@
+/** @format */
+
+@use 'base';
+
+$padding: min(24px, 5%) min(32px, 10%);
+
+$cl-card: '.card';
+$cl-logo: '#{$cl-card}__logo';
+$cl-details: '#{$cl-card}__details';
+
+#{$cl-card} {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    flex: 0 0 400px;
+    #{$cl-logo} {
+        padding: $padding;
+        padding-bottom: base.$spacing-lg;
+        img {
+            height: 64px;
+            width: auto;
+            object-position: center;
+            object-fit: cover;
+        }
+    }
+    #{$cl-details} {
+        padding: $padding;
+        white-space: wrap;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        a {
+            color: inherit;
+            overflow-wrap: break-word;
+        }
+    }
+}
+
+@include base.theme(#{$cl-card}, 'dark') {
+    background: base.$color-neutral-dark-800;
+    img {
+        filter: grayscale(1) brightness(0.5) invert(1);
+        mix-blend-mode: lighten;
+    }
+    #{$cl-details} {
+        color: base.$color-text-default-black;
+        background: base.$color-bg-hover-non-interactive-dark;
+    }
+}
+
+@include base.theme(#{$cl-card}, 'light') {
+    background: base.$color-white;
+    #{$cl-details} {
+        color: base.$color-text-default-white;
+        background: base.$color-bg-hover-non-interactive;
+    }
+}
