@@ -24,6 +24,7 @@ const errorBoundaryStyle: CSSProperties = {
 console.log('App Loaded!');
 
 export default function App({ Component, pageProps }: AppProps) {
+    console.log('app');
     return (
         <ErrorBoundary
             fallback={<div style={errorBoundaryStyle}>Sorry, something went wrong!</div>}
