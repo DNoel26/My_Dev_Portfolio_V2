@@ -3,6 +3,6 @@
 @use 'base';
 
 :export {
-    colorPrimary: base.$color-primary;
-    colorSecondary: base.$color-secondary;
+    colorPrimaryOriginal: base.$color-primary;
+    colorSecondaryOriginal: base.$color-secondary;
 }

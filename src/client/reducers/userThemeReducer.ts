@@ -24,10 +24,10 @@ const {
 } = ACTION_USER_THEME;
 
 export const userThemeInitialState: IUserThemeState = {
-    colorPrimaryOriginal: cssExports.colorPrimary,
-    colorSecondaryOriginal: cssExports.colorSecondary,
-    colorPrimary: cssExports.colorPrimary,
-    colorSecondary: cssExports.colorSecondary,
+    colorPrimaryOriginal: cssExports.colorPrimaryOriginal,
+    colorSecondaryOriginal: cssExports.colorSecondaryOriginal,
+    colorPrimary: cssExports.colorPrimaryOriginal,
+    colorSecondary: cssExports.colorSecondaryOriginal,
     isOriginalTheme: true,
     message: '',
 };

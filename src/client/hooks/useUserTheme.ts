@@ -23,6 +23,7 @@ const useUserTheme = () => {
         } else if (!state.isOriginalTheme && !isDarkMode && isDarkMode !== null) {
             setTheme(NEXT_THEME.USER_LIGHT);
         }
+        console.log(state, isDarkMode, 'useUserTheme');
     }, [state, isDarkMode, setTheme]);
 
     return { state, dispatch, root };
