@@ -2,31 +2,44 @@
 
 import useBgSvgChanger from '@@hooks/useBgSvgChanger';
 import { NEXT_THEME } from '@@lib/constants';
-import { DEFAULT_THEME, darkTheme, lightTheme } from '@@theme';
+import { DEFAULT_THEME } from '@@theme';
 import { TDefaultPropsWithChildren } from '@@types/client/props.types';
-import { ThemeProvider } from '@mui/material/styles';
+import { PaletteMode } from '@mui/material';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
-
-const appTheme = {
-    light: lightTheme,
-    dark: darkTheme,
-} as const;
+import { useContext, useEffect, useMemo, useState } from 'react';
+import { UserThemeContext } from './UserThemeContext';
 
 // TODO: create theme dynamically with state and update primary / secondary based
 // on root style changes
 const MuiThemeProvider = ({ children }: TDefaultPropsWithChildren) => {
     const { resolvedTheme } = useTheme();
-    const [muiTheme, setMuiTheme] = useState(appTheme[DEFAULT_THEME]);
+    const { userThemeState } = useContext(UserThemeContext);
+    const [mode, setMode] = useState<PaletteMode>(DEFAULT_THEME);
+    const muiTheme = useMemo(
+        () =>
+            createTheme({
+                palette: {
+                    mode,
+                    primary: {
+                        main: userThemeState.colorPrimary,
+                    },
+                    secondary: {
+                        main: userThemeState.colorSecondary,
+                    },
+                },
+            }),
+        [mode, userThemeState],
+    );
     useEffect(() => {
         if (resolvedTheme === NEXT_THEME.LIGHT || resolvedTheme === NEXT_THEME.DARK) {
-            setMuiTheme(appTheme[resolvedTheme]);
+            setMode(resolvedTheme);
         }
         if (resolvedTheme === NEXT_THEME.USER_LIGHT) {
-            setMuiTheme(appTheme.light);
+            setMode('light');
         }
         if (resolvedTheme === NEXT_THEME.USER_DARK) {
-            setMuiTheme(appTheme.dark);
+            setMode('dark');
         }
     }, [resolvedTheme]);
     // can be called in any context provider below UserThemeContext
