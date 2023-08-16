@@ -23,7 +23,7 @@ const ProjectCard = ({ src, alt, heading, href }: IProps) => {
             <div className={styles.card__details}>
                 <h4>{heading}</h4>
                 <Link isExternal href={href}>
-                    Go to site
+                    Visit Website
                 </Link>
             </div>
         </div>
