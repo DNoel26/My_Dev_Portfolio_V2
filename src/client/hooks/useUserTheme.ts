@@ -1,6 +1,5 @@
 /** @format */
 
-import { NEXT_THEME } from '@@lib/constants';
 import { userThemeInitialState, userThemeReducer } from '@@reducers/userThemeReducer';
 import { useEffect, useReducer } from 'react';
 import useNextTheme from './useNextTheme';
@@ -14,15 +13,15 @@ const useUserTheme = () => {
     const { setTheme, isDarkMode } = useNextTheme();
 
     useEffect(() => {
-        if (state.isOriginalTheme && isDarkMode) {
-            setTheme(NEXT_THEME.DARK);
-        } else if (state.isOriginalTheme && !isDarkMode && isDarkMode !== null) {
-            setTheme(NEXT_THEME.LIGHT);
-        } else if (!state.isOriginalTheme && isDarkMode) {
-            setTheme(NEXT_THEME.USER_DARK);
-        } else if (!state.isOriginalTheme && !isDarkMode && isDarkMode !== null) {
-            setTheme(NEXT_THEME.USER_LIGHT);
-        }
+        // if (state.isOriginalTheme && isDarkMode) {
+        //     setTheme(NEXT_THEME.DARK);
+        // } else if (state.isOriginalTheme && !isDarkMode && isDarkMode !== null) {
+        //     setTheme(NEXT_THEME.LIGHT);
+        // } else if (!state.isOriginalTheme && isDarkMode) {
+        //     setTheme(NEXT_THEME.USER_DARK);
+        // } else if (!state.isOriginalTheme && !isDarkMode && isDarkMode !== null) {
+        //     setTheme(NEXT_THEME.USER_LIGHT);
+        // }
         console.log(state, isDarkMode, 'useUserTheme');
     }, [state, isDarkMode, setTheme]);
 
