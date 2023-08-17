@@ -1,5 +1,6 @@
 /** @format */
 
+import { logoDarnell, logoScratchpay, logoTheWeekendHack } from '@@assets/images';
 import {
     MuiBox,
     MuiChip,
@@ -14,14 +15,16 @@ import {
     MuiTypography,
 } from '@@client';
 import {
+    MuiCodeIcon,
+    MuiEngineeringIcon,
     MuiIconCheckCircle,
     MuiIconCheckCircleOutline,
-    MuiIconSupervisedUserCircleTwoTone,
 } from '@@components/icons';
 import BodyContainer from '@@components/layouts/BodyContainer';
 import BackgroundGradient from '@@components/ui/BackgroundGradient';
 import Button from '@@components/ui/Button';
 import Heading from '@@components/ui/Heading';
+import Image from '@@components/ui/Image';
 import { ANCHOR_TAG, CSS_GLOBAL_CLASS_NAME } from '@@lib/constants';
 import clsx from 'clsx';
 import { intervalToDuration } from 'date-fns';
@@ -35,7 +38,8 @@ interface ITimelineItem {
     about?: string;
     jobTitle: string;
     paragraphs: string[];
-    Icon: unknown;
+    Icon: ReactNode;
+    Logo?: ReactNode;
     skills?: string[];
 }
 
@@ -75,7 +79,8 @@ const timelineItems: ITimelineItem[] = [
             'Assists with onboarding and mentorship of new team members.',
             'Works with a cross-functional team across multiple timezones to provide value to our users.',
         ],
-        Icon: <MuiIconSupervisedUserCircleTwoTone />,
+        Icon: <MuiCodeIcon />,
+        Logo: <Image src={logoScratchpay} alt='' />,
         skills: [
             'Laravel',
             'PHP',
@@ -117,7 +122,8 @@ const timelineItems: ITimelineItem[] = [
             'Works on various projects individually and across multiple teams.',
             'Learns new tools and languages to improve technical capabilities.',
         ],
-        Icon: <MuiIconSupervisedUserCircleTwoTone />,
+        Icon: <MuiCodeIcon />,
+        Logo: <Image src={logoDarnell} alt='' />,
         skills: [
             'HTML',
             'CSS',
@@ -153,7 +159,8 @@ const timelineItems: ITimelineItem[] = [
             'Full stack web development journey started!',
             'Built several projects designed to emulate real world situations.',
         ],
-        Icon: <MuiIconSupervisedUserCircleTwoTone />,
+        Icon: <MuiCodeIcon />,
+        Logo: <Image src={logoTheWeekendHack} alt='' />,
         skills: [
             'HTML',
             'CSS',
@@ -178,7 +185,7 @@ const timelineItems: ITimelineItem[] = [
         about: 'Provides engineering, QA/QC and technical support to oil & gas companies globally.',
         jobTitle: 'Technical Projects Engineer',
         paragraphs: [],
-        Icon: <MuiIconSupervisedUserCircleTwoTone />,
+        Icon: <MuiEngineeringIcon />,
     },
     {
         startDate: new Date('2016-01-31'),
@@ -187,7 +194,7 @@ const timelineItems: ITimelineItem[] = [
         about: 'Offers programmes and short courses across multiple disciplines.',
         jobTitle: 'Lecturer (Part Time)',
         paragraphs: [],
-        Icon: <MuiIconSupervisedUserCircleTwoTone />,
+        Icon: <MuiEngineeringIcon />,
     },
     {
         startDate: new Date('2015-09-30'),
@@ -195,7 +202,7 @@ const timelineItems: ITimelineItem[] = [
         company: 'IN-CORR-TECH Limited, Trinidad & Tobago',
         jobTitle: 'Inspection Engineer I',
         paragraphs: [],
-        Icon: <MuiIconSupervisedUserCircleTwoTone />,
+        Icon: <MuiEngineeringIcon />,
     },
     {
         startDate: new Date('2014-01-31'),
@@ -203,7 +210,7 @@ const timelineItems: ITimelineItem[] = [
         company: 'Metal Industries Company Limited, Trinidad & Tobago',
         jobTitle: 'Mechanical Engineering Trainee',
         paragraphs: [],
-        Icon: <MuiIconSupervisedUserCircleTwoTone />,
+        Icon: <MuiEngineeringIcon />,
     },
 ];
 
@@ -263,6 +270,7 @@ const ProfessionalOverview = () => {
                                 jobTitle,
                                 paragraphs,
                                 Icon,
+                                Logo,
                                 skills,
                             } = item;
                             const hasSkills = !!skills && !!skills.length;
@@ -319,8 +327,10 @@ const ProfessionalOverview = () => {
                                         <MuiTimelineConnector
                                             sx={{ bgcolor: 'secondary.main' }}
                                         />
-                                        <MuiTimelineDot>
-                                            {Icon as ReactNode}
+                                        <MuiTimelineDot
+                                            className={styles.overview__timeline_dot}
+                                        >
+                                            {Icon}
                                         </MuiTimelineDot>
                                         <MuiTimelineConnector
                                             sx={{ bgcolor: 'primary.main' }}
@@ -336,6 +346,9 @@ const ProfessionalOverview = () => {
                                         )}
                                         sx={{ py: '12px', px: 2 }}
                                     >
+                                        <div className={styles.overview__timeline_logo}>
+                                            {Logo}
+                                        </div>
                                         <MuiTypography
                                             variant='h5'
                                             component='div'

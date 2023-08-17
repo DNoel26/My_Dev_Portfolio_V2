@@ -6,6 +6,8 @@ $cl-overview: '.overview';
 $cl-container: '#{$cl-overview}__container';
 $cl-timeline: '#{$cl-overview}__timeline';
 $cl-timeline-item: '#{$cl-timeline}_item';
+$cl-timeline-dot: '#{$cl-timeline}_dot';
+$cl-timeline-logo: '#{$cl-timeline}_logo';
 $cl-timeline-opposite-content: '#{$cl-timeline}_opposite_content';
 $cl-timeline-content: '#{$cl-timeline}_content';
 $cl-timeline-paragraph: '#{$cl-timeline}_paragraph';
@@ -24,10 +26,22 @@ $cl-timeline-content-mech: '#{$cl-timeline-content}--mech';
 #{$cl-overview} {
     @include base.fixed-bg;
     #{$cl-container} {
-       padding-bottom: base.$spacing-section;
+        padding-bottom: base.$spacing-section;
     }
     #{$cl-timeline} {
         margin-top: base.$spacing-section;
+        #{$cl-timeline-dot} {
+            color: base.$color-text-default-black;
+        }
+        #{$cl-timeline-logo} {
+            img {
+                @include base.margin-y(8px);
+                display: inline-block;
+                height: 40px;
+                width: auto;
+                object-fit: contain;
+            }
+        }
         #{$cl-timeline-content} {
             @include base.padding-y(32px);
             flex-flow: wrap-reverse;
@@ -106,6 +120,12 @@ $cl-timeline-content-mech: '#{$cl-timeline-content}--mech';
             }
             > div {
                 background-color: base.$color-bg-non-interactive-dark;
+            }
+        }
+        #{$cl-timeline-logo} {
+            img {
+                @include base.filter-to-white();
+                mix-blend-mode: lighten;
             }
         }
     }

@@ -13,77 +13,79 @@ import {
     svgIconWww,
 } from '@@assets/svgs';
 import BodyContainer from '@@components/layouts/BodyContainer';
-import Card from '@@components/ui/Card';
 import Heading from '@@components/ui/Heading';
+import Image from '@@components/ui/Image';
 import { ANCHOR_TAG } from '@@lib/constants';
 import { ComponentProps } from 'react';
 import styles from './ServicesOverview.module.scss';
 
-type TCardInfo = Pick<ComponentProps<typeof Card>, 'src' | 'alt' | 'heading' | 'text'>;
+interface ICardProps {
+    src: ComponentProps<typeof Image>['src'];
+    alt: ComponentProps<typeof Image>['alt'];
+    heading: string;
+}
 
-const PLACEHOLDER_TEXT = 'Some placeholder text here. '.repeat(5);
-const infoCards: TCardInfo[] = [
+const infoCards: ICardProps[] = [
     {
         src: svgIconWww,
         alt: '',
         heading: 'Website Development',
-        text: PLACEHOLDER_TEXT,
     },
     {
         src: svgIconConcept,
         alt: '',
         heading: 'App Development',
-        text: PLACEHOLDER_TEXT,
     },
     {
         src: svgIconResponsive,
         alt: '',
         heading: 'Designs For All Devices',
-        text: PLACEHOLDER_TEXT,
     },
     {
         src: svgIconTarget2,
         alt: '',
         heading: 'Fully Remote Work',
-        text: PLACEHOLDER_TEXT,
-    },
-    {
-        src: svgIconWebMaintenance,
-        alt: '',
-        heading: '',
-        text: '',
     },
     {
         src: svgIconSeo,
         alt: '',
         heading: 'Search Engine Optimization',
-        text: PLACEHOLDER_TEXT,
     },
     {
         src: svgIconWebOptimization,
         alt: '',
         heading: 'Performance Optimization',
-        text: PLACEHOLDER_TEXT,
     },
     {
         src: svgIconTarget,
         alt: '',
         heading: 'Accessibility Optimization',
-        text: PLACEHOLDER_TEXT,
     },
     {
         src: svgIconVisitor,
         alt: '',
         heading: 'Data Analytics',
-        text: PLACEHOLDER_TEXT,
+    },
+    {
+        src: svgIconWebMaintenance,
+        alt: '',
+        heading: 'Troubleshooting Support',
     },
     {
         src: svgIconTechnicalSupport,
         alt: '',
         heading: 'Maintenance Support',
-        text: PLACEHOLDER_TEXT,
     },
 ];
+
+const Card = ({ src, alt, heading }: ICardProps) => {
+    return (
+        <div className={styles.overview__card}>
+            <Image src={src} alt={alt} height={144} width={144} />
+            <h4>{heading}</h4>
+        </div>
+    );
+};
 
 const ServicesOverview = () => {
     return (
@@ -95,14 +97,13 @@ const ServicesOverview = () => {
             />
             <BodyContainer className={styles.overview__container}>
                 {infoCards.map((info) => {
-                    const { src, alt, heading, text } = info;
+                    const { src, alt, heading } = info;
                     return (
                         <Card
                             key={JSON.stringify(src)}
                             src={src}
                             alt={alt}
                             heading={heading}
-                            text={text}
                         />
                     );
                 })}

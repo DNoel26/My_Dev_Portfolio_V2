@@ -8,12 +8,14 @@ $speed-dial: '.speed_dial';
     > button {
         @include base.interactive-states {
             box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.75);
-            transform: translate(0, -3px);
         }
         height: 60px;
         width: 60px;
     }
     button {
+        @include base.interactive-states {
+            transform: translate(0, -3px);
+        }
         color: base.$color-white;
         background: base.$color-btn-bg-neutral;
     }

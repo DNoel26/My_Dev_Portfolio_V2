@@ -6,7 +6,7 @@ import imgBrain from 'public/images/hard-soft-skills.png';
 import logoBabel from 'public/images/logos/babel.png';
 import logoBootstrap from 'public/images/logos/bootstrap.png';
 import logoChakra from 'public/images/logos/chakra-ui.png';
-import logoFearnleyProcterGroup from 'public/images/logos/clients/fpg.png';
+import logoFearnleyGroup from 'public/images/logos/clients/fpg.png';
 import logoRcnChemicals from 'public/images/logos/clients/rcn.png';
 import logoConfluence from 'public/images/logos/confluence.png';
 import logoCSS from 'public/images/logos/css.png';
@@ -51,6 +51,8 @@ import logoUbuntu from 'public/images/logos/ubuntu.png';
 import logoVercel from 'public/images/logos/vercel.png';
 import logoWebpack from 'public/images/logos/webpack.png';
 import logoWhatsapp from 'public/images/logos/whatsapp.png';
+import logoScratchpay from 'public/images/logos/work-places/scratch.png';
+import logoTheWeekendHack from 'public/images/logos/work-places/the-weekend-hack.png';
 import imgMeWithHeadset from 'public/images/me-headset.jpg';
 import imgMeInside from 'public/images/me-inside.jpg';
 import imgMeByPool from 'public/images/me-pool.jpg';
@@ -74,7 +76,7 @@ export {
     logoDarnellCropped,
     logoDocker,
     logoExpress,
-    logoFearnleyProcterGroup,
+    logoFearnleyGroup,
     logoFigma,
     logoFirebase,
     logoGit,
@@ -109,7 +111,9 @@ export {
     logoReact,
     logoRedux,
     logoSass,
+    logoScratchpay,
     logoSwagger,
+    logoTheWeekendHack,
     logoTypeScript,
     logoUbuntu,
     logoVercel,

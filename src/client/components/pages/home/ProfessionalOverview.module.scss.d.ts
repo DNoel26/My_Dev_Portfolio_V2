@@ -12,6 +12,8 @@ export type Styles = {
     overview__timeline: string;
     overview__timeline_content: string;
     'overview__timeline_content--mech': string;
+    overview__timeline_dot: string;
+    overview__timeline_logo: string;
     overview__timeline_paragraph: string;
     wave: string;
 };

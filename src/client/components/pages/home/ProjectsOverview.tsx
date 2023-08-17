@@ -1,6 +1,6 @@
 /** @format */
 
-import { logoDarnell, logoFearnleyProcterGroup, logoRcnChemicals } from '@@assets/images';
+import { logoDarnell, logoFearnleyGroup, logoRcnChemicals } from '@@assets/images';
 import ProjectCard from '@@components/ProjectCard';
 import BodyContainer from '@@components/layouts/BodyContainer';
 import Heading from '@@components/ui/Heading';
@@ -22,7 +22,7 @@ const projects: ComponentProps<typeof ProjectCard>[] = [
         href: 'https://rcn-chemicals.vercel.app',
     },
     {
-        src: logoFearnleyProcterGroup,
+        src: logoFearnleyGroup,
         alt: '',
         heading: 'Engineering Calculator',
         href: 'https://fpg-engineering-app-staging.vercel.app',

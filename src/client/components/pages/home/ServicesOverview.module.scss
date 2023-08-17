@@ -4,15 +4,68 @@
 
 $cl-overview: '.overview';
 $cl-container: '#{$cl-overview}__container';
+$cl-card: '#{$cl-overview}__card';
 
 #{$cl-overview} {
     #{$cl-container} {
         margin-top: base.$spacing-section;
         display: flex;
-        max-width: min(1000px, 100%);
         justify-content: center;
-        align-items: center;
-        gap: 48px;
+        align-items: flex-start;
+        gap: 32px;
         flex-wrap: wrap;
+    }
+    #{$cl-card} {
+        @include base.flex-center;
+        flex-direction: column;
+        gap: 32px;
+        position: relative;
+        align-self: stretch;
+        padding: min(32px, 10%);
+        border-radius: 32px;
+        transition: 0.5s ease-in-out;
+        transition-property: transform, background, color, box-shadow;
+        overflow: hidden;
+        h4 {
+            font-size: 1.4rem;
+            width: 20ch;
+            text-align: center;
+        }
+        &:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            &::before {
+                transform: scale(1.5) translateY(0);
+            }
+        }
+        &::before {
+            @include base.before-after-default;
+            z-index: -1;
+            transform: scale(1) translateY(100%);
+            transition: all 0.5s ease-in-out;
+            border-radius: 50%;
+        }
+    }
+}
+
+@include base.theme(#{$cl-overview}, 'dark') {
+    #{$cl-card} {
+        &:hover {
+            color: base.$color-text-default-black;
+            &::before {
+                background: base.$color-bg-hover-non-interactive-dark;
+            }
+        }
+    }
+}
+
+@include base.theme(#{$cl-overview}, 'light') {
+    #{$cl-card} {
+        &:hover {
+            color: base.$color-text-default-white;
+            &::before {
+                background: base.$color-bg-hover-non-interactive;
+            }
+        }
     }
 }

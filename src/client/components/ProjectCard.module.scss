@@ -38,7 +38,7 @@ $cl-details: '#{$cl-card}__details';
 @include base.theme(#{$cl-card}, 'dark') {
     background: base.$color-neutral-dark-800;
     img {
-        filter: grayscale(1) brightness(0.5) invert(1);
+        filter: grayscale(1) brightness(0.7) invert(1);
         mix-blend-mode: lighten;
     }
     #{$cl-details} {
