@@ -44,7 +44,7 @@ $cl-submit-btn: '#{$cl-contact}__submit_btn';
         justify-content: center;
         align-items: flex-start;
         flex-wrap: wrap;
-        gap: 32px;
+        gap: 80px;
         width: max-content;
         background-size: 175% 100%;
         padding: 5%;
@@ -56,9 +56,12 @@ $cl-submit-btn: '#{$cl-contact}__submit_btn';
     #{$cl-info} {
         text-align: left;
         width: 30ch;
+        > *:not(:last-child):not(:first-child) {
+            margin-top: base.$spacing-sm;
+        }
     }
     #{$cl-photo} {
-        $size: 100px;
+        $size: 120px;
         width: $size;
         height: $size;
         img {

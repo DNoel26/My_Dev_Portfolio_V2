@@ -5,7 +5,9 @@ export type Styles = {
     gradient: string;
     overview: string;
     overview__card: string;
-    overview__container: string;
+    overview__cards: string;
+    overview__separator: string;
+    overview__text: string;
     wave: string;
 };
 

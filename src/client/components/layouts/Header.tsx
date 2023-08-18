@@ -24,7 +24,7 @@ interface IHeaderProps {
     position: 'fixed' | 'absolute';
 }
 
-const { HOME, PLAY } = APP_URL.BASE;
+const { HOME } = APP_URL.BASE;
 const { SERVICES, SKILLS, ABOUT, PROJECTS } = ANCHOR_TAG.HOME_PAGE;
 const { CONTACT } = ANCHOR_TAG.APP;
 
@@ -35,7 +35,6 @@ const navLinks: INavLinkProps[] = [
     { title: 'Skills', pathname: HOME, hash: SKILLS },
     { title: 'Projects', pathname: HOME, hash: PROJECTS },
     { title: 'Contact', hash: CONTACT },
-    { title: 'Play', pathname: PLAY },
 ];
 
 const NavLink = ({ title, pathname, hash, tabIndex }: INavLinkProps) => {

@@ -3,33 +3,54 @@
 @use 'base';
 
 $cl-overview: '.overview';
-$cl-container: '#{$cl-overview}__container';
+$cl-text: '#{$cl-overview}__text';
+$cl-separator: '#{$cl-overview}__separator';
+$cl-cards: '#{$cl-overview}__cards';
 $cl-card: '#{$cl-overview}__card';
 
 #{$cl-overview} {
-    #{$cl-container} {
-        margin-top: base.$spacing-section;
+    #{$cl-text} {
+        @include base.margin-x;
+        padding-top: base.$spacing-section;
+        text-align: center;
+        width: 60ch;
+        font-size: 1.2rem;
+    }
+    #{$cl-separator} {
+        @include base.margin-x;
+        padding-top: base.$spacing-md;
+        text-align: center;
+    }
+    #{$cl-cards} {
+        margin-top: base.$spacing-xl;
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        gap: 32px;
+        gap: 24px;
         flex-wrap: wrap;
     }
     #{$cl-card} {
-        @include base.flex-center;
+        position: relative;
+        display: flex;
+        justify-content: stretch;
+        align-items: center;
+        align-self: stretch;
         flex-direction: column;
         gap: 32px;
-        position: relative;
-        align-self: stretch;
-        padding: min(32px, 10%);
+        padding: min(24px, 10%);
         border-radius: 32px;
         transition: 0.5s ease-in-out;
         transition-property: transform, background, color, box-shadow;
         overflow: hidden;
         h4 {
-            font-size: 1.4rem;
             width: 20ch;
             text-align: center;
+        }
+        img {
+            display: inline-block;
+            $size: base.px-to-rem(100px);
+            width: $size;
+            height: $size;
         }
         &:hover {
             transform: scale(1.1);
@@ -50,6 +71,9 @@ $cl-card: '#{$cl-overview}__card';
 
 @include base.theme(#{$cl-overview}, 'dark') {
     #{$cl-card} {
+        img {
+            filter: saturate(0.75);
+        }
         &:hover {
             color: base.$color-text-default-black;
             &::before {
@@ -60,6 +84,11 @@ $cl-card: '#{$cl-overview}__card';
 }
 
 @include base.theme(#{$cl-overview}, 'light') {
+    #{$cl-separator} {
+        b {
+            font-weight: 900;
+        }
+    }
     #{$cl-card} {
         &:hover {
             color: base.$color-text-default-white;

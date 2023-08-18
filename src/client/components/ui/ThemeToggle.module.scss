@@ -26,8 +26,8 @@ $cl-toggle-theme-resolved: '#{$cl-toggle}--theme-resolved';
         &#{$cl-toggle-btn-disabled} {
             position: absolute;
             transform: scale(0.6);
-            top: base.to-rem(-12px);
-            left: base.to-rem(32px);
+            top: base.px-to-rem(-12px);
+            left: base.px-to-rem(32px);
             z-index: -1;
             opacity: 0.4;
             pointer-events: none;

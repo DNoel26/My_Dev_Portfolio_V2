@@ -14,6 +14,7 @@ import {
 } from '@@assets/svgs';
 import BodyContainer from '@@components/layouts/BodyContainer';
 import Heading from '@@components/ui/Heading';
+import HighlightedText from '@@components/ui/HighlightedText';
 import Image from '@@components/ui/Image';
 import { ANCHOR_TAG } from '@@lib/constants';
 import { ComponentProps } from 'react';
@@ -81,7 +82,7 @@ const infoCards: ICardProps[] = [
 const Card = ({ src, alt, heading }: ICardProps) => {
     return (
         <div className={styles.overview__card}>
-            <Image src={src} alt={alt} height={144} width={144} />
+            <Image src={src} alt={alt} />
             <h4>{heading}</h4>
         </div>
     );
@@ -95,18 +96,34 @@ const ServicesOverview = () => {
                 subHeading='Developer Services'
                 heading='Software Engineering'
             />
-            <BodyContainer className={styles.overview__container}>
-                {infoCards.map((info) => {
-                    const { src, alt, heading } = info;
-                    return (
-                        <Card
-                            key={JSON.stringify(src)}
-                            src={src}
-                            alt={alt}
-                            heading={heading}
-                        />
-                    );
-                })}
+            <BodyContainer>
+                <div className={styles.overview__text}>
+                    I believe in thoughtful and quality design from end to end. This means
+                    focusing on proper software architecture to meet clients&apos; needs
+                    and ensuring simplicity, speed, accessibility and consistency for{' '}
+                    <HighlightedText>
+                        <strong>all</strong>
+                    </HighlightedText>{' '}
+                    end users.
+                </div>
+                <div className={styles.overview__separator}>
+                    <HighlightedText>
+                        <b>{'_'.repeat(25)}</b>
+                    </HighlightedText>
+                </div>
+                <div className={styles.overview__cards}>
+                    {infoCards.map((info) => {
+                        const { src, alt, heading } = info;
+                        return (
+                            <Card
+                                key={JSON.stringify(src)}
+                                src={src}
+                                alt={alt}
+                                heading={heading}
+                            />
+                        );
+                    })}
+                </div>
             </BodyContainer>
         </section>
     );

@@ -1,6 +1,6 @@
 /** @format */
 
-@function to-rem($value) {
+@function px-to-rem($value) {
     $remValue: calc($value / 16px) + rem;
     @return $remValue;
 }
