@@ -7,6 +7,7 @@ export default function Document() {
         <Html lang='en' style={{ scrollBehavior: 'smooth' }}>
             <Head>
                 <script src='//code.tidio.co/edv8badlavwvekyo42tfkxyp6frut7yq.js' async />
+                <script type='module' src='/scripts/hotjar.js' async />
             </Head>
             <body>
                 <Main />
