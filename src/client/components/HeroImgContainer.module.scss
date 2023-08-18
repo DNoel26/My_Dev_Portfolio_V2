@@ -24,7 +24,7 @@ $cl-img: '#{$cl-img-container}__img';
         height: 450px;
         top: 150px;
         left: 225px;
-        border-bottom-left-radius: base.$border-radius-sm;
+        border-bottom-left-radius: base.$border-radius-md;
         &:hover {
             transform: rotate(15deg);
         }
@@ -37,7 +37,7 @@ $cl-img: '#{$cl-img-container}__img';
         width: 450px;
         object-fit: cover;
         object-position: 100% 80%;
-        border-bottom-left-radius: base.$border-radius-sm;
+        border-bottom-left-radius: base.$border-radius-md;
         top: 100px;
         left: 165px;
         box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),

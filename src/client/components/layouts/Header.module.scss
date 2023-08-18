@@ -49,8 +49,9 @@ $cl-absolute: '#{$cl-header}--absolute';
         min-width: 100%;
         height: 400px;
         top: 0;
-        left: 8px;
-        border-bottom-left-radius: base.$border-radius-sm;
+        left: -16px;
+        right: 0;
+        border-bottom-left-radius: base.$border-radius-md;
         opacity: 1;
         z-index: -1;
     }
