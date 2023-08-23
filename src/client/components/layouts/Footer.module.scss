@@ -15,13 +15,6 @@ $cl-bottom-logos: '#{$cl-bottom}_logos';
 $cl-bottom-container-copyright: '#{$cl-bottom-container}--copyright';
 
 #{$cl-footer} {
-    a {
-        @include base.interactive-states {
-            color: var(--color-secondary);
-        };
-        color: inherit;
-
-    }
     hr {
         margin-bottom: base.$spacing-xl;
     }

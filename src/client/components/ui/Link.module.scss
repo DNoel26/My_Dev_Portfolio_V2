@@ -1,0 +1,21 @@
+/** @format */
+
+@use 'base';
+
+$cl-link: '.link';
+
+#{$cl-link} {
+    color: inherit;
+}
+
+@include base.theme(#{$cl-link}, 'dark') {
+    @include base.interactive-states {
+        color: var(--color-primary-800);
+    }
+}
+
+@include base.theme(#{$cl-link}, 'light') {
+    @include base.interactive-states {
+        color: var(--color-primary-600);
+    }
+}

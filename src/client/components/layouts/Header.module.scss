@@ -84,11 +84,13 @@ $cl-absolute: '#{$cl-header}--absolute';
         z-index: 0;
         cursor: none;
         pointer-events: none;
-        a, button {
+        a,
+        button {
             cursor: pointer;
             pointer-events: none;
         }
-        #{$cl-logo}, #{$cl-content} :not(:first-child) {
+        #{$cl-logo},
+        #{$cl-content} :not(:first-child) {
             opacity: 0;
         }
     }
@@ -110,7 +112,6 @@ $cl-absolute: '#{$cl-header}--absolute';
 }
 
 @include base.theme(#{$cl-header}, 'dark') {
-    a,
     li,
     button,
     svg {
@@ -133,7 +134,7 @@ $cl-absolute: '#{$cl-header}--absolute';
                 filter: invert(0);
             }
         }
-        a,
+
         li,
         button {
             color: base.$color-text-default-black;
@@ -147,7 +148,6 @@ $cl-absolute: '#{$cl-header}--absolute';
 }
 
 @include base.theme(#{$cl-header}, 'light') {
-    a,
     li,
     button,
     svg {
@@ -167,7 +167,6 @@ $cl-absolute: '#{$cl-header}--absolute';
                 filter: invert(1);
             }
         }
-        a,
         li,
         button {
             color: base.$color-white;

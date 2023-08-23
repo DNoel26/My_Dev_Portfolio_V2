@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import { LinkProps } from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import styles from './Link.module.scss';
 
 /* eslint-disable react/jsx-props-no-spreading */
 type TNextLink = LinkProps & { isExternal?: false };
@@ -14,7 +15,7 @@ type TLink = TNextLink | THtmlLink;
 const Link = (props: TLink) => {
     const { className, children, href, isExternal, ...restProps } = props;
     const router = useRouter();
-    const customClassName = clsx(className);
+    const customClassName = clsx(styles.link, className);
     useEffect(() => {
         const handleRouteChange = (e: unknown) => {
             if (typeof e === 'string') {
