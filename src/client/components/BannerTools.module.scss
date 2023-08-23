@@ -4,6 +4,7 @@
 
 $cl-banner: '.banner';
 $cl-container: '#{$cl-banner}__container';
+$cl-spacing: '#{$cl-banner}__spacing';
 $cl-icon: '#{$cl-banner}__icon';
 $cl-icon-tooltip: '#{$cl-icon}_tooltip';
 $cl-icon-btn: '#{$cl-icon}_btn';
@@ -20,6 +21,10 @@ $cl-icon-text: '#{$cl-icon}_text';
         button {
             border-radius: 8px;
         }
+    }
+    #{$cl-spacing} {
+        display: block;
+        padding-top: base.$spacing-xl;
     }
     #{$cl-icon-tooltip} {
         display: initial;

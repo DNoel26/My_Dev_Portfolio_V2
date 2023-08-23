@@ -9,7 +9,7 @@
 /* eslint-disable no-console */
 
 // Hotjar Tracking Code for https://www.darnellnoel.dev
-export const hotjarScript = (function (h, o, t, j, a, r) {
+(function (h, o, t, j, a, r) {
     h.hj =
         h.hj ||
         function () {

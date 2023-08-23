@@ -3,9 +3,27 @@
 import AboutOverview from '@@components/pages/AboutOverview';
 import HeroHome from '@@components/pages/home/HeroHome';
 import ProfessionalOverview from '@@components/pages/home/ProfessionalOverview';
-import ProjectsOverview from '@@components/pages/home/ProjectsOverview';
-import ServicesOverview from '@@components/pages/home/ServicesOverview';
-import TechOverview from '@@components/pages/home/TechOverview';
+import dynamic from 'next/dynamic';
+
+// TODO: add fallback component
+const DynamicServicesOverview = dynamic(
+    () => import('@@components/pages/home/ServicesOverview'),
+    {
+        loading: () => <p>Loading...</p>,
+    },
+);
+const DynamicTechOverview = dynamic(
+    () => import('@@components/pages/home/TechOverview'),
+    {
+        loading: () => <p>Loading...</p>,
+    },
+);
+const DynamicProjectsOverview = dynamic(
+    () => import('@@components/pages/home/ProjectsOverview'),
+    {
+        loading: () => <p>Loading...</p>,
+    },
+);
 
 export default function HomePage() {
     return (
@@ -13,9 +31,9 @@ export default function HomePage() {
             <HeroHome />
             <AboutOverview />
             <ProfessionalOverview />
-            <ServicesOverview />
-            <TechOverview />
-            <ProjectsOverview />
+            <DynamicServicesOverview />
+            <DynamicTechOverview />
+            <DynamicProjectsOverview />
         </>
     );
 }

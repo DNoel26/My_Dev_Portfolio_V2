@@ -10,7 +10,7 @@
 export const GOOGLE_TAG_MANAGER_SRC =
     'https://www.googletagmanager.com/gtag/js?id=G-R6JXV4BMKQ';
 
-export const googleTagManagerScript = (function () {
+(function () {
     if (typeof window !== 'undefined') {
         window.dataLayer = window.dataLayer || [];
         const gtag = function () {

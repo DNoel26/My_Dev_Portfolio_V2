@@ -6,7 +6,7 @@ import { DEFAULT_THEME } from '@@theme';
 import { TDefaultProps } from '@@types/client/props.types';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
-import { MuiButton, MuiTooltip } from '..';
+import { MuiButton } from '..';
 import { ISkill, OS_SKILLS, SKILLS } from '../data/skills';
 import styles from './BannerTools.module.scss';
 import BodyContainer from './layouts/BodyContainer';
@@ -22,17 +22,10 @@ type TSkillIcon = {
 
 const SkillIcon = ({ name, title, iconProp, iconLight }: TSkillIcon) => {
     return (
-        <MuiTooltip
-            className={styles.banner__icon_tooltip}
-            key={name}
-            title={title}
-            followCursor
-        >
-            <MuiButton className={styles.banner__icon_btn}>
-                <WrapperIcon alt={title} src={iconProp ?? iconLight} />
-                <span className={styles.banner__icon_text}>{name}</span>
-            </MuiButton>
-        </MuiTooltip>
+        <MuiButton className={styles.banner__icon_btn}>
+            <WrapperIcon alt={title} src={iconProp ?? iconLight} />
+            <span className={styles.banner__icon_text}>{name}</span>
+        </MuiButton>
     );
 };
 
@@ -72,10 +65,11 @@ const BannerSkills = ({ className }: TDefaultProps) => {
                         );
                     })}
                 </div>
+                <div className={styles.banner__spacing} />
                 <div className={styles.banner__container}>
                     {OS_SKILLS.map((SKILL) => {
                         const { NAME, ICON_LIGHT } = SKILL;
-                        const title = `${NAME}: ★☆☆`;
+                        const title = `${NAME} icon`;
                         return (
                             <SkillIcon
                                 key={NAME}

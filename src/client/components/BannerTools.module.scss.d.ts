@@ -7,6 +7,7 @@ export type Styles = {
     banner__icon_btn: string;
     banner__icon_text: string;
     banner__icon_tooltip: string;
+    banner__spacing: string;
     gradient: string;
     wave: string;
 };
