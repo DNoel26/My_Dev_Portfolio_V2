@@ -7,17 +7,12 @@
 /* eslint-disable no-console */
 
 // Google tag (gtag.js)
-export const GOOGLE_TAG_MANAGER_SRC =
-    'https://www.googletagmanager.com/gtag/js?id=G-R6JXV4BMKQ';
-
 (function () {
-    if (typeof window !== 'undefined') {
-        window.dataLayer = window.dataLayer || [];
-        const gtag = function () {
-            dataLayer.push(arguments);
-        };
-        gtag('js', new Date());
-        gtag('config', 'G-R6JXV4BMKQ');
-        console.log('Gtag loaded!');
-    }
+    window.dataLayer = window.dataLayer || [];
+    const gtag = function () {
+        dataLayer.push(arguments);
+    };
+    gtag('js', new Date());
+    gtag('config', 'G-R6JXV4BMKQ');
+    console.log('Gtag loaded!');
 })();

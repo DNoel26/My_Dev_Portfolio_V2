@@ -7,6 +7,7 @@ import '@@styles/sass/globals.scss';
 import { DEFAULT_THEME } from '@@theme';
 import { ThemeProvider as NextThemeProvider } from 'next-themes';
 import { AppProps } from 'next/app';
+import Script from 'next/script';
 import { CSSProperties } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
@@ -39,6 +40,11 @@ export default function App({ Component, pageProps }: AppProps) {
                     <Component {...pageProps} />
                 </PageProvider>
             </NextThemeProvider>
+            <Script
+                src='https://www.googletagmanager.com/gtag/js?id=G-R6JXV4BMKQ'
+                strategy='lazyOnload'
+            />
+            <Script src='../scripts/index.js' strategy='lazyOnload' />
         </ErrorBoundary>
     );
 }
