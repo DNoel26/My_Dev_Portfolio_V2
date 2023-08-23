@@ -2,8 +2,10 @@
 
 import { logoDarnell, logoFearnleyGroup, logoRcnChemicals } from '@@assets/images';
 import ProjectCard from '@@components/ProjectCard';
+import TextBody from '@@components/TextBody';
 import BodyContainer from '@@components/layouts/BodyContainer';
 import Heading from '@@components/ui/Heading';
+import HighlightedText from '@@components/ui/HighlightedText';
 import { ANCHOR_TAG } from '@@lib/constants';
 import { ComponentProps } from 'react';
 import styles from './ProjectsOverview.module.scss';
@@ -38,6 +40,17 @@ const ProjectsOverview = () => {
                 heading='My Work'
             />
             <BodyContainer>
+                <TextBody>
+                    Below are some of the projects that I have{' '}
+                    <HighlightedText>
+                        <strong>designed</strong>
+                    </HighlightedText>{' '}
+                    and{' '}
+                    <HighlightedText>
+                        <strong>built</strong>
+                    </HighlightedText>{' '}
+                    ranging from development only, to production. More coming soon!
+                </TextBody>
                 <div className={styles.overview__projects}>
                     {projects.map((project) => {
                         const { src, alt, heading, href } = project;

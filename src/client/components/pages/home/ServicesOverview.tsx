@@ -12,6 +12,7 @@ import {
     svgIconWebOptimization,
     svgIconWww,
 } from '@@assets/svgs';
+import TextBody from '@@components/TextBody';
 import BodyContainer from '@@components/layouts/BodyContainer';
 import Heading from '@@components/ui/Heading';
 import HighlightedText from '@@components/ui/HighlightedText';
@@ -97,7 +98,7 @@ const ServicesOverview = () => {
                 heading='Software Engineering'
             />
             <BodyContainer>
-                <div className={styles.overview__text}>
+                <TextBody>
                     I believe in thoughtful and quality design from end to end. This means
                     focusing on proper software architecture to meet clients&apos; needs
                     and ensuring simplicity, speed, accessibility and consistency for{' '}
@@ -105,12 +106,7 @@ const ServicesOverview = () => {
                         <strong>all</strong>
                     </HighlightedText>{' '}
                     end users.
-                </div>
-                <div className={styles.overview__separator}>
-                    <HighlightedText>
-                        <b>{'_'.repeat(25)}</b>
-                    </HighlightedText>
-                </div>
+                </TextBody>
                 <div className={styles.overview__cards}>
                     {infoCards.map((info) => {
                         const { src, alt, heading } = info;

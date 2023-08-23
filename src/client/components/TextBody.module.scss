@@ -1,0 +1,28 @@
+/** @format */
+
+@use 'base';
+
+$cl-body: '.body';
+$cl-text: '#{$cl-body}__text';
+$cl-separator: '#{$cl-body}__separator';
+
+#{$cl-body} {
+    #{$cl-text} {
+        @include base.margin-x;
+        padding-top: base.$spacing-section;
+        text-align: center;
+        width: 60ch;
+        font-size: 1.2rem;
+    }
+    #{$cl-separator} {
+        @include base.margin-x;
+        padding-top: base.$spacing-md;
+        text-align: center;
+    }
+}
+
+@include base.theme(#{$cl-body}, 'light') {
+    #{$cl-separator} {
+        font-weight: 900;
+    }
+}

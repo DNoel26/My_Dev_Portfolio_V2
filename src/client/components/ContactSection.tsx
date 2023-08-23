@@ -1,22 +1,17 @@
 /** @format */
 
 import { imgMeSideProfile } from '@@assets/images';
-import { ANCHOR_TAG, CSS_GLOBAL_CLASS_NAME } from '@@lib/constants';
+import { ANCHOR_TAG, CSS_GLOBAL_CLASS_NAME, MY_INFO } from '@@lib/constants';
 import { Avatar } from '@mui/material';
 import clsx from 'clsx';
 import { useFormik } from 'formik';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
-import {
-    MuiBox,
-    MuiCheckbox,
-    MuiFormControl,
-    MuiFormControlLabel,
-    MuiTextField,
-} from '..';
+import { MuiBox, MuiCheckbox, MuiFormControl, MuiFormControlLabel } from '..';
 import styles from './ContactSection.module.scss';
 import SocialMediaLinks from './SocialMediaLinks';
 import BackgroundGradient from './ui/BackgroundGradient';
 import Button from './ui/Button';
+import FormInput from './ui/FormInput';
 import Heading from './ui/Heading';
 import Image from './ui/Image';
 
@@ -55,6 +50,12 @@ const ContactSection = () => {
     ) => {
         setChecked(event.target.checked);
     };
+    const formInputProps = {
+        handleChange: formik.handleChange,
+        handleBlur: formik.handleBlur,
+        value: formik.values,
+        error: formik.errors,
+    };
 
     return (
         <MuiBox className={clsx(CSS_GLOBAL_CLASS_NAME.THEME_BG, styles.contact)}>
@@ -74,40 +75,19 @@ const ContactSection = () => {
                     </Avatar>
                     <h3>Contact Information</h3>
                     <p>
-                        Send an email and I&apos;ll get back to you as soon as possible!
+                        Send a message and I&apos;ll get back to you as soon as possible!
                     </p>
-                    <div>Phone: xxx-xxxx</div>
-                    <div>Email: xxxx@mail.com</div>
+                    <div>
+                        <div>Phone: {MY_INFO.PHONE}</div>
+                        <div>Email: {MY_INFO.EMAIL}</div>
+                    </div>
                     <SocialMediaLinks monochromeColor='white' />
                 </div>
                 <div className={styles.contact__form_container}>
+                    {/* eslint-disable react/jsx-props-no-spreading */}
                     <MuiFormControl component='form' onSubmit={formik.handleSubmit}>
-                        <MuiTextField
-                            type='text'
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.firstName}
-                            variant='filled'
-                            id='first-name'
-                            name='firstName'
-                            label='First Name'
-                        />
-                        {formik.errors.firstName && (
-                            <div id='feedback'>{formik.errors.firstName}</div>
-                        )}
-                        <MuiTextField
-                            type='text'
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.lastName}
-                            variant='filled'
-                            id='last-name'
-                            name='lastName'
-                            label='Last Name'
-                        />
-                        {formik.errors.lastName && (
-                            <div id='feedback'>{formik.errors.lastName}</div>
-                        )}
+                        <FormInput name='firstName' {...formInputProps} />
+                        <FormInput name='lastName' {...formInputProps} />
                         <div className={styles.contact__checkbox_container}>
                             <MuiFormControlLabel
                                 control={
@@ -144,61 +124,22 @@ const ContactSection = () => {
                                 label='Add Phone Number'
                             />
                         </div>
-                        {isEmailChecked && (
-                            <>
-                                <MuiTextField
-                                    type='text'
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                    value={formik.values.email}
-                                    variant='filled'
-                                    id='email'
-                                    name='email'
-                                    label='Email'
-                                />
-                                {formik.errors.email && (
-                                    <div id='feedback'>{formik.errors.email}</div>
-                                )}
-                            </>
-                        )}
-                        {isPhoneChecked && (
-                            <>
-                                <MuiTextField
-                                    type='text'
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                    value={formik.values.phone}
-                                    variant='filled'
-                                    id='phone'
-                                    name='phone'
-                                    label='Phone'
-                                />
-                                {formik.errors.phone && (
-                                    <div id='feedback'>{formik.errors.phone}</div>
-                                )}
-                            </>
-                        )}
-                        <MuiTextField
-                            multiline
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            value={formik.values.message}
-                            variant='filled'
-                            id='message'
+                        {isEmailChecked && <FormInput name='email' {...formInputProps} />}
+                        {isPhoneChecked && <FormInput name='phone' {...formInputProps} />}
+                        <FormInput
                             name='message'
-                            label='Message'
+                            {...formInputProps}
+                            textFieldProps={{ multiline: true }}
                         />
-                        {formik.errors.message && (
-                            <div id='feedback'>{formik.errors.message}</div>
-                        )}
                         <Button
                             className={styles.contact__submit_btn}
                             type='submit'
                             disabled={!hasOneContactChecked}
                         >
-                            Submit
+                            Send Message
                         </Button>
                     </MuiFormControl>
+                    {/* eslint-enable react/jsx-props-no-spreading */}
                 </div>
             </BackgroundGradient>
         </MuiBox>

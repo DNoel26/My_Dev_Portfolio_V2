@@ -1,0 +1,16 @@
+/** @format */
+
+@use 'base';
+
+$cl-input: '.input';
+$cl-field: '#{$cl-input}__field';
+
+#{$cl-field} {
+    input, textarea {
+        // important needed to override default html outline
+        outline: none !important;
+        &:focus-visible {
+            outline: none !important;
+        }
+    }
+}

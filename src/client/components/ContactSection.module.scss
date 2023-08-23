@@ -55,7 +55,7 @@ $cl-submit-btn: '#{$cl-contact}__submit_btn';
     }
     #{$cl-info} {
         text-align: left;
-        width: 30ch;
+        width: 40ch;
         > *:not(:last-child):not(:first-child) {
             margin-top: base.$spacing-sm;
         }
