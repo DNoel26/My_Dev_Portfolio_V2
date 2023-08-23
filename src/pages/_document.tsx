@@ -8,10 +8,10 @@ export default function Document() {
     return (
         <Html lang='en' style={{ scrollBehavior: 'smooth' }}>
             <Head>
-                <script src={GOOGLE_TAG_MANAGER_SRC} async />
-                <script src={TIDIO_SRC} async />
-                <script type='module' src='/scripts/google.js' async />
-                <script type='module' src='/scripts/hotjar.js' async />
+                <script src={GOOGLE_TAG_MANAGER_SRC} async defer />
+                <script src={TIDIO_SRC} async defer />
+                <script type='module' src='/scripts/google.js' async defer />
+                <script type='module' src='/scripts/hotjar.js' async defer />
             </Head>
             <body>
                 <Main />
