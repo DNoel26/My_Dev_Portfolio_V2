@@ -21,7 +21,7 @@ const errorBoundaryStyle: CSSProperties = {
     alignItems: 'center',
 };
 
-console.log('App Loaded!');
+console.log('App loaded!');
 
 export default function App({ Component, pageProps }: AppProps) {
     return (
