@@ -1,7 +1,7 @@
 /** @format */
 
 export const MY_INFO = {
-    PHONE: '+18684808781',
+    PHONE: '+1-868-480-8781',
     EMAIL: 'darnellnoel.webdev@gmail.com',
 } as const;
 
