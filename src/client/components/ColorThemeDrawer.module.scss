@@ -16,6 +16,7 @@ $cl-color-picker: '#{$cl-drawer}__color_picker';
     }
     #{$cl-btn-container} {
         @include base.flex-center;
+        border-top: 4px solid var(--color-secondary);
     }
     #{$cl-container} {
         display: flex;

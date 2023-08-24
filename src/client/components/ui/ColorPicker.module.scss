@@ -7,7 +7,7 @@ $cl-error: '#{$cl-color-picker}__error';
 
 #{$cl-color-picker} {
     #{$cl-error} {
-        padding-top: 16px;
+       @include base.padding-y(16px);
         text-align: center;
     }
 }
