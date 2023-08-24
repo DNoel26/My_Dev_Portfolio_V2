@@ -24,7 +24,8 @@ const TechOverview = () => {
                 <HighlightedText>
                     <strong>used</strong>
                 </HighlightedText>{' '}
-                in my projects or workplace.{' '}
+                in my projects or workplace. I have a strong preference for TypeScript,
+                Sass, MUI, PostGreSQL, Prisma, Next.js and Express.js.
             </TextBody>
             <BannerTools className={styles.overview__banner} />
         </section>

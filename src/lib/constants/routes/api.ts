@@ -19,3 +19,7 @@ const PROJECTS = {
 } as const satisfies TUrl;
 
 export const APP_ENDPOINT = { BASE, PROJECTS } as const;
+
+export const EXTERNAL_ENDPOINT = {
+    FORMSPREE: 'https://formspree.io/f/mbjvoayd',
+} as const;

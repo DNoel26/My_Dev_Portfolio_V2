@@ -2,6 +2,7 @@
 
 import { imgMeSideProfile } from '@@assets/images';
 import { ANCHOR_TAG, CSS_GLOBAL_CLASS_NAME, MY_INFO } from '@@lib/constants';
+import { EXTERNAL_ENDPOINT } from '@@lib/constants/routes/api';
 import { Avatar } from '@mui/material';
 import clsx from 'clsx';
 import { useFormik } from 'formik';
@@ -37,11 +38,25 @@ const ContactSection = () => {
             phone: '',
             message: '',
         },
-        onSubmit: (values, actions) => {
-            setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
+        // validationSchema: ,
+        onSubmit: async (values, actions) => {
+            actions.setSubmitting(true);
+            try {
+                const body = JSON.stringify(values);
+                await fetch(EXTERNAL_ENDPOINT.FORMSPREE, {
+                    method: 'POST',
+                    body,
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                });
+                actions.resetForm();
+            } catch (error) {
+                console.error(error);
+            } finally {
                 actions.setSubmitting(false);
-            }, 1000);
+            }
         },
     });
     const handleCheckboxChange = (
