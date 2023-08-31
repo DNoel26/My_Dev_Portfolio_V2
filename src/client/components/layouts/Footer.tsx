@@ -13,7 +13,7 @@ import clsx from 'clsx';
 import BodyContainer from './BodyContainer';
 import styles from './Footer.module.scss';
 
-const { HOME, PLAY } = APP_URL.BASE;
+const { HOME } = APP_URL.BASE;
 const { GITHUB, LINKEDIN, WHATSAPP } = EXTERNAL_URL;
 
 const Footer = () => {
@@ -39,9 +39,6 @@ const Footer = () => {
                                 </li>
                                 <li>
                                     <Link href={HOME}>Projects</Link>
-                                </li>
-                                <li>
-                                    <Link href={PLAY}>Let&apos;s Play a Game</Link>
                                 </li>
                             </ul>
                             <ul>

@@ -1,11 +1,13 @@
 /** @format */
 
 import { imgMeSideProfile } from '@@assets/images';
+import useInView from '@@hooks/useInView';
 import { ANCHOR_TAG, CSS_GLOBAL_CLASS_NAME, MY_INFO } from '@@lib/constants';
 import { EXTERNAL_ENDPOINT } from '@@lib/constants/routes/api';
 import { Avatar } from '@mui/material';
 import clsx from 'clsx';
 import { useFormik } from 'formik';
+import Script from 'next/script';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { MuiBox, MuiCheckbox, MuiFormControl, MuiFormControlLabel } from '..';
 import styles from './ContactSection.module.scss';
@@ -22,6 +24,7 @@ const ContactSection = () => {
     const [hasOneContactChecked, setHasOneContactChecked] = useState(
         isEmailChecked || isPhoneChecked,
     );
+    const { ref, inView } = useInView();
     useEffect(() => {
         if (isEmailChecked || isPhoneChecked) {
             setHasOneContactChecked(true);
@@ -73,7 +76,10 @@ const ContactSection = () => {
     };
 
     return (
-        <MuiBox className={clsx(CSS_GLOBAL_CLASS_NAME.THEME_BG, styles.contact)}>
+        <MuiBox
+            className={clsx(CSS_GLOBAL_CLASS_NAME.THEME_BG, styles.contact)}
+            ref={ref}
+        >
             <Heading
                 id={ANCHOR_TAG.APP.CONTACT}
                 subHeading='Contact Form'
@@ -157,6 +163,8 @@ const ContactSection = () => {
                     {/* eslint-enable react/jsx-props-no-spreading */}
                 </div>
             </BackgroundGradient>
+            {/* only load hj when user has scrolled to at least contact section */}
+            {inView && <Script src='scripts/hotjar.js' />}
         </MuiBox>
     );
 };
