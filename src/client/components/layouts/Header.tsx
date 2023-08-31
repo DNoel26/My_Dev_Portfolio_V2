@@ -1,11 +1,10 @@
 /** @format */
 
-import { logoDarnell } from '@@assets/images';
 import { MuiAppBar, MuiToolbar } from '@@client';
 import ColorThemeToggle from '@@components/ColorThemeToggle';
 import BackgroundGradient from '@@components/ui/BackgroundGradient';
-import Image from '@@components/ui/Image';
 import Link from '@@components/ui/Link';
+import Logo from '@@components/ui/Logo';
 import ThemeToggle from '@@components/ui/ThemeToggle';
 import useScrollTrigger from '@@hooks/useScrollTrigger';
 import { ANCHOR_TAG, APP_URL, TRouteHash, TRoutePathname } from '@@lib/constants';
@@ -56,6 +55,7 @@ const HeaderPrivate = ({ position }: IHeaderProps) => {
             const headerLinks = headerRef.current.querySelectorAll('a');
             const headerBtns = headerRef.current.querySelectorAll('button');
             /* eslint-disable no-param-reassign */
+            // remove the absolute header from the tab list
             headerLinks.forEach((link) => {
                 link.tabIndex = -1;
             });
@@ -78,9 +78,7 @@ const HeaderPrivate = ({ position }: IHeaderProps) => {
         >
             <BodyContainer>
                 <MuiToolbar className={styles.header__toolbar} disableGutters>
-                    <Link className={styles.header__logo} href={HOME}>
-                        <Image src={logoDarnell} alt='My signature logo' />
-                    </Link>
+                    <Logo className={styles.header__logo} />
                     <MuiToolbar component='nav' className={styles.header__content}>
                         <BackgroundGradient
                             className={styles.header__content_bg}

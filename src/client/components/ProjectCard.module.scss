@@ -11,7 +11,7 @@ $cl-details: '#{$cl-card}__details';
 #{$cl-card} {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: base.$box-shadow-card-light;
     flex: 0 0 400px;
     #{$cl-logo} {
         padding: $padding;

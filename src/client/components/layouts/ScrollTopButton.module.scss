@@ -6,8 +6,7 @@ $fab: '.fab';
 
 #{$fab} {
     @include base.interactive-states {
-        box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.75);
-        transform: translate(0, -3px);
+        box-shadow: base.$box-shadow-btn;
     }
     color: base.$color-white;
     background: base.$color-btn-bg-neutral;

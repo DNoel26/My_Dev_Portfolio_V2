@@ -1,10 +1,12 @@
 /** @format */
 
+import { MuiButtonGroup } from '@@client';
 import SocialMediaLinks from '@@components/SocialMediaLinks';
 import BodyContainer from '@@components/layouts/BodyContainer';
 import Button from '@@components/ui/Button';
 import Heading from '@@components/ui/Heading';
 import HighlightedText from '@@components/ui/HighlightedText';
+import useColorThemeToggle from '@@hooks/useColorThemeToggle';
 import { ANCHOR_TAG } from '@@lib/constants';
 import { TDefaultProps } from '@@types/client/props.types';
 import clsx from 'clsx';
@@ -16,6 +18,8 @@ interface IProps extends TDefaultProps {
 }
 
 const Hero = ({ ImgComponent, className }: IProps) => {
+    const { handleToggle } = useColorThemeToggle();
+
     return (
         <BodyContainer
             id={ANCHOR_TAG.HOME_PAGE.INTRO}
@@ -34,9 +38,18 @@ const Hero = ({ ImgComponent, className }: IProps) => {
                         applications<HighlightedText>.</HighlightedText>
                     </span>
                 </h1>
-                <Button className={styles.hero__btn} customVariant='default'>
-                    Get in touch
-                </Button>
+                <MuiButtonGroup>
+                    <Button className={styles.hero__btn} customVariant='default'>
+                        Get in touch
+                    </Button>
+                    <Button
+                        className={styles.hero__btn}
+                        customVariant='outlined'
+                        onClick={handleToggle}
+                    >
+                        Personalize
+                    </Button>
+                </MuiButtonGroup>
                 <SocialMediaLinks />
             </div>
             {ImgComponent}

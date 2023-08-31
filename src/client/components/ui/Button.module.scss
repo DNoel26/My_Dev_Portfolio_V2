@@ -6,149 +6,47 @@
 $transition: all 0.35s ease-in-out;
 
 $cl-btn: '.btn';
-$cl-btn-wrapper: '#{$cl-btn}__wrapper';
 $cl-btn-default: '#{$cl-btn}--default';
-$cl-btn-gradient: '#{$cl-btn}--gradient';
-$cl-btn-neutral: '#{$cl-btn}--neutral';
 $cl-btn-outlined: '#{$cl-btn}--outlined';
-$cl-btn-text: '#{$cl-btn}--text';
-$cl-btn-alert: '#{$cl-btn}--alert';
 
-@mixin fill {
-    border-radius: base.$border-radius-xs;
-    padding: 16px 32px;
-    width: 100%;
-    height: 100%;
-}
-
-#{$cl-btn-wrapper} {
-    margin: 64px auto 0;
-    text-align: center;
-    width: max-content;
-    height: max-content;
-    border-radius: base.$border-radius-xs;
-    #{$cl-btn} {
-        @include fill;
-        @include base.interactive-states($transition) {
-            box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.75);
-            transform: translateY(-3px);
-            animation-play-state: running;
-        }
-        border: inherit;
+#{$cl-btn} {
+    &:global(.MuiButtonBase-root) {
         color: base.$color-white;
-        background-color: transparent;
-        font-size: 16px;
-        font-weight: 700;
-        display: inline-block;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        text-transform: capitalize;
-        animation: gradient 1.5s infinite alternate ease-in-out;
-        animation-play-state: paused;
+        background: transparent;
+        border-radius: base.$border-radius-sm;
         &:disabled {
             opacity: 0.3;
             pointer-events: none;
             cursor: none;
         }
         &#{$cl-btn-default} {
-            background-color: var(--color-primary);
-        }
-        &#{$cl-btn-gradient} {
-            background-image: linear-gradient(
-                to right,
-                var(--color-primary-600),
-                var(--color-primary-700),
-                var(--color-primary-800),
-                var(--color-primary-900),
-                var(--color-primary)
-            );
-            background-size: 200% 100%;
-            background-position: 0 0;
-        }
-        &#{$cl-btn-neutral} {
-            background-image: linear-gradient(
-                315deg,
-                var(--color-primary),
-                var(--color-secondary),
-                var(--color-primary),
-                var(--color-secondary),
-                var(--color-primary),
-                var(--color-secondary),
-                var(--color-primary),
-                var(--color-secondary),
-                var(--color-primary),
-                var(--color-secondary),
-                var(--color-primary),
-                var(--color-secondary),
-                var(--color-primary),
-                var(--color-secondary)
-            );
-            background-size: 600%;
-            $reduced-width: 95%;
-            $reduced-height: 87.5%;
-            animation-timing-function: linear;
-            animation-direction: reverse;
-            animation-duration: 5s;
-            &::before,
-            &::after {
-                @include base.before-after-default;
-                @include fill;
-                min-width: unset;
-                min-height: unset;
-                padding: unset;
-                background-color: var(--color-black);
-                transition: $transition;
-                z-index: -1;
-            }
-            &::before {
-                opacity: 0;
-                width: $reduced-width;
-                height: $reduced-height;
-                transform: translate(
-                    calc((100% - $reduced-width) / 2),
-                    calc((100% - $reduced-height) / 2)
-                );
-            }
-            &::after {
-                opacity: 1;
-            }
-            @include base.interactive-states($transition) {
-                &::before {
-                    opacity: 1;
-                }
-                &::after {
-                    opacity: 0;
-                }
-            }
+            background: var(--color-primary);
+            border: 1px solid var(--color-primary);
         }
         &#{$cl-btn-outlined} {
-            @extend .btn--default;
-            color: var(--color-black);
-            border: 2px solid var(--color-black);
-            background-image: linear-gradient(
-                315deg,
-                var(--color-white),
-                var(--color-primary-100),
-                var(--color-secondary-100),
-                var(--color-white),
-                var(--color-primary-100),
-                var(--color-secondary-100)
-            );
-        }
-        &#{$cl-btn-text} {
-            background: -webkit-linear-gradient(
-                315deg,
-                var(--color-primary),
-                var(--color-secondary)
-            );
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 300%;
-            background-position: 0 0;
-        }
-        &#{$cl-btn-alert} {
-            background-color: base.$color-alert;
+            color: var(--color-primary);
+            background: none;
+            border: 1px solid var(--color-primary);
         }
     }
+}
+
+#{$cl-btn} {
+    @include base.interactive-states($transition) {
+        transform: translateY(-2px);
+    }
+    padding: 16px 32px;
+    margin: 64px auto 0;
+    text-align: center;
+    width: max-content;
+    height: max-content;
+    border: inherit;
+    box-shadow: base.$box-shadow-btn;
+    font-size: 16px;
+    font-weight: 700;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-transform: capitalize;
 }

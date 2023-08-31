@@ -59,7 +59,7 @@ $cl-timeline-content-mech: '#{$cl-timeline-content}--mech';
         }
         #{$cl-chips} {
             > div {
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                box-shadow: base.$box-shadow-card-light;
                 margin-bottom: 8px;
                 margin-right: 8px;
                 font-weight: 500;
@@ -101,7 +101,7 @@ $cl-timeline-content-mech: '#{$cl-timeline-content}--mech';
         #{$cl-skills-soft} {
             width: 400px;
             border-radius: 16px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: base.$box-shadow-card-heavy;
             backdrop-filter: blur(5px);
         }
         #{$cl-skills-hard} {

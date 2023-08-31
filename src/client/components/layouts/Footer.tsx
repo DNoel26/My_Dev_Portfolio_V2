@@ -1,18 +1,12 @@
 /** @format */
 
-import {
-    logoDarnell,
-    logoMui,
-    logoNextJs,
-    logoSass,
-    logoTypeScript,
-} from '@@assets/images';
+import { logoMui, logoNextJs, logoSass, logoTypeScript } from '@@assets/images';
 import { MuiDivider } from '@@client';
 import ContactSection from '@@components/ContactSection';
 import SocialMediaLinks from '@@components/SocialMediaLinks';
 import HighlightedText from '@@components/ui/HighlightedText';
-import Image from '@@components/ui/Image';
 import Link from '@@components/ui/Link';
+import Logo from '@@components/ui/Logo';
 import WrapperIcon from '@@components/ui/WrapperIcon';
 import { ANCHOR_TAG, APP_URL, EXTERNAL_URL } from '@@lib/constants';
 import clsx from 'clsx';
@@ -31,12 +25,7 @@ const Footer = () => {
             <div id={ANCHOR_TAG.APP.BOTTOM} className={styles.footer__bottom}>
                 <BodyContainer>
                     <div className={styles.footer__bottom_container}>
-                        <Link
-                            className={styles.footer__bottom_logo}
-                            href={{ pathname: HOME }}
-                        >
-                            <Image src={logoDarnell} alt='My signature logo' />
-                        </Link>
+                        <Logo className={styles.footer__bottom_logo} />
                         <div className={styles.footer__bottom_links}>
                             <ul>
                                 <li>

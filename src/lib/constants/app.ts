@@ -2,7 +2,7 @@
 
 export const MY_INFO = {
     PHONE: '+1-868-480-8781',
-    EMAIL: 'darnellnoel.webdev@gmail.com',
+    EMAIL: 'info@darnellnoel.dev',
 } as const;
 
 export const CLIENT_STORAGE_ITEM_KEY = {

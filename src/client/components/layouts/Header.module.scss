@@ -32,11 +32,7 @@ $cl-absolute: '#{$cl-header}--absolute';
     }
     #{$cl-logo} {
         img {
-            @include base.transition((height, filter));
-            display: inline-block;
-            object-fit: contain;
-            height: math.div(base.$header-height, 2);
-            width: auto;
+            height: math.div(base.$header-height, 1.6);
         }
     }
     #{$cl-content} {
@@ -54,6 +50,7 @@ $cl-absolute: '#{$cl-header}--absolute';
         border-bottom-left-radius: base.$border-radius-md;
         opacity: 1;
         z-index: -1;
+        box-shadow: base.$box-shadow-card-heavy;
     }
     #{$cl-links} {
         a {
@@ -101,7 +98,7 @@ $cl-absolute: '#{$cl-header}--absolute';
             0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
         #{$cl-logo} {
             img {
-                height: math.div(base.$header-height, 1.6);
+                height: math.div(base.$header-height, 2);
             }
         }
         &#{$cl-fixed} {
@@ -139,10 +136,12 @@ $cl-absolute: '#{$cl-header}--absolute';
         button {
             color: base.$color-text-default-black;
         }
-        button {
-            svg {
-                fill: base.$color-text-default-black;
+        button,
+        svg {
+            @include base.interactive-states {
+                color: var(--color-primary-600);
             }
+            color: base.$color-text-default-black;
         }
     }
 }
@@ -171,10 +170,12 @@ $cl-absolute: '#{$cl-header}--absolute';
         button {
             color: base.$color-white;
         }
-        button {
-            svg {
-                fill: base.$color-white;
+        button,
+        svg {
+            @include base.interactive-states {
+                color: var(--color-primary-600);
             }
+            color: base.$color-white;
         }
     }
 }

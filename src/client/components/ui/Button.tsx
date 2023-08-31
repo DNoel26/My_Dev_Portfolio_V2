@@ -7,15 +7,7 @@ import { Replace } from 'type-fest';
 import styles from './Button.module.scss';
 
 /* eslint-disable react/jsx-props-no-spreading */
-type ClassNameVariant = Extract<
-    keyof typeof styles,
-    | 'btn--default'
-    | 'btn--gradient'
-    | 'btn--solid-neutral'
-    | 'btn--outlined'
-    | 'btn--text'
-    | 'btn--alert'
->;
+type ClassNameVariant = Extract<keyof typeof styles, 'btn--default' | 'btn--outlined'>;
 interface CustomProps {
     customIcon?: ReactNode;
     customVariant?: Replace<ClassNameVariant, 'btn--', ''>;
@@ -32,15 +24,13 @@ const Button = (props: Props) => {
     } = props;
 
     return (
-        <div className={clsx(styles.btn__wrapper, className)}>
-            <MuiButton
-                className={clsx(styles.btn, styles[`btn--${customVariant}`])}
-                startIcon={customIcon}
-                {...restProps}
-            >
-                {children}
-            </MuiButton>
-        </div>
+        <MuiButton
+            className={clsx(styles.btn, styles[`btn--${customVariant}`], className)}
+            startIcon={customIcon}
+            {...restProps}
+        >
+            {children}
+        </MuiButton>
     );
 };
 

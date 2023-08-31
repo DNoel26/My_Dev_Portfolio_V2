@@ -12,6 +12,7 @@ import MuiAvatar from '@mui/material/Avatar';
 import MuiBox from '@mui/material/Box';
 import type { ButtonProps as MuiButtonProps } from '@mui/material/Button';
 import MuiButton from '@mui/material/Button';
+import MuiButtonGroup from '@mui/material/ButtonGroup';
 import MuiCheckbox from '@mui/material/Checkbox';
 import MuiChip from '@mui/material/Chip';
 import type { ContainerProps as MuiContainerProps } from '@mui/material/Container';
@@ -41,6 +42,7 @@ export {
     MuiAvatar,
     MuiBox,
     MuiButton,
+    MuiButtonGroup,
     MuiButtonProps,
     MuiCheckbox,
     MuiChip,
