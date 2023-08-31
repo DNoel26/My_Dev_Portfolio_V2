@@ -131,17 +131,16 @@ $cl-absolute: '#{$cl-header}--absolute';
                 filter: invert(0);
             }
         }
-
         li,
-        button {
-            color: base.$color-text-default-black;
-        }
         button,
         svg {
-            @include base.interactive-states {
-                color: var(--color-primary-600);
-            }
             color: base.$color-text-default-black;
+        }
+    }
+    button,
+    svg {
+        @include base.interactive-states {
+            color: var(--color-primary-600);
         }
     }
 }
@@ -170,12 +169,11 @@ $cl-absolute: '#{$cl-header}--absolute';
         button {
             color: base.$color-white;
         }
-        button,
-        svg {
-            @include base.interactive-states {
-                color: var(--color-primary-600);
-            }
-            color: base.$color-white;
+    }
+    button,
+    svg {
+        @include base.interactive-states {
+            color: var(--color-primary-600);
         }
     }
 }

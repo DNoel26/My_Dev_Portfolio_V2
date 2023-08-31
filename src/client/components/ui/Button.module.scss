@@ -34,19 +34,16 @@ $cl-btn-outlined: '#{$cl-btn}--outlined';
 #{$cl-btn} {
     @include base.interactive-states($transition) {
         transform: translateY(-2px);
+        // fixes visual bug on translate when hovering
+        border-color: var(--color-primary) !important;
     }
+    will-change: transform;
     padding: 16px 32px;
     margin: 64px auto 0;
     text-align: center;
-    width: max-content;
-    height: max-content;
-    border: inherit;
     box-shadow: base.$box-shadow-btn;
     font-size: 16px;
     font-weight: 700;
     display: block;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
     text-transform: capitalize;
 }
