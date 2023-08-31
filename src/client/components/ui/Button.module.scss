@@ -24,8 +24,6 @@ $cl-btn-outlined: '#{$cl-btn}--outlined';
             border: 1px solid var(--color-primary);
         }
         &#{$cl-btn-outlined} {
-            color: var(--color-primary);
-            background: none;
             border: 1px solid var(--color-primary);
         }
     }
@@ -46,4 +44,18 @@ $cl-btn-outlined: '#{$cl-btn}--outlined';
     font-weight: 700;
     display: block;
     text-transform: capitalize;
+}
+
+@include base.theme(#{$cl-btn}, 'dark') {
+    &#{$cl-btn-outlined} {
+        color: var(--color-primary-800);
+        background: base.$color-neutral-dark-900;
+    }
+}
+
+@include base.theme(#{$cl-btn}, 'light') {
+    &#{$cl-btn-outlined} {
+        color: var(--color-primary);
+        background: none;
+    }
 }
