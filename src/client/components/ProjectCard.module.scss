@@ -2,21 +2,28 @@
 
 @use 'base';
 
-$padding: min(24px, 5%) min(32px, 10%);
+$spacing: min(16px, 5%) min(32px, 10%);
 
 $cl-card: '.card';
 $cl-logo: '#{$cl-card}__logo';
+$cl-sections: '#{$cl-card}__sections';
 $cl-details: '#{$cl-card}__details';
+$cl-btn: '#{$cl-card}__btn';
+$cl-more-details: '#{$cl-card}__more_details';
+$cl-logos: '#{$cl-card}__logos';
+$cl-expanded: '#{$cl-card}--expanded';
+$cl-show: '#{$cl-more-details}--show';
 
 #{$cl-card} {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    border-radius: 8px;
     box-shadow: base.$box-shadow-card-light;
-    flex: 0 0 400px;
+    width: min(100%, 400px);
+    flex: 0 0 auto;
     #{$cl-logo} {
-        padding: $padding;
+        padding: $spacing;
         padding-bottom: base.$spacing-lg;
         img {
+            display: inline-block;
             height: 64px;
             width: auto;
             object-position: center;
@@ -24,13 +31,59 @@ $cl-details: '#{$cl-card}__details';
         }
     }
     #{$cl-details} {
-        padding: $padding;
+        padding: $spacing;
         white-space: wrap;
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
         a {
             color: inherit;
             overflow-wrap: break-word;
+        }
+    }
+    #{$cl-btn} {
+        > button {
+            margin-top: 8px;
+            margin-left: 0;
+        }
+    }
+    #{$cl-more-details} {
+        opacity: 0;
+        height: 0;
+        strong {
+            display: block;
+            padding: $spacing;
+            padding-bottom: 0;
+        }
+        &#{$cl-show} {
+            opacity: 1;
+            height: auto;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+    }
+    #{$cl-logos} {
+        padding: $spacing;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 32px;
+        > div {
+            width: auto;
+            height: 48px;
+            img {
+                @include base.fill;
+            }
+        }
+    }
+    &#{$cl-expanded} {
+        #{$cl-details} {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        #{$cl-logos} {
+            @include base.padding-y(32px);
+            
         }
     }
 }
@@ -45,6 +98,10 @@ $cl-details: '#{$cl-card}__details';
         color: base.$color-text-default-black;
         background: base.$color-bg-hover-non-interactive-dark;
     }
+    #{$cl-more-details} {
+        color: base.$color-text-default-black;
+        background: base.$color-neutral-dark-200;
+    }
 }
 
 @include base.theme(#{$cl-card}, 'light') {
@@ -52,5 +109,8 @@ $cl-details: '#{$cl-card}__details';
     #{$cl-details} {
         color: base.$color-text-default-white;
         background: base.$color-bg-hover-non-interactive;
+    }
+    #{$cl-btn} {
+        filter: brightness(2)
     }
 }

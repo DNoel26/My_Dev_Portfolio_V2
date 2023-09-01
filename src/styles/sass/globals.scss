@@ -58,7 +58,10 @@ body {
 }
 main {
     flex: 1 1 auto;
-    margin-top: base.$header-height;
+    margin-top: base.$header-height; 
+    a {
+        width: max-content;
+    }
 }
 .dark, .user-dark {
     color: base.$color-text-default-dark;

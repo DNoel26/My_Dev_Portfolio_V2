@@ -8,7 +8,9 @@ $cl-projects: '#{$cl-overview}__projects';
 #{$cl-overview} {
     #{$cl-projects} {
         @include base.margin-y(base.$spacing-section);
-        @include base.flex-center;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
         flex-wrap: wrap;
         gap: 64px;
     }

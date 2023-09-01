@@ -8,6 +8,7 @@ $transition: all 0.35s ease-in-out;
 $cl-btn: '.btn';
 $cl-btn-default: '#{$cl-btn}--default';
 $cl-btn-outlined: '#{$cl-btn}--outlined';
+$cl-btn-text: '#{$cl-btn}--text';
 
 #{$cl-btn} {
     &:global(.MuiButtonBase-root) {
@@ -15,26 +16,42 @@ $cl-btn-outlined: '#{$cl-btn}--outlined';
         background: transparent;
         border-radius: base.$border-radius-sm;
         &:disabled {
-            opacity: 0.3;
+            opacity: 0.5;
+            box-shadow: none;
             pointer-events: none;
             cursor: none;
         }
         &#{$cl-btn-default} {
             background: var(--color-primary);
             border: 1px solid var(--color-primary);
+            @include base.interactive-states {
+                background: var(--color-primary-1200);
+                border: 1px solid var(--color-primary-1200);
+            }
         }
         &#{$cl-btn-outlined} {
             border: 1px solid var(--color-primary);
+        }
+        &#{$cl-btn-text} {
+            border: none;
+            background: none;
+            box-shadow: none;
+            padding: 8px 16px;
+            margin-left: -16px;
         }
     }
 }
 
 #{$cl-btn} {
     @include base.interactive-states($transition) {
-        transform: translateY(-2px);
+        transform: translateY(3px);
         // fixes visual bug on translate when hovering
         border-color: var(--color-primary) !important;
+        box-shadow: none;
     }
+    transition: color none, background none,
+            transform base.$default-transition-time ease-in-out,
+            box-shadow base.$default-transition-time ease-in-out;
     will-change: transform;
     padding: 16px 32px;
     margin: 64px auto 0;
@@ -50,6 +67,16 @@ $cl-btn-outlined: '#{$cl-btn}--outlined';
     &#{$cl-btn-outlined} {
         color: var(--color-primary-800);
         background: base.$color-neutral-dark-900;
+        @include base.interactive-states {
+            color: var(--color-primary-900);
+            background: base.$color-neutral-dark;
+        }
+    }
+    &#{$cl-btn-text} {
+        color: var(--color-primary-800);
+        @include base.interactive-states {
+            color: var(--color-primary);
+        }
     }
 }
 
@@ -57,5 +84,14 @@ $cl-btn-outlined: '#{$cl-btn}--outlined';
     &#{$cl-btn-outlined} {
         color: var(--color-primary);
         background: none;
+        @include base.interactive-states {
+            color: var(--color-primary-1200);
+        }
+    }
+    &#{$cl-btn-text} {
+        color: var(--color-primary);
+        @include base.interactive-states {
+            color: var(--color-primary-1100);
+        }
     }
 }

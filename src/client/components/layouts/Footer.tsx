@@ -1,6 +1,6 @@
 /** @format */
 
-import { logoMui, logoNextJs, logoSass, logoTypeScript } from '@@assets/images';
+import { svgLogoMui, svgLogoNext, svgLogoSass, svgLogoTypeScript } from '@@assets/svgs';
 import { MuiDivider } from '@@client';
 import ContactSection from '@@components/ContactSection';
 import SocialMediaLinks from '@@components/SocialMediaLinks';
@@ -88,12 +88,12 @@ const Footer = () => {
                             styles['footer__bottom_container--copyright'],
                         )}
                     >
-                        <HighlightedText>- MADE USING -</HighlightedText>
+                        <HighlightedText>- BUILT USING -</HighlightedText>
                         <div className={styles.footer__bottom_logos}>
-                            <WrapperIcon alt='' src={logoNextJs} />
-                            <WrapperIcon alt='' src={logoTypeScript} />
-                            <WrapperIcon alt='' src={logoSass} />
-                            <WrapperIcon alt='' src={logoMui} />
+                            <WrapperIcon alt='' src={svgLogoMui} />
+                            <WrapperIcon alt='' src={svgLogoSass} />
+                            <WrapperIcon alt='' src={svgLogoTypeScript} />
+                            <WrapperIcon alt='' src={svgLogoNext} />
                         </div>
                         <p>Copyright © 2021 Darnell Noel. All rights reserved.</p>
                         <p>Javascript must be enabled to use this site.</p>

@@ -10,6 +10,7 @@ import useColorThemeToggle from '@@hooks/useColorThemeToggle';
 import { ANCHOR_TAG } from '@@lib/constants';
 import { TDefaultProps } from '@@types/client/props.types';
 import clsx from 'clsx';
+import { useRouter } from 'next/router';
 import { ReactNode } from 'react';
 import styles from './Hero.module.scss';
 
@@ -19,6 +20,7 @@ interface IProps extends TDefaultProps {
 
 const Hero = ({ ImgComponent, className }: IProps) => {
     const { handleToggle } = useColorThemeToggle();
+    const router = useRouter();
 
     return (
         <BodyContainer
@@ -39,7 +41,13 @@ const Hero = ({ ImgComponent, className }: IProps) => {
                     </span>
                 </h1>
                 <MuiButtonGroup>
-                    <Button className={styles.hero__btn} customVariant='default'>
+                    <Button
+                        className={styles.hero__btn}
+                        customVariant='default'
+                        onClick={() => {
+                            router.push({ hash: ANCHOR_TAG.APP.CONTACT });
+                        }}
+                    >
                         Get in touch
                     </Button>
                     <Button

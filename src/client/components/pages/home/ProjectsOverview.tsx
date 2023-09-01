@@ -1,6 +1,19 @@
 /** @format */
 
 import { logoDarnell, logoFearnleyGroup, logoRcnChemicals } from '@@assets/images';
+import {
+    svgLogoChakra,
+    svgLogoCss,
+    svgLogoFigma,
+    svgLogoFirebase,
+    svgLogoHtml,
+    svgLogoJavaScript,
+    svgLogoNext,
+    svgLogoNode,
+    svgLogoReact,
+    svgLogoSass,
+    svgLogoTypeScript,
+} from '@@assets/svgs';
 import ProjectCard from '@@components/ProjectCard';
 import TextBody from '@@components/TextBody';
 import BodyContainer from '@@components/layouts/BodyContainer';
@@ -16,18 +29,40 @@ const projects: ComponentProps<typeof ProjectCard>[] = [
         alt: '',
         heading: 'Alien Mathvasion Game',
         href: 'https://dnoelmathinvasiongame.netlify.app/html/gamescreen.html',
+        tools: [
+            { src: svgLogoHtml, alt: '' },
+            { src: svgLogoCss, alt: '' },
+            { src: svgLogoJavaScript, alt: '' },
+        ],
     },
     {
         src: logoRcnChemicals,
         alt: '',
         heading: 'E-Commerce Store',
         href: 'https://rcn-chemicals.vercel.app',
+        tools: [
+            { src: svgLogoFigma, alt: '' },
+            { src: svgLogoSass, alt: '' },
+            { src: svgLogoJavaScript, alt: '' },
+            { src: svgLogoReact, alt: '' },
+            { src: svgLogoNext, alt: '' },
+            { src: svgLogoFirebase, alt: '' },
+            { src: svgLogoNode, alt: '' },
+        ],
     },
     {
         src: logoFearnleyGroup,
         alt: '',
         heading: 'Engineering Calculator',
         href: 'https://fpg-engineering-app-staging.vercel.app',
+        tools: [
+            { src: svgLogoChakra, alt: '' },
+            { src: svgLogoSass, alt: '' },
+            { src: svgLogoTypeScript, alt: '' },
+            { src: svgLogoReact, alt: '' },
+            { src: svgLogoNext, alt: '' },
+            { src: svgLogoNode, alt: '' },
+        ],
     },
 ];
 
@@ -53,7 +88,7 @@ const ProjectsOverview = () => {
                 </TextBody>
                 <div className={styles.overview__projects}>
                     {projects.map((project) => {
-                        const { src, alt, heading, href } = project;
+                        const { src, alt, heading, href, tools } = project;
                         return (
                             <ProjectCard
                                 key={heading}
@@ -61,6 +96,7 @@ const ProjectsOverview = () => {
                                 alt={alt}
                                 heading={heading}
                                 href={href}
+                                tools={tools}
                             />
                         );
                     })}

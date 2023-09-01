@@ -31,11 +31,10 @@ $cl-submit-btn: '#{$cl-contact}__submit_btn';
 #{$cl-contact} {
     @include base.fixed-bg;
     padding-bottom: base.$spacing-section;
-    input {
-        width: max(300px, 90%);
-    }
+    input[type='text'],
     textarea {
-        padding: 5% 8px;
+        width: max(300px, 100%);
+        margin-top: 4px;
     }
     #{$cl-container} {
         @include base.margin-x;

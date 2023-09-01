@@ -5,6 +5,7 @@ export type Styles = {
     btn: string;
     'btn--default': string;
     'btn--outlined': string;
+    'btn--text': string;
     gradient: string;
     wave: string;
 };

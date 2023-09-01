@@ -7,7 +7,10 @@ import { Replace } from 'type-fest';
 import styles from './Button.module.scss';
 
 /* eslint-disable react/jsx-props-no-spreading */
-type ClassNameVariant = Extract<keyof typeof styles, 'btn--default' | 'btn--outlined'>;
+type ClassNameVariant = Extract<
+    keyof typeof styles,
+    'btn--default' | 'btn--outlined' | 'btn--text'
+>;
 interface CustomProps {
     customIcon?: ReactNode;
     customVariant?: Replace<ClassNameVariant, 'btn--', ''>;

@@ -15,6 +15,7 @@ import MuiButton from '@mui/material/Button';
 import MuiButtonGroup from '@mui/material/ButtonGroup';
 import MuiCheckbox from '@mui/material/Checkbox';
 import MuiChip from '@mui/material/Chip';
+import MuiClickAwayListener from '@mui/material/ClickAwayListener';
 import type { ContainerProps as MuiContainerProps } from '@mui/material/Container';
 import MuiContainer from '@mui/material/Container';
 import MuiDivider from '@mui/material/Divider';
@@ -46,6 +47,7 @@ export {
     MuiButtonProps,
     MuiCheckbox,
     MuiChip,
+    MuiClickAwayListener,
     MuiContainer,
     MuiContainerProps,
     MuiDivider,

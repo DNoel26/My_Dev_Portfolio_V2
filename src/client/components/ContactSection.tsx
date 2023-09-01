@@ -55,6 +55,7 @@ const ContactSection = () => {
                     },
                 });
                 actions.resetForm();
+                actions.setStatus('Thanks!');
             } catch (error) {
                 console.error(error);
             } finally {
@@ -155,9 +156,9 @@ const ContactSection = () => {
                         <Button
                             className={styles.contact__submit_btn}
                             type='submit'
-                            disabled={!hasOneContactChecked}
+                            disabled={!hasOneContactChecked || formik.status}
                         >
-                            Send Message
+                            {formik.status || 'Send Message'}
                         </Button>
                     </MuiFormControl>
                     {/* eslint-enable react/jsx-props-no-spreading */}

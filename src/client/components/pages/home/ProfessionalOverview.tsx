@@ -422,7 +422,16 @@ const ProfessionalOverview = () => {
                             </ul>
                         </div>
                     </div>
-                    <Button customVariant='default'>View Resume</Button>
+                    <Button
+                        customVariant='default'
+                        href='https://drive.google.com/file/d/1Sbr76J5vd0Adm0OdvVzJdMBTbYZvMR5U/view?usp=sharing'
+                        LinkComponent='a'
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
+                        target='_blank'
+                    >
+                        View Resume
+                    </Button>
                 </BodyContainer>
             </div>
         </MuiBox>
