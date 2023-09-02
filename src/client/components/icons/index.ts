@@ -5,6 +5,8 @@ import MuiIconCheckCircleOutline from '@mui/icons-material/CheckCircleOutline';
 import MuiCloseIcon from '@mui/icons-material/Close';
 import MuiCodeIcon from '@mui/icons-material/Code';
 import MuiEngineeringIcon from '@mui/icons-material/Engineering';
+import MuiExpandLessIcon from '@mui/icons-material/ExpandLess';
+import MuiExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MuiFormatColorResetIcon from '@mui/icons-material/FormatColorReset';
 import MuiFormatColorResetOutlinedIcon from '@mui/icons-material/FormatColorResetOutlined';
 import MuiIconKeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
@@ -25,6 +27,8 @@ export {
     MuiCloseIcon,
     MuiCodeIcon,
     MuiEngineeringIcon,
+    MuiExpandLessIcon,
+    MuiExpandMoreIcon,
     MuiFormatColorResetIcon,
     MuiFormatColorResetOutlinedIcon,
     MuiIconCheckCircle,

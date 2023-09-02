@@ -29,6 +29,10 @@ const projects: ComponentProps<typeof ProjectCard>[] = [
         alt: '',
         heading: 'Alien Mathvasion Game',
         href: 'https://dnoelmathinvasiongame.netlify.app/html/gamescreen.html',
+        details:
+            'One of my earliest, most interesting and most challenging projects that I worked on while learning development. ' +
+            'Designed for children ages 8+ with the goal of making math fun and engaging. ' +
+            'Visual design is based on retro arcade Shoot-em Up games.',
         tools: [
             { src: svgLogoHtml, alt: '' },
             { src: svgLogoCss, alt: '' },
@@ -40,6 +44,9 @@ const projects: ComponentProps<typeof ProjectCard>[] = [
         alt: '',
         heading: 'E-Commerce Store',
         href: 'https://rcn-chemicals.vercel.app',
+        details:
+            'One of my first real life websites for use in production. ' +
+            'Completely custom made and designed in Figma. ',
         tools: [
             { src: svgLogoFigma, alt: '' },
             { src: svgLogoSass, alt: '' },
@@ -55,6 +62,9 @@ const projects: ComponentProps<typeof ProjectCard>[] = [
         alt: '',
         heading: 'Engineering Calculator',
         href: 'https://fpg-engineering-app-staging.vercel.app',
+        details:
+            'An engineering toolbox and calculator app for use in production. ' +
+            'Created to handle highly complex calculations and provide feedback for drilling in the oil & gas industry.',
         tools: [
             { src: svgLogoChakra, alt: '' },
             { src: svgLogoSass, alt: '' },
@@ -88,7 +98,7 @@ const ProjectsOverview = () => {
                 </TextBody>
                 <div className={styles.overview__projects}>
                     {projects.map((project) => {
-                        const { src, alt, heading, href, tools } = project;
+                        const { src, alt, heading, href, details, tools } = project;
                         return (
                             <ProjectCard
                                 key={heading}
@@ -96,6 +106,7 @@ const ProjectsOverview = () => {
                                 alt={alt}
                                 heading={heading}
                                 href={href}
+                                details={details}
                                 tools={tools}
                             />
                         );

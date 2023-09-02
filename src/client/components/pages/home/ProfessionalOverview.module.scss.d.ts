@@ -4,6 +4,7 @@
 export type Styles = {
     gradient: string;
     overview: string;
+    overview__btn: string;
     overview__chips: string;
     overview__container: string;
     overview__skills: string;

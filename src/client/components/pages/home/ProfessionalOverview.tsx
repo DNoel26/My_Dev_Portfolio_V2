@@ -423,6 +423,7 @@ const ProfessionalOverview = () => {
                         </div>
                     </div>
                     <Button
+                        className={styles.overview__btn}
                         customVariant='default'
                         href='https://drive.google.com/file/d/1Sbr76J5vd0Adm0OdvVzJdMBTbYZvMR5U/view?usp=sharing'
                         LinkComponent='a'

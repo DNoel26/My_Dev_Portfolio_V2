@@ -8,6 +8,7 @@ export type Styles = {
     card__logo: string;
     card__logos: string;
     card__more_details: string;
+    card__more_details_wrapper: string;
     'card__more_details--show': string;
     'card--expanded': string;
     gradient: string;

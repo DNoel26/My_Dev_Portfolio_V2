@@ -10,6 +10,7 @@ $cl-sections: '#{$cl-card}__sections';
 $cl-details: '#{$cl-card}__details';
 $cl-btn: '#{$cl-card}__btn';
 $cl-more-details: '#{$cl-card}__more_details';
+$cl-more-details-wrapper: '#{$cl-more-details}_wrapper';
 $cl-logos: '#{$cl-card}__logos';
 $cl-expanded: '#{$cl-card}--expanded';
 $cl-show: '#{$cl-more-details}--show';
@@ -31,6 +32,7 @@ $cl-show: '#{$cl-more-details}--show';
         }
     }
     #{$cl-details} {
+        @include base.transition(border-radius);
         padding: $spacing;
         white-space: wrap;
         border-bottom-left-radius: 8px;
@@ -39,30 +41,37 @@ $cl-show: '#{$cl-more-details}--show';
             color: inherit;
             overflow-wrap: break-word;
         }
+        h4 {
+            font-size: 1.2rem;
+        }
     }
     #{$cl-btn} {
         > button {
-            margin-top: 8px;
+            margin-top: base.$spacing-lg;
             margin-left: 0;
         }
     }
-    #{$cl-more-details} {
-        opacity: 0;
+    #{$cl-more-details-wrapper} {
+        @include base.transition(height);
         height: 0;
+        overflow: hidden;
+    }
+    #{$cl-more-details} {
+        p {
+            padding: $spacing;
+        }
         strong {
             display: block;
             padding: $spacing;
             padding-bottom: 0;
         }
         &#{$cl-show} {
-            opacity: 1;
-            height: auto;
             border-bottom-left-radius: 8px;
             border-bottom-right-radius: 8px;
         }
     }
     #{$cl-logos} {
-        padding: $spacing;
+        padding: 32px;
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
@@ -81,10 +90,6 @@ $cl-show: '#{$cl-more-details}--show';
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
         }
-        #{$cl-logos} {
-            @include base.padding-y(32px);
-            
-        }
     }
 }
 
@@ -102,6 +107,14 @@ $cl-show: '#{$cl-more-details}--show';
         color: base.$color-text-default-black;
         background: base.$color-neutral-dark-200;
     }
+    #{$cl-btn} {
+        > button {
+            color: var(--color-primary-1600);
+            @include base.interactive-states {
+                color: var(--color-primary-1900);
+            }
+        }
+    }
 }
 
 @include base.theme(#{$cl-card}, 'light') {
@@ -111,6 +124,11 @@ $cl-show: '#{$cl-more-details}--show';
         background: base.$color-bg-hover-non-interactive;
     }
     #{$cl-btn} {
-        filter: brightness(2)
+        > button {
+            color: var(--color-primary-400);
+            @include base.interactive-states {
+                color: var(--color-primary-700);
+            }
+        }
     }
 }

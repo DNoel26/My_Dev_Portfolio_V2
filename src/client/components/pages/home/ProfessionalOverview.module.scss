@@ -15,6 +15,7 @@ $cl-chips: '#{$cl-overview}__chips';
 $cl-skills: '#{$cl-overview}__skills';
 $cl-skills-soft: '#{$cl-skills}_soft';
 $cl-skills-hard: '#{$cl-skills}_hard';
+$cl-btn: '#{$cl-overview}__btn';
 $cl-timeline-content-mech: '#{$cl-timeline-content}--mech';
 
 #{$cl-overview} {
@@ -107,6 +108,10 @@ $cl-timeline-content-mech: '#{$cl-timeline-content}--mech';
         #{$cl-skills-hard} {
             background: none;
         }
+    }
+    #{$cl-btn} {
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 

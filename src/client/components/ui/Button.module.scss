@@ -59,8 +59,11 @@ $cl-btn-text: '#{$cl-btn}--text';
     box-shadow: base.$box-shadow-btn;
     font-size: 16px;
     font-weight: 700;
-    display: block;
+    display: inline-block;
     text-transform: capitalize;
+    svg {
+        vertical-align: text-bottom;
+    }
 }
 
 @include base.theme(#{$cl-btn}, 'dark') {

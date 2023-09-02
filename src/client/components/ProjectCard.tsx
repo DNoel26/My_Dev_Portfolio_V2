@@ -4,6 +4,7 @@ import { ClickAwayListener } from '@mui/material';
 import clsx from 'clsx';
 import { ComponentProps, useState } from 'react';
 import styles from './ProjectCard.module.scss';
+import { MuiExpandLessIcon, MuiExpandMoreIcon } from './icons';
 import Button from './ui/Button';
 import Image from './ui/Image';
 import Link from './ui/Link';
@@ -17,11 +18,13 @@ type TImageProps = {
 type TProps = TImageProps & {
     heading: string;
     href: string;
+    details: string;
     tools: TImageProps[];
 };
 
-const ProjectCard = ({ src, alt, heading, href, tools }: TProps) => {
+const ProjectCard = ({ src, alt, heading, href, details, tools }: TProps) => {
     const [isExpanded, setIsExpanded] = useState(false);
+    const [height, setHeight] = useState(0);
 
     return (
         <ClickAwayListener onClickAway={() => setIsExpanded(false)}>
@@ -41,6 +44,13 @@ const ProjectCard = ({ src, alt, heading, href, tools }: TProps) => {
                                 onClick={() => {
                                     setIsExpanded((prev) => !prev);
                                 }}
+                                startIcon={
+                                    isExpanded ? (
+                                        <MuiExpandLessIcon fontSize='small' />
+                                    ) : (
+                                        <MuiExpandMoreIcon fontSize='small' />
+                                    )
+                                }
                             >
                                 Show {isExpanded ? 'less' : 'more'}
                             </Button>
@@ -48,23 +58,35 @@ const ProjectCard = ({ src, alt, heading, href, tools }: TProps) => {
                     </div>
                 </div>
                 <div
-                    className={clsx(
-                        styles.card__more_details,
-                        isExpanded && styles['card__more_details--show'],
-                    )}
+                    className={styles.card__more_details_wrapper}
+                    style={{ height: isExpanded ? height : 0 }}
                 >
-                    <strong>Built using:</strong>
-                    <div className={styles.card__logos}>
-                        {tools.map((tool) => {
-                            const { src: toolSrc, alt: toolAlt } = tool;
-                            return (
-                                <WrapperIcon
-                                    key={String(toolSrc)}
-                                    alt={toolAlt}
-                                    src={toolSrc}
-                                />
-                            );
-                        })}
+                    <div
+                        className={clsx(
+                            styles.card__more_details,
+                            isExpanded && styles['card__more_details--show'],
+                        )}
+                        ref={(node) => {
+                            if (node) {
+                                setHeight(node.offsetHeight);
+                            }
+                        }}
+                    >
+                        <p>{details}</p>
+                        <strong>Built using:</strong>
+                        <div className={styles.card__logos}>
+                            {tools.map((tool, index) => {
+                                const { src: toolSrc, alt: toolAlt } = tool;
+                                return (
+                                    <WrapperIcon
+                                        // eslint-disable-next-line react/no-array-index-key
+                                        key={index}
+                                        alt={toolAlt}
+                                        src={toolSrc}
+                                    />
+                                );
+                            })}
+                        </div>
                     </div>
                 </div>
             </div>
