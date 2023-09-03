@@ -30,6 +30,17 @@ const ContactSection = () => {
         isEmailChecked || isPhoneChecked,
     );
     const { ref, inView } = useInView();
+    useWindowCheck({
+        handleEffect: () => {
+            const hjFeedbackContainer = document.querySelectorAll(
+                '._hj_feedback_container',
+            );
+            hjFeedbackContainer.forEach((container) => {
+                // eslint-disable-next-line no-param-reassign
+                (container as HTMLElement).style.opacity = '1';
+            });
+        },
+    });
     useEffect(() => {
         if (isEmailChecked || isPhoneChecked) {
             setHasOneContactChecked(true);
@@ -208,12 +219,7 @@ const ContactSection = () => {
                 </div>
             </BackgroundGradient>
             {/* only load scripts when user has scrolled to at least contact section */}
-            {inView && (
-                <>
-                    <Script src='https://www.google.com/recaptcha/api.js' />
-                    <Script src='scripts/hotjar.js' />
-                </>
-            )}
+            {inView && <Script src='https://www.google.com/recaptcha/api.js' />}
         </MuiBox>
     );
 };

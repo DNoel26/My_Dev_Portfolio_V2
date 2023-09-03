@@ -45,8 +45,8 @@ const projects: ComponentProps<typeof ProjectCard>[] = [
         heading: 'E-Commerce Store',
         href: 'https://rcn-chemicals.vercel.app',
         details:
-            'One of my first real life websites for use in production. ' +
-            'Completely custom made and designed in Figma. ',
+            'One of my first client websites for use in production. ' +
+            'Completely custom made and designed in Figma.',
         tools: [
             { src: svgLogoFigma, alt: '' },
             { src: svgLogoSass, alt: '' },

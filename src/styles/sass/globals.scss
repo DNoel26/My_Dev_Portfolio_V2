@@ -102,3 +102,7 @@ body::-webkit-scrollbar-thumb {
 ::-webkit-scrollbar-button:single-button {
     height: 4px;
 }
+._hj_feedback_container {
+    @include base.transition(opacity);
+    opacity: 0;
+}
