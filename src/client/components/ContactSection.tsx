@@ -32,13 +32,15 @@ const ContactSection = () => {
     const { ref, inView } = useInView();
     useWindowCheck({
         handleEffect: () => {
-            const hjFeedbackContainer = document.querySelectorAll(
-                '._hj_feedback_container',
-            );
-            hjFeedbackContainer.forEach((container) => {
-                // eslint-disable-next-line no-param-reassign
-                (container as HTMLElement).style.opacity = '1';
-            });
+            if (inView) {
+                const hjFeedbackContainer = document.querySelectorAll(
+                    '._hj_feedback_container',
+                );
+                hjFeedbackContainer.forEach((container) => {
+                    // eslint-disable-next-line no-param-reassign
+                    (container as HTMLElement).style.opacity = '1';
+                });
+            }
         },
     });
     useEffect(() => {
