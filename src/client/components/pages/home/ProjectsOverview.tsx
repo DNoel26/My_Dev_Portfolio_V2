@@ -30,7 +30,7 @@ const projects: ComponentProps<typeof ProjectCard>[] = [
         heading: 'Alien Mathvasion Game',
         href: 'https://dnoelmathinvasiongame.netlify.app/html/gamescreen.html',
         details:
-            'One of my earliest, most interesting and most challenging projects that I worked on while learning development. ' +
+            'One of my earliest, most interesting and most challenging development projects. ' +
             'Designed for children ages 8+ with the goal of making math fun and engaging. ' +
             'Visual design is based on retro arcade Shoot-em Up games.',
         tools: [

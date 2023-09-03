@@ -12,7 +12,6 @@
             googleScript.setAttribute('src', '/scripts/google.js');
             head.appendChild(googleScript);
         }, 1000);
-
         setTimeout(() => {
             const tidioScript = document.createElement('script');
             tidioScript.setAttribute('src', '/scripts/tidio.js');

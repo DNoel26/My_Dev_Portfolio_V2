@@ -4,7 +4,7 @@ import { ClickAwayListener } from '@mui/material';
 import clsx from 'clsx';
 import { ComponentProps, useState } from 'react';
 import styles from './ProjectCard.module.scss';
-import { MuiExpandLessIcon, MuiExpandMoreIcon } from './icons';
+import { MuiExpandLessIcon, MuiExpandMoreIcon, MuiOpenInNewIcon } from './icons';
 import Button from './ui/Button';
 import Image from './ui/Image';
 import Link from './ui/Link';
@@ -36,7 +36,8 @@ const ProjectCard = ({ src, alt, heading, href, details, tools }: TProps) => {
                     <div>
                         <h4>{heading}</h4>
                         <Link isExternal href={href}>
-                            Visit Website
+                            <MuiOpenInNewIcon fontSize='small' />
+                            <span>Visit Website</span>
                         </Link>
                         <div className={styles.card__btn}>
                             <Button
@@ -62,10 +63,7 @@ const ProjectCard = ({ src, alt, heading, href, details, tools }: TProps) => {
                     style={{ height: isExpanded ? height : 0 }}
                 >
                     <div
-                        className={clsx(
-                            styles.card__more_details,
-                            isExpanded && styles['card__more_details--show'],
-                        )}
+                        className={clsx(styles.card__more_details)}
                         ref={(node) => {
                             if (node) {
                                 setHeight(node.offsetHeight);

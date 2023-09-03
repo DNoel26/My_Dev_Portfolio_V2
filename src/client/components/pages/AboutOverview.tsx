@@ -34,7 +34,7 @@ const AboutOverview = () => {
                             <strong>logic</strong>
                         </HighlightedText>{' '}
                         to solve interesting and difficult problems but soon realized that
-                        there was a{' '}
+                        there was also a{' '}
                         <HighlightedText>
                             <strong>creative</strong>
                         </HighlightedText>{' '}

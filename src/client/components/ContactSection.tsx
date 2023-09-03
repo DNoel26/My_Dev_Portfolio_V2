@@ -2,6 +2,7 @@
 
 import { imgMeSideProfile } from '@@assets/images';
 import useInView from '@@hooks/useInView';
+import useWindowCheck from '@@hooks/useWindowCheck';
 import { ANCHOR_TAG, CSS_GLOBAL_CLASS_NAME, MY_INFO } from '@@lib/constants';
 import { EXTERNAL_ENDPOINT } from '@@lib/constants/routes/api';
 import { Avatar } from '@mui/material';
@@ -18,6 +19,10 @@ import FormInput from './ui/FormInput';
 import Heading from './ui/Heading';
 import Image from './ui/Image';
 
+const reCaptchaCallbackName = 'handleSubmit';
+
+// TODO: fix submit btn message on submit attempts
+// TODO: add form validation
 const ContactSection = () => {
     const [isEmailChecked, setIsEmailChecked] = useState(true);
     const [isPhoneChecked, setIsPhoneChecked] = useState(false);
@@ -46,7 +51,7 @@ const ContactSection = () => {
             actions.setSubmitting(true);
             try {
                 const body = JSON.stringify(values);
-                await fetch(EXTERNAL_ENDPOINT.FORMSPREE, {
+                const result = await fetch(EXTERNAL_ENDPOINT.FORMSPREE, {
                     method: 'POST',
                     body,
                     headers: {
@@ -54,8 +59,13 @@ const ContactSection = () => {
                         'Content-Type': 'application/json',
                     },
                 });
-                actions.resetForm();
-                actions.setStatus('Thanks!');
+                if (result.ok) {
+                    await result.json();
+                    actions.resetForm();
+                    actions.setStatus('success');
+                } else {
+                    actions.setStatus('error');
+                }
             } catch (error) {
                 console.error(error);
             } finally {
@@ -63,6 +73,32 @@ const ContactSection = () => {
             }
         },
     });
+    useWindowCheck({
+        handleEffect: () => {
+            window[reCaptchaCallbackName] = async (token: unknown) => {
+                try {
+                    const result = await fetch('api/v1/recaptcha', {
+                        method: 'POST',
+                        body: JSON.stringify({ token }),
+                        headers: {
+                            Accept: 'application/json',
+                            'Content-Type': 'application/json',
+                        },
+                    });
+                    const data = await result.json();
+                    // score of 1.0 is most likely human
+                    if (data.success && data.score >= 0.5) {
+                        formik.submitForm();
+                    } else {
+                        formik.status('blocked');
+                    }
+                } catch (err) {
+                    console.error(err);
+                }
+            };
+        },
+    });
+
     const handleCheckboxChange = (
         event: React.ChangeEvent<HTMLInputElement>,
         setChecked: Dispatch<SetStateAction<boolean>>,
@@ -154,9 +190,16 @@ const ContactSection = () => {
                             textFieldProps={{ multiline: true }}
                         />
                         <Button
-                            className={styles.contact__submit_btn}
+                            className={clsx('g-recaptcha', styles.contact__submit_btn)}
                             type='submit'
-                            disabled={!hasOneContactChecked || formik.status}
+                            disabled={
+                                !hasOneContactChecked ||
+                                formik.status === 'blocked' ||
+                                formik.status === 'success'
+                            }
+                            data-sitekey={process.env.NEXT_PUBLIC_GOOGLE_SITE_KEY_V3}
+                            data-callback={reCaptchaCallbackName}
+                            data-action='submit'
                         >
                             {formik.status || 'Send Message'}
                         </Button>
@@ -164,8 +207,13 @@ const ContactSection = () => {
                     {/* eslint-enable react/jsx-props-no-spreading */}
                 </div>
             </BackgroundGradient>
-            {/* only load hj when user has scrolled to at least contact section */}
-            {inView && <Script src='scripts/hotjar.js' />}
+            {/* only load scripts when user has scrolled to at least contact section */}
+            {inView && (
+                <>
+                    <Script src='https://www.google.com/recaptcha/api.js' />
+                    <Script src='scripts/hotjar.js' />
+                </>
+            )}
         </MuiBox>
     );
 };

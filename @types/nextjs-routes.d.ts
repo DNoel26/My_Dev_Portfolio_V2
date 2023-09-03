@@ -16,6 +16,7 @@ declare module "nextjs-routes" {
     | StaticRoute<"/api/v1/projects/core">
     | StaticRoute<"/api/v1/projects">
     | StaticRoute<"/api/v1/projects/sample">
+    | StaticRoute<"/api/v1/recaptcha">
     | StaticRoute<"/">
     | StaticRoute<"/play">
     | StaticRoute<"/projects/core">

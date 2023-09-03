@@ -13,6 +13,7 @@ import MuiIconKeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import MuiMergeOutlinedIcon from '@mui/icons-material/MergeOutlined';
 import MuiIconModeNight from '@mui/icons-material/ModeNight';
 import MuiIconModeNightOutlined from '@mui/icons-material/ModeNightOutlined';
+import MuiOpenInNewIcon from '@mui/icons-material/OpenInNew';
 import MuiPaletteIcon from '@mui/icons-material/Palette';
 import MuiPaletteOutlinedIcon from '@mui/icons-material/PaletteOutlined';
 import MuiPendingOutlinedIcon from '@mui/icons-material/PendingOutlined';
@@ -41,6 +42,7 @@ export {
     MuiIconWbSunny,
     MuiIconWbSunnyOutlined,
     MuiMergeOutlinedIcon,
+    MuiOpenInNewIcon,
     MuiPaletteIcon,
     MuiPaletteOutlinedIcon,
     MuiPendingOutlinedIcon,

@@ -1,5 +1,7 @@
 /** @format */
 
+@use 'sass:color';
+
 // generate tokens here: https://codepen.io/claviska/full/QWveRgL @previous
 // generate tokens here: https://maketintsandshades.com @latest
 
@@ -50,10 +52,15 @@ $color-header-text-dark: $color-text-default-dark;
 $color-header-scrolled-bg: $color-black;
 $color-header-scrolled-bg-dark: $color-white;
 
-$color-btn-bg-neutral: var(--color-primary);
-$color-btn-bg: var(--color-primary-800);
+$color-btn-text: var(--color-primary);
+$color-btn-text-active: var(--color-primary-1200);
+$color-btn-text-dark: var(--color-primary-800);
+$color-btn-text-active-dark: var(--color-primary-900);
+$color-btn-bg: var(--color-primary);
 $color-btn-bg-active: var(--color-primary-1200);
-$color-btn-bg-dark: var(--color-primary-1200);
-$color-btn-bg-active-dark: var(--color-primary-800);
+$color-btn-outline-bg: $color-white;
+$color-btn-outline-bg-active: color.scale($color-btn-outline-bg, $lightness: -3%);
+$color-btn-outline-bg-dark: $color-neutral-dark-900;
+$color-btn-outline-bg-active-dark: $color-neutral-dark;
 
 $color-alert: #fc453a;

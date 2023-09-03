@@ -17,14 +17,14 @@ $speed-dial: '.speed_dial';
             transform: translate(0, -3px);
         }
         color: base.$color-white;
-        background: base.$color-btn-bg-neutral;
+        background: base.$color-btn-bg;
     }
 }
 
 @include base.theme(#{$speed-dial}, 'dark') {
     button {
         @include base.interactive-states {
-            background: base.$color-btn-bg-active-dark;
+            background: base.$color-btn-bg-active;
         }
     }
 }

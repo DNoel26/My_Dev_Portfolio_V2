@@ -9,12 +9,12 @@ $fab: '.fab';
         box-shadow: base.$box-shadow-btn;
     }
     color: base.$color-white;
-    background: base.$color-btn-bg-neutral;
+    background: base.$color-btn-bg;
 }
 
 @include base.theme(#{$fab}, 'dark') {
     @include base.interactive-states {
-        background: base.$color-btn-bg-active-dark;
+        background: base.$color-btn-bg-active;
     }
 }
 

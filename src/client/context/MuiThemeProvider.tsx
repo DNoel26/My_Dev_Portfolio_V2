@@ -28,6 +28,7 @@ const MuiThemeProvider = ({ children }: TDefaultPropsWithChildren) => {
                         main: userThemeState.colorSecondary,
                     },
                 },
+                typography: { fontFamily: 'inherit' },
             }),
         [mode, userThemeState],
     );

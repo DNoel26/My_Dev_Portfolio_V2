@@ -13,7 +13,6 @@ $cl-more-details: '#{$cl-card}__more_details';
 $cl-more-details-wrapper: '#{$cl-more-details}_wrapper';
 $cl-logos: '#{$cl-card}__logos';
 $cl-expanded: '#{$cl-card}--expanded';
-$cl-show: '#{$cl-more-details}--show';
 
 #{$cl-card} {
     border-radius: 8px;
@@ -33,6 +32,8 @@ $cl-show: '#{$cl-more-details}--show';
     }
     #{$cl-details} {
         @include base.transition(border-radius);
+        // allows sliding drawer to remain connected until transition end
+        transition-delay: base.$default-transition-time;
         padding: $spacing;
         white-space: wrap;
         border-bottom-left-radius: 8px;
@@ -40,9 +41,15 @@ $cl-show: '#{$cl-more-details}--show';
         a {
             color: inherit;
             overflow-wrap: break-word;
+            svg {
+                text-decoration: none;
+                margin-right: 4px;
+                vertical-align: text-bottom;
+            }
         }
         h4 {
             font-size: 1.2rem;
+            padding-bottom: base.$spacing-sm;
         }
     }
     #{$cl-btn} {
@@ -65,10 +72,8 @@ $cl-show: '#{$cl-more-details}--show';
             padding: $spacing;
             padding-bottom: 0;
         }
-        &#{$cl-show} {
-            border-bottom-left-radius: 8px;
-            border-bottom-right-radius: 8px;
-        }
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
     }
     #{$cl-logos} {
         padding: 32px;
@@ -87,6 +92,8 @@ $cl-show: '#{$cl-more-details}--show';
     }
     &#{$cl-expanded} {
         #{$cl-details} {
+            transition-duration: 0s;
+            transition-delay: 0s;
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
         }

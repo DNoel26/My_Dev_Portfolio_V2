@@ -3,48 +3,18 @@
 import { MuiAppBar, MuiToolbar } from '@@client';
 import ColorThemeToggle from '@@components/ColorThemeToggle';
 import BackgroundGradient from '@@components/ui/BackgroundGradient';
-import Link from '@@components/ui/Link';
 import Logo from '@@components/ui/Logo';
 import ThemeToggle from '@@components/ui/ThemeToggle';
 import useScrollTrigger from '@@hooks/useScrollTrigger';
-import { ANCHOR_TAG, APP_URL, TRouteHash, TRoutePathname } from '@@lib/constants';
 import clsx from 'clsx';
 import { MutableRefObject, useEffect, useRef } from 'react';
 import BodyContainer from './BodyContainer';
 import styles from './Header.module.scss';
+import NavLinks from './NavLinks';
 
-interface INavLinkProps {
-    title: string;
-    pathname?: TRoutePathname;
-    hash?: TRouteHash;
-    tabIndex?: number;
-}
 interface IHeaderProps {
     position: 'fixed' | 'absolute';
 }
-
-const { HOME } = APP_URL.BASE;
-const { SERVICES, SKILLS, ABOUT, PROJECTS } = ANCHOR_TAG.HOME_PAGE;
-const { CONTACT } = ANCHOR_TAG.APP;
-
-const navLinks: INavLinkProps[] = [
-    { title: 'Home', pathname: HOME },
-    { title: 'About', pathname: HOME, hash: ABOUT },
-    { title: 'Services', pathname: HOME, hash: SERVICES },
-    { title: 'Skills', pathname: HOME, hash: SKILLS },
-    { title: 'Projects', pathname: HOME, hash: PROJECTS },
-    { title: 'Contact', hash: CONTACT },
-];
-
-const NavLink = ({ title, pathname, hash, tabIndex }: INavLinkProps) => {
-    return (
-        <li>
-            <Link href={{ pathname, hash }} tabIndex={tabIndex}>
-                {title}
-            </Link>
-        </li>
-    );
-};
 
 const HeaderPrivate = ({ position }: IHeaderProps) => {
     const trigger = useScrollTrigger();
@@ -89,18 +59,7 @@ const HeaderPrivate = ({ position }: IHeaderProps) => {
                             component='ul'
                             disableGutters
                         >
-                            {navLinks.map((navLink) => {
-                                const { title, pathname, hash } = navLink;
-                                return (
-                                    <NavLink
-                                        key={title}
-                                        title={title}
-                                        pathname={pathname}
-                                        hash={hash}
-                                        // tabIndex={!isFixed ? -1 : undefined}
-                                    />
-                                );
-                            })}
+                            <NavLinks />
                         </MuiToolbar>
                         <MuiToolbar
                             className={styles.header__btns}

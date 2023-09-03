@@ -22,15 +22,15 @@ $cl-btn-text: '#{$cl-btn}--text';
             cursor: none;
         }
         &#{$cl-btn-default} {
-            background: var(--color-primary);
-            border: 1px solid var(--color-primary);
+            background: base.$color-btn-bg;
+            border: 1px solid base.$color-btn-bg;
             @include base.interactive-states {
-                background: var(--color-primary-1200);
-                border: 1px solid var(--color-primary-1200);
+                background: base.$color-btn-bg-active;
+                border: 1px solid base.$color-btn-bg-active;
             }
         }
         &#{$cl-btn-outlined} {
-            border: 1px solid var(--color-primary);
+            border: 1px solid base.$color-btn-bg;
         }
         &#{$cl-btn-text} {
             border: none;
@@ -46,12 +46,12 @@ $cl-btn-text: '#{$cl-btn}--text';
     @include base.interactive-states($transition) {
         transform: translateY(3px);
         // fixes visual bug on translate when hovering
-        border-color: var(--color-primary) !important;
+        border-color: base.$color-btn-bg !important;
         box-shadow: none;
     }
     transition: color none, background none,
-            transform base.$default-transition-time ease-in-out,
-            box-shadow base.$default-transition-time ease-in-out;
+        transform base.$default-transition-time ease-in-out,
+        box-shadow base.$default-transition-time ease-in-out;
     will-change: transform;
     padding: 16px 32px;
     margin: 64px auto 0;
@@ -61,6 +61,7 @@ $cl-btn-text: '#{$cl-btn}--text';
     font-weight: 700;
     display: inline-block;
     text-transform: capitalize;
+    // for better alignment with mui icon props
     svg {
         vertical-align: text-bottom;
     }
@@ -68,33 +69,34 @@ $cl-btn-text: '#{$cl-btn}--text';
 
 @include base.theme(#{$cl-btn}, 'dark') {
     &#{$cl-btn-outlined} {
-        color: var(--color-primary-800);
-        background: base.$color-neutral-dark-900;
+        color: base.$color-btn-text-dark;
+        background: base.$color-btn-outline-bg-dark;
         @include base.interactive-states {
-            color: var(--color-primary-900);
-            background: base.$color-neutral-dark;
+            color: base.$color-btn-text-active-dark;
+            background: base.$color-btn-outline-bg-active-dark;
         }
     }
     &#{$cl-btn-text} {
-        color: var(--color-primary-800);
+        color: base.$color-btn-text-dark;
         @include base.interactive-states {
-            color: var(--color-primary);
+            color: base.$color-btn-text-active-dark;
         }
     }
 }
 
 @include base.theme(#{$cl-btn}, 'light') {
     &#{$cl-btn-outlined} {
-        color: var(--color-primary);
-        background: none;
+        color: base.$color-btn-text;
+        background: base.$color-btn-outline-bg;
         @include base.interactive-states {
-            color: var(--color-primary-1200);
+            color: base.$color-btn-text-active;
+            background: base.$color-btn-outline-bg-active;
         }
     }
     &#{$cl-btn-text} {
-        color: var(--color-primary);
+        color: base.$color-btn-text;
         @include base.interactive-states {
-            color: var(--color-primary-1100);
+            color: base.$color-btn-text-active;
         }
     }
 }
