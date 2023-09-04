@@ -20,6 +20,11 @@ import Heading from './ui/Heading';
 import Image from './ui/Image';
 
 const reCaptchaCallbackName = 'handleSubmit';
+const FORM_STATUS = {
+    SUCCESS: 'success',
+    BLOCKED: 'blocked',
+    ERROR: 'error',
+} as const;
 
 // TODO: fix submit btn message on submit attempts
 // TODO: add form validation
@@ -75,12 +80,13 @@ const ContactSection = () => {
                 if (result.ok) {
                     await result.json();
                     actions.resetForm();
-                    actions.setStatus('success');
+                    actions.setStatus(FORM_STATUS.SUCCESS);
                 } else {
-                    actions.setStatus('error');
+                    actions.setStatus(FORM_STATUS.ERROR);
                 }
             } catch (error) {
                 console.error(error);
+                actions.setStatus(FORM_STATUS.ERROR);
             } finally {
                 actions.setSubmitting(false);
             }
@@ -99,14 +105,18 @@ const ContactSection = () => {
                         },
                     });
                     const data = await result.json();
+                    const ACCEPTABLE_THRESHOLD = 0.5;
                     // score of 1.0 is most likely human
-                    if (data.success && data.score >= 0.5) {
+                    if (data.success && data.score >= ACCEPTABLE_THRESHOLD) {
                         formik.submitForm();
+                    } else if (data.success && data.score < ACCEPTABLE_THRESHOLD) {
+                        formik.status(FORM_STATUS.BLOCKED);
                     } else {
-                        formik.status('blocked');
+                        formik.status(FORM_STATUS.ERROR);
                     }
                 } catch (err) {
                     console.error(err);
+                    formik.status(FORM_STATUS.ERROR);
                 }
             };
         },

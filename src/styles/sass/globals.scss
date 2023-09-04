@@ -56,25 +56,27 @@ body {
 }
 main {
     flex: 1 1 auto;
-    margin-top: base.$header-height; 
+    margin-top: base.$header-height;
     a {
         width: max-content;
     }
 }
-.dark, .user-dark {
+.dark,
+.user-dark {
     color: base.$color-text-default-dark;
     background: base.$color-bg-default-dark;
     color-scheme: dark;
 }
-.light, .user-light {
+.light,
+.user-light {
     color: base.$color-text-default-black;
     background: base.$color-bg-default;
     color-scheme: light;
 }
-.dark .theme-bg  {
+.dark .theme-bg {
     background-image: base.$img-bg-dark;
 }
-.user-dark .theme-bg  {
+.user-dark .theme-bg {
     background-image: base.$img-bg-dark-neutral;
     background-image: var(--bg-img-dark);
 }
@@ -101,6 +103,16 @@ body::-webkit-scrollbar-thumb {
 }
 ::-webkit-scrollbar-button:single-button {
     height: 4px;
+}
+/* Move reCAPTCHA v3 badge to the left */
+.grecaptcha-badge {
+    @include base.transition(all, $is-important: true);
+    width: 70px !important;
+    overflow: hidden !important;
+    left: 4px !important;
+    @include base.interactive-states {
+        width: 256px !important;
+    }
 }
 ._hj_feedback_container {
     @include base.transition(opacity);
