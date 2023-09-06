@@ -45,3 +45,6 @@ export const EXTERNAL_URL = {
     WHATSAPP:
         'https://api.whatsapp.com/send/?phone=18684808781&text=Hi%2C+I+just+checked+out+your+portfolio&type=phone_number&app_absent=0',
 } as const;
+
+// TODO: Review and include
+// https://wa.me/18684808781?text=Hi,%20I%20just%20checked%20out%20your%20portfolio

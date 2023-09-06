@@ -82,32 +82,28 @@ const timelineItems: ITimelineItem[] = [
         Icon: <MuiCodeIcon />,
         Logo: <Image src={logoScratchpay} alt='' />,
         skills: [
-            'Laravel',
-            'PHP',
-            'MySQL',
-            'PostgreSQL',
+            'HTML',
+            'CSS',
+            'Sass',
             'JavaScript',
             'TypeScript',
+            'PHP',
+            'React.js',
+            'Redux',
+            'Laravel',
+            'MySQL',
+            'PostgreSQL',
             'Node.js',
             'Express.js',
             'Firebase',
             'Google Cloud Platform',
-            'Google Big Query',
-            'HTML',
-            'CSS',
-            'Sass',
-            'React.js',
-            'Redux',
             'Jest',
-            'Chai',
             'PHPUnit',
             'Enzyme',
             'React Testing Library',
             'Docker',
-            'Microservices',
             'Gitlab',
-            'Agile Methodologies',
-            'Debugging',
+            'Jira',
         ],
     },
     {
@@ -138,10 +134,10 @@ const timelineItems: ITimelineItem[] = [
             'MongoDB',
             'Node.js',
             'Express.js',
+            'Jest',
             'Figma',
             'Github',
             'Postman',
-            'Jest',
             'Webpack',
             'Babel',
             'Netlify',
@@ -165,14 +161,13 @@ const timelineItems: ITimelineItem[] = [
             'HTML',
             'CSS',
             'JavaScript',
-            'Git',
-            'Github',
             'MySQL',
             'MongoDB',
             'Mongoose',
             'Node.js',
             'Express.js',
-            'Postman',
+            'Git',
+            'Github',
             'Handlebars',
             'React.js',
             'Heroku',
@@ -252,7 +247,10 @@ const TimePeriod = ({ startDate, endDate, intervalString }: TTimePeriodProps) =>
 
 const ProfessionalOverview = () => {
     return (
-        <MuiBox className={clsx(CSS_GLOBAL_CLASS_NAME.THEME_BG, styles.overview)}>
+        <MuiBox
+            className={clsx(CSS_GLOBAL_CLASS_NAME.THEME_BG, styles.overview)}
+            component='section'
+        >
             <div>
                 <BodyContainer className={styles.overview__container}>
                     <Heading

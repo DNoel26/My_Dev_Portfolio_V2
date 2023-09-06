@@ -17,8 +17,8 @@ const AboutOverview = () => {
             <BodyContainer className={styles.about__container}>
                 <div className={styles.about__text_container}>
                     <p>
-                        Hi I&apos;m Darnell, a mechanical engineer turned full stack web
-                        developer from Trinidad & Tobago.
+                        Hi, I&apos;m <strong>Darnell Noel</strong>, a mechanical engineer
+                        turned full stack web developer from Trinidad & Tobago.
                     </p>
                     <br />
                     <p>

@@ -4,14 +4,11 @@
 export type Styles = {
     footer: string;
     footer__bottom: string;
-    footer__bottom_container: string;
-    'footer__bottom_container--copyright': string;
-    footer__bottom_links: string;
-    footer__bottom_logo: string;
-    footer__bottom_logos: string;
-    footer__middle: string;
-    footer__middle_btn: string;
-    footer__middle_container: string;
+    footer__built_using: string;
+    footer__container: string;
+    footer__copyright: string;
+    footer__logos: string;
+    footer__my_logo: string;
     footer__top: string;
     gradient: string;
     wave: string;

@@ -30,7 +30,7 @@ $cl-timeline-content-mech: '#{$cl-timeline-content}--mech';
         padding-bottom: base.$spacing-section;
     }
     #{$cl-timeline} {
-        margin-top: base.$spacing-section;
+        margin-top: base.$spacing-xl;
         #{$cl-timeline-dot} {
             color: base.$color-text-default-black;
         }
@@ -71,7 +71,7 @@ $cl-timeline-content-mech: '#{$cl-timeline-content}--mech';
     #{$cl-skills} {
         @include base.flex-center;
         @include base.margin-x;
-        margin-top: base.$spacing-section;
+        margin-top: base.$spacing-xl;
         gap: 32px;
         flex-wrap: wrap;
         li {
@@ -110,8 +110,7 @@ $cl-timeline-content-mech: '#{$cl-timeline-content}--mech';
         }
     }
     #{$cl-btn} {
-        left: 50%;
-        transform: translateX(-50%);
+        display: block;
     }
 }
 

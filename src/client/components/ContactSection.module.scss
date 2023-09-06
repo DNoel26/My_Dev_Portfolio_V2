@@ -79,6 +79,9 @@ $cl-submit-btn: '#{$cl-contact}__submit_btn';
                 margin-top: 16px;
                 margin-right: 0;
             }
+            button[type=submit] {
+                margin-top: 32px;
+            }
         }
     }
     #{$cl-checkbox-container} {

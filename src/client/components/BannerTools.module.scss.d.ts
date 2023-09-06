@@ -4,10 +4,8 @@
 export type Styles = {
     banner: string;
     banner__container: string;
-    banner__icon_btn: string;
     banner__icon_text: string;
-    banner__icon_tooltip: string;
-    banner__spacing: string;
+    banner__icon_wrapper: string;
     gradient: string;
     wave: string;
 };

@@ -9,7 +9,7 @@ $cl-separator: '#{$cl-body}__separator';
 #{$cl-body} {
     #{$cl-text} {
         @include base.margin-x;
-        padding-top: base.$spacing-section;
+        padding-top: base.$spacing-xl;
         text-align: center;
         width: 60ch;
         font-size: 1.2rem;

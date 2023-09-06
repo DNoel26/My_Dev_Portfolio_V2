@@ -223,6 +223,7 @@ const ContactSection = () => {
                             data-sitekey={process.env.NEXT_PUBLIC_GOOGLE_SITE_KEY_V3}
                             data-callback={reCaptchaCallbackName}
                             data-action='submit'
+                            data-badge='inline'
                         >
                             {formik.status || 'Send Message'}
                         </Button>

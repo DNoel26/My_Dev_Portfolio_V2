@@ -1,6 +1,6 @@
 /** @format */
 
-import { logoGithubBlack, logoLinkedIn, logoWhatsapp } from '@@assets/images';
+import { logoGithub, logoLinkedIn, logoWhatsapp } from '@@assets/images';
 import { EXTERNAL_URL } from '@@lib/constants';
 import clsx from 'clsx';
 import { ComponentProps } from 'react';
@@ -18,7 +18,7 @@ type TProps = Pick<ILogoLinkProps, 'monochromeColor'>;
 
 const srcLogos = [
     { href: EXTERNAL_URL.LINKEDIN, src: logoLinkedIn, alt: 'My LinkedIn page' },
-    { href: EXTERNAL_URL.GITHUB, src: logoGithubBlack, alt: 'My Github page' },
+    { href: EXTERNAL_URL.GITHUB, src: logoGithub, alt: 'My Github page' },
     { href: EXTERNAL_URL.WHATSAPP, src: logoWhatsapp, alt: 'My Whatsapp contact' },
 ] as const;
 

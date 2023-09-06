@@ -106,36 +106,12 @@ $cl-expanded: '#{$cl-card}--expanded';
         filter: grayscale(1) brightness(0.7) invert(1);
         mix-blend-mode: lighten;
     }
-    #{$cl-details} {
-        color: base.$color-text-default-black;
-        background: base.$color-bg-hover-non-interactive-dark;
-    }
     #{$cl-more-details} {
         color: base.$color-text-default-black;
         background: base.$color-neutral-dark-200;
-    }
-    #{$cl-btn} {
-        > button {
-            color: var(--color-primary-1600);
-            @include base.interactive-states {
-                color: var(--color-primary-1900);
-            }
-        }
     }
 }
 
 @include base.theme(#{$cl-card}, 'light') {
     background: base.$color-white;
-    #{$cl-details} {
-        color: base.$color-text-default-white;
-        background: base.$color-bg-hover-non-interactive;
-    }
-    #{$cl-btn} {
-        > button {
-            color: var(--color-primary-400);
-            @include base.interactive-states {
-                color: var(--color-primary-700);
-            }
-        }
-    }
 }

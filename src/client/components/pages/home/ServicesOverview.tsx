@@ -100,8 +100,7 @@ const ServicesOverview = () => {
             <BodyContainer>
                 <TextBody>
                     I believe in thoughtful and quality design from end to end. This means
-                    focusing on proper software architecture to meet clients&apos; needs
-                    and ensuring simplicity, speed, accessibility and consistency for{' '}
+                    focusing on simplicity, speed, accessibility and consistency for{' '}
                     <HighlightedText>
                         <strong>all</strong>
                     </HighlightedText>{' '}

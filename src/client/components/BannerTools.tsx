@@ -1,86 +1,49 @@
 /** @format */
 
-import useNextTheme from '@@hooks/useNextTheme';
-import { NEXT_THEME } from '@@lib/constants';
-import { DEFAULT_THEME } from '@@theme';
 import { TDefaultProps } from '@@types/client/props.types';
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
-import { MuiButton } from '..';
-import { ISkill, OS_SKILLS, SKILLS } from '../data/skills';
+import Marquee from 'react-fast-marquee';
+import { ALL_SKILLS, ISkill } from '../data/skills';
 import styles from './BannerTools.module.scss';
 import BodyContainer from './layouts/BodyContainer';
 import WrapperIcon from './ui/WrapperIcon';
 
-type TIconProp = Pick<ISkill, 'ICON_DARK' | 'ICON_LIGHT'>;
 type TSkillIcon = {
     name: ISkill['NAME'];
-    title: string;
-    iconProp: ISkill['ICON_LIGHT'] | ISkill['ICON_DARK'];
-    iconLight: ISkill['ICON_LIGHT'];
+    src: ISkill['ICON'];
+    alt: string;
 };
 
-const SkillIcon = ({ name, title, iconProp, iconLight }: TSkillIcon) => {
+const SkillIcon = ({ name, alt, src }: TSkillIcon) => {
     return (
-        <MuiButton className={styles.banner__icon_btn}>
-            <WrapperIcon alt={title} src={iconProp ?? iconLight} />
+        <div className={styles.banner__icon_wrapper}>
+            <WrapperIcon alt={alt} src={src} />
             <span className={styles.banner__icon_text}>{name}</span>
-        </MuiButton>
+        </div>
+    );
+};
+
+const Skills = () => {
+    return (
+        <div className={styles.banner__container}>
+            {ALL_SKILLS.map((SKILL) => {
+                const { NAME, ICON } = SKILL;
+                const title = `${NAME} logo`;
+                if (!ICON) return null;
+
+                return <SkillIcon key={NAME} name={NAME} alt={title} src={ICON} />;
+            })}
+        </div>
     );
 };
 
 const BannerSkills = ({ className }: TDefaultProps) => {
-    const { resolvedTheme = DEFAULT_THEME } = useNextTheme();
-    const key: keyof TIconProp = `ICON_${
-        resolvedTheme.toUpperCase() as Uppercase<
-            typeof NEXT_THEME.LIGHT | typeof NEXT_THEME.DARK
-        >
-    }`;
-    const [iconProp, setIconProp] = useState(key);
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIconProp(key);
-        }, 501);
-
-        return () => {
-            clearTimeout(timer);
-        };
-    }, [key]);
-
     return (
         <div className={clsx(styles.banner, className)}>
             <BodyContainer>
-                <div className={styles.banner__container}>
-                    {SKILLS.map((SKILL) => {
-                        const { NAME, ICON_LIGHT } = SKILL;
-                        const title = `${NAME}: ★☆☆`;
-                        return (
-                            <SkillIcon
-                                key={NAME}
-                                name={NAME}
-                                title={title}
-                                iconProp={SKILL[iconProp]}
-                                iconLight={ICON_LIGHT}
-                            />
-                        );
-                    })}
-                </div>
-                <div className={styles.banner__spacing} />
-                <div className={styles.banner__container}>
-                    {OS_SKILLS.map((SKILL) => {
-                        const { NAME, ICON_LIGHT } = SKILL;
-                        const title = `${NAME} icon`;
-                        return (
-                            <SkillIcon
-                                key={NAME}
-                                name={NAME}
-                                title={title}
-                                iconProp={SKILL[iconProp]}
-                                iconLight={ICON_LIGHT}
-                            />
-                        );
-                    })}
-                </div>
+                <Marquee>
+                    <Skills />
+                </Marquee>
             </BodyContainer>
         </div>
     );

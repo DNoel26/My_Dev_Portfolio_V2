@@ -32,7 +32,7 @@ const projects: ComponentProps<typeof ProjectCard>[] = [
         details:
             'One of my earliest, most interesting and most challenging development projects. ' +
             'Designed for children ages 8+ with the goal of making math fun and engaging. ' +
-            'Visual design is based on retro arcade Shoot-em Up games.',
+            "Visual design is based on retro arcade Shoot 'em up games.",
         tools: [
             { src: svgLogoHtml, alt: '' },
             { src: svgLogoCss, alt: '' },

@@ -6,14 +6,16 @@ $cl-banner: '.banner';
 $cl-container: '#{$cl-banner}__container';
 $cl-spacing: '#{$cl-banner}__spacing';
 $cl-icon: '#{$cl-banner}__icon';
-$cl-icon-tooltip: '#{$cl-icon}_tooltip';
-$cl-icon-btn: '#{$cl-icon}_btn';
+$cl-icon-wrapper: '#{$cl-icon}_wrapper';
 $cl-icon-text: '#{$cl-icon}_text';
 
 #{$cl-banner} {
     border-radius: 24px;
     padding: max(16px, 2%);
-    max-width: 90%;
+    width: min(1000px, 95%);
+    h6 {
+        font-size: 1.2rem;
+    }
     #{$cl-container} {
         @include base.flex-center;
         gap: 16px;
@@ -22,23 +24,9 @@ $cl-icon-text: '#{$cl-icon}_text';
             border-radius: 8px;
         }
     }
-    #{$cl-spacing} {
-        display: block;
-        padding-top: base.$spacing-xl;
-    }
-    #{$cl-icon-tooltip} {
-        display: initial;
-    }
-    #{$cl-icon-btn} {
-        display: flex;
-        flex-direction: column;
-        color: base.$color-text-default-black;
-        text-transform: capitalize;
-        max-width: 144px;
-        hr {
-            background: base.$color-bg-non-interactive;
-        }
-    }
+    #{$cl-icon-wrapper} {
+        text-align: center;
+    }   
     #{$cl-icon-text} {
         margin-top: -8px;
         white-space: nowrap;
@@ -46,9 +34,8 @@ $cl-icon-text: '#{$cl-icon}_text';
 }
 
 @include base.theme(#{$cl-banner}, 'dark') {
-    background: base.$color-neutral-dark-200;
+    #{$cl-icon-wrapper} img {
+        filter: invert(1);
+    }  
 }
 
-@include base.theme(#{$cl-banner}, 'light') {
-    background: none;
-}

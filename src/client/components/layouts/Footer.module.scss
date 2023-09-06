@@ -4,136 +4,96 @@
 
 $cl-footer: '.footer';
 $cl-top: '#{$cl-footer}__top';
-$cl-middle: '#{$cl-footer}__middle';
-$cl-middle-container: '#{$cl-middle}_container';
-$cl-middle-btn: '#{$cl-middle}_btn';
 $cl-bottom: '#{$cl-footer}__bottom';
-$cl-bottom-logo: '#{$cl-bottom}_logo';
-$cl-bottom-container: '#{$cl-bottom}_container';
-$cl-bottom-links: '#{$cl-bottom}_links';
-$cl-bottom-logos: '#{$cl-bottom}_logos';
-$cl-bottom-container-copyright: '#{$cl-bottom-container}--copyright';
+$cl-my-logo: '#{$cl-footer}__my_logo';
+$cl-container: '#{$cl-footer}__container';
+$cl-logos: '#{$cl-footer}__logos';
+$cl-built-using: '#{$cl-footer}__built_using';
+$cl-copyright: '#{$cl-footer}__copyright';
 
 #{$cl-footer} {
-    hr {
-        margin-bottom: base.$spacing-xl;
-    }
     #{$cl-top} {
         min-height: 400px;
-    }
-    #{$cl-middle} {
-        @include base.flex-center;
-        @include base.padding-y(base.$spacing-xl);
-        min-height: 200px;
-        text-align: center;
-        text-transform: uppercase;
-    }
-    #{$cl-middle-container} {
-        @include base.margin-x;
-        border-radius: 16px;
-        max-width: max(50%, 600px);
-    }
-    #{$cl-middle-btn} {
-        margin: base.$spacing-lg auto 0;
+        button {
+            width: 100%;
+            margin-top: base.$spacing-xl;
+        }
     }
     #{$cl-bottom} {
         min-height: 200px;
         padding-top: base.$spacing-section;
+        p {
+            text-align: center;
+        }
     }
-    #{$cl-bottom-logo} {
+    #{$cl-my-logo} {
         img {
             @include base.margin-x;
             display: block;
             width: 200px;
             height: auto;
+            margin-bottom: base.$spacing-lg;
         }
     }
-    #{$cl-bottom-container} {
+    #{$cl-container} {
         display: flex;
         justify-content: space-evenly;
         align-items: flex-start;
         flex-wrap: wrap;
         gap: 64px;
-        padding-bottom: base.$spacing-xl;
+        padding-bottom: base.$spacing-xxl;
         max-width: min(1000px, 90%);
         margin: auto;
-        ul {
-            max-width: 90px;
-            white-space: nowrap;
-        }
-        h4 {
-            padding-bottom: 16px;
-        }
         li {
             list-style: none;
         }
         span {
             font-weight: bold;
-            padding-bottom: base.$spacing-lg;
+            padding-bottom: base.$spacing-md;
         }
-        p:first-of-type {
-            padding-top: base.$spacing-xl;
+    }
+    #{$cl-built-using} {
+        font-weight: 700;
+        text-align: center;
+    }
+    #{$cl-logos} {
+        @include base.flex-center;
+        border-radius: 12px;
+        margin-top: base.$spacing-md;
+        margin-bottom: base.$spacing-xl;
+        column-gap: 16px;
+        > div {
+            width: 64px;
+            height: auto;
         }
-        &:first-of-type,
-        &:last-of-type {
-            padding-bottom: base.$spacing-section;
+        img {
+            width: auto;
+            height: 64px;
+            max-width: 100%;
+            padding: 2px;
+            object-fit: contain;
         }
-        &:nth-of-type(2) {
-            justify-content: center;
-            align-items: center;
-            > * {
-                margin-top: 0;
-            }
-        }
-        #{$cl-bottom-links} {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            column-gap: 100px;
-        }
-        #{$cl-bottom-logos} {
-            @include base.flex-center;
-            border-radius: 12px;
-            padding: max(16px, 2%);
-            column-gap: 16px;
-            > div {
-                width: 64px;
-                height: auto;
-            }
-            img {
-                width: auto;
-                height: 64px;
-                max-width: 100px;
-                padding: 2px;
-                object-fit: contain;
-            }
-        }
-        &#{$cl-bottom-container-copyright} {
-            flex-direction: column;
-            gap: 4px;
-            align-items: center;
-        }
+    }
+    #{$cl-copyright} {
+        margin-bottom: base.$spacing-xxl;
     }
 }
 
 @include base.theme(#{$cl-footer}, 'dark') {
-    #{$cl-bottom-logo} {
+    #{$cl-my-logo} {
         img {
             filter: invert(1);
         }
     }
-    #{$cl-bottom-logos} {
-        background: base.$color-neutral-dark-200;
+    #{$cl-logos} {
+        filter: invert(1);
     }
 }
 
 @include base.theme(#{$cl-footer}, 'light') {
-    #{$cl-bottom-logo} {
+    #{$cl-my-logo} {
         img {
             filter: invert(0);
         }
-    }
-    #{$cl-bottom-logos} {
-        background: none;
     }
 }

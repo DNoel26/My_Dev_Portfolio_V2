@@ -6,50 +6,49 @@ import { StaticImageData } from 'next/image';
 export interface ISkill {
     NAME: string;
     PROFICIENCY: 'BEGINNER' | 'INTERMEDIATE' | 'ADVANCED';
-    ICON_LIGHT: StaticImageData;
-    ICON_DARK?: StaticImageData;
+    ICON: StaticImageData;
 }
 
 const FRONT_END_SKILLS: readonly ISkill[] = [
     {
         NAME: 'HTML5',
         PROFICIENCY: 'ADVANCED',
-        ICON_LIGHT: Svg.svgLogoHtml,
+        ICON: Svg.svgLogoHtml,
     },
     {
         NAME: 'CSS3',
         PROFICIENCY: 'ADVANCED',
-        ICON_LIGHT: Svg.svgLogoCss,
+        ICON: Svg.svgLogoCss,
     },
     {
         NAME: 'Sass',
         PROFICIENCY: 'ADVANCED',
-        ICON_LIGHT: Svg.svgLogoSass,
+        ICON: Svg.svgLogoSass,
     },
     {
         NAME: 'Bootstrap',
         PROFICIENCY: 'ADVANCED',
-        ICON_LIGHT: Svg.svgLogoBootstrap,
+        ICON: Svg.svgLogoBootstrap,
     },
     {
         NAME: 'React',
         PROFICIENCY: 'ADVANCED',
-        ICON_LIGHT: Svg.svgLogoReact,
+        ICON: Svg.svgLogoReact,
     },
     {
         NAME: 'Redux',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoRedux,
+        ICON: Svg.svgLogoRedux,
     },
     {
         NAME: 'MUI',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoMui,
+        ICON: Svg.svgLogoMui,
     },
     {
         NAME: 'Chakra UI',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoChakra,
+        ICON: Svg.svgLogoChakra,
     },
 ] as const;
 
@@ -57,52 +56,52 @@ const BACK_END_SKILLS: readonly ISkill[] = [
     {
         NAME: 'PHP',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoPhp,
+        ICON: Svg.svgLogoPhp,
     },
     {
         NAME: 'Express',
         PROFICIENCY: 'ADVANCED',
-        ICON_LIGHT: Svg.svgLogoExpress,
+        ICON: Svg.svgLogoExpress,
     },
     {
         NAME: 'Node',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoNode,
+        ICON: Svg.svgLogoNode,
     },
     {
         NAME: 'Firebase',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoFirebase,
+        ICON: Svg.svgLogoFirebase,
     },
     {
         NAME: 'MySQL',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoMySql,
+        ICON: Svg.svgLogoMySql,
     },
     {
         NAME: 'PostGreSQL',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoPostgreSql,
+        ICON: Svg.svgLogoPostgreSql,
     },
     {
         NAME: 'MongoDB',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoMongoDb,
+        ICON: Svg.svgLogoMongoDb,
     },
     {
-        NAME: 'Google Cloud Platform',
+        NAME: 'GCP',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoGoogleCloud,
+        ICON: Svg.svgLogoGoogleCloud,
     },
     {
         NAME: 'Knex.js',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoKnex,
+        ICON: Svg.svgLogoKnex,
     },
     {
         NAME: 'Prisma',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoPrisma,
+        ICON: Svg.svgLogoPrisma,
     },
 ] as const;
 
@@ -110,32 +109,32 @@ const FULL_STACK_SKILLS: readonly ISkill[] = [
     {
         NAME: 'JavaScript',
         PROFICIENCY: 'ADVANCED',
-        ICON_LIGHT: Svg.svgLogoJavaScript,
+        ICON: Svg.svgLogoJavaScript,
     },
     {
         NAME: 'TypeScript',
         PROFICIENCY: 'ADVANCED',
-        ICON_LIGHT: Svg.svgLogoTypeScript,
+        ICON: Svg.svgLogoTypeScript,
     },
     {
         NAME: 'Handlebars',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoHandlebars,
+        ICON: Svg.svgLogoHandlebars,
     },
     {
         NAME: 'Next.js',
         PROFICIENCY: 'ADVANCED',
-        ICON_LIGHT: Svg.svgLogoNext,
+        ICON: Svg.svgLogoNext,
     },
     {
         NAME: 'Laravel',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoLaravel,
+        ICON: Svg.svgLogoLaravel,
     },
     {
         NAME: 'Jest',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoJest,
+        ICON: Svg.svgLogoJest,
     },
 ] as const;
 
@@ -143,77 +142,77 @@ const OTHER_SKILLS: readonly ISkill[] = [
     {
         NAME: 'Figma',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoFigma,
+        ICON: Svg.svgLogoFigma,
     },
     {
         NAME: 'Git',
         PROFICIENCY: 'ADVANCED',
-        ICON_LIGHT: Svg.svgLogoGit,
+        ICON: Svg.svgLogoGit,
     },
     {
         NAME: 'Gitlab',
         PROFICIENCY: 'ADVANCED',
-        ICON_LIGHT: Svg.svgLogoGitlab,
+        ICON: Svg.svgLogoGitlab,
     },
     {
         NAME: 'Github',
         PROFICIENCY: 'ADVANCED',
-        ICON_LIGHT: Svg.svgLogoGithub,
+        ICON: Svg.svgLogoGithub,
     },
     {
         NAME: 'Docker',
         PROFICIENCY: 'BEGINNER',
-        ICON_LIGHT: Svg.svgLogoDocker,
+        ICON: Svg.svgLogoDocker,
     },
     {
         NAME: 'Mailgun',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoMailgun,
+        ICON: Svg.svgLogoMailgun,
     },
     {
         NAME: 'Postman',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoPostman,
+        ICON: Svg.svgLogoPostman,
     },
     {
         NAME: 'Swagger',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoSwagger,
+        ICON: Svg.svgLogoSwagger,
     },
     {
         NAME: 'Babel',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoBabel,
+        ICON: Svg.svgLogoBabel,
     },
     {
         NAME: 'Webpack',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoWebpack,
+        ICON: Svg.svgLogoWebpack,
     },
     {
         NAME: 'Jira',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoJira,
+        ICON: Svg.svgLogoJira,
     },
     {
         NAME: 'Confluence',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoConfluence,
+        ICON: Svg.svgLogoConfluence,
     },
     {
         NAME: 'Netlify',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoNetlify,
+        ICON: Svg.svgLogoNetlify,
     },
     {
         NAME: 'Vercel',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoVercel,
+        ICON: Svg.svgLogoVercel,
     },
     {
         NAME: 'Heroku',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoHeroku,
+        ICON: Svg.svgLogoHeroku,
     },
 ] as const;
 
@@ -221,30 +220,32 @@ const OS_SKILLS: readonly ISkill[] = [
     {
         NAME: 'Windows',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoWindows,
+        ICON: Svg.svgLogoWindows,
     },
     {
         NAME: 'Mac OS',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoMacOs,
+        ICON: Svg.svgLogoMacOs,
     },
     {
         NAME: 'Linux',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoLinux,
+        ICON: Svg.svgLogoLinux,
     },
     {
         NAME: 'Ubuntu',
         PROFICIENCY: 'INTERMEDIATE',
-        ICON_LIGHT: Svg.svgLogoUbuntu,
+        ICON: Svg.svgLogoUbuntu,
     },
 ] as const;
 
-const SKILLS = [
+const TECH_SKILLS = [
     ...FRONT_END_SKILLS,
     ...BACK_END_SKILLS,
     ...FULL_STACK_SKILLS,
     ...OTHER_SKILLS,
 ];
 
-export { OS_SKILLS, SKILLS };
+const ALL_SKILLS = [...TECH_SKILLS, ...OS_SKILLS];
+
+export { ALL_SKILLS, OS_SKILLS, TECH_SKILLS };

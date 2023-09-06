@@ -1,60 +1,106 @@
 /** @format */
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-ignore
 import svgIconSeo from 'public/images/icons/005-seo.svg?url';
+// @ts-ignore
 import svgIconTarget from 'public/images/icons/007-target.svg?url';
+// @ts-ignore
 import svgIconWebOptimization from 'public/images/icons/013-web-optimization.svg?url';
+// @ts-ignore
 import svgIconVisitor from 'public/images/icons/014-visitor.svg?url';
+// @ts-ignore
 import svgIconTarget2 from 'public/images/icons/023-target.svg?url';
+// @ts-ignore
 import svgIconWebMaintenance from 'public/images/icons/027-web-maintenance.svg?url';
+// @ts-ignore
 import svgIconConcept from 'public/images/icons/040-concept.svg?url';
+// @ts-ignore
 import svgIconTechnicalSupport from 'public/images/icons/043-technical-support.svg?url';
+// @ts-ignore
 import svgIconWww from 'public/images/icons/046-www.svg?url';
+// @ts-ignore
 import svgIconResponsive from 'public/images/icons/047-responsive.svg?url';
-import svgLogoBabel from 'public/images/logos/tools-tech/babel.svg?url';
-import svgLogoBootstrap from 'public/images/logos/tools-tech/bootstrap.svg?url';
-import svgLogoChakra from 'public/images/logos/tools-tech/chakra-ui.svg?url';
-import svgLogoConfluence from 'public/images/logos/tools-tech/confluence.svg?url';
-import svgLogoCss from 'public/images/logos/tools-tech/css.svg?url';
-import svgLogoDocker from 'public/images/logos/tools-tech/docker.svg?url';
-import svgLogoExpress from 'public/images/logos/tools-tech/expressjs.svg?url';
-import svgLogoFigma from 'public/images/logos/tools-tech/figma.svg?url';
-import svgLogoFirebase from 'public/images/logos/tools-tech/firebase.svg?url';
-import svgLogoGit from 'public/images/logos/tools-tech/git.svg?url';
-import svgLogoGithub from 'public/images/logos/tools-tech/github.svg?url';
-import svgLogoGitlab from 'public/images/logos/tools-tech/gitlab.svg?url';
-import svgLogoGoogleCloud from 'public/images/logos/tools-tech/google-cloud.svg?url';
-import svgLogoHandlebars from 'public/images/logos/tools-tech/handlebars.svg?url';
-import svgLogoHeroku from 'public/images/logos/tools-tech/heroku.svg?url';
-import svgLogoHtml from 'public/images/logos/tools-tech/html.svg?url';
-import svgLogoJavaScript from 'public/images/logos/tools-tech/javascript.svg?url';
-import svgLogoJest from 'public/images/logos/tools-tech/jest.svg?url';
-import svgLogoJira from 'public/images/logos/tools-tech/jira.svg?url';
-import svgLogoKnex from 'public/images/logos/tools-tech/knex.svg?url';
-import svgLogoLaravel from 'public/images/logos/tools-tech/laravel.svg?url';
-import svgLogoLinux from 'public/images/logos/tools-tech/linux.svg?url';
-import svgLogoMacOs from 'public/images/logos/tools-tech/mac-os.svg?url';
-import svgLogoMailgun from 'public/images/logos/tools-tech/mailgun.svg?url';
-import svgLogoMongoDb from 'public/images/logos/tools-tech/mongodb.svg?url';
-import svgLogoMui from 'public/images/logos/tools-tech/mui5.svg?url';
-import svgLogoMySql from 'public/images/logos/tools-tech/mysql.svg?url';
-import svgLogoNetlify from 'public/images/logos/tools-tech/netlify.svg?url';
-import svgLogoNext from 'public/images/logos/tools-tech/nextjs.svg?url';
-import svgLogoNode from 'public/images/logos/tools-tech/nodejs.svg?url';
-import svgLogoPhp from 'public/images/logos/tools-tech/php.svg?url';
-import svgLogoPostgreSql from 'public/images/logos/tools-tech/postgresql.svg?url';
-import svgLogoPostman from 'public/images/logos/tools-tech/postman.svg?url';
-import svgLogoPrisma from 'public/images/logos/tools-tech/prisma.svg?url';
-import svgLogoReact from 'public/images/logos/tools-tech/react.svg?url';
-import svgLogoRedux from 'public/images/logos/tools-tech/redux.svg?url';
-import svgLogoSass from 'public/images/logos/tools-tech/sass.svg?url';
-import svgLogoSwagger from 'public/images/logos/tools-tech/swagger.svg?url';
-import svgLogoTypeScript from 'public/images/logos/tools-tech/typescript.svg?url';
-import svgLogoUbuntu from 'public/images/logos/tools-tech/ubuntu.svg?url';
-import svgLogoVercel from 'public/images/logos/tools-tech/vercel.svg?url';
-import svgLogoWebpack from 'public/images/logos/tools-tech/webpack.svg?url';
-import svgLogoWindows from 'public/images/logos/tools-tech/windows-11.svg?url';
+// @ts-ignore
+import svgLogoBabel from 'public/images/logos/tools-tech/black/babel.svg?url';
+// @ts-ignore
+import svgLogoBootstrap from 'public/images/logos/tools-tech/black/bootstrap.svg?url';
+// @ts-ignore
+import svgLogoChakra from 'public/images/logos/tools-tech/black/chakraui.svg?url';
+// @ts-ignore
+import svgLogoConfluence from 'public/images/logos/tools-tech/black/confluence.svg?url';
+// @ts-ignore
+import svgLogoCss from 'public/images/logos/tools-tech/black/css.svg?url';
+// @ts-ignore
+import svgLogoDocker from 'public/images/logos/tools-tech/black/docker.svg?url';
+// import svgLogoExpress from 'public/images/logos/tools-tech/black/expressjs.svg?url';
+// @ts-ignore
+import svgLogoFigma from 'public/images/logos/tools-tech/black/figma.svg?url';
+// @ts-ignore
+import svgLogoFirebase from 'public/images/logos/tools-tech/black/firebase.svg?url';
+// @ts-ignore
+import svgLogoGoogleCloud from 'public/images/logos/tools-tech/black/gcp.svg?url';
+// @ts-ignore
+import svgLogoGit from 'public/images/logos/tools-tech/black/git.svg?url';
+// @ts-ignore
+import svgLogoGithub from 'public/images/logos/tools-tech/black/github.svg?url';
+// @ts-ignore
+import svgLogoGitlab from 'public/images/logos/tools-tech/black/gitlab.svg?url';
+// @ts-ignore
+import svgLogoHandlebars from 'public/images/logos/tools-tech/black/handlebars.svg?url';
+// @ts-ignore
+import svgLogoHeroku from 'public/images/logos/tools-tech/black/heroku.svg?url';
+// @ts-ignore
+import svgLogoHtml from 'public/images/logos/tools-tech/black/html.svg?url';
+// @ts-ignore
+import svgLogoJavaScript from 'public/images/logos/tools-tech/black/javascript.svg?url';
+// @ts-ignore
+import svgLogoJest from 'public/images/logos/tools-tech/black/jest.svg?url';
+// @ts-ignore
+import svgLogoJira from 'public/images/logos/tools-tech/black/jira.svg?url';
+// @ts-ignore
+import svgLogoKnex from 'public/images/logos/tools-tech/black/knex.svg?url';
+// @ts-ignore
+import svgLogoLaravel from 'public/images/logos/tools-tech/black/laravel.svg?url';
+// import svgLogoLinux from 'public/images/logos/tools-tech/black/linux.svg?url';
+// import svgLogoMacOs from 'public/images/logos/tools-tech/black/mac-os.svg?url';
+// @ts-ignore
+import svgLogoMailgun from 'public/images/logos/tools-tech/black/mailgun.svg?url';
+// @ts-ignore
+import svgLogoMongoDb from 'public/images/logos/tools-tech/black/mongodb.svg?url';
+// @ts-ignore
+import svgLogoMui from 'public/images/logos/tools-tech/black/mui.svg?url';
+// @ts-ignore
+import svgLogoMySql from 'public/images/logos/tools-tech/black/mysql.svg?url';
+// import svgLogoNetlify from 'public/images/logos/tools-tech/black/netlify.svg?url';
+// @ts-ignore
+import svgLogoNext from 'public/images/logos/tools-tech/black/nextjs.svg?url';
+// @ts-ignore
+import svgLogoNode from 'public/images/logos/tools-tech/black/node.svg?url';
+// @ts-ignore
+import svgLogoPhp from 'public/images/logos/tools-tech/black/php.svg?url';
+// @ts-ignore
+import svgLogoPostgreSql from 'public/images/logos/tools-tech/black/postgresql.svg?url';
+// @ts-ignore
+import svgLogoPostman from 'public/images/logos/tools-tech/black/postman.svg?url';
+// @ts-ignore
+import svgLogoPrisma from 'public/images/logos/tools-tech/black/prisma.svg?url';
+// @ts-ignore
+import svgLogoReact from 'public/images/logos/tools-tech/black/react.svg?url';
+// @ts-ignore
+import svgLogoRedux from 'public/images/logos/tools-tech/black/redux.svg?url';
+// @ts-ignore
+import svgLogoSass from 'public/images/logos/tools-tech/black/sass.svg?url';
+// @ts-ignore
+import svgLogoSwagger from 'public/images/logos/tools-tech/black/swagger.svg?url';
+// @ts-ignore
+import svgLogoTypeScript from 'public/images/logos/tools-tech/black/typescript.svg?url';
+// import svgLogoUbuntu from 'public/images/logos/tools-tech/black/ubuntu.svg?url';
+// @ts-ignore
+import svgLogoVercel from 'public/images/logos/tools-tech/black/vercel.svg?url';
+// @ts-ignore
+import svgLogoWebpack from 'public/images/logos/tools-tech/black/webpack.svg?url';
+// import svgLogoWindows from 'public/images/logos/tools-tech/black/windows-11.svg?url';
 
 export {
     svgIconConcept,
@@ -73,7 +119,7 @@ export {
     svgLogoConfluence,
     svgLogoCss,
     svgLogoDocker,
-    svgLogoExpress,
+    // svgLogoExpress,
     svgLogoFigma,
     svgLogoFirebase,
     svgLogoGit,
@@ -88,13 +134,13 @@ export {
     svgLogoJira,
     svgLogoKnex,
     svgLogoLaravel,
-    svgLogoLinux,
-    svgLogoMacOs,
+    // svgLogoLinux,
+    // svgLogoMacOs,
     svgLogoMailgun,
     svgLogoMongoDb,
     svgLogoMui,
     svgLogoMySql,
-    svgLogoNetlify,
+    // svgLogoNetlify,
     svgLogoNext,
     svgLogoNode,
     svgLogoPhp,
@@ -106,8 +152,7 @@ export {
     svgLogoSass,
     svgLogoSwagger,
     svgLogoTypeScript,
-    svgLogoUbuntu,
+    // svgLogoUbuntu,
     svgLogoVercel,
     svgLogoWebpack,
-    svgLogoWindows,
 };

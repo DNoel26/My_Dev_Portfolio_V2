@@ -104,15 +104,10 @@ body::-webkit-scrollbar-thumb {
 ::-webkit-scrollbar-button:single-button {
     height: 4px;
 }
-/* Move reCAPTCHA v3 badge to the left */
 .grecaptcha-badge {
     @include base.transition(all, $is-important: true);
-    width: 70px !important;
-    overflow: hidden !important;
-    left: 4px !important;
-    @include base.interactive-states {
-        width: 256px !important;
-    }
+    transform: scale(0.8);
+    transform-origin: top left;
 }
 ._hj_feedback_container {
     @include base.transition(opacity);
