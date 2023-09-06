@@ -7,8 +7,6 @@ $cl-icon: '#{$cl-wrapper}__icon';
 
 #{$cl-wrapper} {
     @include base.flex-center;
-    height: 80px;
-    width: 128px;
     #{$cl-icon} {
         max-height: 56px;
         width: 64px;

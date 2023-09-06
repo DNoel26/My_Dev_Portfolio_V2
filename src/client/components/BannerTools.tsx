@@ -13,6 +13,9 @@ type TSkillIcon = {
     src: ISkill['ICON'];
     alt: string;
 };
+interface ISkillsProps {
+    skills: readonly ISkill[];
+}
 
 const SkillIcon = ({ name, alt, src }: TSkillIcon) => {
     return (
@@ -23,11 +26,11 @@ const SkillIcon = ({ name, alt, src }: TSkillIcon) => {
     );
 };
 
-const Skills = () => {
+const Skills = ({ skills }: ISkillsProps) => {
     return (
         <div className={styles.banner__container}>
-            {ALL_SKILLS.map((SKILL) => {
-                const { NAME, ICON } = SKILL;
+            {skills.map((skill) => {
+                const { NAME, ICON } = skill;
                 const title = `${NAME} logo`;
                 if (!ICON) return null;
 
@@ -41,8 +44,8 @@ const BannerSkills = ({ className }: TDefaultProps) => {
     return (
         <div className={clsx(styles.banner, className)}>
             <BodyContainer>
-                <Marquee>
-                    <Skills />
+                <Marquee speed={50} autoFill gradient={false}>
+                    <Skills skills={ALL_SKILLS} />
                 </Marquee>
             </BodyContainer>
         </div>

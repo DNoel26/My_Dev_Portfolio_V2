@@ -52,7 +52,6 @@ $cl-btn-text: '#{$cl-btn}--text';
     transition: color none, background none,
         transform base.$default-transition-time ease-in-out,
         box-shadow base.$default-transition-time ease-in-out;
-    will-change: transform;
     padding: 16px 32px;
     margin: 64px auto 0;
     text-align: center;

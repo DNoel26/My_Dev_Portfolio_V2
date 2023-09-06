@@ -10,26 +10,21 @@ $cl-icon-wrapper: '#{$cl-icon}_wrapper';
 $cl-icon-text: '#{$cl-icon}_text';
 
 #{$cl-banner} {
-    border-radius: 24px;
-    padding: max(16px, 2%);
     width: min(1000px, 95%);
     h6 {
         font-size: 1.2rem;
     }
     #{$cl-container} {
         @include base.flex-center;
-        gap: 16px;
         flex-wrap: wrap;
-        button {
-            border-radius: 8px;
-        }
+        gap: 64px;
     }
     #{$cl-icon-wrapper} {
         text-align: center;
     }   
     #{$cl-icon-text} {
-        margin-top: -8px;
-        white-space: nowrap;
+        display: inline-block;
+        margin-top: base.$spacing-md;
     }
 }
 

@@ -28,7 +28,6 @@ $cl-link-color: '#{$cl-link}--color';
         @include base.interactive-states {
             transform: scale(1.15);
         }
-        will-change: transform, filter;
         transform: scale(1);
         width: 24px;
         height: 24px;
