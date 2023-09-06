@@ -85,6 +85,7 @@ $cl-expanded: '#{$cl-card}--expanded';
         > div {
             width: auto;
             height: 48px;
+            max-width: 124px;
             img {
                 @include base.fill;
             }
@@ -106,9 +107,10 @@ $cl-expanded: '#{$cl-card}--expanded';
         filter: grayscale(1) brightness(0.7) invert(1);
         mix-blend-mode: lighten;
     }
-    #{$cl-more-details} {
-        color: base.$color-text-default-black;
-        background: base.$color-neutral-dark-200;
+    #{$cl-logos} {
+        img {
+            filter: invert(0.9);
+        }
     }
 }
 
