@@ -1,6 +1,6 @@
 /** @format */
 
-@keyframes gradient {
+@keyframes anim-gradient {
     0% {
         background-position: 0% 0%;
     }
@@ -12,7 +12,7 @@
     }
 }
 
-@keyframes wave {
+@keyframes anim-wave {
     0% {
         transform: translateX(1);
     }

@@ -44,7 +44,7 @@ const BannerSkills = ({ className }: TDefaultProps) => {
     return (
         <div className={clsx(styles.banner, className)}>
             <BodyContainer>
-                <Marquee speed={50} autoFill gradient={false}>
+                <Marquee speed={50}>
                     <Skills skills={ALL_SKILLS} />
                 </Marquee>
             </BodyContainer>

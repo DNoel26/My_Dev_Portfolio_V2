@@ -4,14 +4,14 @@
 export type Styles = {
     __next: string;
     _hj_feedback_container: string;
+    'anim-gradient': string;
+    'anim-wave': string;
     dark: string;
-    gradient: string;
     'grecaptcha-badge': string;
     light: string;
     'theme-bg': string;
     'user-dark': string;
     'user-light': string;
-    wave: string;
 };
 
 export type ClassNames = keyof Styles;

@@ -1,6 +1,7 @@
 /** @format */
 
 @use 'base';
+@use 'sass:math';
 
 $cl-banner: '.banner';
 $cl-container: '#{$cl-banner}__container';
@@ -15,9 +16,10 @@ $cl-icon-text: '#{$cl-icon}_text';
         font-size: 1.2rem;
     }
     #{$cl-container} {
+        $gap: 64px;
         @include base.flex-center;
-        flex-wrap: wrap;
-        gap: 64px;
+        @include base.margin-x(math.div($gap, 2));
+        gap: $gap;
     }
     #{$cl-icon-wrapper} {
         text-align: center;

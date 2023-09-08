@@ -5,8 +5,8 @@ export type Styles = {
     about: string;
     about__container: string;
     about__text_container: string;
-    gradient: string;
-    wave: string;
+    'anim-gradient': string;
+    'anim-wave': string;
 };
 
 export type ClassNames = keyof Styles;

@@ -73,7 +73,7 @@ const ColorPicker = (props: IProps) => {
                     handleColorChange(_color);
                 }}
             />
-            {/* use &nbsp; to allow div to take space with no error message */}
+            {/* use &nbsp; to allow element to take space with no error message */}
             <p className={styles.color_picker__error}>{errMsg}&nbsp;</p>
         </div>
     );
