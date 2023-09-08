@@ -106,8 +106,8 @@ body::-webkit-scrollbar-thumb {
 }
 .grecaptcha-badge {
     @include base.transition(all, $is-important: true);
-    // transform: scale(0.8);
-    // transform-origin: top left;
+    transform: scale(0.8);
+    transform-origin: top left;
 }
 ._hj_feedback_container {
     @include base.transition(opacity);

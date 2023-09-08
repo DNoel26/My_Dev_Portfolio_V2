@@ -12,11 +12,14 @@ import { TDefaultProps } from '@@types/client/props.types';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { ReactNode } from 'react';
+import { TypeAnimation } from 'react-type-animation';
 import styles from './Hero.module.scss';
 
 interface IProps extends TDefaultProps {
     ImgComponent: ReactNode;
 }
+
+const TEXT_ANIM_WAIT_IN_MS = 5000;
 
 const Hero = ({ ImgComponent, className }: IProps) => {
     const { handleToggle } = useColorThemeToggle();
@@ -36,8 +39,18 @@ const Hero = ({ ImgComponent, className }: IProps) => {
                         heading="Hi, I'm Darnell Noel"
                     />
                     <span className={styles.hero__intro}>
-                        And I build <strong>fast</strong> and <strong>modern</strong> web
-                        applications<HighlightedText>.</HighlightedText>
+                        And I build <strong>fast</strong> and <strong>modern</strong>{' '}
+                        <TypeAnimation
+                            preRenderFirstString
+                            sequence={[
+                                'web applications',
+                                TEXT_ANIM_WAIT_IN_MS,
+                                'websites',
+                                TEXT_ANIM_WAIT_IN_MS,
+                            ]}
+                            repeat={Infinity}
+                        />
+                        <HighlightedText>.</HighlightedText>
                     </span>
                 </h1>
                 <MuiButtonGroup>
