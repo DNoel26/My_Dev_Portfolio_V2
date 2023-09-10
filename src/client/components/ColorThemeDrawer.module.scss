@@ -11,8 +11,11 @@ $cl-color-picker: '#{$cl-drawer}__color_picker';
 #{$cl-drawer} {
     z-index: base.$tidio-chat-z-index + 1;
     h4 {
-        @include base.padding-y(32px);
+        @include base.padding-y(8px);
         text-align: center;
+        @include base.mq-above-lg-tablet {
+            @include base.padding-y(32px); 
+        }
     }
     #{$cl-btn-container} {
         @include base.flex-center;
@@ -23,8 +26,11 @@ $cl-color-picker: '#{$cl-drawer}__color_picker';
         justify-content: space-evenly;
         align-items: center;
         flex-wrap: wrap;
-        row-gap: 64px;
-        padding-bottom: 48px;
+        row-gap: 10%;
+        padding-bottom: 16px;
+        @include base.mq-above-lg-tablet {
+            padding-bottom: 48px;
+        }
     }
     #{$cl-item} {
         flex-basis: 450px;

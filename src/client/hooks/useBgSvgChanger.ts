@@ -32,9 +32,9 @@ const useBgSvgChanger = () => {
     useEffect(() => {
         let size;
         if (matchesSmTabletToLaptop) {
-            size = { width: 1280, height: 720 };
+            size = { width: 1600, height: 900 };
         } else if (matchesSmMobileToSmTablet) {
-            size = { width: 640, height: 480 };
+            size = { width: 1280, height: 720 };
         }
         setBgUrlDark(`url("${handleBgSvgColorChangeDark(bgColorObj, size)}")`);
         setBgUrlLight(`url("${handleBgSvgColorChangeLight(bgColorObj, size)}")`);
