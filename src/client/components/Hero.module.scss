@@ -41,10 +41,13 @@ $cl-img: '#{$cl-hero}__img';
         }
     }
     #{$cl-img_container} {
+        @include base.margin-x;
         padding-top: 10%;
+        width: 95%;
         @include base.mq-above-sm-tablet {
             padding-top: unset;
             padding-right: 3%;
+            width: unset;
         }
         @include base.mq-above-desktop {
             width: 100%;
