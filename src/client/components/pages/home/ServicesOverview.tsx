@@ -92,12 +92,12 @@ const Card = ({ src, alt, heading }: ICardProps) => {
 const ServicesOverview = () => {
     return (
         <section className={styles.overview}>
-            <Heading
-                id={ANCHOR_TAG.HOME_PAGE.SERVICES}
-                subHeading='Developer Services'
-                heading='Software Engineering'
-            />
             <BodyContainer>
+                <Heading
+                    id={ANCHOR_TAG.HOME_PAGE.SERVICES}
+                    subHeading='Developer Services'
+                    heading='Software Engineering'
+                />
                 <TextBody>
                     I believe in thoughtful and quality design from end to end. This means
                     focusing on simplicity, speed, accessibility and consistency for{' '}

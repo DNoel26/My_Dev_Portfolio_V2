@@ -36,6 +36,16 @@ const nextConfig = {
     },
     sassOptions: {
         includePaths: [path.join(__dirname, 'src/styles/sass')],
+        logger: {
+            warn: (message) => {
+                // eslint-disable-next-line no-console
+                console.warn(message);
+            },
+            debug: (message) => {
+                // eslint-disable-next-line no-console
+                console.log(message);
+            },
+        },
     },
     typescript: {
         // !! WARN !!

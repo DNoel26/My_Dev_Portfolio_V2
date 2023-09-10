@@ -11,6 +11,7 @@ interface IProps {
     subHeading: string;
     heading: string;
     disablePaddingTop?: boolean;
+    Tag?: 'h1' | 'h2';
 }
 
 const Heading = ({
@@ -19,6 +20,7 @@ const Heading = ({
     heading,
     className,
     disablePaddingTop,
+    Tag = 'h2',
 }: TDefaultProps<IProps>) => {
     return (
         <div
@@ -30,10 +32,10 @@ const Heading = ({
             id={id}
         >
             <SubHeading>{`- ${subHeading} -`}</SubHeading>
-            <h2>
+            <Tag>
                 {heading}
                 <HighlightedText>.</HighlightedText>
-            </h2>
+            </Tag>
         </div>
     );
 };

@@ -7,6 +7,7 @@ export type Styles = {
     hero: string;
     hero__btn: string;
     hero__heading: string;
+    hero__img_container: string;
     hero__info_container: string;
     hero__intro: string;
 };

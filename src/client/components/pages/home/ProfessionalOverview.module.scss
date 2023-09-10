@@ -99,7 +99,7 @@ $cl-timeline-content-mech: '#{$cl-timeline-content}--mech';
                 background-color: base.$color-white;
                 margin-bottom: 24px;
             }
-            @include base.mq-above-mobile-sm {
+            @include base.mq-above-sm-mobile {
                 padding: 2.5%;
             }
         }

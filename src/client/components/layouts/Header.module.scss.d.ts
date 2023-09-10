@@ -10,6 +10,7 @@ export type Styles = {
     header__content_bg: string;
     header__links: string;
     header__logo: string;
+    header__menu: string;
     header__toolbar: string;
     'header--absolute': string;
     'header--fixed': string;

@@ -9,12 +9,12 @@ import styles from './AboutOverview.module.scss';
 const AboutOverview = () => {
     return (
         <section className={styles.about}>
-            <Heading
-                id={ANCHOR_TAG.HOME_PAGE.ABOUT}
-                subHeading='Personal Bio'
-                heading='About Me'
-            />
-            <BodyContainer className={styles.about__container}>
+            <BodyContainer>
+                <Heading
+                    id={ANCHOR_TAG.HOME_PAGE.ABOUT}
+                    subHeading='Personal Bio'
+                    heading='About Me'
+                />
                 <div className={styles.about__text_container}>
                     <p>
                         Hi, I&apos;m <strong>Darnell Noel</strong>, a mechanical engineer

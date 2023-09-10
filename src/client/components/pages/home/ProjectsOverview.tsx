@@ -79,12 +79,12 @@ const projects: ComponentProps<typeof ProjectCard>[] = [
 const ProjectsOverview = () => {
     return (
         <section className={styles.overview}>
-            <Heading
-                id={ANCHOR_TAG.HOME_PAGE.PROJECTS}
-                subHeading='Developer Projects'
-                heading='My Work'
-            />
             <BodyContainer>
+                <Heading
+                    id={ANCHOR_TAG.HOME_PAGE.PROJECTS}
+                    subHeading='Developer Projects'
+                    heading='My Work'
+                />
                 <TextBody>
                     Below are some of the projects that I have{' '}
                     <HighlightedText>

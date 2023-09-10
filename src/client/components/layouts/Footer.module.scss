@@ -23,7 +23,10 @@ $cl-copyright: '#{$cl-footer}__copyright';
         min-height: 200px;
         padding-top: base.$spacing-section;
         p {
-            text-align: center;
+            text-align: left;
+            @include base.mq-above-lg-mobile {
+                text-align: center;
+            }
         }
     }
     #{$cl-my-logo} {
@@ -37,7 +40,7 @@ $cl-copyright: '#{$cl-footer}__copyright';
     }
     #{$cl-container} {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
         align-items: flex-start;
         flex-wrap: wrap;
         gap: 64px;
@@ -50,6 +53,9 @@ $cl-copyright: '#{$cl-footer}__copyright';
         span {
             font-weight: bold;
             padding-bottom: base.$spacing-md;
+        }
+        @include base.mq-above-lg-mobile {
+            justify-content: space-evenly;
         }
     }
     #{$cl-built-using} {
@@ -76,6 +82,9 @@ $cl-copyright: '#{$cl-footer}__copyright';
     }
     #{$cl-copyright} {
         margin-bottom: base.$spacing-xxl;
+        :not(p:first-of-type) {
+            padding-top: 8px;
+        }
     }
 }
 

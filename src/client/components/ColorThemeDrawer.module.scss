@@ -23,6 +23,7 @@ $cl-color-picker: '#{$cl-drawer}__color_picker';
         justify-content: space-evenly;
         align-items: center;
         flex-wrap: wrap;
+        row-gap: 64px;
         padding-bottom: 48px;
     }
     #{$cl-item} {

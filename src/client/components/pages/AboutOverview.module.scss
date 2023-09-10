@@ -3,18 +3,14 @@
 @use 'base';
 
 $cl-about: '.about';
-$cl-container: '#{$cl-about}__container';
 $cl-text-container: '#{$cl-about}__text_container';
 
 #{$cl-about} {
     padding-bottom: base.$spacing-section;
     background-size: contain;
     background-repeat: no-repeat;
-    #{$cl-container} {
-        margin-top: base.$spacing-xl;
-        text-align: left;
-    }
     #{$cl-text-container} {
+        margin-top: base.$spacing-xl;
         @include base.margin-x;
         width: min(75ch, 100%);
         text-align: justify;

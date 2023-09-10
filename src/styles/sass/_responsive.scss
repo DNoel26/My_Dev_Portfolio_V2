@@ -2,8 +2,9 @@
 
 @use 'functions';
 
-$screen-xs: functions.px-to-rem(320px);
-$screen-sm: functions.px-to-rem(600px);
+$screen-xxs: functions.px-to-rem(320px);
+$screen-xs: functions.px-to-rem(480px);
+$screen-sm: functions.px-to-rem(640px);
 $screen-md: functions.px-to-rem(960px);
 $screen-lg: functions.px-to-rem(1024px);
 $screen-xl: functions.px-to-rem(1280px);
@@ -12,19 +13,25 @@ $screen-xl: functions.px-to-rem(1280px);
     @return calc($max - 0.2px);
 }
 
-@mixin mq-above-mobile-xs {
+@mixin mq-above-sm-mobile {
+    @media (min-width: $screen-xxs) {
+        @content;
+    }
+}
+
+@mixin mq-above-lg-mobile {
     @media (min-width: $screen-xs) {
         @content;
     }
 }
 
-@mixin mq-above-mobile-sm {
+@mixin mq-above-sm-tablet {
     @media (min-width: $screen-sm) {
         @content;
     }
 }
 
-@mixin mq-above-tablet {
+@mixin mq-above-lg-tablet {
     @media (min-width: $screen-md) {
         @content;
     }
@@ -42,19 +49,49 @@ $screen-xl: functions.px-to-rem(1280px);
     }
 }
 
-@mixin mq-between-xs-and-sm-mobile {
+@mixin mq-below-sm-mobile {
+    @media (max-width: get-mq-max-width($screen-xs)) {
+        @content;
+    }
+}
+
+@mixin mq-below-lg-mobile {
+    @media (max-width: get-mq-max-width($screen-xs)) {
+        @content;
+    }
+}
+
+@mixin mq-between-sm-and-lg-mobile {
+    @media (min-width: $screen-xxs) and (max-width: get-mq-max-width($screen-xs)) {
+        @content;
+    }
+}
+
+@mixin mq-between-sm-mobile-and-sm-tablet {
+    @media (min-width: $screen-xxs) and (max-width: get-mq-max-width($screen-sm)) {
+        @content;
+    }
+}
+
+@mixin mq-between-lg-mobile-and-sm-tablet {
     @media (min-width: $screen-xs) and (max-width: get-mq-max-width($screen-sm)) {
         @content;
     }
 }
 
-@mixin mq-between-mobile-and-tablet {
+@mixin mq-between-sm-and-lg-tablet {
     @media (min-width: $screen-sm) and (max-width: get-mq-max-width($screen-md)) {
         @content;
     }
 }
 
-@mixin mq-between-tablet-and-laptop {
+@mixin mq-between-sm-tablet-and-laptop {
+    @media (min-width: $screen-sm) and (max-width: get-mq-max-width($screen-lg)) {
+        @content;
+    }
+}
+
+@mixin mq-between-lg-tablet-and-laptop {
     @media (min-width: $screen-md) and (max-width: get-mq-max-width($screen-lg)) {
         @content;
     }

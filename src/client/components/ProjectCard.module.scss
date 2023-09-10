@@ -26,8 +26,9 @@ $cl-expanded: '#{$cl-card}--expanded';
             display: inline-block;
             height: 64px;
             width: auto;
+            max-width: 100%;
             object-position: center;
-            object-fit: cover;
+            object-fit: contain;
         }
     }
     #{$cl-details} {

@@ -22,7 +22,7 @@ const PageProvider = ({ children }: TDefaultPropsWithChildren) => {
 
     const chatPosition = `{ bottom: 150px !important; right: -10px !important; }`;
     const chatWidgetStyle = `#tidio-chat-iframe ${chatPosition}
-                            @media only screen and (max-width: 980px) {
+                            @media (max-width: 980px) {
                             #tidio-chat-iframe ${chatPosition}`;
 
     return (

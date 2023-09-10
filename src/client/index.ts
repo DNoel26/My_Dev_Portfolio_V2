@@ -24,6 +24,8 @@ import MuiFab from '@mui/material/Fab';
 import MuiFormControl from '@mui/material/FormControl';
 import MuiFormControlLabel from '@mui/material/FormControlLabel';
 import MuiIconButton from '@mui/material/IconButton';
+import MuiMenu from '@mui/material/Menu';
+import MuiMenuItem from '@mui/material/MenuItem';
 import MuiPaper from '@mui/material/Paper';
 import MuiSnackbar from '@mui/material/Snackbar';
 import MuiSpeedDial from '@mui/material/SpeedDial';
@@ -56,6 +58,8 @@ export {
     MuiFormControl,
     MuiFormControlLabel,
     MuiIconButton,
+    MuiMenu,
+    MuiMenuItem,
     MuiPaper,
     MuiSnackbar,
     MuiSpeedDial,

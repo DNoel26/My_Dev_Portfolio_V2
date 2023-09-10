@@ -2,48 +2,71 @@
 
 @use 'base';
 
+$img-size: 450px;
+
 $cl-img-container: '.img_container';
 $cl-bg: '#{$cl-img-container}__bg';
 $cl-frame: '#{$cl-img-container}__frame';
 $cl-img: '#{$cl-img-container}__img';
 
 #{$cl-img-container} {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: min(800px, 75%);
-    height: base.$hero-height-container;
+    width: 100%;
+    height: 200px;
     div,
     img {
         z-index: 1;
     }
-    #{$cl-frame} {
-        @include base.transition((transform));
+    @include base.mq-above-sm-tablet {
+        height: 350px;
+    }
+    @include base.mq-above-desktop {
         position: absolute;
-        width: 450px;
-        height: 450px;
-        top: 150px;
-        left: 225px;
-        border-bottom-left-radius: base.$border-radius-md;
-        box-shadow: base.$box-shadow-card-light, inset base.$box-shadow-card-light;
-        &:hover {
-            transform: rotate(15deg);
+        top: 0;
+        right: 0;
+        width: min(800px, 75%);
+        height: base.$hero-height-container;
+    }
+    #{$cl-frame} {
+        display: none;
+        @include base.mq-above-desktop {
+            @include base.transition((transform));
+            display: inline-block;
+            position: absolute;
+            width: $img-size;
+            height: $img-size;
+            top: 150px;
+            left: 225px;
+            border-bottom-left-radius: base.$border-radius-md;
+            box-shadow: base.$box-shadow-card-light, inset base.$box-shadow-card-light;
+            &:hover {
+                transform: rotate(15deg);
+            }
         }
     }
     #{$cl-img} {
-        @include base.transition((filter, transform));
+        @include base.fill;
         position: relative;
         display: inline-block;
-        height: 450px;
-        width: 450px;
         object-fit: cover;
-        object-position: 100% 80%;
+        object-position: 100% 25%;
         border-bottom-left-radius: base.$border-radius-md;
-        top: 100px;
-        left: 165px;
         box-shadow: base.$box-shadow-card;
+        @include base.mq-above-sm-tablet {
+            object-position: 100% 70%;
+        }
+        @include base.mq-above-lg-tablet {
+            object-position: 100% 40%;
+        }
+        @include base.mq-above-desktop {
+            @include base.transition((filter, transform));
+            width: $img-size;
+            height: $img-size;
+            top: 100px;
+            left: 165px;
+            object-position: 100% 80%;
         &:hover {
             transform: rotate(5deg);
+        }
         }
     }
 }

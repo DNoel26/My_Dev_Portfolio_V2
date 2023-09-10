@@ -14,13 +14,42 @@ $cl-img: '#{$cl-hero}__img';
 
 #{$cl-hero} {
     display: flex;
-    height: base.$hero-height-container;
-    overflow: visible;
-    margin-top: -(base.$header-height);
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    row-gap: 32px;
+    @include base.mq-above-sm-tablet {
+        flex-direction: row;
+        padding-top: 32px;
+    }
+    @include base.mq-above-desktop {
+        margin-top: -(base.$header-height);
+        padding-top: unset;
+        height: base.$hero-height-container;
+        flex-wrap: nowrap;
+        overflow: visible;
+    }
+    #{$cl-info_container},
+    #{$cl-img_container} {
+        flex: 1;
+        width: 100%;
+    }
     #{$cl-info_container} {
         margin-top: 12px;
-        align-self: center;
         padding-left: 2.5%;
+        @include base.mq-above-desktop {
+            align-self: center;
+        }
+    }
+    #{$cl-img_container} {
+        padding-top: 10%;
+        @include base.mq-above-sm-tablet {
+            padding-top: unset;
+            padding-right: 3%;
+        }
+        @include base.mq-above-desktop {
+            width: 100%;
+            padding-right: unset;
+        }
     }
     #{$cl-heading},
     #{$cl-intro} {
@@ -28,10 +57,18 @@ $cl-img: '#{$cl-hero}__img';
     }
     #{$cl-heading} {
         text-align: left;
+        padding-top: unset;
+        @include base.mq-above-sm-tablet {
+        }
     }
     #{$cl-intro} {
         font-size: base.$font-size-subtitle-2;
         font-weight: 400;
+        width: 24ch;
+        word-wrap: break-word;
+        @include base.mq-above-desktop {
+            width: 100%;
+        }
     }
     #{$cl-btn} {
         margin: 16px 0;

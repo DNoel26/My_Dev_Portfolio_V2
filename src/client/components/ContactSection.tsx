@@ -13,6 +13,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { MuiBox, MuiCheckbox, MuiFormControl, MuiFormControlLabel } from '..';
 import styles from './ContactSection.module.scss';
 import SocialMediaLinks from './SocialMediaLinks';
+import BodyContainer from './layouts/BodyContainer';
 import BackgroundGradient from './ui/BackgroundGradient';
 import Button from './ui/Button';
 import FormInput from './ui/FormInput';
@@ -140,11 +141,13 @@ const ContactSection = () => {
             className={clsx(CSS_GLOBAL_CLASS_NAME.THEME_BG, styles.contact)}
             ref={ref}
         >
-            <Heading
-                id={ANCHOR_TAG.APP.CONTACT}
-                subHeading='Contact Form'
-                heading="Let's Chat"
-            />
+            <BodyContainer>
+                <Heading
+                    id={ANCHOR_TAG.APP.CONTACT}
+                    subHeading='Contact Form'
+                    heading="Let's Chat"
+                />
+            </BodyContainer>
             <BackgroundGradient className={styles.contact__container}>
                 <div className={styles.contact__info}>
                     <Avatar className={styles.contact__photo}>

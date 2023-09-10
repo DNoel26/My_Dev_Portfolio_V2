@@ -52,16 +52,19 @@ $cl-btn-text: '#{$cl-btn}--text';
     transition: color none, background none,
         transform base.$default-transition-time ease-in-out,
         box-shadow base.$default-transition-time ease-in-out;
-    padding: 16px 32px;
+    padding: 8px 16px;
     margin: 64px auto 0;
     text-align: center;
     box-shadow: base.$box-shadow-btn;
-    font-size: base.$font-size-button;
+    font-size: base.$font-size-button-1;
     font-weight: 700;
     text-transform: capitalize;
     // for better alignment with mui icon props
     svg {
         vertical-align: text-bottom;
+    }
+    @include base.mq-above-sm-tablet {
+        padding: 16px 32px;
     }
 }
 

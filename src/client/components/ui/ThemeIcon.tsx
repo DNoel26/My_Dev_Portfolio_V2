@@ -1,8 +1,8 @@
 /** @format */
 
 import {
-    MuiIconModeNightOutlined,
-    MuiIconWbSunnyOutlined,
+    MuiIconModeNightOutlinedIcon,
+    MuiIconWbSunnyOutlinedIcon,
     MuiPendingOutlinedIcon,
 } from '@@components/icons';
 import useNextTheme from '@@hooks/useNextTheme';
@@ -10,8 +10,8 @@ import useNextTheme from '@@hooks/useNextTheme';
 const ThemeIcon = () => {
     const { isDarkMode, isThemeResolved } = useNextTheme();
     if (!isThemeResolved) return <MuiPendingOutlinedIcon />;
-    if (isDarkMode) return <MuiIconWbSunnyOutlined />;
-    return <MuiIconModeNightOutlined />;
+    if (isDarkMode) return <MuiIconWbSunnyOutlinedIcon />;
+    return <MuiIconModeNightOutlinedIcon />;
 };
 
 export default ThemeIcon;

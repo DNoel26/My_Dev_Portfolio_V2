@@ -30,9 +30,9 @@ $cl-card: '#{$cl-overview}__card';
         transition: 0.5s ease-in-out;
         transition-property: transform, background, color, box-shadow;
         overflow: hidden;
+        text-align: center;
         h4 {
             width: 20ch;
-            text-align: center;
         }
         img {
             display: inline-block;

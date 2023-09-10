@@ -2,10 +2,10 @@
 
 import { MuiIconButton, MuiTooltip, MuiZoom } from '@@client';
 import {
-    MuiIconModeNight,
-    MuiIconModeNightOutlined,
-    MuiIconWbSunny,
-    MuiIconWbSunnyOutlined,
+    MuiIconModeNightIcon,
+    MuiIconModeNightOutlinedIcon,
+    MuiIconWbSunnyIcon,
+    MuiIconWbSunnyOutlinedIcon,
 } from '@@components/icons';
 import useNextTheme from '@@hooks/useNextTheme';
 import useUserThemeChange from '@@hooks/useUserThemeChange';
@@ -69,10 +69,10 @@ const ThemeToggle = ({ showInactiveIcon = true }: IProps) => {
             )}
         >
             <ThemeIconBtn isActive={!isDarkMode} showInactiveIcon={showInactiveIcon}>
-                {!isDarkMode ? <MuiIconWbSunny /> : <MuiIconWbSunnyOutlined />}
+                {!isDarkMode ? <MuiIconWbSunnyIcon /> : <MuiIconWbSunnyOutlinedIcon />}
             </ThemeIconBtn>
             <ThemeIconBtn isActive={isDarkMode} showInactiveIcon={showInactiveIcon}>
-                {isDarkMode ? <MuiIconModeNight /> : <MuiIconModeNightOutlined />}
+                {isDarkMode ? <MuiIconModeNightIcon /> : <MuiIconModeNightOutlinedIcon />}
             </ThemeIconBtn>
         </div>
     );

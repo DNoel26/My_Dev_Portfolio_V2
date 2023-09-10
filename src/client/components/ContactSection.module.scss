@@ -87,7 +87,8 @@ $cl-submit-btn: '#{$cl-contact}__submit_btn';
     #{$cl-checkbox-container} {
         display: flex;
         justify-content: space-between;
-        align-items: flex-end;
-        padding-top: 16px;
+        align-items: center;
+        padding-top: 24px;
+        padding-bottom: 8px;
     }
 }

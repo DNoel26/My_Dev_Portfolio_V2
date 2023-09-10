@@ -1,7 +1,8 @@
 /** @format */
 
-import { MuiAppBar, MuiToolbar } from '@@client';
+import { MuiAppBar, MuiIconButton, MuiToolbar } from '@@client';
 import ColorThemeToggle from '@@components/ColorThemeToggle';
+import { MuiMenuIcon } from '@@components/icons';
 import BackgroundGradient from '@@components/ui/BackgroundGradient';
 import Logo from '@@components/ui/Logo';
 import ThemeToggle from '@@components/ui/ThemeToggle';
@@ -73,6 +74,12 @@ const HeaderPrivate = ({ position }: IHeaderProps) => {
                                 <ThemeToggle />
                             </li>
                         </MuiToolbar>
+                        <MuiIconButton
+                            className={styles.header__menu}
+                            onClick={() => console.log('menu clicked!')}
+                        >
+                            <MuiMenuIcon />
+                        </MuiIconButton>
                     </MuiToolbar>
                 </MuiToolbar>
             </BodyContainer>

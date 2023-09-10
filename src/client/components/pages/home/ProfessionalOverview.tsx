@@ -17,8 +17,8 @@ import {
 import {
     MuiCodeIcon,
     MuiEngineeringIcon,
-    MuiIconCheckCircle,
-    MuiIconCheckCircleOutline,
+    MuiIconCheckCircleIcon,
+    MuiIconCheckCircleOutlineIcon,
 } from '@@components/icons';
 import BodyContainer from '@@components/layouts/BodyContainer';
 import BackgroundGradient from '@@components/ui/BackgroundGradient';
@@ -399,7 +399,7 @@ const ProfessionalOverview = () => {
                                 {softSkills.map((skill) => {
                                     return (
                                         <li key={skill}>
-                                            <MuiIconCheckCircleOutline />{' '}
+                                            <MuiIconCheckCircleOutlineIcon />{' '}
                                             <span>{skill}</span>
                                         </li>
                                     );
@@ -413,7 +413,8 @@ const ProfessionalOverview = () => {
                                 {hardSkills.map((skill) => {
                                     return (
                                         <li key={skill}>
-                                            <MuiIconCheckCircle /> <span>{skill}</span>
+                                            <MuiIconCheckCircleIcon />{' '}
+                                            <span>{skill}</span>
                                         </li>
                                     );
                                 })}

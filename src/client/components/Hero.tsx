@@ -32,11 +32,12 @@ const Hero = ({ ImgComponent, className }: IProps) => {
             component='section'
         >
             <div className={styles.hero__info_container}>
-                <h1>
+                <div>
                     <Heading
                         className={styles.hero__heading}
                         subHeading='Developer Portfolio'
                         heading="Hi, I'm Darnell Noel"
+                        Tag='h1'
                     />
                     <span className={styles.hero__intro}>
                         And I create <strong>modern</strong> and <strong>fast</strong>{' '}
@@ -52,7 +53,7 @@ const Hero = ({ ImgComponent, className }: IProps) => {
                         />
                         <HighlightedText>.</HighlightedText>
                     </span>
-                </h1>
+                </div>
                 <MuiButtonGroup>
                     <Button
                         className={styles.hero__btn}
@@ -73,7 +74,7 @@ const Hero = ({ ImgComponent, className }: IProps) => {
                 </MuiButtonGroup>
                 <SocialMediaLinks />
             </div>
-            {ImgComponent}
+            <div className={styles.hero__img_container}>{ImgComponent}</div>
         </BodyContainer>
     );
 };

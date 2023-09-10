@@ -7,16 +7,18 @@ $cl-text: '#{$cl-body}__text';
 $cl-separator: '#{$cl-body}__separator';
 
 #{$cl-body} {
+    text-align: left;
+    @include base.mq-above-sm-tablet {
+        text-align: center;
+    }
     #{$cl-text} {
         @include base.margin-x;
         padding-top: base.$spacing-xl;
-        text-align: center;
-        width: 60ch;
+        max-width: 60ch;
     }
     #{$cl-separator} {
         @include base.margin-x;
         padding-top: base.$spacing-md;
-        text-align: center;
     }
 }
 
