@@ -30,7 +30,7 @@ $cl-img: '#{$cl-hero}__img';
         text-align: left;
     }
     #{$cl-intro} {
-        font-size: 1.7rem;
+        font-size: base.$font-size-subtitle-2;
         font-weight: 400;
     }
     #{$cl-btn} {

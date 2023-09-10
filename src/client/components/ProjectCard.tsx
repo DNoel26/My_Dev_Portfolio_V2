@@ -34,7 +34,7 @@ const ProjectCard = ({ src, alt, heading, href, details, tools }: TProps) => {
                 </div>
                 <div className={styles.card__details}>
                     <div>
-                        <h4>{heading}</h4>
+                        <h3>{heading}</h3>
                         <Link isExternal href={href}>
                             <MuiOpenInNewIcon fontSize='small' />
                             <span>Visit Website</span>

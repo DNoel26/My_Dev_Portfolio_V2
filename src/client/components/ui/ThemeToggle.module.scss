@@ -20,9 +20,6 @@ $cl-toggle-theme-resolved: '#{$cl-toggle}--theme-resolved';
     transform: scale(0);
     #{$cl-toggle-btn} {
         color: inherit;
-        svg {
-            font-size: 2rem;
-        }
         &#{$cl-toggle-btn-disabled} {
             position: absolute;
             transform: scale(0.6);

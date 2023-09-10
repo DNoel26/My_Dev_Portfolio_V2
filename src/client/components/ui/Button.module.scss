@@ -56,7 +56,7 @@ $cl-btn-text: '#{$cl-btn}--text';
     margin: 64px auto 0;
     text-align: center;
     box-shadow: base.$box-shadow-btn;
-    font-size: 16px;
+    font-size: base.$font-size-button;
     font-weight: 700;
     text-transform: capitalize;
     // for better alignment with mui icon props

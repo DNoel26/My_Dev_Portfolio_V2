@@ -89,7 +89,8 @@ $cl-timeline-content-mech: '#{$cl-timeline-content}--mech';
             flex: 0 0 auto;
             border-radius: 24px;
             height: 100%;
-            padding: 2.5%;
+            padding: base.px-to-rem(32px) base.px-to-rem(16px);
+            width: min(500px, 100%);
             h3 {
                 text-transform: uppercase;
                 padding-bottom: 16px;
@@ -98,9 +99,11 @@ $cl-timeline-content-mech: '#{$cl-timeline-content}--mech';
                 background-color: base.$color-white;
                 margin-bottom: 24px;
             }
+            @include base.mq-above-mobile-sm {
+                padding: 2.5%;
+            }
         }
         #{$cl-skills-soft} {
-            width: 400px;
             border-radius: 16px;
             box-shadow: base.$box-shadow-card-heavy;
             backdrop-filter: blur(5px);

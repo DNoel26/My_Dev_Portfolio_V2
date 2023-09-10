@@ -9,7 +9,7 @@ $cl-heading-disable-pt: '#{$cl-heading}--disable-pt';
     text-align: center;
     padding-top: base.$spacing-section;
     h2 {
-        font-size: 4rem;
+        font-size: base.$font-size-title;
     }
     &#{$cl-heading-disable-pt} {
         padding-top: 0;

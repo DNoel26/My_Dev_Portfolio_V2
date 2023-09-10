@@ -26,7 +26,7 @@ $cl-absolute: '#{$cl-header}--absolute';
     box-shadow: none;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: base.$font-size-header;
     #{$cl-toolbar} {
         justify-content: space-between;
     }
