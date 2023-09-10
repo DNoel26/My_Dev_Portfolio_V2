@@ -11,22 +11,3 @@
         background-position: 0% 0%;
     }
 }
-
-@keyframes anim-wave {
-    0% {
-        transform: translateX(1);
-    }
-    33% {
-        transform: translateX(-25%);
-    }
-    50% {
-        transform: translateX(-50%);
-    }
-    66% {
-        transform: translateX(-25%);
-    }
-
-    100% {
-        transform: translateX(1);
-    }
-}

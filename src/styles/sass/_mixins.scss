@@ -145,6 +145,6 @@
 }
 
 @mixin animation-gradient {
-    animation: gradient 5s ease-in-out infinite alternate;
+    animation: anim-gradient 5s ease-in-out infinite alternate;
     animation-delay: 3s;
 }

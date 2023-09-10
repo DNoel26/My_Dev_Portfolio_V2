@@ -5,7 +5,6 @@ export type Styles = {
     __next: string;
     _hj_feedback_container: string;
     'anim-gradient': string;
-    'anim-wave': string;
     dark: string;
     'grecaptcha-badge': string;
     light: string;
