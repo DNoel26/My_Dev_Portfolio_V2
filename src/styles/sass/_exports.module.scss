@@ -7,4 +7,10 @@
     colorSecondaryOriginal: base.$color-secondary;
     colorBgDefault: base.$color-bg-default;
     colorBgDefaultDark: base.$color-bg-default-dark;
+    breakpoint-xxs-mobile: base.$screen-xxs;
+    breakpoint-xs-mobile: base.$screen-xs;
+    breakpoint-sm-tablet: base.$screen-sm;
+    breakpoint-md-tablet: base.$screen-md;
+    breakpoint-lg-laptop: base.$screen-lg;
+    breakpoint-xl-desktop: base.$screen-xl;
 }

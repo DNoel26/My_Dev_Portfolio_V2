@@ -3,6 +3,7 @@
 import Layout from '@@components/layouts/Layout';
 import MuiThemeProvider from '@@context/MuiThemeProvider';
 import useNextTheme from '@@hooks/useNextTheme';
+import { cssExports } from '@@styles/exports';
 import { TDefaultPropsWithChildren } from '@@types/client/props.types';
 import CssBaseline from '@mui/material/CssBaseline';
 import { StyledEngineProvider } from '@mui/material/styles';
@@ -22,7 +23,7 @@ const PageProvider = ({ children }: TDefaultPropsWithChildren) => {
 
     const chatPosition = `{ bottom: 150px !important; right: -10px !important; }`;
     const chatWidgetStyle = `#tidio-chat-iframe ${chatPosition}
-                            @media (max-width: 980px) {
+                            @media (max-width: ${cssExports['breakpoint-md-tablet']}) {
                             #tidio-chat-iframe ${chatPosition}`;
 
     return (
