@@ -50,13 +50,19 @@ $screen-xl: functions.px-to-rem(1280px);
 }
 
 @mixin mq-below-sm-mobile {
-    @media (max-width: get-mq-max-width($screen-xs)) {
+    @media (max-width: get-mq-max-width($screen-xxs)) {
         @content;
     }
 }
 
 @mixin mq-below-lg-mobile {
     @media (max-width: get-mq-max-width($screen-xs)) {
+        @content;
+    }
+}
+
+@mixin mq-below-lg-tablet {
+    @media (max-width: get-mq-max-width($screen-md)) {
         @content;
     }
 }

@@ -142,7 +142,6 @@
 @mixin fixed-bg {
     background-attachment: fixed;
     background-size: cover;
-    transform: translateZ(0);
 }
 
 @mixin animation-gradient {

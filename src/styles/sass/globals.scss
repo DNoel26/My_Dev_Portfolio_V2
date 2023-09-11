@@ -68,6 +68,11 @@ body {
         @include base.keyboard-focusable;
     }
 }
+html {
+    @include base.mq-below-lg-tablet {
+        transform: translate3d(0, 0, 0);
+    }
+}
 body {
     color: inherit;
     background: inherit;
