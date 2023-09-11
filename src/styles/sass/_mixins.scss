@@ -2,6 +2,7 @@
 
 @use 'variables';
 @use 'functions';
+@use 'responsive';
 
 @mixin transition($properties: all, $is-important: false) {
     $important: functions.set-important($is-important);
@@ -142,6 +143,9 @@
 @mixin fixed-bg {
     background-attachment: fixed;
     background-size: cover;
+    @include responsive.mq-below-lg-tablet {
+        background-attachment: scroll;
+    }
 }
 
 @mixin animation-gradient {
