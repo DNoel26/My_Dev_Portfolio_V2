@@ -40,7 +40,7 @@ const Hero = ({ ImgComponent, className }: IProps) => {
                         Tag='h1'
                     />
                     <span className={styles.hero__intro}>
-                        And I create <strong>modern</strong> and <strong>fast</strong>{' '}
+                        And I create <strong>fast</strong> and <strong>modern</strong>{' '}
                         <TypeAnimation
                             preRenderFirstString
                             sequence={[
