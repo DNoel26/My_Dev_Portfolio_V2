@@ -145,6 +145,8 @@
     background-size: cover;
     @include responsive.mq-below-lg-tablet {
         background-attachment: scroll;
+        background-size: 300%;
+        background-repeat: repeat;
     }
 }
 

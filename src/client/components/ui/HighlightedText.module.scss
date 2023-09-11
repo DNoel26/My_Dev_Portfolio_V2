@@ -6,13 +6,9 @@ $cl-text: '.text';
 
 #{$cl-text} {
     @include base.gradient-text(base.set-gradient-direction(to right));
+    @include base.animation-gradient;
     max-width: max-content;
-    background-size: 100% 100%;
-    animation: none;
-    @include base.mq-above-lg-tablet {
-        @include base.animation-gradient;
-        background-size: 200% 100%;
-    }
+    background-size: 200% 100%;
 }
 
 @include base.theme(#{$cl-text}, 'dark') {

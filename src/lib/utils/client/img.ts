@@ -16,10 +16,6 @@ interface IBgSvgOptions {
     colorPrimary: string;
     colorSecondary: string;
 }
-interface IBgSvgSize {
-    width?: number;
-    height?: number;
-}
 
 const toRgbaObject = (color: string): TColorRgba | null => {
     const rgbaArray = rgba(color);
@@ -39,9 +35,9 @@ const getRgbaString = (colorObj: TColorRgba | null) => {
 
 // rgb(0, 119, 230) - blue (primary)
 // rgb(165, 39, 148) - purple (secondary)
-export const handleBgSvgColorChangeDark = (options: IBgSvgOptions, size?: IBgSvgSize) => {
-    const width = size?.width || 1920;
-    const height = size?.height || 1080;
+export const handleBgSvgColorChangeDark = (options: IBgSvgOptions) => {
+    const width = 1920;
+    const height = 1080;
     const colorPrimary = toRgbaObject(options.colorPrimary);
     const colorSecondary = toRgbaObject(options.colorSecondary);
     const rgbaPrimary = getRgbaString({ ...colorPrimary, a: 0.3 } as TColorRgba);
@@ -58,12 +54,9 @@ export const handleBgSvgColorChangeDark = (options: IBgSvgOptions, size?: IBgSvg
     );
 };
 
-export const handleBgSvgColorChangeLight = (
-    options: IBgSvgOptions,
-    size?: IBgSvgSize,
-) => {
-    const width = size?.width || 1920;
-    const height = size?.height || 1080;
+export const handleBgSvgColorChangeLight = (options: IBgSvgOptions) => {
+    const width = 1920;
+    const height = 1080;
     const colorPrimary = toRgbaObject(options.colorPrimary);
     const colorSecondary = toRgbaObject(options.colorSecondary);
     const rgbaPrimaryBg = getRgbaString({ ...colorPrimary, a: 0.05 } as TColorRgba);
