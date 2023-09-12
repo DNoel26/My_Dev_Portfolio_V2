@@ -26,6 +26,7 @@ import Button from '@@components/ui/Button';
 import Heading from '@@components/ui/Heading';
 import Image from '@@components/ui/Image';
 import { ANCHOR_TAG, CSS_GLOBAL_CLASS_NAME } from '@@lib/constants';
+import { TDefaultProps } from '@@types/client/props.types';
 import clsx from 'clsx';
 import { intervalToDuration } from 'date-fns';
 import { ReactNode } from 'react';
@@ -47,6 +48,23 @@ type TTimePeriodProps = Pick<ITimelineItem, 'startDate' | 'endDate'> & {
     intervalString: string;
 };
 
+interface ITimelineItemsProps {
+    items: ITimelineItem[];
+}
+
+interface ISkillsProps {
+    skills: string[];
+}
+
+interface IParagraphsProps {
+    paragraphs: string[];
+}
+
+interface ISkillTraitsProps {
+    skillTraits: string[];
+    Icon: ReactNode;
+}
+
 const today = new Date();
 
 const monthAndYearToLongFormat = (date: Date) => {
@@ -56,7 +74,7 @@ const monthAndYearToLongFormat = (date: Date) => {
     );
 };
 
-const timelineItems: ITimelineItem[] = [
+const timelineItems: ITimelineItemsProps['items'] = [
     {
         startDate: new Date('2022-03-31'),
         endDate: today,
@@ -209,7 +227,7 @@ const timelineItems: ITimelineItem[] = [
     },
 ];
 
-const softSkills: string[] = [
+const softSkills: ISkillTraitsProps['skillTraits'] = [
     'Analytical and adaptable',
     'Creative and innovative',
     'Logical and objective',
@@ -222,7 +240,7 @@ const softSkills: string[] = [
     'Problem solver',
 ];
 
-const hardSkills: string[] = [
+const hardSkills: ISkillTraitsProps['skillTraits'] = [
     'UI/UX and responsive design',
     'Software principles and architecture',
     'Database design and DBMS principles',
@@ -235,15 +253,139 @@ const hardSkills: string[] = [
     'Clean code principles',
 ];
 
-const TimePeriod = ({ startDate, endDate, intervalString }: TTimePeriodProps) => (
-    <>
+const TimePeriod = ({
+    startDate,
+    endDate,
+    intervalString,
+    className,
+}: TDefaultProps<TTimePeriodProps>) => (
+    <div className={className}>
         <span>
             {monthAndYearToLongFormat(startDate)} to {monthAndYearToLongFormat(endDate)}
         </span>
         <br />
         <span>({intervalString})</span>
-    </>
+    </div>
 );
+
+const Skills = ({ skills }: ISkillsProps) => {
+    return skills.map((skill) => {
+        return <MuiChip key={skill} label={skill} />;
+    });
+};
+
+const Paragraphs = ({ paragraphs }: IParagraphsProps) => {
+    return paragraphs.map((paragraph) => (
+        <li key={paragraph}>
+            <span>-</span>
+            <span>{paragraph}</span>
+        </li>
+    ));
+};
+
+const TimelineItems = ({ items }: ITimelineItemsProps) => {
+    return items.map((item) => {
+        const {
+            startDate,
+            endDate,
+            company,
+            about,
+            jobTitle,
+            paragraphs,
+            Icon,
+            Logo,
+            skills,
+        } = item;
+        const hasSkills = !!skills && !!skills.length;
+        const hasJobDetails = !!paragraphs.length;
+        const { years, months } = intervalToDuration({
+            start: startDate,
+            end: endDate,
+        });
+        const yearString = (!!years && `${years} year${years > 1 ? 's' : ''}`) || '';
+        const monthString = (!!months && `${months} month${months > 1 ? 's' : ''}`) || '';
+        const intervalString = yearString + (yearString ? ' ' : '') + monthString;
+
+        return (
+            <MuiTimelineItem key={company} className={styles.overview__timeline_item}>
+                <MuiTimelineOppositeContent
+                    className={styles.overview__timeline_opposite_content}
+                >
+                    <TimePeriod
+                        className={styles.overview__time_period_opposite}
+                        startDate={startDate}
+                        endDate={endDate}
+                        intervalString={intervalString}
+                    />
+                    {hasSkills && (
+                        <>
+                            <br />
+                            <div className={styles.overview__chips}>
+                                <Skills skills={skills} />
+                            </div>
+                        </>
+                    )}
+                </MuiTimelineOppositeContent>
+                <MuiTimelineSeparator className={styles.overview__timeline_separator}>
+                    <MuiTimelineConnector
+                        className={styles.overview__timeline_connector_secondary}
+                    />
+                    <MuiTimelineDot className={styles.overview__timeline_dot}>
+                        {Icon}
+                    </MuiTimelineDot>
+                    <MuiTimelineConnector
+                        className={styles.overview__timeline_connector_primary}
+                    />
+                </MuiTimelineSeparator>
+                <MuiTimelineContent
+                    className={clsx(
+                        styles.overview__timeline_content,
+                        !hasJobDetails && styles['overview__timeline_content--mech'],
+                    )}
+                >
+                    <TimePeriod
+                        className={styles.overview__time_period}
+                        startDate={startDate}
+                        endDate={endDate}
+                        intervalString={intervalString}
+                    />
+                    <div className={styles.overview__timeline_logo}>{Logo}</div>
+                    <MuiTypography
+                        variant='h5'
+                        component='div'
+                        sx={{ fontWeight: 'bold' }}
+                    >
+                        {jobTitle}
+                    </MuiTypography>
+                    <MuiTypography variant='h6' component='div'>
+                        {company}
+                    </MuiTypography>
+                    <MuiTypography variant='body1' component='div'>
+                        {about}
+                    </MuiTypography>
+                    {hasJobDetails && (
+                        <>
+                            <br />
+                            <ul className={styles.overview__timeline_paragraph}>
+                                <Paragraphs paragraphs={paragraphs} />
+                            </ul>
+                        </>
+                    )}
+                </MuiTimelineContent>
+            </MuiTimelineItem>
+        );
+    });
+};
+
+const SkillTraits = ({ skillTraits: skills, Icon }: ISkillTraitsProps) => {
+    return skills.map((skill) => {
+        return (
+            <li key={skill}>
+                {Icon} <span>{skill}</span>
+            </li>
+        );
+    });
+};
 
 const ProfessionalOverview = () => {
     return (
@@ -259,129 +401,7 @@ const ProfessionalOverview = () => {
                         heading='Career Journey'
                     />
                     <MuiTimeline className={styles.overview__timeline} position='right'>
-                        {timelineItems.map((item) => {
-                            const {
-                                startDate,
-                                endDate,
-                                company,
-                                about,
-                                jobTitle,
-                                paragraphs,
-                                Icon,
-                                Logo,
-                                skills,
-                            } = item;
-                            const hasSkills = !!skills && !!skills.length;
-                            const hasJobDetails = !!paragraphs.length;
-                            const { years, months } = intervalToDuration({
-                                start: startDate,
-                                end: endDate,
-                            });
-                            const yearString =
-                                (!!years && `${years} year${years > 1 ? 's' : ''}`) || '';
-                            const monthString =
-                                (!!months && `${months} month${months > 1 ? 's' : ''}`) ||
-                                '';
-                            const intervalString =
-                                yearString + (yearString ? ' ' : '') + monthString;
-                            return (
-                                <MuiTimelineItem
-                                    key={company}
-                                    className={styles.overview__timeline_item}
-                                >
-                                    <MuiTimelineOppositeContent
-                                        className={
-                                            styles.overview__timeline_opposite_content
-                                        }
-                                        sx={{ m: 'auto 0', fontStyle: 'italic', flex: 1 }}
-                                        align='right'
-                                        variant='body2'
-                                    >
-                                        <TimePeriod
-                                            startDate={startDate}
-                                            endDate={endDate}
-                                            intervalString={intervalString}
-                                        />
-                                        {hasSkills && (
-                                            <>
-                                                <br />
-                                                <br />
-                                            </>
-                                        )}
-                                        {hasSkills && (
-                                            <div className={styles.overview__chips}>
-                                                {skills.map((skill) => {
-                                                    return (
-                                                        <MuiChip
-                                                            key={skill}
-                                                            label={skill}
-                                                        />
-                                                    );
-                                                })}
-                                            </div>
-                                        )}
-                                    </MuiTimelineOppositeContent>
-                                    <MuiTimelineSeparator>
-                                        <MuiTimelineConnector
-                                            sx={{ bgcolor: 'secondary.main' }}
-                                        />
-                                        <MuiTimelineDot
-                                            className={styles.overview__timeline_dot}
-                                        >
-                                            {Icon}
-                                        </MuiTimelineDot>
-                                        <MuiTimelineConnector
-                                            sx={{ bgcolor: 'primary.main' }}
-                                        />
-                                    </MuiTimelineSeparator>
-                                    <MuiTimelineContent
-                                        className={clsx(
-                                            styles.overview__timeline_content,
-                                            !hasJobDetails &&
-                                                styles[
-                                                    'overview__timeline_content--mech'
-                                                ],
-                                        )}
-                                        sx={{ py: '12px', px: 2 }}
-                                    >
-                                        <div className={styles.overview__timeline_logo}>
-                                            {Logo}
-                                        </div>
-                                        <MuiTypography
-                                            variant='h5'
-                                            component='div'
-                                            sx={{ fontWeight: 'bold' }}
-                                        >
-                                            {jobTitle}
-                                        </MuiTypography>
-                                        <MuiTypography variant='h6' component='div'>
-                                            {company}
-                                        </MuiTypography>
-                                        <MuiTypography variant='body1' component='div'>
-                                            {about}
-                                        </MuiTypography>
-                                        {hasJobDetails && (
-                                            <>
-                                                <br />
-                                                <MuiTypography
-                                                    className={
-                                                        styles.overview__timeline_paragraph
-                                                    }
-                                                    component='ul'
-                                                >
-                                                    {paragraphs.map((paragraph) => (
-                                                        <li key={paragraph}>
-                                                            <span>-</span>
-                                                            <span>{paragraph}</span>
-                                                        </li>
-                                                    ))}
-                                                </MuiTypography>
-                                            </>
-                                        )}
-                                    </MuiTimelineContent>
-                                </MuiTimelineItem>
-                            );
-                        })}
+                        <TimelineItems items={timelineItems} />
                     </MuiTimeline>
                     <Heading
                         id={ANCHOR_TAG.HOME_PAGE.TRAITS}
@@ -396,28 +416,20 @@ const ProfessionalOverview = () => {
                             <h3>Soft Skills</h3>
                             <MuiDivider variant='fullWidth' />
                             <ul>
-                                {softSkills.map((skill) => {
-                                    return (
-                                        <li key={skill}>
-                                            <MuiIconCheckCircleOutlineIcon />{' '}
-                                            <span>{skill}</span>
-                                        </li>
-                                    );
-                                })}
+                                <SkillTraits
+                                    skillTraits={softSkills}
+                                    Icon={<MuiIconCheckCircleOutlineIcon />}
+                                />
                             </ul>
                         </BackgroundGradient>
                         <div className={styles.overview__skills_hard}>
                             <h3>Hard Skills</h3>
                             <MuiDivider variant='fullWidth' />
                             <ul>
-                                {hardSkills.map((skill) => {
-                                    return (
-                                        <li key={skill}>
-                                            <MuiIconCheckCircleIcon />{' '}
-                                            <span>{skill}</span>
-                                        </li>
-                                    );
-                                })}
+                                <SkillTraits
+                                    skillTraits={hardSkills}
+                                    Icon={<MuiIconCheckCircleIcon />}
+                                />
                             </ul>
                         </div>
                     </div>

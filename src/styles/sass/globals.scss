@@ -97,19 +97,37 @@ main {
     background: base.$color-bg-default;
     color-scheme: light;
 }
+.dark .theme-bg,
+.user-dark .theme-bg {
+    background-image: none;
+    background-color: var(--color-primary-1900);
+}
 .dark .theme-bg {
-    background-image: base.$img-bg-dark;
+    @include base.mq-above-lg-mobile {
+        background-image: base.$img-bg-dark;
+    }
 }
 .user-dark .theme-bg {
-    background-image: base.$img-bg-dark-neutral;
-    background-image: var(--bg-img-dark);
+    @include base.mq-above-lg-mobile {
+        background-image: base.$img-bg-dark-neutral;
+        background-image: var(--bg-img-dark);
+    }
+}
+.light .theme-bg,
+.user-light .theme-bg {
+    background-image: none;
+    background-color: var(--color-primary-100);
 }
 .light .theme-bg {
-    background-image: base.$img-bg-light;
+    @include base.mq-above-lg-mobile {
+        background-image: base.$img-bg-light;
+    }
 }
 .user-light .theme-bg {
-    background-image: base.$img-bg-light-neutral;
-    background-image: var(--bg-img-light);
+    @include base.mq-above-lg-mobile {
+        background-image: base.$img-bg-light-neutral;
+        background-image: var(--bg-img-light);
+    }
 }
 body::-webkit-scrollbar {
     width: auto;

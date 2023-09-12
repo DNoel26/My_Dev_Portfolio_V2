@@ -35,16 +35,16 @@ $cl-img: '#{$cl-hero}__img';
     }
     #{$cl-info_container} {
         margin-top: 12px;
-        padding-left: 2.5%;
         z-index: 1;
         @include base.mq-above-desktop {
             align-self: center;
+            padding-left: 2.5%;
         }
     }
     #{$cl-img_container} {
         @include base.margin-x;
         padding-top: 10%;
-        width: 95%;
+        width: 98%;
         @include base.mq-above-sm-tablet {
             padding-top: unset;
             padding-right: 3%;

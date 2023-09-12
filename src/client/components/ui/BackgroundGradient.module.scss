@@ -11,15 +11,11 @@ $cl-banner-bg-only: '#{$cl-banner}--bg-only';
     z-index: 0;
     > div:first-of-type {
         @include base.before-after-default;
-        animation: none;
+        @include base.animation-gradient;
+        animation-duration: 8s;
+        background-size: 300% 100%;
         background-image: base.$gradient-bg-1;
-        background-size: 100% 100%;
         z-index: -1;
-        @include base.mq-above-lg-tablet {
-            @include base.animation-gradient;
-            animation-duration: 8s;
-            background-size: 300% 100%;
-        }
     }
     &:not(#{$cl-banner-bg-only}) {
         @include base.gradient-bg;

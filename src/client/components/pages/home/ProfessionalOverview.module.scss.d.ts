@@ -10,12 +10,19 @@ export type Styles = {
     overview__skills: string;
     overview__skills_hard: string;
     overview__skills_soft: string;
+    overview__time_period: string;
+    overview__time_period_opposite: string;
     overview__timeline: string;
+    overview__timeline_connector_primary: string;
+    overview__timeline_connector_secondary: string;
     overview__timeline_content: string;
     'overview__timeline_content--mech': string;
     overview__timeline_dot: string;
+    overview__timeline_item: string;
     overview__timeline_logo: string;
+    overview__timeline_opposite_content: string;
     overview__timeline_paragraph: string;
+    overview__timeline_separator: string;
 };
 
 export type ClassNames = keyof Styles;

@@ -5,10 +5,15 @@
 $cl-overview: '.overview';
 $cl-container: '#{$cl-overview}__container';
 $cl-timeline: '#{$cl-overview}__timeline';
+$cl-time-period-opposite: '#{$cl-overview}__time_period_opposite';
+$cl-time-period: '#{$cl-overview}__time_period';
 $cl-timeline-item: '#{$cl-timeline}_item';
 $cl-timeline-dot: '#{$cl-timeline}_dot';
 $cl-timeline-logo: '#{$cl-timeline}_logo';
 $cl-timeline-opposite-content: '#{$cl-timeline}_opposite_content';
+$cl-timeline-separator: '#{$cl-timeline}_separator';
+$cl-timeline-connector-primary: '#{$cl-timeline}_connector_primary';
+$cl-timeline-connector-secondary: '#{$cl-timeline}_connector_secondary';
 $cl-timeline-content: '#{$cl-timeline}_content';
 $cl-timeline-paragraph: '#{$cl-timeline}_paragraph';
 $cl-chips: '#{$cl-overview}__chips';
@@ -31,40 +36,87 @@ $cl-timeline-content-mech: '#{$cl-timeline-content}--mech';
     }
     #{$cl-timeline} {
         margin-top: base.$spacing-xl;
-        #{$cl-timeline-dot} {
-            color: base.$color-text-default-black;
+        gap: 64px;
+        @include base.mq-above-lg-tablet {
+            gap: 0;
         }
-        #{$cl-timeline-logo} {
-            img {
-                @include base.margin-y(8px);
-                display: inline-block;
-                height: 40px;
-                width: auto;
-                object-fit: contain;
+        #{$cl-timeline-item} {
+            flex-direction: column-reverse;
+            @include base.mq-above-lg-tablet {
+                flex-direction: row;
             }
-        }
-        #{$cl-timeline-content} {
-            @include base.padding-y(32px);
-            flex-flow: wrap-reverse;
-            width: 50ch;
-            &#{$cl-timeline-content-mech} {
-                @include base.padding-y(16px);
+            #{$cl-time-period-opposite} {
+                display: none;
+                @include base.mq-above-lg-tablet {
+                    display: block;
+                }
             }
-        }
-        #{$cl-timeline-paragraph} {
-            list-style: none;
-            > li {
-                display: flex;
-                column-gap: 8px;
+            #{$cl-time-period} {
+                display: block;
+                margin-bottom: 16px;
+                @include base.mq-above-lg-tablet {
+                    display: none;
+                }
             }
-        }
-        #{$cl-chips} {
-            > div {
-                box-shadow: base.$box-shadow-card-light;
-                margin-bottom: 8px;
-                margin-right: 8px;
-                font-weight: 500;
-                font-style: normal;
+            #{$cl-timeline-dot} {
+                color: base.$color-text-default-black;
+            }
+            #{$cl-timeline-logo} {
+                img {
+                    @include base.margin-y(8px);
+                    display: inline-block;
+                    height: 40px;
+                    width: auto;
+                    object-fit: contain;
+                }
+            }
+            #{$cl-timeline-opposite-content} {
+                margin: auto;
+                font-style: italic;
+                flex: 1;
+                text-align: left;
+                @include base.mq-above-lg-tablet {
+                    text-align: right;
+                }
+            }
+            #{$cl-timeline-content} {
+                @include base.padding-y(32px);
+                flex-flow: wrap-reverse;
+                width: 100%;
+                @include base.mq-above-lg-tablet {
+                    width: 50ch;
+                }
+                &#{$cl-timeline-content-mech} {
+                    @include base.padding-y(16px);
+                }
+            }
+            #{$cl-timeline-separator} {
+                display: none;
+                @include base.mq-above-lg-tablet {
+                    display: flex;
+                }
+            }
+            #{$cl-timeline-paragraph} {
+                list-style: none;
+                > li {
+                    display: flex;
+                    column-gap: 8px;
+                }
+            }
+            #{$cl-chips} {
+                > div {
+                    box-shadow: base.$box-shadow-card-light;
+                    margin-bottom: 8px;
+                    margin-right: 8px;
+                    font-weight: 500;
+                    font-style: normal;
+                }
+            }
+            #{$cl-timeline-connector-primary} {
+                background-color: var(--color-primary);
+            }
+            #{$cl-timeline-connector-secondary} {
+                background-color: var(--color-secondary);
             }
         }
     }
