@@ -24,10 +24,7 @@ $cl-copyright: '#{$cl-footer}__copyright';
         min-height: 200px;
         padding-top: base.$spacing-section;
         p {
-            text-align: left;
-            @include base.mq-above-lg-mobile {
-                text-align: center;
-            }
+            text-align: center;
         }
     }
     #{$cl-my-logo} {

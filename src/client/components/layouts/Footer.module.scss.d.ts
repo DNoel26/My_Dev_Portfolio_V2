@@ -10,6 +10,7 @@ export type Styles = {
     footer__copyright: string;
     footer__logos: string;
     footer__my_logo: string;
+    footer__social_media_icons: string;
     footer__top: string;
 };
 

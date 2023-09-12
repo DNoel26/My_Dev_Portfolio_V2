@@ -5,6 +5,7 @@
 
 $cl-header: '.header';
 $cl-toolbar: '#{$cl-header}__toolbar';
+$cl-drawer: '#{$cl-header}__drawer';
 $cl-logo: '#{$cl-header}__logo';
 $cl-content: '#{$cl-header}__content';
 $cl-content-bg: '#{$cl-header}__content_bg';
@@ -30,6 +31,10 @@ $cl-absolute: '#{$cl-header}--absolute';
     font-size: base.$font-size-header;
     #{$cl-toolbar} {
         justify-content: space-between;
+    }
+    #{$cl-drawer} {
+        z-index: base.$tidio-chat-z-index + 1;
+        //TODO: investigate why classes aren't working here
     }
     #{$cl-logo} {
         img {
@@ -118,7 +123,7 @@ $cl-absolute: '#{$cl-header}--absolute';
             }
         }
         &#{$cl-fixed} {
-            z-index: 10000;
+            z-index: 1100;
             opacity: 1;
         }
     }

@@ -5,6 +5,7 @@ export type Styles = {
     'anim-gradient': string;
     drawer: string;
     drawer__btn_container: string;
+    drawer__color_picker: string;
     drawer__container: string;
     drawer__item: string;
 };

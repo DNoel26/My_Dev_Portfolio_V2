@@ -7,6 +7,7 @@ export type Styles = {
     header__btns: string;
     header__content: string;
     header__content_bg: string;
+    header__drawer: string;
     header__links: string;
     header__logo: string;
     header__menu: string;

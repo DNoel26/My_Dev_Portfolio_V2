@@ -1,14 +1,15 @@
 /** @format */
 
-import { MuiAppBar, MuiIconButton, MuiToolbar } from '@@client';
+import { MuiAppBar, MuiDrawer, MuiIconButton, MuiToolbar } from '@@client';
 import ColorThemeToggle from '@@components/ColorThemeToggle';
 import { MuiMenuIcon } from '@@components/icons';
 import BackgroundGradient from '@@components/ui/BackgroundGradient';
 import Logo from '@@components/ui/Logo';
 import ThemeToggle from '@@components/ui/ThemeToggle';
 import useScrollTrigger from '@@hooks/useScrollTrigger';
+import { closeDrawer, toggleDrawer } from '@@lib/utils/client/handlers';
 import clsx from 'clsx';
-import { MutableRefObject, useEffect, useRef } from 'react';
+import { MutableRefObject, useEffect, useRef, useState } from 'react';
 import BodyContainer from './BodyContainer';
 import styles from './Header.module.scss';
 import NavLinks from './NavLinks';
@@ -18,11 +19,12 @@ interface IHeaderProps {
 }
 
 const HeaderPrivate = ({ position }: IHeaderProps) => {
+    const [isOpenMobileDrawer, setIsOpenMobileDrawer] = useState(false);
     const trigger = useScrollTrigger();
     const headerRef = useRef() as MutableRefObject<HTMLDivElement | HTMLElement>;
-    const isFixed = position === 'fixed';
+    const isInteractiveHeader = position === 'fixed';
     useEffect(() => {
-        if (headerRef.current && !isFixed) {
+        if (headerRef.current && !isInteractiveHeader) {
             const headerLinks = headerRef.current.querySelectorAll('a');
             const headerBtns = headerRef.current.querySelectorAll('button');
             /* eslint-disable no-param-reassign */
@@ -35,7 +37,10 @@ const HeaderPrivate = ({ position }: IHeaderProps) => {
             });
             /* eslint-enable no-param-reassign */
         }
-    }, [isFixed]);
+    }, [isInteractiveHeader]);
+
+    const handleToggle = toggleDrawer(setIsOpenMobileDrawer);
+    const handleClose = closeDrawer(setIsOpenMobileDrawer);
 
     return (
         <MuiAppBar
@@ -44,7 +49,7 @@ const HeaderPrivate = ({ position }: IHeaderProps) => {
                 styles[`header--${position}`],
                 trigger && styles['header--scrolled'],
             )}
-            component={isFixed ? 'header' : 'div'}
+            component={isInteractiveHeader ? 'header' : 'div'}
             ref={headerRef}
         >
             <BodyContainer>
@@ -76,9 +81,19 @@ const HeaderPrivate = ({ position }: IHeaderProps) => {
                         </MuiToolbar>
                         <MuiIconButton
                             className={styles.header__menu}
-                            onClick={() => console.log('menu clicked!')}
+                            onClick={handleToggle}
                         >
                             <MuiMenuIcon />
+                            {isInteractiveHeader && (
+                                <MuiDrawer
+                                    className={styles.header__drawer}
+                                    anchor='left'
+                                    open={isOpenMobileDrawer}
+                                    onClose={handleClose}
+                                >
+                                    <NavLinks />
+                                </MuiDrawer>
+                            )}
                         </MuiIconButton>
                     </MuiToolbar>
                 </MuiToolbar>

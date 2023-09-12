@@ -21,14 +21,14 @@ const ColorThemeDrawer = () => {
         canSwapColors,
     } = useContext(UserThemeContext);
     const handleChangeTheme = useUserThemeChange();
-    const { handleToggle, handleClose } = useColorThemeToggle();
+    const { handleClose } = useColorThemeToggle();
 
     return (
         <MuiDrawer
             className={styles.drawer}
             anchor='bottom'
             open={isOpenThemeEditor}
-            onClose={handleToggle}
+            onClose={handleClose}
         >
             <BodyContainer className={styles.drawer__container}>
                 <Button
