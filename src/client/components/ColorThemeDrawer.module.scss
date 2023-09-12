@@ -17,22 +17,42 @@ $cl-color-picker: '#{$cl-drawer}__color_picker';
             @include base.padding-y(32px); 
         }
     }
-    #{$cl-btn-container} {
-        @include base.flex-center;
-        border-top: 4px solid var(--color-secondary);
-    }
     #{$cl-container} {
+        @include base.padding-y(min(64px, 15%));
+        position: relative;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
         flex-wrap: wrap;
-        row-gap: 10%;
-        padding-bottom: 16px;
+        row-gap: 48px;
+        > :first-child {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            margin: 0;
+            padding: 0;
+        }
         @include base.mq-above-lg-tablet {
             padding-bottom: 48px;
         }
     }
     #{$cl-item} {
         flex-basis: 450px;
+    }
+    #{$cl-btn-container} {
+        @include base.flex-center;
+        border-top: 4px solid var(--color-secondary);
+        @include base.mq-below-lg-mobile {
+            flex-direction: column;
+        }
+        button {
+            @include base.mq-below-lg-mobile {
+                margin-top: 16px;
+                width: 100%;
+            }
+        }
+    }
+    #{$cl-color-picker} {
+        max-width: 100%;
     }
 }

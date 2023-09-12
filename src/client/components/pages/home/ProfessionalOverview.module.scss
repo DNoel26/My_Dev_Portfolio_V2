@@ -34,6 +34,13 @@ $cl-timeline-content-mech: '#{$cl-timeline-content}--mech';
     #{$cl-container} {
         padding-bottom: base.$spacing-section;
     }
+    #{$cl-timeline},
+    #{$cl-timeline} #{$cl-timeline-opposite-content},
+    #{$cl-timeline} #{$cl-timeline-content} {
+        @include base.mq-below-lg-tablet {
+            @include base.padding-x(0);
+        }
+    }
     #{$cl-timeline} {
         margin-top: base.$spacing-xl;
         gap: 64px;
@@ -54,6 +61,7 @@ $cl-timeline-content-mech: '#{$cl-timeline-content}--mech';
             #{$cl-time-period} {
                 display: block;
                 margin-bottom: 16px;
+                font-size: base.$font-size-body-2;
                 @include base.mq-above-lg-tablet {
                     display: none;
                 }
@@ -80,10 +88,11 @@ $cl-timeline-content-mech: '#{$cl-timeline-content}--mech';
                 }
             }
             #{$cl-timeline-content} {
-                @include base.padding-y(32px);
+                padding-top: 32px;
                 flex-flow: wrap-reverse;
                 width: 100%;
                 @include base.mq-above-lg-tablet {
+                    @include base.padding-y(32px);
                     width: 50ch;
                 }
                 &#{$cl-timeline-content-mech} {
@@ -101,6 +110,10 @@ $cl-timeline-content-mech: '#{$cl-timeline-content}--mech';
                 > li {
                     display: flex;
                     column-gap: 8px;
+                    :last-child {
+                        @include base.max-width-text-lg;
+                        margin: unset;
+                    }
                 }
             }
             #{$cl-chips} {

@@ -44,7 +44,7 @@ $cl-absolute: '#{$cl-header}--absolute';
         @include base.transition((height, opacity));
         position: absolute;
         min-width: 100%;
-        height: 520px;
+        height: 50vh;
         top: 0;
         left: -8px;
         right: 0;

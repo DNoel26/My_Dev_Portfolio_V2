@@ -9,5 +9,6 @@ $cl-error: '#{$cl-color-picker}__error';
     #{$cl-error} {
        @include base.padding-y(16px);
         text-align: center;
+        font-size: base.$font-size-body-2;
     }
 }

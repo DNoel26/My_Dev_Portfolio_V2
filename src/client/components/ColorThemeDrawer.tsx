@@ -7,6 +7,7 @@ import useColorThemeToggle from '@@hooks/useColorThemeToggle';
 import useUserThemeChange from '@@hooks/useUserThemeChange';
 import { useContext } from 'react';
 import styles from './ColorThemeDrawer.module.scss';
+import { MuiCloseIcon } from './icons';
 import BodyContainer from './layouts/BodyContainer';
 import Button from './ui/Button';
 import ColorPicker from './ui/ColorPicker';
@@ -20,7 +21,7 @@ const ColorThemeDrawer = () => {
         canSwapColors,
     } = useContext(UserThemeContext);
     const handleChangeTheme = useUserThemeChange();
-    const { handleToggle } = useColorThemeToggle();
+    const { handleToggle, handleClose } = useColorThemeToggle();
 
     return (
         <MuiDrawer
@@ -30,6 +31,13 @@ const ColorThemeDrawer = () => {
             onClose={handleToggle}
         >
             <BodyContainer className={styles.drawer__container}>
+                <Button
+                    customVariant='text'
+                    endIcon={<MuiCloseIcon fontSize='large' />}
+                    onClick={handleClose}
+                >
+                    Close
+                </Button>
                 <div className={styles.drawer__item}>
                     <h4>Primary</h4>
                     <ColorPicker className={styles.drawer__color_picker} type='primary' />

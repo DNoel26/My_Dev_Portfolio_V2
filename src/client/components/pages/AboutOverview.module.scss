@@ -10,9 +10,9 @@ $cl-text-container: '#{$cl-about}__text_container';
     background-size: contain;
     background-repeat: no-repeat;
     #{$cl-text-container} {
-        margin-top: base.$spacing-xl;
+        @include base.max-width-text-lg;
         @include base.margin-x;
-        width: min(75ch, 100%);
+        margin-top: base.$spacing-xl;
         text-align: justify;
     }
 }

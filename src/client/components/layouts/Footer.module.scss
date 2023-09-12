@@ -69,15 +69,19 @@ $cl-copyright: '#{$cl-footer}__copyright';
         margin-bottom: base.$spacing-xl;
         column-gap: 16px;
         > div {
-            width: 64px;
+            width: 48px;
             height: auto;
+            @include base.mq-above-lg-mobile {
+                width: 64px;
+            }
         }
         img {
-            width: auto;
-            height: 64px;
+            @include base.fill;
             max-width: 100%;
-            padding: 2px;
             object-fit: contain;
+            @include base.mq-above-lg-mobile {
+                padding: 2px;
+            }
         }
     }
     #{$cl-copyright} {

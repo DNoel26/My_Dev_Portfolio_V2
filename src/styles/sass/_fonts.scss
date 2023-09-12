@@ -3,6 +3,7 @@
 @use 'functions';
 
 $font-size-body-1: var(--font-size-body-1);
+$font-size-body-2: calc(0.8 * $font-size-body-1);
 $font-size-header: calc(0.9 * $font-size-body-1);
 $font-size-title-1: calc(var(--font-size-multiplier-title-1) * $font-size-body-1);
 $font-size-subtitle-1: calc(var(--font-size-multiplier-subtitle-1) * $font-size-body-1);

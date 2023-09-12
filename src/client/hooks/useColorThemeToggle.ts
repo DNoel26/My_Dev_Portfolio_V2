@@ -3,8 +3,9 @@
 import { UserThemeContext } from '@@context/UserThemeContext';
 import { Dispatch, SetStateAction, useContext } from 'react';
 
-const toggleDrawer =
-    (setOpen: Dispatch<SetStateAction<boolean>>) =>
+const handleMouseEvent =
+    (state: SetStateAction<boolean>) =>
+    (setState: Dispatch<SetStateAction<boolean>>) =>
     (event: React.KeyboardEvent | React.MouseEvent) => {
         if (
             event.type === 'keydown' &&
@@ -14,13 +15,20 @@ const toggleDrawer =
             return;
         }
 
-        setOpen((prev) => !prev);
+        setState(state);
     };
+
+const toggleDrawer = handleMouseEvent((prev) => !prev);
+
+const closeDrawer = handleMouseEvent(false);
 
 const useColorThemeToggle = () => {
     const { setIsOpenThemeEditor } = useContext(UserThemeContext);
 
-    return { handleToggle: toggleDrawer(setIsOpenThemeEditor) };
+    return {
+        handleToggle: toggleDrawer(setIsOpenThemeEditor),
+        handleClose: closeDrawer(setIsOpenThemeEditor),
+    };
 };
 
 export default useColorThemeToggle;

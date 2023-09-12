@@ -154,3 +154,8 @@
     animation: anim-gradient 5s ease-in-out infinite alternate;
     animation-delay: 3s;
 }
+
+@mixin max-width-text-lg {
+    @include margin-x;
+    max-width: 70ch;
+}

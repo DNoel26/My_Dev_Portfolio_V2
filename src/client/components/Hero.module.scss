@@ -68,7 +68,7 @@ $cl-img: '#{$cl-hero}__img';
     #{$cl-intro} {
         font-size: base.$font-size-subtitle-2;
         font-weight: 400;
-        width: 21ch;
+        width: 23ch;
         word-wrap: break-word;
         @include base.mq-above-desktop {
             width: 100%;
