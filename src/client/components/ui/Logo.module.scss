@@ -9,13 +9,10 @@ $cl-logo: '.logo';
         @include base.transition((height, filter));
         display: inline-block;
         object-fit: contain;
-        width: 120px;
+        max-width: 200px;
         height: auto;
         @include base.interactive-states {
             transform: scale(1.05);
-        }
-        @include base.mq-above-lg-mobile {
-            width: 200px;
         }
     }
 }
