@@ -7,10 +7,7 @@ $cl-text: '#{$cl-body}__text';
 $cl-separator: '#{$cl-body}__separator';
 
 #{$cl-body} {
-    text-align: left;
-    @include base.mq-above-sm-tablet {
-        text-align: center;
-    }
+    text-align: center;
     #{$cl-text} {
         @include base.margin-x;
         padding-top: base.$spacing-xl;

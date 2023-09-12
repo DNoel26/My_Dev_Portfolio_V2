@@ -6,6 +6,7 @@ $cl-footer: '.footer';
 $cl-top: '#{$cl-footer}__top';
 $cl-bottom: '#{$cl-footer}__bottom';
 $cl-my-logo: '#{$cl-footer}__my_logo';
+$cl-social_media_icons: '#{$cl-footer}__social_media_icons';
 $cl-container: '#{$cl-footer}__container';
 $cl-logos: '#{$cl-footer}__logos';
 $cl-built-using: '#{$cl-footer}__built_using';
@@ -38,12 +39,18 @@ $cl-copyright: '#{$cl-footer}__copyright';
             margin-bottom: base.$spacing-lg;
         }
     }
+    #{$cl-social_media_icons} {
+        > div {
+            @include base.margin-x;
+        }
+    }
     #{$cl-container} {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: flex-start;
         flex-wrap: wrap;
         gap: 64px;
+        text-align: center;
         padding-bottom: base.$spacing-xxl;
         max-width: min(1000px, 90%);
         margin: auto;

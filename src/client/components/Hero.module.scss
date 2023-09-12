@@ -44,7 +44,7 @@ $cl-img: '#{$cl-hero}__img';
     #{$cl-img_container} {
         @include base.margin-x;
         padding-top: 10%;
-        width: 98%;
+        width: 100%;
         @include base.mq-above-sm-tablet {
             padding-top: unset;
             padding-right: 3%;

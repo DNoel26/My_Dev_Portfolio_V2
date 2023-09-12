@@ -71,7 +71,7 @@ const Footer = () => {
                     <div className={styles.footer__container}>
                         <div>
                             <Logo className={styles.footer__my_logo} />
-                            <div>
+                            <div className={styles.footer__social_media_icons}>
                                 <SocialMediaLinks />
                             </div>
                         </div>
