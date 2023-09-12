@@ -51,7 +51,6 @@ $cl-absolute: '#{$cl-header}--absolute';
         border-bottom-left-radius: base.$border-radius-md;
         opacity: 1;
         z-index: -1;
-        box-shadow: base.$box-shadow-card-heavy;
         @include base.mq-above-desktop {
             height: 400px;
         }
