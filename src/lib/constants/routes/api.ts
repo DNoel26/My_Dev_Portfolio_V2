@@ -21,5 +21,8 @@ const PROJECTS = {
 export const APP_ENDPOINT = { BASE, PROJECTS } as const;
 
 export const EXTERNAL_ENDPOINT = {
-    FORMSPREE: 'https://formspree.io/f/mbjvoayd',
+    FORMSPREE:
+        typeof process !== 'undefined' && process.env.NODE_ENV === 'production'
+            ? 'https://formspree.io/f/xwkdqpbr'
+            : 'https://formspree.io/f/mbjvoayd',
 } as const;

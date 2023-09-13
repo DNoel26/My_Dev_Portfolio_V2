@@ -30,7 +30,7 @@ const links: ILinks[] = [
         title: 'Call Me',
     },
     {
-        href: MY_INFO.EMAIL,
+        href: `mailto:${MY_INFO.EMAIL}`,
         title: 'Send Email',
     },
     {

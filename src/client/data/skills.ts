@@ -31,7 +31,7 @@ const FRONT_END_SKILLS: readonly ISkill[] = [
         ICON: Svg.svgLogoBootstrap,
     },
     {
-        NAME: 'React',
+        NAME: 'React.js',
         PROFICIENCY: 'ADVANCED',
         ICON: Svg.svgLogoReact,
     },
@@ -59,12 +59,12 @@ const BACK_END_SKILLS: readonly ISkill[] = [
         ICON: Svg.svgLogoPhp,
     },
     {
-        NAME: 'Express',
+        NAME: 'Express.js',
         PROFICIENCY: 'ADVANCED',
         ICON: Svg.svgLogoExpress,
     },
     {
-        NAME: 'Node',
+        NAME: 'Node.js',
         PROFICIENCY: 'INTERMEDIATE',
         ICON: Svg.svgLogoNode,
     },
@@ -217,26 +217,26 @@ const OTHER_SKILLS: readonly ISkill[] = [
 ] as const;
 
 const OS_SKILLS: readonly ISkill[] = [
-    {
-        NAME: 'Windows',
-        PROFICIENCY: 'INTERMEDIATE',
-        ICON: Svg.svgLogoWindows,
-    },
-    {
-        NAME: 'Mac OS',
-        PROFICIENCY: 'INTERMEDIATE',
-        ICON: Svg.svgLogoMacOs,
-    },
-    {
-        NAME: 'Linux',
-        PROFICIENCY: 'INTERMEDIATE',
-        ICON: Svg.svgLogoLinux,
-    },
-    {
-        NAME: 'Ubuntu',
-        PROFICIENCY: 'INTERMEDIATE',
-        ICON: Svg.svgLogoUbuntu,
-    },
+    // {
+    //     NAME: 'Windows',
+    //     PROFICIENCY: 'INTERMEDIATE',
+    //     ICON: Svg.svgLogoWindows,
+    // },
+    // {
+    //     NAME: 'Mac OS',
+    //     PROFICIENCY: 'INTERMEDIATE',
+    //     ICON: Svg.svgLogoMacOs,
+    // },
+    // {
+    //     NAME: 'Linux',
+    //     PROFICIENCY: 'INTERMEDIATE',
+    //     ICON: Svg.svgLogoLinux,
+    // },
+    // {
+    //     NAME: 'Ubuntu',
+    //     PROFICIENCY: 'INTERMEDIATE',
+    //     ICON: Svg.svgLogoUbuntu,
+    // },
 ] as const;
 
 const TECH_SKILLS = [

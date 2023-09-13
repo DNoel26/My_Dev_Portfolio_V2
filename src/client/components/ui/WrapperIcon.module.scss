@@ -10,6 +10,7 @@ $cl-icon: '#{$cl-wrapper}__icon';
     #{$cl-icon} {
         max-height: 56px;
         width: 64px;
+        height: auto;
         object-fit: scale-down;
     }
 }

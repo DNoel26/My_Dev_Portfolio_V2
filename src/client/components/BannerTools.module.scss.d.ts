@@ -4,9 +4,11 @@
 export type Styles = {
     'anim-gradient': string;
     banner: string;
+    banner__btn: string;
     banner__container: string;
     banner__icon_text: string;
     banner__icon_wrapper: string;
+    banner__list: string;
 };
 
 export type ClassNames = keyof Styles;

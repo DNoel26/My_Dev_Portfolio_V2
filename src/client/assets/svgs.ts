@@ -33,7 +33,8 @@ import svgLogoConfluence from 'public/images/logos/tools-tech/black/confluence.s
 import svgLogoCss from 'public/images/logos/tools-tech/black/css.svg?url';
 // @ts-ignore
 import svgLogoDocker from 'public/images/logos/tools-tech/black/docker.svg?url';
-// import svgLogoExpress from 'public/images/logos/tools-tech/black/expressjs.svg?url';
+// @ts-ignore
+import svgLogoExpress from 'public/images/logos/tools-tech/black/expressjs.svg?url';
 // @ts-ignore
 import svgLogoFigma from 'public/images/logos/tools-tech/black/figma.svg?url';
 // @ts-ignore
@@ -72,7 +73,8 @@ import svgLogoMongoDb from 'public/images/logos/tools-tech/black/mongodb.svg?url
 import svgLogoMui from 'public/images/logos/tools-tech/black/mui.svg?url';
 // @ts-ignore
 import svgLogoMySql from 'public/images/logos/tools-tech/black/mysql.svg?url';
-// import svgLogoNetlify from 'public/images/logos/tools-tech/black/netlify.svg?url';
+// @ts-ignore
+import svgLogoNetlify from 'public/images/logos/tools-tech/black/netlify.svg?url';
 // @ts-ignore
 import svgLogoNext from 'public/images/logos/tools-tech/black/nextjs.svg?url';
 // @ts-ignore
@@ -119,6 +121,7 @@ export {
     svgLogoConfluence,
     svgLogoCss,
     svgLogoDocker,
+    svgLogoExpress,
     // svgLogoExpress,
     svgLogoFigma,
     svgLogoFirebase,
@@ -140,6 +143,7 @@ export {
     svgLogoMongoDb,
     svgLogoMui,
     svgLogoMySql,
+    svgLogoNetlify,
     // svgLogoNetlify,
     svgLogoNext,
     svgLogoNode,

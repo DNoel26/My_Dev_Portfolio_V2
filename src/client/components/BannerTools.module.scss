@@ -5,13 +5,25 @@
 
 $cl-banner: '.banner';
 $cl-container: '#{$cl-banner}__container';
-$cl-spacing: '#{$cl-banner}__spacing';
+$cl-list: '#{$cl-banner}__list';
+$cl-btn: '#{$cl-banner}__btn';
 $cl-icon: '#{$cl-banner}__icon';
 $cl-icon-wrapper: '#{$cl-icon}_wrapper';
 $cl-icon-text: '#{$cl-icon}_text';
 
 #{$cl-banner} {
-    width: min(1000px, 95%);
+    width: min(1100px, 95%);
+    #{$cl-list} {
+        #{$cl-container} {
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            > * {
+                flex: 0 0 100px;
+                height: auto;
+            }
+        }
+    }
     #{$cl-container} {
         $gap: 64px;
         @include base.flex-center;
@@ -24,6 +36,9 @@ $cl-icon-text: '#{$cl-icon}_text';
     #{$cl-icon-text} {
         display: inline-block;
         margin-top: base.$spacing-md;
+    }
+    #{$cl-btn} {
+        display: flex;
     }
 }
 

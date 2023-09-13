@@ -2,10 +2,12 @@
 
 import { TDefaultProps } from '@@types/client/props.types';
 import clsx from 'clsx';
+import { useState } from 'react';
 import Marquee from 'react-fast-marquee';
 import { ALL_SKILLS, ISkill } from '../data/skills';
 import styles from './BannerTools.module.scss';
 import BodyContainer from './layouts/BodyContainer';
+import Button from './ui/Button';
 import WrapperIcon from './ui/WrapperIcon';
 
 type TSkillIcon = {
@@ -41,12 +43,24 @@ const Skills = ({ skills }: ISkillsProps) => {
 };
 
 const BannerSkills = ({ className }: TDefaultProps) => {
+    const [showAllTools, setShowAllTools] = useState(false);
+    const toggle = () => setShowAllTools((prev) => !prev);
+
     return (
         <div className={clsx(styles.banner, className)}>
             <BodyContainer>
-                <Marquee speed={50}>
-                    <Skills skills={ALL_SKILLS} />
-                </Marquee>
+                {showAllTools ? (
+                    <div className={styles.banner__list}>
+                        <Skills skills={ALL_SKILLS} />
+                    </div>
+                ) : (
+                    <Marquee speed={50}>
+                        <Skills skills={ALL_SKILLS} />
+                    </Marquee>
+                )}
+                <Button className={styles.banner__btn} onClick={toggle}>
+                    Show {showAllTools ? 'Banner' : 'List'}
+                </Button>
             </BodyContainer>
         </div>
     );
