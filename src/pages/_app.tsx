@@ -43,10 +43,6 @@ export default function App({ Component, pageProps }: AppProps) {
                 src='https://www.googletagmanager.com/gtag/js?id=G-R6JXV4BMKQ'
                 strategy='lazyOnload'
             />
-            <Script
-                src='https://www.googletagmanager.com/gtag/js?id=G-R6JXV4BMKQ'
-                strategy='lazyOnload'
-            />
             <Script src='../scripts/index.js' strategy='lazyOnload' />
         </ErrorBoundary>
     );

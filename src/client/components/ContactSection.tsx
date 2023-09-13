@@ -4,7 +4,7 @@ import { imgMeSideProfile } from '@@assets/images';
 import useInView from '@@hooks/useInView';
 import useWindowCheck from '@@hooks/useWindowCheck';
 import { ANCHOR_TAG, CSS_GLOBAL_CLASS_NAME, MY_INFO } from '@@lib/constants';
-import { EXTERNAL_ENDPOINT } from '@@lib/constants/routes/api';
+import { APP_ENDPOINT, EXTERNAL_ENDPOINT } from '@@lib/constants/routes/api';
 import { Avatar } from '@mui/material';
 import clsx from 'clsx';
 import { useFormik } from 'formik';
@@ -97,7 +97,7 @@ const ContactSection = () => {
         handleEffect: () => {
             window[reCaptchaCallbackName] = async (token: unknown) => {
                 try {
-                    const result = await fetch('api/v1/recaptcha', {
+                    const result = await fetch(APP_ENDPOINT.BASE.RECAPTCHA, {
                         method: 'POST',
                         body: JSON.stringify({ token }),
                         headers: {
