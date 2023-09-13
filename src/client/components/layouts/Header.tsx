@@ -7,7 +7,9 @@ import BackgroundGradient from '@@components/ui/BackgroundGradient';
 import CloseButton from '@@components/ui/CloseButton';
 import Logo from '@@components/ui/Logo';
 import ThemeToggle from '@@components/ui/ThemeToggle';
+import useColorThemeToggle from '@@hooks/useColorThemeToggle';
 import useScrollTrigger from '@@hooks/useScrollTrigger';
+import useUserThemeChange from '@@hooks/useUserThemeChange';
 import { closeDrawer, toggleDrawer } from '@@lib/utils/client/handlers';
 import clsx from 'clsx';
 import { MutableRefObject, useEffect, useRef, useState } from 'react';
@@ -21,6 +23,8 @@ interface IHeaderProps {
 
 const HeaderPrivate = ({ position }: IHeaderProps) => {
     const [isOpenMobileDrawer, setIsOpenMobileDrawer] = useState(false);
+    const { handleToggle: handleColorThemeToggle } = useColorThemeToggle();
+    const handleUserThemeChange = useUserThemeChange();
     const trigger = useScrollTrigger();
     const headerRef = useRef() as MutableRefObject<HTMLDivElement | HTMLElement>;
     const isInteractiveHeader = position === 'fixed';
@@ -99,6 +103,15 @@ const HeaderPrivate = ({ position }: IHeaderProps) => {
                     <CloseButton onClick={handleClose} />
                     <ul onClick={handleClose} onKeyDown={handleClose} role='presentation'>
                         <NavLinks />
+                        <div>
+                            <li onClick={handleColorThemeToggle} role='presentation'>
+                                <ColorThemeToggle /> <span>Change Colors</span>
+                            </li>
+                            <li onClick={handleUserThemeChange} role='presentation'>
+                                <ThemeToggle showInactiveIcon={false} />{' '}
+                                <span>Switch Theme</span>
+                            </li>
+                        </div>
                     </ul>
                 </MuiDrawer>
             )}

@@ -66,6 +66,7 @@ const ThemeToggle = ({ showInactiveIcon = true }: IProps) => {
             className={clsx(
                 styles.toggle,
                 isThemeResolved && styles['toggle--theme-resolved'],
+                !showInactiveIcon && styles['toggle--hide-inactive'],
             )}
         >
             <ThemeIconBtn isActive={!isDarkMode} showInactiveIcon={showInactiveIcon}>

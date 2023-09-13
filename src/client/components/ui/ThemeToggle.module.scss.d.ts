@@ -7,6 +7,7 @@ export type Styles = {
     toggle__btn: string;
     'toggle__btn--disabled': string;
     'toggle__btn--enabled': string;
+    'toggle--hide-inactive': string;
     'toggle--theme-resolved': string;
 };
 

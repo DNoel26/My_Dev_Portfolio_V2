@@ -7,6 +7,7 @@ $cl-toggle-btn: '#{$cl-toggle}__btn';
 $cl-toggle-btn-disabled: '#{$cl-toggle-btn}--disabled';
 $cl-toggle-btn-enabled: '#{$cl-toggle-btn}--enabled';
 $cl-toggle-theme-resolved: '#{$cl-toggle}--theme-resolved';
+$cl-toggle-hide-inactive: '#{$cl-toggle}--hide-inactive';
 
 #{$cl-toggle} {
     @include base.transition(
@@ -54,5 +55,8 @@ $cl-toggle-theme-resolved: '#{$cl-toggle}--theme-resolved';
                 ), $is-important: true
             );
         }
+    }
+    &#{$cl-toggle-hide-inactive} {
+        transition: none !important;
     }
 }

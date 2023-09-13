@@ -128,11 +128,16 @@ $cl-absolute: '#{$cl-header}--absolute';
 #{$cl-drawer} {
     position: relative;
     z-index: base.$tidio-chat-z-index + 1;
-    a {
-        text-decoration: none;
-    }
     li {
+        display: block;
         list-style: none;
+        width: max-content;
+        > span {
+            margin-left: 4px;
+        }
+        > * {
+            display: inline-block;
+        }
         &:not(:first-child) {
             padding-top: 10%;
         }
@@ -140,7 +145,14 @@ $cl-absolute: '#{$cl-header}--absolute';
     ul {
         margin-top: 64px;
         padding-left: 1.5rem;
+        padding-right: 3rem;
         min-width: 40vw;
+        > div {
+            margin-top: 30%;
+        }
+        button {
+            padding: 0;
+        }
     }
     @include base.mq-above-desktop {
         display: none;
