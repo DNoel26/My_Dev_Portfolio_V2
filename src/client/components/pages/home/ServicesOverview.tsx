@@ -19,6 +19,7 @@ import HighlightedText from '@@components/ui/HighlightedText';
 import Image from '@@components/ui/Image';
 import { ANCHOR_TAG } from '@@lib/constants';
 import { ComponentProps } from 'react';
+
 import styles from './ServicesOverview.module.scss';
 
 interface ICardProps {

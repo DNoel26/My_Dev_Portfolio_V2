@@ -6,6 +6,7 @@ import { TDefaultProps } from '@@types/client/props.types';
 import clsx from 'clsx';
 import Image from './Image';
 import Link from './Link';
+
 import styles from './Logo.module.scss';
 
 const { HOME } = APP_URL.BASE;

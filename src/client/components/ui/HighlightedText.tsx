@@ -2,6 +2,7 @@
 
 import { TDefaultPropsWithChildren } from '@@types/client/props.types';
 import clsx from 'clsx';
+
 import styles from './HighlightedText.module.scss';
 
 const HighlightedText = ({ children, className }: TDefaultPropsWithChildren) => {

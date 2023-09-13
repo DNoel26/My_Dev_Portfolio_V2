@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import { LinkProps } from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+
 import styles from './Link.module.scss';
 
 /* eslint-disable react/jsx-props-no-spreading */

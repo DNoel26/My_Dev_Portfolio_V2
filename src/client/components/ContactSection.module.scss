@@ -45,7 +45,7 @@ $cl-submit-btn: '#{$cl-contact}__submit_btn';
         gap: 80px;
         width: max-content;
         background-size: 100% 100%;
-        padding: min(48px, 10%) min(16px, 5%);
+        padding: 96px min(64px, 5%);
         border-radius: 24px;
         box-shadow: base.$box-shadow-card-heavy;
         > div {

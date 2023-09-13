@@ -4,9 +4,10 @@ import { logoGithub, logoLinkedIn, logoWhatsapp } from '@@assets/images';
 import { EXTERNAL_URL } from '@@lib/constants';
 import clsx from 'clsx';
 import { ComponentProps } from 'react';
-import styles from './SocialMediaLinks.module.scss';
 import Image from './ui/Image';
 import Link from './ui/Link';
+
+import styles from './SocialMediaLinks.module.scss';
 
 interface ILogoLinkProps {
     href: string;

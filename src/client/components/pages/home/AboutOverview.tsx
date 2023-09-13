@@ -4,6 +4,7 @@ import BodyContainer from '@@components/layouts/BodyContainer';
 import Heading from '@@components/ui/Heading';
 import HighlightedText from '@@components/ui/HighlightedText';
 import { ANCHOR_TAG } from '@@lib/constants';
+
 import styles from './AboutOverview.module.scss';
 
 const AboutOverview = () => {

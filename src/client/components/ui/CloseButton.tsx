@@ -3,6 +3,7 @@
 import { MuiCloseIcon } from '@@components/icons';
 import { ComponentProps } from 'react';
 import Button from './Button';
+
 import styles from './CloseButton.module.scss';
 
 const CloseButton = (props: ComponentProps<typeof Button>) => {

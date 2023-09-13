@@ -1,8 +1,9 @@
 /** @format */
 
 import { TDefaultPropsWithChildren } from '@@types/client/props.types';
-import styles from './TextBody.module.scss';
 import HighlightedText from './ui/HighlightedText';
+
+import styles from './TextBody.module.scss';
 
 const TextBody = ({ children }: TDefaultPropsWithChildren) => {
     return (

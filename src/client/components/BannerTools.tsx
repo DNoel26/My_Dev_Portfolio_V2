@@ -5,10 +5,11 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import Marquee from 'react-fast-marquee';
 import { ALL_SKILLS, ISkill } from '../data/skills';
-import styles from './BannerTools.module.scss';
 import BodyContainer from './layouts/BodyContainer';
 import Button from './ui/Button';
 import WrapperIcon from './ui/WrapperIcon';
+
+import styles from './BannerTools.module.scss';
 
 type TSkillIcon = {
     name: ISkill['NAME'];

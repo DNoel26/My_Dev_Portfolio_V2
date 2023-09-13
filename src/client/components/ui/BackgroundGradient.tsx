@@ -2,6 +2,7 @@
 
 import { TDefaultProps } from '@@types/client/props.types';
 import clsx from 'clsx';
+
 import styles from './BackgroundGradient.module.scss';
 
 interface IProps {

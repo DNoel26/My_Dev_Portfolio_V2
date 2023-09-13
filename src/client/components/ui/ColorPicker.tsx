@@ -14,6 +14,7 @@ import {
     useColor,
 } from 'react-color-palette';
 import 'react-color-palette/css';
+
 import styles from './ColorPicker.module.scss';
 
 /* eslint-disable react/jsx-props-no-spreading */

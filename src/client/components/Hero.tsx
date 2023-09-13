@@ -13,6 +13,7 @@ import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { ReactNode } from 'react';
 import { TypeAnimation } from 'react-type-animation';
+
 import styles from './Hero.module.scss';
 
 interface IProps extends TDefaultProps {

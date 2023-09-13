@@ -3,8 +3,9 @@
 import { TDefaultProps } from '@@types/client/props.types';
 import clsx from 'clsx';
 import { ComponentProps } from 'react';
-import styles from './HeroImgContainer.module.scss';
 import Image from './ui/Image';
+
+import styles from './HeroImgContainer.module.scss';
 
 interface IProps extends TDefaultProps {
     imgSrc: ComponentProps<typeof Image>['src'];

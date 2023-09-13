@@ -30,6 +30,7 @@ import { TDefaultProps } from '@@types/client/props.types';
 import clsx from 'clsx';
 import { intervalToDuration } from 'date-fns';
 import { ReactNode } from 'react';
+
 import styles from './ProfessionalOverview.module.scss';
 
 interface ITimelineItem {

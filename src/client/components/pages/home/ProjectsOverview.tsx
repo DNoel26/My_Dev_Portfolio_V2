@@ -21,6 +21,7 @@ import Heading from '@@components/ui/Heading';
 import HighlightedText from '@@components/ui/HighlightedText';
 import { ANCHOR_TAG } from '@@lib/constants';
 import { ComponentProps } from 'react';
+
 import styles from './ProjectsOverview.module.scss';
 
 const projects: ComponentProps<typeof ProjectCard>[] = [

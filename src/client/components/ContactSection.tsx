@@ -11,7 +11,6 @@ import { useFormik } from 'formik';
 import Script from 'next/script';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { MuiBox, MuiCheckbox, MuiFormControl, MuiFormControlLabel } from '..';
-import styles from './ContactSection.module.scss';
 import SocialMediaLinks from './SocialMediaLinks';
 import BodyContainer from './layouts/BodyContainer';
 import BackgroundGradient from './ui/BackgroundGradient';
@@ -19,6 +18,8 @@ import Button from './ui/Button';
 import FormInput from './ui/FormInput';
 import Heading from './ui/Heading';
 import Image from './ui/Image';
+
+import styles from './ContactSection.module.scss';
 
 const reCaptchaCallbackName = 'handleSubmit';
 const FORM_STATUS = {

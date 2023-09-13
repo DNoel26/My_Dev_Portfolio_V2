@@ -2,6 +2,7 @@
 
 import clsx from 'clsx';
 import Image, { ImageProps } from 'next/image';
+
 import styles from './WrapperIcon.module.scss';
 
 /* eslint-disable react/jsx-props-no-spreading */

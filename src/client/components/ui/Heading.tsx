@@ -2,9 +2,10 @@
 
 import { TDefaultProps } from '@@types/client/props.types';
 import clsx from 'clsx';
-import styles from './Heading.module.scss';
 import HighlightedText from './HighlightedText';
 import SubHeading from './SubHeading';
+
+import styles from './Heading.module.scss';
 
 interface IProps {
     id?: string;

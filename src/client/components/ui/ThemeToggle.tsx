@@ -11,6 +11,7 @@ import useNextTheme from '@@hooks/useNextTheme';
 import useUserThemeChange from '@@hooks/useUserThemeChange';
 import { TDefaultPropsWithChildren } from '@@types/client/props.types';
 import clsx from 'clsx';
+
 import styles from './ThemeToggle.module.scss';
 
 interface IProps {

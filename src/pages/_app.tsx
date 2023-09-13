@@ -1,8 +1,9 @@
 /** @format */
 
+import '@@styles/sass/globals.scss';
+
 import PageProvider from '@@context/PageProvider';
 import { NEXT_THEME } from '@@lib/constants/app';
-import '@@styles/sass/globals.scss';
 import { DEFAULT_THEME } from '@@theme';
 import { ThemeProvider as NextThemeProvider } from 'next-themes';
 import { AppProps } from 'next/app';

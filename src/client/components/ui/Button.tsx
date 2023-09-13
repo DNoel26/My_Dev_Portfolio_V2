@@ -4,6 +4,7 @@ import { MuiButton, MuiButtonProps } from '@@client';
 import clsx from 'clsx';
 import { ReactNode } from 'react';
 import { Replace } from 'type-fest';
+
 import styles from './Button.module.scss';
 
 /* eslint-disable react/jsx-props-no-spreading */

@@ -3,12 +3,13 @@
 import { ClickAwayListener } from '@mui/material';
 import clsx from 'clsx';
 import { ComponentProps, useState } from 'react';
-import styles from './ProjectCard.module.scss';
 import { MuiExpandLessIcon, MuiExpandMoreIcon, MuiOpenInNewIcon } from './icons';
 import Button from './ui/Button';
 import Image from './ui/Image';
 import Link from './ui/Link';
 import WrapperIcon from './ui/WrapperIcon';
+
+import styles from './ProjectCard.module.scss';
 
 type TImage = ComponentProps<typeof Image>;
 type TImageProps = {
