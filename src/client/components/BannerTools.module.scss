@@ -19,8 +19,17 @@ $cl-icon-text: '#{$cl-icon}_text';
             align-items: flex-start;
             flex-wrap: wrap;
             > * {
-                flex: 0 0 100px;
+                flex: 0 0 40px;
+                width: 40px;
                 height: auto;
+                @include base.mq-above-sm-mobile {
+                    width: 70px;
+                    flex-basis: 70px;
+                }
+                @include base.mq-above-lg-mobile {
+                    width: 100px;
+                    flex-basis: 100px;
+                }
             }
         }
     }
@@ -32,7 +41,7 @@ $cl-icon-text: '#{$cl-icon}_text';
     }
     #{$cl-icon-wrapper} {
         text-align: center;
-    }   
+    }
     #{$cl-icon-text} {
         display: inline-block;
         margin-top: base.$spacing-md;
@@ -45,6 +54,5 @@ $cl-icon-text: '#{$cl-icon}_text';
 @include base.theme(#{$cl-banner}, 'dark') {
     #{$cl-icon-wrapper} img {
         filter: invert(1);
-    }  
+    }
 }
-
