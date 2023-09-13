@@ -9,7 +9,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { StyledEngineProvider } from '@mui/material/styles';
 import { DefaultSeo } from 'next-seo';
 import Head from 'next/head';
-import { configSEO } from 'src/client/config/nextSeo.config';
+import configSEO from 'src/client/config/nextSeo.config';
 import UserThemeProvider from './UserThemeContext';
 
 /* eslint-disable react/jsx-props-no-spreading */
