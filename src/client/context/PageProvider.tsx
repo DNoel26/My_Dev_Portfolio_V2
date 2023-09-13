@@ -22,9 +22,10 @@ const PageProvider = ({ children }: TDefaultPropsWithChildren) => {
     }
 
     const chatPosition = `{ bottom: 150px !important; right: -10px !important; }`;
+    const chatPositionMobile = `{ bottom: 150px !important; right: 5px !important; }`;
     const chatWidgetStyle = `#tidio-chat-iframe ${chatPosition}
                             @media (max-width: ${cssExports['breakpoint-md-tablet']}) {
-                            #tidio-chat-iframe ${chatPosition}`;
+                            #tidio-chat-iframe ${chatPositionMobile}`;
 
     return (
         <StyledEngineProvider injectFirst>

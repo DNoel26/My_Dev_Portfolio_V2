@@ -100,7 +100,7 @@ main {
 .dark .theme-bg,
 .user-dark .theme-bg {
     background-image: none;
-    background-color: var(--color-primary-1900);
+    background-color: var(--color-primary-1800);
 }
 .dark .theme-bg {
     @include base.mq-above-lg-mobile {

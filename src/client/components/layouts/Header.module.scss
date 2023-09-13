@@ -32,10 +32,6 @@ $cl-absolute: '#{$cl-header}--absolute';
     #{$cl-toolbar} {
         justify-content: space-between;
     }
-    #{$cl-drawer} {
-        z-index: base.$tidio-chat-z-index + 1;
-        //TODO: investigate why classes aren't working here
-    }
     #{$cl-logo} {
         img {
             height: math.div(base.$header-height, 1.6);
@@ -126,6 +122,28 @@ $cl-absolute: '#{$cl-header}--absolute';
             z-index: 1100;
             opacity: 1;
         }
+    }
+}
+
+#{$cl-drawer} {
+    position: relative;
+    z-index: base.$tidio-chat-z-index + 1;
+    a {
+        text-decoration: none;
+    }
+    li {
+        list-style: none;
+        &:not(:first-child) {
+            padding-top: 10%;
+        }
+    }
+    ul {
+        margin-top: 64px;
+        padding-left: 1.5rem;
+        min-width: 40vw;
+    }
+    @include base.mq-above-desktop {
+        display: none;
     }
 }
 

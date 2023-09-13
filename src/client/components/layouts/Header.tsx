@@ -4,6 +4,7 @@ import { MuiAppBar, MuiDrawer, MuiIconButton, MuiToolbar } from '@@client';
 import ColorThemeToggle from '@@components/ColorThemeToggle';
 import { MuiMenuIcon } from '@@components/icons';
 import BackgroundGradient from '@@components/ui/BackgroundGradient';
+import CloseButton from '@@components/ui/CloseButton';
 import Logo from '@@components/ui/Logo';
 import ThemeToggle from '@@components/ui/ThemeToggle';
 import useScrollTrigger from '@@hooks/useScrollTrigger';
@@ -84,20 +85,23 @@ const HeaderPrivate = ({ position }: IHeaderProps) => {
                             onClick={handleToggle}
                         >
                             <MuiMenuIcon />
-                            {isInteractiveHeader && (
-                                <MuiDrawer
-                                    className={styles.header__drawer}
-                                    anchor='left'
-                                    open={isOpenMobileDrawer}
-                                    onClose={handleClose}
-                                >
-                                    <NavLinks />
-                                </MuiDrawer>
-                            )}
                         </MuiIconButton>
                     </MuiToolbar>
                 </MuiToolbar>
             </BodyContainer>
+            {isInteractiveHeader && (
+                <MuiDrawer
+                    className={styles.header__drawer}
+                    anchor='left'
+                    open={isOpenMobileDrawer}
+                    onClose={handleClose}
+                >
+                    <CloseButton onClick={handleClose} />
+                    <ul onClick={handleClose} onKeyDown={handleClose} role='presentation'>
+                        <NavLinks />
+                    </ul>
+                </MuiDrawer>
+            )}
         </MuiAppBar>
     );
 };
