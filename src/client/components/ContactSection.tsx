@@ -104,13 +104,13 @@ const ContactSection = () => {
             const fieldFirstName = 'First name';
             const fieldLastName = 'Last name';
             const fieldMessage = 'Message';
-            if (!stringSchema.min(1).safeParse(values.firstName).success) {
+            if (!values.firstName) {
                 errors.firstName = getIsRequiredMsg(fieldFirstName);
             }
-            if (!stringSchema.min(1).safeParse(values.lastName).success) {
+            if (!values.lastName) {
                 errors.lastName = getIsRequiredMsg(fieldLastName);
             }
-            if (!stringSchema.min(1).safeParse(values.message).success) {
+            if (!values.message) {
                 errors.message = getIsRequiredMsg(fieldMessage);
             }
             if (!stringSchema.min(15).safeParse(values.message).success) {
