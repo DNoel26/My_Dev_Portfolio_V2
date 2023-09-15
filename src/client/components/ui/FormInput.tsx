@@ -11,6 +11,7 @@ interface IProps {
     name: TName;
     value: { [key: TName]: string };
     error: { [key: TName]: string };
+    touched: { [key: TName]: boolean };
     handleChange: ComponentProps<typeof MuiTextField>['onChange'];
     handleBlur: ComponentProps<typeof MuiTextField>['onBlur'];
     textFieldProps?: ComponentProps<typeof MuiTextField>;
@@ -20,6 +21,7 @@ const FormInput = ({
     name,
     value,
     error,
+    touched,
     handleChange,
     handleBlur,
     textFieldProps,
@@ -44,8 +46,8 @@ const FormInput = ({
             id={nameWithHyphen}
             name={name}
             label={nameWithSpace}
-            error={!!error[name]}
-            helperText={error[name] || ''}
+            error={touched[name] && !!error[name]}
+            helperText={(touched[name] && error[name]) || ''}
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...textFieldProps}
         />

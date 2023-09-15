@@ -193,6 +193,7 @@ const ContactSection = () => {
         handleBlur: formik.handleBlur,
         value: formik.values,
         error: formik.errors,
+        touched: formik.touched,
     };
 
     useEffect(() => {

@@ -14,14 +14,19 @@ $cl-submit-btn: '#{$cl-contact}__submit_btn';
     :global(.MuiInputBase-root.MuiFilledInput-root) {
         background-color: transparentize($color: base.$color-white, $amount: 0.9);
     }
+    :global(.MuiInputBase-root.MuiFilledInput-root.Mui-error) {
+        background-color: transparentize($color: base.$color-alert, $amount: 0.5);
+    }
     :global(.MuiFormControl-root.MuiTextField-root) {
         color: base.$color-white;
         ::before {
             border-bottom-color: base.$color-white;
         }
         :global(.Mui-focused),
+        :global(.MuiInputBase-root.MuiFilledInput-root),
+        :global(.MuiInputLabel-filled),
         :global(.MuiFormHelperText-root.Mui-error) {
-            color: inherit;
+            color: base.$color-white;
         }
         :global(.MuiFormHelperText-root.Mui-error) {
             padding-top: 2px;
@@ -64,6 +69,9 @@ $cl-submit-btn: '#{$cl-contact}__submit_btn';
     #{$cl-info} {
         text-align: left;
         width: 40ch;
+        h3 {
+            font-size: base.$font-size-h3;
+        }
         p {
             max-width: 30ch;
         }
