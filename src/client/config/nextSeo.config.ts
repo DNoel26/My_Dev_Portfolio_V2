@@ -1,6 +1,7 @@
 /** @format */
 
 import { DefaultSeoProps } from 'next-seo';
+import { version } from 'package.json';
 
 const title =
     'Software Developer | Full Stack Web Developer | Darnell Noel | Trinidad & Tobago';
@@ -15,6 +16,10 @@ const configSEO: DefaultSeoProps = {
     defaultTitle: title,
     description,
     canonical: url,
+    additionalMetaTags: [
+        { name: 'author', content: 'Darnell Nicholas Noel' },
+        { name: 'version', content: version },
+    ],
     openGraph: {
         url,
         title,
