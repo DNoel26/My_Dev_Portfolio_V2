@@ -18,19 +18,6 @@ $cl-icon-text: '#{$cl-icon}_text';
             justify-content: center;
             align-items: flex-start;
             flex-wrap: wrap;
-            > * {
-                flex: 0 0 40px;
-                width: 40px;
-                height: auto;
-                @include base.mq-above-sm-mobile {
-                    width: 70px;
-                    flex-basis: 70px;
-                }
-                @include base.mq-above-lg-mobile {
-                    width: 100px;
-                    flex-basis: 100px;
-                }
-            }
         }
     }
     #{$cl-container} {
@@ -38,6 +25,19 @@ $cl-icon-text: '#{$cl-icon}_text';
         @include base.flex-center;
         @include base.margin-x(math.div($gap, 2));
         gap: $gap;
+        img {
+            flex: 0 0 40px;
+            width: 40px;
+            height: auto;
+            @include base.mq-above-sm-mobile {
+                width: 70px;
+                flex-basis: 70px;
+            }
+            @include base.mq-above-lg-mobile {
+                width: 100px;
+                flex-basis: 100px;
+            }
+        }
     }
     #{$cl-icon-wrapper} {
         text-align: center;

@@ -19,8 +19,13 @@ $cl-submit-btn: '#{$cl-contact}__submit_btn';
         ::before {
             border-bottom-color: base.$color-white;
         }
-        > * {
+        :global(.Mui-focused),
+        :global(.MuiFormHelperText-root.Mui-error) {
             color: inherit;
+        }
+        :global(.MuiFormHelperText-root.Mui-error) {
+            padding-top: 2px;
+            padding-bottom: 16px;
         }
     }
     :global(.MuiCheckbox-root) {
@@ -71,7 +76,10 @@ $cl-submit-btn: '#{$cl-contact}__submit_btn';
         width: $size;
         height: $size;
         img {
+            width: $size;
+            height: $size;
             transform: scaleX(-1);
+            object-fit: contain;
         }
     }
     #{$cl-form-container} {
@@ -82,7 +90,7 @@ $cl-submit-btn: '#{$cl-contact}__submit_btn';
                 margin-top: 16px;
                 margin-right: 0;
             }
-            button[type=submit] {
+            button[type='submit'] {
                 margin-top: 32px;
             }
         }

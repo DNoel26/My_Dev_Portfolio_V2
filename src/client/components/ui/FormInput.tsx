@@ -34,22 +34,21 @@ const FormInput = ({
         .join(' ');
 
     return (
-        <>
-            <MuiTextField
-                className={styles.input__field}
-                type='text'
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={value[name]}
-                variant='filled'
-                id={nameWithHyphen}
-                name={name}
-                label={nameWithSpace}
-                // eslint-disable-next-line react/jsx-props-no-spreading
-                {...textFieldProps}
-            />
-            {!!error[name] && <div id='feedback'>{error[name]}</div>}
-        </>
+        <MuiTextField
+            className={styles.input__field}
+            type='text'
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={value[name]}
+            variant='filled'
+            id={nameWithHyphen}
+            name={name}
+            label={nameWithSpace}
+            error={!!error[name]}
+            helperText={error[name] || ''}
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            {...textFieldProps}
+        />
     );
 };
 

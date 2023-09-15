@@ -7,9 +7,10 @@ import { ANCHOR_TAG, CSS_GLOBAL_CLASS_NAME, MY_INFO } from '@@lib/constants';
 import { APP_ENDPOINT, EXTERNAL_ENDPOINT } from '@@lib/constants/routes/api';
 import { Avatar } from '@mui/material';
 import clsx from 'clsx';
-import { useFormik } from 'formik';
+import { FormikErrors, useFormik } from 'formik';
 import Script from 'next/script';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import z from 'zod';
 import { MuiBox, MuiCheckbox, MuiFormControl, MuiFormControlLabel } from '..';
 import SocialMediaLinks from './SocialMediaLinks';
 import BodyContainer from './layouts/BodyContainer';
@@ -24,6 +25,7 @@ import styles from './ContactSection.module.scss';
 const reCaptchaCallbackName = 'handleSubmit';
 const FORM_STATUS = {
     SUCCESS: 'success',
+    VERIFYING: 'verifying...',
     BLOCKED: 'blocked',
     ERROR: 'error',
 } as const;
@@ -36,6 +38,7 @@ const ContactSection = () => {
     const [hasOneContactChecked, setHasOneContactChecked] = useState(
         isEmailChecked || isPhoneChecked,
     );
+    const [isFetching, setIsFetching] = useState(false);
     const { ref, inView } = useInView();
     useWindowCheck({
         handleEffect: () => {
@@ -66,10 +69,60 @@ const ContactSection = () => {
             phone: '',
             message: '',
         },
-        // validationSchema: ,
+        initialStatus: '',
+        validateOnBlur: true,
+        validateOnChange: true,
+        validateOnMount: false,
+        validate: (values) => {
+            const errors = {} as FormikErrors<typeof values>;
+            const getIsRequiredMsg = (field: string) =>
+                `${field.charAt(0).toUpperCase() + field.slice(1)} is required`;
+            const getIsInvalidMsg = (field: string) => `Invalid ${field.toLowerCase()}`;
+            const stringSchema = z.string();
+
+            if (isEmailChecked) {
+                const { success } = stringSchema.email().safeParse(values.email);
+                const field = 'Email address';
+                if (!values.email) {
+                    errors.email = getIsRequiredMsg(field);
+                } else if (!success) {
+                    errors.email = getIsInvalidMsg(field);
+                }
+            }
+            if (isPhoneChecked) {
+                const phoneRegex = /^(\+)?\d{7,15}(-\d+)*$/;
+                const { success } = stringSchema
+                    .regex(phoneRegex)
+                    .safeParse(values.phone);
+                const field = 'Phone number';
+                if (!values.phone) {
+                    errors.phone = getIsRequiredMsg(field);
+                } else if (!success) {
+                    errors.phone = getIsInvalidMsg(field);
+                }
+            }
+            const fieldFirstName = 'First name';
+            const fieldLastName = 'Last name';
+            const fieldMessage = 'Message';
+            if (!stringSchema.min(1).safeParse(values.firstName).success) {
+                errors.firstName = getIsRequiredMsg(fieldFirstName);
+            }
+            if (!stringSchema.min(1).safeParse(values.lastName).success) {
+                errors.lastName = getIsRequiredMsg(fieldLastName);
+            }
+            if (!stringSchema.min(1).safeParse(values.message).success) {
+                errors.message = getIsRequiredMsg(fieldMessage);
+            }
+            if (!stringSchema.min(15).safeParse(values.message).success) {
+                errors.message = `${fieldMessage} is too short`;
+            }
+
+            return errors;
+        },
         onSubmit: async (values, actions) => {
-            actions.setSubmitting(true);
             try {
+                actions.setSubmitting(true);
+                setIsFetching(true);
                 const body = JSON.stringify(values);
                 const result = await fetch(EXTERNAL_ENDPOINT.FORMSPREE, {
                     method: 'POST',
@@ -91,6 +144,7 @@ const ContactSection = () => {
                 actions.setStatus(FORM_STATUS.ERROR);
             } finally {
                 actions.setSubmitting(false);
+                setIsFetching(false);
             }
         },
     });
@@ -98,6 +152,8 @@ const ContactSection = () => {
         handleEffect: () => {
             window[reCaptchaCallbackName] = async (token: unknown) => {
                 try {
+                    setIsFetching(true);
+                    formik.setStatus(FORM_STATUS.VERIFYING);
                     const result = await fetch(APP_ENDPOINT.BASE.RECAPTCHA, {
                         method: 'POST',
                         body: JSON.stringify({ token }),
@@ -112,13 +168,15 @@ const ContactSection = () => {
                     if (data.success && data.score >= ACCEPTABLE_THRESHOLD) {
                         formik.submitForm();
                     } else if (data.success && data.score < ACCEPTABLE_THRESHOLD) {
-                        formik.status(FORM_STATUS.BLOCKED);
+                        formik.setStatus(FORM_STATUS.BLOCKED);
                     } else {
-                        formik.status(FORM_STATUS.ERROR);
+                        formik.setStatus(FORM_STATUS.ERROR);
                     }
                 } catch (err) {
                     console.error(err);
-                    formik.status(FORM_STATUS.ERROR);
+                    formik.setStatus(FORM_STATUS.ERROR);
+                } finally {
+                    setIsFetching(false);
                 }
             };
         },
@@ -136,6 +194,12 @@ const ContactSection = () => {
         value: formik.values,
         error: formik.errors,
     };
+
+    useEffect(() => {
+        if (!isFetching && formik.status === FORM_STATUS.VERIFYING) {
+            formik.setStatus('');
+        }
+    }, [isFetching, formik]);
 
     return (
         <MuiBox
@@ -155,7 +219,6 @@ const ContactSection = () => {
                         <Image
                             src={imgMeSideProfile}
                             alt='Profile picture of Darnell Noel'
-                            fill
                         />
                     </Avatar>
                     <h3>Contact Information</h3>
