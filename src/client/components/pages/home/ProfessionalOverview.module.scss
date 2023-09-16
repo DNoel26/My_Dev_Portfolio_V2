@@ -151,7 +151,7 @@ $cl-timeline-content-mech: '#{$cl-timeline-content}--mech';
         }
         #{$cl-skills-soft},
         #{$cl-skills-hard} {
-            flex: 0 0 auto;
+            flex: 1;
             border-radius: 24px;
             height: 100%;
             padding: base.px-to-rem(32px) base.px-to-rem(16px);
@@ -162,6 +162,9 @@ $cl-timeline-content-mech: '#{$cl-timeline-content}--mech';
             hr {
                 background-color: base.$color-white;
                 margin-bottom: 24px;
+            }
+            @include base.mq-above-lg-mobile {
+                flex: 0 0 auto;
             }
             @include base.mq-above-sm-tablet {
                 padding: 5%;

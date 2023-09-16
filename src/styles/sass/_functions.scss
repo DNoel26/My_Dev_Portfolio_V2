@@ -20,7 +20,3 @@
 @function handle-shade($color, $percent) {
     @return color-mix(in srgb, $color, #000 $percent);
 }
-
-@function handle-min-font-size($size) {
-    @return max(px-to-rem(14px), $size);
-}

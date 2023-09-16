@@ -6,6 +6,7 @@ $cl-hero: '.hero';
 $cl-bg: '#{$cl-hero}__bg';
 $cl-heading: '#{$cl-hero}__heading';
 $cl-intro: '#{$cl-hero}__intro';
+$cl-animated-text: '#{$cl-hero}__animated_text';
 $cl-btn-group: '#{$cl-hero}__btn_group';
 $cl-btn: '#{$cl-hero}__btn';
 $cl-img_container: '#{$cl-hero}__img_container';
@@ -70,8 +71,13 @@ $cl-img: '#{$cl-hero}__img';
     #{$cl-intro} {
         font-size: base.$font-size-subtitle-2;
         font-weight: 400;
-        width: 23ch;
-        word-wrap: break-word;
+        width: min(14ch, 100%);
+        #{$cl-animated-text} {
+            width: auto;
+        }
+        @include base.mq-above-sm-mobile {
+            width: min(23ch, 100%);
+        }
         @include base.mq-above-desktop {
             width: 100%;
         }

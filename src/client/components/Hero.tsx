@@ -45,17 +45,19 @@ const Hero = ({ ImgComponent, className }: IProps) => {
                     />
                     <span className={styles.hero__intro}>
                         And I create <strong>fast</strong> and <strong>modern</strong>{' '}
-                        <TypeAnimation
-                            preRenderFirstString
-                            sequence={[
-                                'web applications',
-                                TEXT_ANIM_WAIT_IN_MS,
-                                'websites',
-                                TEXT_ANIM_WAIT_IN_MS,
-                            ]}
-                            repeat={Infinity}
-                        />
-                        <HighlightedText>.</HighlightedText>
+                        <div className={styles.hero__animated_text}>
+                            <TypeAnimation
+                                preRenderFirstString
+                                sequence={[
+                                    'web applications',
+                                    TEXT_ANIM_WAIT_IN_MS,
+                                    'websites',
+                                    TEXT_ANIM_WAIT_IN_MS,
+                                ]}
+                                repeat={Infinity}
+                            />
+                            <HighlightedText>.</HighlightedText>
+                        </div>
                     </span>
                 </div>
                 <MuiButtonGroup

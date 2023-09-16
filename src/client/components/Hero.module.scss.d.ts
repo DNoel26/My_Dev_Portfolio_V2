@@ -4,6 +4,7 @@
 export type Styles = {
     'anim-gradient': string;
     hero: string;
+    hero__animated_text: string;
     hero__btn: string;
     hero__btn_group: string;
     hero__heading: string;
