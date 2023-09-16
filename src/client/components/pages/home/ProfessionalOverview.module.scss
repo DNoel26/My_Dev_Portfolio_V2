@@ -27,10 +27,23 @@ $cl-timeline-content-mech: '#{$cl-timeline-content}--mech';
     :global(.MuiChip-root.MuiChip-filled) {
         color: unset;
     }
+    :global(.MuiTimelineContent-root),
+    :global(.MuiTypography-body1) {
+        font-size: base.$font-size-body-1;
+    }
+    :global(.MuiTypography-h3) {
+        font-size: base.$font-size-h3;
+        padding-bottom: 4px;
+    }
+    :global(.MuiTypography-h4) {
+        font-size: base.$font-size-h4;
+        padding-bottom: 16px;
+    }
 }
 
 #{$cl-overview} {
     @include base.fixed-bg;
+    font-size: base.$font-size-body-1;
     #{$cl-container} {
         padding-bottom: base.$spacing-section;
     }
@@ -121,8 +134,9 @@ $cl-timeline-content-mech: '#{$cl-timeline-content}--mech';
                     box-shadow: base.$box-shadow-card-light;
                     margin-bottom: 8px;
                     margin-right: 8px;
-                    font-weight: 500;
                     font-style: normal;
+                    font-weight: 500;
+                    font-size: base.$font-size-chip-1;
                 }
             }
             #{$cl-timeline-connector-primary} {

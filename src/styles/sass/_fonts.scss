@@ -1,6 +1,6 @@
 /** @format */
 
-@use 'responsive';
+@use 'functions';
 
 @function handle-min-font-size($size) {
     @return max(var(--font-size-min), $size);
@@ -19,4 +19,6 @@ $font-size-subtitle-1: handle-min-font-size(
 );
 $font-size-subtitle-2: handle-min-font-size(calc(1.2 * $font-size-body-1));
 $font-size-button-1: handle-min-font-size(calc(0.9 * $font-size-body-1));
-$font-size-h3: handle-min-font-size(calc(1.2 * $font-size-body-1));
+$font-size-chip-1: clamp(functions.px-to-rem(14px), var(--font-size-base), functions.px-to-rem(16px));
+$font-size-h3: handle-min-font-size(calc(1.4 * $font-size-body-1));
+$font-size-h4: handle-min-font-size(calc(1.1 * $font-size-body-1));

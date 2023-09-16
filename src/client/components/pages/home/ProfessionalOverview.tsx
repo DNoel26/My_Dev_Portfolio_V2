@@ -351,18 +351,16 @@ const TimelineItems = ({ items }: ITimelineItemsProps) => {
                     />
                     <div className={styles.overview__timeline_logo}>{Logo}</div>
                     <MuiTypography
-                        variant='h5'
+                        variant='h3'
                         component='div'
                         sx={{ fontWeight: 'bold' }}
                     >
                         {jobTitle}
                     </MuiTypography>
-                    <MuiTypography variant='h6' component='div'>
+                    <MuiTypography variant='h4' component='div'>
                         {company}
                     </MuiTypography>
-                    <MuiTypography variant='body1' component='div'>
-                        {about}
-                    </MuiTypography>
+                    <MuiTypography component='div'>{about}</MuiTypography>
                     {hasJobDetails && (
                         <>
                             <br />
