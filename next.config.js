@@ -2,6 +2,7 @@
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-param-reassign */
+const { version } = require('./package.json');
 const path = require('path');
 const withRoutes = require('nextjs-routes/config')();
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
@@ -14,6 +15,9 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
+    publicRuntimeConfig: {
+        version,
+    },
     modularizeImports: {
         '@mui/material': {
             transform: '@mui/material/{{member}}',

@@ -1,7 +1,10 @@
 /** @format */
 
 import { DefaultSeoProps } from 'next-seo';
-import { version } from 'package.json';
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
+const version = publicRuntimeConfig?.version;
 
 const title =
     'Software Developer | Full Stack Web Developer | Darnell Noel | Trinidad & Tobago';
