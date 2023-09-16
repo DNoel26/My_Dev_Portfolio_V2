@@ -133,8 +133,8 @@ const timelineItems: ITimelineItemsProps['items'] = [
             ' Mainly uses Sass, TypeScript, React.js, Next.js, Node.js, Express.js, PostGreSQL.',
         jobTitle: 'Full Stack Developer',
         paragraphs: [
-            'Works on various projects individually and across multiple teams.',
-            'Learns new tools and languages to improve technical capabilities.',
+            'Spearheads various projects individually and across several teams.',
+            'Updates knowledge on familiar tools and learns new ones to improve technical capabilities.',
         ],
         Icon: <MuiCodeIcon />,
         Logo: <Image src={logoDarnell} alt='' />,
