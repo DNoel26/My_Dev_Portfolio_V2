@@ -1,5 +1,6 @@
 /** @format */
 
+import { useCallback } from 'react';
 import useWindowCheck from './useWindowCheck';
 
 /* eslint-disable no-console */
@@ -41,7 +42,7 @@ export const setStorageItem = (storage: Storage, key: string, item: unknown): vo
  */
 const useClientStorage = (storageType: StorageType, key: string) => {
     const checkedStorageType = useWindowCheck({
-        handleEffect: () => getStorageType(storageType),
+        handleEffect: useCallback(() => getStorageType(storageType), [storageType]),
     });
     const getItem = () => {
         if (checkedStorageType) {

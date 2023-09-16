@@ -9,7 +9,7 @@ import { Avatar } from '@mui/material';
 import clsx from 'clsx';
 import { FormikErrors, useFormik } from 'formik';
 import Script from 'next/script';
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useCallback, useEffect, useState } from 'react';
 import z from 'zod';
 import { MuiBox, MuiCheckbox, MuiFormControl, MuiFormControlLabel } from '..';
 import SocialMediaLinks from './SocialMediaLinks';
@@ -41,7 +41,7 @@ const ContactSection = () => {
     const [isFetching, setIsFetching] = useState(false);
     const { ref, inView } = useInView();
     useWindowCheck({
-        handleEffect: () => {
+        handleEffect: useCallback(() => {
             if (inView) {
                 const hjFeedbackContainer = document.querySelectorAll(
                     '._hj_feedback_container',
@@ -51,7 +51,7 @@ const ContactSection = () => {
                     (container as HTMLElement).style.opacity = '1';
                 });
             }
-        },
+        }, [inView]),
     });
     useEffect(() => {
         if (isEmailChecked || isPhoneChecked) {
@@ -149,7 +149,7 @@ const ContactSection = () => {
         },
     });
     useWindowCheck({
-        handleEffect: () => {
+        handleEffect: useCallback(() => {
             window[reCaptchaCallbackName] = async (token: unknown) => {
                 try {
                     setIsFetching(true);
@@ -179,7 +179,7 @@ const ContactSection = () => {
                     setIsFetching(false);
                 }
             };
-        },
+        }, [formik]),
     });
 
     const handleCheckboxChange = (

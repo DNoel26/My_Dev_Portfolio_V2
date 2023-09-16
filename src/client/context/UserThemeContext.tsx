@@ -17,6 +17,7 @@ import {
     ReactNode,
     SetStateAction,
     createContext,
+    useCallback,
     useEffect,
     useMemo,
     useReducer,
@@ -59,7 +60,7 @@ const UserThemeProvider = ({ children }: PropsWithChildren) => {
         USER_THEME_SECONDARY,
     );
     const root = useWindowCheck({
-        handleEffect: () => document.querySelector(':root'),
+        handleEffect: useCallback(() => document.querySelector(':root'), []),
     });
     const [userThemeState, userThemeDispatch] = useReducer(
         userThemeReducer,
