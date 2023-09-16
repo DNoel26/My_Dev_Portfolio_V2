@@ -6,6 +6,7 @@ $cl-hero: '.hero';
 $cl-bg: '#{$cl-hero}__bg';
 $cl-heading: '#{$cl-hero}__heading';
 $cl-intro: '#{$cl-hero}__intro';
+$cl-btn-group: '#{$cl-hero}__btn_group';
 $cl-btn: '#{$cl-hero}__btn';
 $cl-img_container: '#{$cl-hero}__img_container';
 $cl-info_container: '#{$cl-hero}__info_container';
@@ -20,6 +21,7 @@ $cl-img: '#{$cl-hero}__img';
     @include base.mq-above-sm-tablet {
         flex-direction: row;
         padding-top: 32px;
+        gap: 16px;
     }
     @include base.mq-above-desktop {
         margin-top: -(base.$header-height);
@@ -74,7 +76,16 @@ $cl-img: '#{$cl-hero}__img';
             width: 100%;
         }
     }
-    #{$cl-btn} {
+    #{$cl-btn-group} {
         margin: 16px 0;
+        #{$cl-btn} {
+            margin: unset;
+            @include base.mq-below-lg-tablet {
+                border-radius: base.$border-radius-sm;
+                &:not(:first-of-type) {
+                    margin-top: 16px;
+                }
+            }
+        }
     }
 }

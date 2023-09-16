@@ -7,7 +7,9 @@ import Button from '@@components/ui/Button';
 import Heading from '@@components/ui/Heading';
 import HighlightedText from '@@components/ui/HighlightedText';
 import useColorThemeToggle from '@@hooks/useColorThemeToggle';
+import useMediaQuery from '@@hooks/useMediaQuery';
 import { ANCHOR_TAG } from '@@lib/constants';
+import { cssExports } from '@@styles/exports';
 import { TDefaultProps } from '@@types/client/props.types';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
@@ -25,6 +27,7 @@ const TEXT_ANIM_WAIT_IN_MS = 5000;
 const Hero = ({ ImgComponent, className }: IProps) => {
     const { handleToggle } = useColorThemeToggle();
     const router = useRouter();
+    const matches = useMediaQuery(`(min-width:${cssExports['breakpoint-md-tablet']})`);
 
     return (
         <BodyContainer
@@ -55,7 +58,11 @@ const Hero = ({ ImgComponent, className }: IProps) => {
                         <HighlightedText>.</HighlightedText>
                     </span>
                 </div>
-                <MuiButtonGroup>
+                <MuiButtonGroup
+                    className={styles.hero__btn_group}
+                    orientation={matches ? 'horizontal' : 'vertical'}
+                    fullWidth={!matches}
+                >
                     <Button
                         className={styles.hero__btn}
                         customVariant='default'

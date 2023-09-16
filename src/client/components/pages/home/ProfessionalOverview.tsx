@@ -85,18 +85,17 @@ const timelineItems: ITimelineItemsProps['items'] = [
             ' throughout the U.S. and Canada.',
         jobTitle: 'Software Engineer',
         paragraphs: [
-            'Adds properly tested, quality features to production across microservices and tech stacks,' +
+            'Takes ownership of new features. Delivers well tested, quality code to production across microservices and tech stacks,' +
                 ' including front-end, back-end and 3rd party integrations (e.g. Mailgun email service).',
-            'Works with product owner and lead designer to implement new designs and functionalities' +
-                ' to our user app using mockups, with suggestions to improve the UI/UX.',
-            'Upgrades projects, handling multiple breaking changes.',
-            'Improves logging and error handling on the front-end and back-end.',
-            'Improves front-end and back-end automated test coverage.',
+            'Works alongside product owner and lead designer to implement new designs and functionalities' +
+                ' using mockups, with suggestions to improve the UI/UX.',
+            'Upgrades legacy projects, handling multiple breaking changes.',
+            'Improves documentation, logging, automated testing and error handling across the stack.',
             'Works individually or with teammates to debug and implement fixes for various issues' +
                 ' across one or more services in production.',
             'Reviews code challenges and conducts technical interviews with candidates.',
-            'Assists with onboarding and mentorship of new team members.',
-            'Works with a cross-functional team across multiple timezones to provide value to our users.',
+            'On boards and mentors new team members.',
+            'Works with cross-functional teams across multiple timezones to provide value to our users.',
         ],
         Icon: <MuiCodeIcon />,
         Logo: <Image src={logoScratchpay} alt='' />,
