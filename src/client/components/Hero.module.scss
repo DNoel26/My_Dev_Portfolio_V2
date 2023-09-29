@@ -71,12 +71,12 @@ $cl-img: '#{$cl-hero}__img';
     #{$cl-intro} {
         font-size: base.$font-size-subtitle-2;
         font-weight: 400;
-        width: min(14ch, 100%);
+        width: clamp(10ch, 100%, 14ch);
         #{$cl-animated-text} {
             width: auto;
         }
         @include base.mq-above-sm-mobile {
-            width: min(23ch, 100%);
+            width: clamp(14ch, 100%, 23ch);
         }
         @include base.mq-above-desktop {
             width: 100%;
