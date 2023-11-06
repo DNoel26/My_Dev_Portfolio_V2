@@ -3,16 +3,20 @@
 @use 'base';
 
 $cl-about: '.about';
+$cl-heading: '#{$cl-about}__heading';
 $cl-text-container: '#{$cl-about}__text_container';
 
 #{$cl-about} {
     padding-bottom: base.$spacing-section;
     background-size: contain;
     background-repeat: no-repeat;
+    #{$cl-heading} {
+        text-align: left;
+        margin-bottom: base.$spacing-xl;
+    }
     #{$cl-text-container} {
         @include base.max-width-text-lg;
         @include base.margin-x;
-        margin-top: base.$spacing-xl;
         text-align: justify;
     }
 }

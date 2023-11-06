@@ -11,12 +11,13 @@ const AboutOverview = () => {
     return (
         <section className={styles.about}>
             <BodyContainer>
-                <Heading
-                    id={ANCHOR_TAG.HOME_PAGE.ABOUT}
-                    subHeading='Personal Bio'
-                    heading='About Me'
-                />
                 <div className={styles.about__text_container}>
+                    <Heading
+                        className={styles.about__heading}
+                        id={ANCHOR_TAG.HOME_PAGE.ABOUT}
+                        subHeading='Personal Bio'
+                        heading='About Me'
+                    />
                     <p>
                         Hi, I&apos;m <strong>Darnell Noel</strong>, a mechanical engineer
                         turned full stack web developer from Trinidad & Tobago.
@@ -39,9 +40,9 @@ const AboutOverview = () => {
                         <HighlightedText>
                             <strong>creative</strong>
                         </HighlightedText>{' '}
-                        side to me that enjoyed the design and conceptualization
-                        processes. Now I enjoy working on and building complex and useful
-                        digital products!
+                        side to me that loved the design and conceptualization processes.
+                        Now I enjoy working on and building complex and useful digital
+                        products!
                     </p>
                     <br />
                     <p>

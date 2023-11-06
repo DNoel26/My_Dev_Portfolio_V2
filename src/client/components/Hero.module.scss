@@ -65,8 +65,6 @@ $cl-img: '#{$cl-hero}__img';
     #{$cl-heading} {
         text-align: left;
         padding-top: unset;
-        @include base.mq-above-sm-tablet {
-        }
     }
     #{$cl-intro} {
         font-size: base.$font-size-subtitle-2;

@@ -60,7 +60,7 @@ const BannerSkills = ({ className }: TDefaultProps) => {
                     </Marquee>
                 )}
                 <Button className={styles.banner__btn} onClick={toggle}>
-                    Show {showAllTools ? 'Banner' : 'List'}
+                    Show {showAllTools ? 'Less' : 'More'}
                 </Button>
             </BodyContainer>
         </div>
