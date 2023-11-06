@@ -10,6 +10,7 @@ $cl-heading-disable-pt: '#{$cl-heading}--disable-pt';
     padding-top: base.$spacing-section;
     h1, h2 {
         font-size: base.$font-size-title-1;
+        letter-spacing: -1px;
     }
     &#{$cl-heading-disable-pt} {
         padding-top: 0;
