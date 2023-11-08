@@ -6,11 +6,10 @@ import getConfig from 'next/config';
 const { publicRuntimeConfig } = getConfig();
 const version = publicRuntimeConfig?.version;
 
-const title =
-    'Software Developer | Full Stack Web Developer | Darnell Noel | Trinidad & Tobago';
+const title = `Web Developer in Trinidad | Web Designer | Darnell Noel | ${new Date().getFullYear()}`;
 const description =
-    'Portfolio for Software Developer based in Trinidad. ' +
-    'Get in contact to have your business website or app designed and developed with modern tools.';
+    'Darnell Noel is a full stack web developer in Trinidad & Tobago who enjoys ' +
+    'designing and building accessible and modern websites and web applications.';
 const url = 'https://www.darnellnoel.dev/';
 const imgUrl1 = `${url}images/darnell_nicholas_noel_profile_pic.jpg`;
 
@@ -31,7 +30,7 @@ const configSEO: DefaultSeoProps = {
         images: [
             { url: imgUrl1, alt: 'Profile picture of Darnell Noel', type: 'image/jpeg' },
         ],
-        siteName: "Darnell Noel's Software Developer Portfolio",
+        siteName: "Darnell Noel's Web Developer Portfolio",
         profile: {
             firstName: 'Darnell',
             lastName: 'Noel',
