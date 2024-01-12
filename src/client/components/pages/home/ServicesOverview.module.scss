@@ -43,10 +43,11 @@ $cl-card: '#{$cl-overview}__card';
             width: 20ch;
         }
         img {
-            $size: base.px-to-rem(100px);
+            --img-size: #{base.px-to-rem(100px)};
             @include base.mq-below-lg-mobile {
-                $size: base.px-to-rem(60px);
+                --img-size: #{base.px-to-rem(60px)};
             }
+            $size: var(--img-size);
             display: inline-block;
             width: $size;
             height: $size;
