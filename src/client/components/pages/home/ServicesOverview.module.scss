@@ -18,6 +18,10 @@ $cl-card: '#{$cl-overview}__card';
         flex-wrap: wrap;
     }
     #{$cl-card} {
+       @include base.mq-below-lg-mobile {
+            gap: 16px;
+            padding: min(12px, 5%);
+        }
         position: relative;
         display: flex;
         justify-content: stretch;
@@ -32,11 +36,18 @@ $cl-card: '#{$cl-overview}__card';
         overflow: hidden;
         text-align: center;
         h4 {
+            @include base.mq-below-lg-mobile {
+                width: 12ch;
+                font-size: base.$font-size-chip-1;
+            }
             width: 20ch;
         }
         img {
-            display: inline-block;
             $size: base.px-to-rem(100px);
+            @include base.mq-below-lg-mobile {
+                $size: base.px-to-rem(60px);
+            }
+            display: inline-block;
             width: $size;
             height: $size;
         }
