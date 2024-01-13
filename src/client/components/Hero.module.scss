@@ -49,8 +49,8 @@ $cl-img: '#{$cl-hero}__img';
         padding-top: 10%;
         width: 100%;
         @include base.mq-above-sm-tablet {
-            padding-top: unset;
-            padding-right: 3%;
+            padding-top: 15px;
+            padding-right: 0;
             width: unset;
         }
         @include base.mq-above-desktop {

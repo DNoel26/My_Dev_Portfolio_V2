@@ -54,6 +54,7 @@ $cl-absolute: '#{$cl-header}--absolute';
         z-index: -1;
         @include base.mq-above-desktop {
             height: 400px;
+            left: 4px;
         }
     }
     #{$cl-links},
