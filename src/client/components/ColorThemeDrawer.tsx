@@ -2,10 +2,9 @@
 
 import { ACTION_USER_THEME } from '@@actions/userThemeActions';
 import { MuiDrawer } from '@@client';
-import { UserThemeContext } from '@@context/UserThemeContext';
+import { useUserThemeContext } from '@@context/UserThemeContext';
 import useColorThemeToggle from '@@hooks/useColorThemeToggle';
 import useUserThemeChange from '@@hooks/useUserThemeChange';
-import { useContext } from 'react';
 import BodyContainer from './layouts/BodyContainer';
 import Button from './ui/Button';
 import CloseButton from './ui/CloseButton';
@@ -20,7 +19,7 @@ const ColorThemeDrawer = () => {
         canResetColors,
         canMatchColors,
         canSwapColors,
-    } = useContext(UserThemeContext);
+    } = useUserThemeContext();
     const handleChangeTheme = useUserThemeChange();
     const { handleClose } = useColorThemeToggle();
 

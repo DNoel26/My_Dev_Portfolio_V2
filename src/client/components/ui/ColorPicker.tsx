@@ -1,12 +1,12 @@
 /** @format */
 
 import { ACTION_USER_THEME } from '@@actions/userThemeActions';
-import { UserThemeContext } from '@@context/UserThemeContext';
+import { useUserThemeContext } from '@@context/UserThemeContext';
 import { ERROR_MSG } from '@@lib/constants';
 import { SATURATION_LEVEL_MIN } from '@@lib/constants/app';
 import { TDefaultProps } from '@@types/client/props.types';
 import clsx from 'clsx';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
     ColorService,
     IColor,
@@ -24,7 +24,7 @@ interface IProps extends TDefaultProps {
 
 const ColorPicker = (props: IProps) => {
     const { type, className } = props;
-    const { userThemeState, userThemeDispatch } = useContext(UserThemeContext);
+    const { userThemeState, userThemeDispatch } = useUserThemeContext();
     const [color, setColor] = useColor(
         type === 'primary' ? userThemeState.colorPrimary : userThemeState.colorSecondary,
     );

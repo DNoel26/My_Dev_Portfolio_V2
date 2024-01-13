@@ -1,15 +1,15 @@
 /** @format */
 
-import { UserThemeContext } from '@@context/UserThemeContext';
+import {  useUserThemeContext } from '@@context/UserThemeContext';
 import { CSS_VARIABLE } from '@@lib/constants';
 import {
     handleBgSvgColorChangeDark,
     handleBgSvgColorChangeLight,
 } from '@@lib/utils/client/img';
-import { useContext, useEffect, useMemo } from 'react';
+import {  useEffect, useMemo } from 'react';
 
 const useBgSvgChanger = () => {
-    const { userThemeState } = useContext(UserThemeContext);
+    const { userThemeState } = useUserThemeContext();
     const bgColorObj = useMemo(
         () => ({
             colorPrimary: userThemeState.colorPrimary,

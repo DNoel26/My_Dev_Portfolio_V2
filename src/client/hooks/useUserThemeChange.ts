@@ -1,13 +1,12 @@
 /** @format */
 
-import { UserThemeContext } from '@@context/UserThemeContext';
+import {  useUserThemeContext } from '@@context/UserThemeContext';
 import { NEXT_THEME } from '@@lib/constants';
-import { useContext } from 'react';
 import useNextTheme from './useNextTheme';
 
 const useUserThemeChange = () => {
     const { setTheme, isDarkMode } = useNextTheme();
-    const { userThemeState } = useContext(UserThemeContext);
+    const { userThemeState } = useUserThemeContext();
 
     const handleChangeTheme = () => {
         if (userThemeState.isOriginalTheme && isDarkMode) {

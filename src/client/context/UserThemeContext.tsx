@@ -18,6 +18,7 @@ import {
     SetStateAction,
     createContext,
     useCallback,
+    useContext,
     useEffect,
     useMemo,
     useReducer,
@@ -180,6 +181,15 @@ const UserThemeProvider = ({ children }: PropsWithChildren) => {
     }, [root, userThemeState, Provider]);
 
     return renderComponent;
+};
+
+export const useUserThemeContext = () => {
+    const context = useContext(UserThemeContext);
+    if (context === undefined) {
+        throw new Error('useUserThemeContext must be used within a UserThemeProvider');
+    }
+
+    return context;
 };
 
 export default UserThemeProvider;

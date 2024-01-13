@@ -9,10 +9,10 @@ import {
     MuiSwapHorizontalCircleOutlinedIcon,
 } from '@@components/icons';
 import ThemeIcon from '@@components/ui/ThemeIcon';
-import { UserThemeContext } from '@@context/UserThemeContext';
+import {  useUserThemeContext } from '@@context/UserThemeContext';
 import useNextTheme from '@@hooks/useNextTheme';
 import useUserThemeChange from '@@hooks/useUserThemeChange';
-import { useContext, useMemo, useState } from 'react';
+import {  useMemo, useState } from 'react';
 import styles from './SpeedDial.module.scss';
 
 const SpeedDial = () => {
@@ -22,7 +22,7 @@ const SpeedDial = () => {
         canMatchColors,
         canSwapColors,
         canResetColors,
-    } = useContext(UserThemeContext);
+    } = useUserThemeContext();
     const handleChangeTheme = useUserThemeChange();
     const { tooltipText } = useNextTheme();
     const [isOpen, setIsOpen] = useState(false);

@@ -2,15 +2,15 @@
 
 import { ACTION_USER_THEME } from '@@actions/userThemeActions';
 import { MuiButton, MuiIconButton, MuiSnackbar } from '@@client';
-import { UserThemeContext } from '@@context/UserThemeContext';
-import { useContext, useEffect, useState } from 'react';
+import {  useUserThemeContext } from '@@context/UserThemeContext';
+import {  useEffect, useState } from 'react';
 import { MuiCloseIcon } from './icons';
 
 const defaultMessage = 'Personalize your experience!';
 
 const ColorThemeToast = () => {
     const { setIsOpenThemeEditor, userThemeState, userThemeDispatch } =
-        useContext(UserThemeContext);
+    useUserThemeContext();
     const [open, setOpen] = useState(false);
     const [message, setMessage] = useState(defaultMessage);
     useEffect(() => {

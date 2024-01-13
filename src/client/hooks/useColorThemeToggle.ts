@@ -1,11 +1,10 @@
 /** @format */
 
-import { UserThemeContext } from '@@context/UserThemeContext';
+import {  useUserThemeContext } from '@@context/UserThemeContext';
 import { closeDrawer, toggleDrawer } from '@@lib/utils/client/handlers';
-import { useContext } from 'react';
 
 const useColorThemeToggle = () => {
-    const { setIsOpenThemeEditor } = useContext(UserThemeContext);
+    const { setIsOpenThemeEditor } = useUserThemeContext();
 
     return {
         handleToggle: toggleDrawer(setIsOpenThemeEditor),
