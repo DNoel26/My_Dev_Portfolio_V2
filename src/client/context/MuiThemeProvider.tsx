@@ -7,8 +7,9 @@ import { TDefaultPropsWithChildren } from '@@types/client/props.types';
 import { PaletteMode } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { useTheme } from 'next-themes';
-import {  useEffect, useMemo, useState } from 'react';
-import {  useUserThemeContext } from './UserThemeContext';
+import { useEffect, useMemo, useState } from 'react';
+import { ColorService } from 'react-color-palette';
+import { useUserThemeContext } from './UserThemeContext';
 
 // TODO: create theme dynamically with state and update primary / secondary based
 // on root style changes
@@ -22,10 +23,10 @@ const MuiThemeProvider = ({ children }: TDefaultPropsWithChildren) => {
                 palette: {
                     mode,
                     primary: {
-                        main: userThemeState.colorPrimary,
+                        main: ColorService.toHex(userThemeState.colorPrimary),
                     },
                     secondary: {
-                        main: userThemeState.colorSecondary,
+                        main: ColorService.toHex(userThemeState.colorSecondary),
                     },
                 },
                 typography: { fontFamily: 'inherit' },
