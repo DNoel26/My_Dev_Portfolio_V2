@@ -142,10 +142,9 @@
 
 @mixin fixed-bg {
     background-attachment: fixed;
-    background-size: cover;
+    background-size: 99%;
     @include responsive.mq-below-lg-tablet {
         background-attachment: scroll;
-        background-size: 300%;
         background-repeat: repeat;
     }
 }
